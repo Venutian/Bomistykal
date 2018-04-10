@@ -1,0 +1,2 @@
+# LinnaeusHotel
+Linnaeus Hotel
