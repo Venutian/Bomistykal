@@ -31,11 +31,11 @@ public class MenuController {
 	}
 	public void Reserve(ActionEvent event) throws IOException {
 		System.out.println("Reserve");
-		Parent root = FXMLLoader.load(getClass().getResource("/View/BookRoom.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/View/Reserve.fxml"));
 		Scene scene = new Scene(root);
-		//scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();
-	//	primaryStage.setScene(scene);
+		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 	public void Cancel(ActionEvent event) throws IOException {

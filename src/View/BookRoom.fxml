@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="930.0" type="BorderPane" fx:controller="Controller.BookController" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"  prefHeight="647.0" prefWidth="930.0"   type="BorderPane" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BookController">
    <left>
       <AnchorPane prefHeight="647.0" prefWidth="229.0" BorderPane.alignment="CENTER">
          <children>
