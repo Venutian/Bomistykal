@@ -16,7 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 
-public class BookController extends Application {
+public class SearchRoomController extends Application {
 	
 	@FXML
     private BorderPane boarderPane;
@@ -77,7 +77,7 @@ public class BookController extends Application {
     @FXML
     private AnchorPane left;
 	
-    @Override
+    /*@Override
 	public void start(Stage primaryStage) throws IOException {
     	 FXMLLoader loader = new FXMLLoader();
     	loader.setLocation(Main.class.getResource("/View/SearchRoom.fxml"));
@@ -92,16 +92,13 @@ public class BookController extends Application {
       
         // set the number of guests for combo box
         this.guestPicker = new ChoiceBox<Integer>(FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20));
-       
-        
-        
-        
+   
         
         primaryStage.setTitle("Book Search");
         primaryStage.setScene(sc);
         primaryStage.show();
         
-	} 
+	} */
     
     
     // Handles all the choice boxes in search room 
@@ -143,5 +140,10 @@ public class BookController extends Application {
 	public static void main(String[] args) {
 		
 		launch(args);
+	}
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }
