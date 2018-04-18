@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1 
-  ">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label disable="true" layoutX="15.0" layoutY="28.0" prefHeight="44.0" prefWidth="46.0" text="Search">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="campusLoc" layoutX="14.0" layoutY="88.0" prefWidth="150.0" />
+      <DatePicker fx:id="checkIn" layoutX="13.0" layoutY="136.0" prefHeight="26.0" prefWidth="150.0" />
+      <DatePicker fx:id="checkOut" layoutX="12.0" layoutY="185.0" prefHeight="26.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="roomsPicker" layoutX="11.0" layoutY="238.0" prefHeight="26.0" prefWidth="67.0" />
+      <ChoiceBox fx:id="guestPicker" layoutX="92.0" layoutY="239.0" prefHeight="26.0" prefWidth="74.0" />
+      <CheckBox fx:id="roomType1" layoutX="22.0" layoutY="319.0" mnemonicParsing="false" text="Smoking" />
+      <CheckBox fx:id="roomType2" layoutX="22.0" layoutY="342.0" mnemonicParsing="false" text="Non-Smoking" />
+      <CheckBox fx:id="roomType3" layoutX="22.0" layoutY="365.0" mnemonicParsing="false" text="Pets allowed" />
+      <CheckBox fx:id="roomType4" layoutX="22.0" layoutY="388.0" mnemonicParsing="false" text="Adjoint room" />
+      <CheckBox fx:id="bedType1" layoutX="21.0" layoutY="450.0" mnemonicParsing="false" text="Double bed" />
+      <CheckBox fx:id="bedType2" layoutX="21.0" layoutY="474.0" mnemonicParsing="false" text="Twin bed" />
+      <Label layoutX="14.0" layoutY="72.0" text="Campus" />
+      <Label layoutX="15.0" layoutY="119.0" text="Check-in date" />
+      <Label layoutX="15.0" layoutY="168.0" text="Check-out date" />
+      <Label layoutX="12.0" layoutY="221.0" text="Room/s" />
+      <Label layoutX="91.0" layoutY="221.0" text="Guest/s" />
+      <Label layoutX="11.0" layoutY="293.0" text="Room type" />
+      <Label layoutX="13.0" layoutY="428.0" text="Bed type" />
+      <SplitPane dividerPositions="0.6075319753671246" layoutX="185.0" layoutY="5.0" prefHeight="691.0" prefWidth="846.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tabView" layoutX="8.0" layoutY="7.0" prefHeight="690.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="tabCol_Des" prefWidth="254.39997559785843" text="Room Describtion" />
+                      <TableColumn fx:id="tabCol_Id" prefWidth="111.20002746582031" text="Room ID" />
+                        <TableColumn fx:id="tabCol_Availble" prefWidth="143.19998779296873" text="Availablity" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="690.0" prefWidth="269.0">
+               <children>
+                  <Label disable="true" layoutX="21.0" layoutY="41.0" text="Details ">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="roomDetails" layoutX="27.0" layoutY="76.0" prefHeight="614.0" prefWidth="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
-
