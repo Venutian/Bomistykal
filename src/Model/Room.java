@@ -118,6 +118,6 @@ public class Room {
 			return Location;
 		}
 		public void setLocation(String location) {
-			Location = location;
+			this.Location = location;
 		}
 } 

@@ -1,21 +1,23 @@
 package Model;
 
 public class Employee {
-/*name idnumber username password address telephone number */
+
 	private String name;
 	private String userName;
 	private String IDNumber;
 	private String password;
 	private String address;
 	private int phoneNumber;
+	private boolean manager;
 	
-	public Employee(String name, String IDNumber,String userName,String password,String address,int phoneNumber) {
+	public Employee(String name, String IDNumber,String userName,String password,String address,int phoneNumber,boolean manager) {
 		this.name = name;
 		this.userName = userName;
 		this.IDNumber = IDNumber;
 		this.password = password;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
+		this.manager = manager;
 	}
 
 	/*setters*/
@@ -56,6 +58,14 @@ public class Employee {
 	}
 	public String getAddress() {
 		return this.address;
+	}
+
+	public boolean isManager() {
+		return manager;
+	}
+
+	public void setManager(boolean manager) {
+		this.manager = manager;
 	}
 	
 	
