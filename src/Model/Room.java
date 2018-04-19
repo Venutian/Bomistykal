@@ -1,5 +1,7 @@
 package Model;
-
+/* This class handles the room attributes 
+ * Room types and bed types 
+ */
 public class Room {
 	
 	private String desc;
@@ -8,21 +10,17 @@ public class Room {
 	private int floor;
 	private int roomSize;
 	private int numOfBed;
+	private boolean smoking;
+	private boolean view;
+	private boolean petsAllowed;
+	private boolean adjoint;
+	private boolean singlebed;
+	private boolean doubleBed;
+	private boolean twin;
+
 	
-	private enum RoomType {
-		Smoking,
-		Non_Smoking,
-		View,
-		Adjoint,
-		Pets_Allowed;
-	}
-	private enum BedType{
-		Single,
-		Double,
-		Twin,
-	}
 	
-	public Room (int floor, String roomNumber, String desc, int price, int roomSize, int numOfBed, BedType bd, RoomType rt ) {
+	public Room (int floor, String roomNumber, String desc, int price, int roomSize, int numOfBed) {
 		this.desc = desc;
 		this.floor = floor;
 		this.price = price;
@@ -31,9 +29,8 @@ public class Room {
 		this.numOfBed = numOfBed;
 		
 		
-		
-		
 	} 
+	// getters and setters for Room object
 	public int getFloor() {
 		return floor;
 	} 
@@ -70,8 +67,50 @@ public class Room {
 	} public void setRoomSize(int roomSize) {
 		this.roomSize = roomSize;
 	}
-	
+		// getters and setters for RoomType
+		public boolean getSmoking() {
+			return this.smoking;
+		}
+		public void setSmoking(boolean smoking) {
+			this.smoking = smoking;
+		}
+		public boolean getView() {
+			return this.view;
+			
+		} public void setView(boolean view) {
+			this.view = view;
+		}
+		public boolean getAdjoint() {
+			return adjoint;
+		}
+		public void setAdjoint(boolean adjoint) {
+			this.adjoint = adjoint;
+		}
+		public boolean getPetsAllowed() {
+			return petsAllowed;
+		}
+		public void setPetsAllowed(boolean petsAllowed) {
+			this.petsAllowed = petsAllowed;
+		}
 		
-	
-	
+		//getters and setter for bedType
+		public boolean getSingleBed() {
+			return singlebed;
+			
+		}
+		public void setSingleBed(boolean singleBed) {
+			this.singlebed = singleBed;
+		}
+		public boolean getDoubleBed() {
+		return doubleBed;
+		}
+		public void setDoubleBed(boolean doubleBed) {
+		this.doubleBed = doubleBed;
+		}
+		public boolean getTwinBed() {
+		return twin;
+		}
+		public void setTwinBed(boolean twin) {
+		this.twin = twin;
+	}
 } 
