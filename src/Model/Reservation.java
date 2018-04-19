@@ -41,12 +41,10 @@ public class Reservation {
 		this.totalPrice = price;
 	}
 	
-	
 	/*getters*/
 	public Date getCheckInDate() {
 		return this.checkIn;
 	}
-	
 	public Date getCheckOutDate() {
 		return this.checkOut;
 	}
