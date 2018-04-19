@@ -28,7 +28,7 @@ public class Room {
 		this.roomNumber = roomNumber;
 		this.roomSize = roomSize;
 		this.numOfBed = numOfBed;
-		this.setLocation(Location);
+		this.Location = Location;
 		
 	} 
 	// getters and setters for Room object
