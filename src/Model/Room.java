@@ -10,6 +10,7 @@ public class Room {
 	private int floor;
 	private int roomSize;
 	private int numOfBed;
+	private String Location;
 	private boolean smoking;
 	private boolean view;
 	private boolean petsAllowed;
@@ -20,14 +21,14 @@ public class Room {
 
 	
 	
-	public Room (int floor, String roomNumber, String desc, int price, int roomSize, int numOfBed) {
+	public Room (int floor, String roomNumber, String desc, int price, int roomSize, int numOfBed,String Location) {
 		this.desc = desc;
 		this.floor = floor;
 		this.price = price;
 		this.roomNumber = roomNumber;
 		this.roomSize = roomSize;
 		this.numOfBed = numOfBed;
-		
+		this.setLocation(Location);
 		
 	} 
 	// getters and setters for Room object
@@ -113,4 +114,10 @@ public class Room {
 		public void setTwinBed(boolean twin) {
 		this.twin = twin;
 	}
+		public String getLocation() {
+			return Location;
+		}
+		public void setLocation(String location) {
+			Location = location;
+		}
 } 
