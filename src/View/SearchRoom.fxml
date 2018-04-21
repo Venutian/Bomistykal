@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -10,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchor" prefHeight="709.0" prefWidth="1029.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label disable="true" layoutX="15.0" layoutY="28.0" prefHeight="44.0" prefWidth="46.0" text="Search">
          <font>
@@ -36,30 +36,33 @@
       <Label layoutX="91.0" layoutY="221.0" text="Guest/s" />
       <Label layoutX="11.0" layoutY="293.0" text="Room type" />
       <Label layoutX="13.0" layoutY="428.0" text="Bed type" />
-      <SplitPane dividerPositions="0.6075319753671246" layoutX="185.0" layoutY="5.0" prefHeight="691.0" prefWidth="846.0">
+      <SplitPane dividerPositions="0.7079326923076923" layoutX="195.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="657.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="708.0" prefWidth="558.0">
                <children>
-                  <TableView fx:id="tabView" layoutX="8.0" layoutY="7.0" prefHeight="690.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tabView" layoutX="13.0" layoutY="1.0" prefHeight="708.0" prefWidth="575.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="tabCol_Des" prefWidth="254.39997559785843" text="Room Describtion" />
-                      <TableColumn fx:id="tabCol_Id" prefWidth="111.20002746582031" text="Room ID" />
-                        <TableColumn fx:id="tabCol_Availble" prefWidth="143.19998779296873" text="Availablity" />
+                      <TableColumn fx:id="tabCol_Des" prefWidth="330.40000611543655" resizable="false" text="Room Describtion" />
+                      <TableColumn fx:id="tabCol_Id" minWidth="0.0" prefWidth="108.79998779296875" resizable="false" text="Room ID" />
+                        <TableColumn fx:id="tabCol_Availble" prefWidth="145.5999755859375" resizable="false" text="Availablity" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="690.0" prefWidth="269.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="708.0" prefWidth="81.0">
                <children>
                   <Label disable="true" layoutX="21.0" layoutY="41.0" text="Details ">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="roomDetails" layoutX="27.0" layoutY="76.0" prefHeight="614.0" prefWidth="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label fx:id="roomDetails" layoutX="-16.0" layoutY="89.0" prefHeight="619.0" prefWidth="62.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
                </children>
             </AnchorPane>
         </items>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </SplitPane>
    </children>
 </AnchorPane>
