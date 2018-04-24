@@ -4,13 +4,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CheckInController">
+<AnchorPane prefHeight="384.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CheckInController">
    <children>
-      <Button layoutX="353.0" layoutY="486.0" mnemonicParsing="false" onAction="#CheckInClient" text="Check In CLient" />
-      <TextField fx:id="ClientID" layoutX="297.0" layoutY="181.0" />
-      <Label layoutX="340.0" layoutY="28.0" prefHeight="60.0" prefWidth="187.0" text="           Check in" />
-      <Label layoutX="150.0" layoutY="181.0" prefHeight="31.0" prefWidth="158.0" text="Enter Client's ID" />
-      <Label fx:id="Reservations" layoutX="248.0" layoutY="289.0" prefHeight="123.0" prefWidth="350.0" text="Clients Reservation..." />
+      <Button layoutX="192.0" layoutY="315.0" mnemonicParsing="false" onAction="#CheckInClient" prefHeight="42.0" prefWidth="115.0" text="Check-In CLient">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <TextField fx:id="ClientID" layoutX="169.0" layoutY="142.0" prefHeight="25.0" prefWidth="178.0" />
+      <Label layoutX="156.0" layoutY="37.0" prefHeight="60.0" prefWidth="143.0" text="           Check-in">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="37.0" layoutY="139.0" prefHeight="31.0" prefWidth="115.0" text="Enter Client's ID" />
+      <Label fx:id="Reservations" disable="true" layoutX="24.0" layoutY="195.0" prefHeight="101.0" prefWidth="450.0" text="Clients Reservation..." />
    </children>
 </AnchorPane>

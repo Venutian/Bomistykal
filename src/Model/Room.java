@@ -119,5 +119,6 @@ public class Room {
 		}
 		public void setLocation(String location) {
 			this.Location = location;
+		
 		}
 } 

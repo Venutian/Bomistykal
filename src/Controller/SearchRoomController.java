@@ -1,127 +1,155 @@
 package Controller;
 
 
-import javafx.scene.*;
-import javafx.stage.*;
-import sun.applet.Main;
+import main.Main;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 
-public class SearchRoomController implements Initializable{
+
+public class SearchRoomController {
 	
-	 @FXML
-	    private AnchorPane anchor;
+    @FXML
+    private AnchorPane anchor;
 
-	    @FXML
-	    private ChoiceBox<String> campusLoc;
+    @FXML
+    private ChoiceBox<String> campusLoc;
 
-	    @FXML
-	    private DatePicker checkIn;
+    @FXML
+    private DatePicker checkIn;
 
-	    @FXML
-	    private DatePicker checkOut;
+    @FXML
+    private DatePicker checkOut;
 
-	    @FXML
-	    private ChoiceBox<Integer> roomsPicker;
+    @FXML
+    private ChoiceBox<String> roomsPicker;
 
-	    @FXML
-	    private ChoiceBox<Integer> guestPicker;
+    @FXML
+    private ChoiceBox<String> guestPicker;
 
-	    @FXML
-	    private CheckBox roomType1;
+    @FXML
+    private CheckBox smokingBox;
 
-	    @FXML
-	    private CheckBox roomType2;
+    @FXML
+    private CheckBox nonSmokingBox;
 
-	    @FXML
-	    private CheckBox roomType3;
+    @FXML
+    private CheckBox petsBox;
 
-	    @FXML
-	    private CheckBox roomType4;
+    @FXML
+    private CheckBox adjointBox;
 
-	    @FXML
-	    private CheckBox bedType1;
+    @FXML
+    private CheckBox doubleBedBox;
 
-	    @FXML
-	    private CheckBox bedType2;
+    @FXML
+    private CheckBox twinBedBox;
 
-	    @FXML
-	    private TableView<?> tabView;
+    @FXML
+    private TableView<?> tabView;
 
-	    @FXML
-	    private TableColumn<?, ?> tabCol_Des;
+    @FXML
+    private TableColumn<?, ?> tabCol_Des;
 
-	    @FXML
-	    private TableColumn<?, ?> tabCol_Id;
+    @FXML
+    private TableColumn<?, ?> tabCol_Id;
 
-	    @FXML
-	    private TableColumn<?, ?> tabCol_Availble;
+    @FXML
+    private TableColumn<?, ?> tabCol_Availble;
 
-	    @FXML
-	    private Label roomDetails;
+    @FXML
+    private Label roomDetails;
 
+    @FXML
+    private CheckBox viewBox;
+
+    @FXML
+    private CheckBox SingleBedBox;
     
+    private Main mainWindow;
+
+    ObservableList<String> campusLocation= FXCollections.observableArrayList("Växjö" , "Kalmar");
+    ObservableList<String> roompick= FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
+    ObservableList<String> guestPick= FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
     // Handles all the choice boxes in search room 
     @FXML
     private void handleSmoking() {
-    	if (roomType1.isSelected()) {
+    	if (smokingBox.isSelected()) {
     		
     	}
     }
     @FXML
     private void handleNonSmoking() {
-    	if (roomType2.isSelected()) {
+    	if (nonSmokingBox.isSelected()) {
     		
     	} 
     }
     	@FXML
         private void handlePets() {
-        	if (roomType3.isSelected()) {
+        	if (petsBox.isSelected()) {
         		
         	} 
     }
     	 @FXML
     	    private void handleAdjoint() {
-    	    	if (roomType4.isSelected()) {
+    	    	if (adjointBox.isSelected()) {
     	    		
     	    	}
-    	 }  @FXML
+    	 } @FXML
+    	    private void handleView() {
+ 	    	if (viewBox.isSelected()) {
+ 	    		
+ 	    	}
+    	 }
+    	 
+    	 @FXML
     	    private void handleDoubleBed() {
-    	    	if (bedType1.isSelected()) {
+    	    	if (doubleBedBox.isSelected()) {
     	    		
     	    	}
     	 }
     	 @FXML
     	    private void handleTwinBed() {
-    	    	if (roomType1.isSelected()) {
+    	    	if (twinBedBox.isSelected()) {
     	    		
     	    	}
     	 }
+    	 @FXML
+ 	    private void handleSingleBed() {
+ 	    	if (SingleBedBox.isSelected()) {
+ 	    		
+ 	    	}
+ 	 }
 
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize() throws IOException{
 		// set the choice for campus location choice box button
-	      this.campusLoc = new ChoiceBox<String>(FXCollections.observableArrayList("Växjö" , "Kalmar"));
+		campusLoc.setValue("Växjö");
+	      this.campusLoc.setItems(campusLocation);
 	      
 	        // set the number of rooms for combo box
-	      this.roomsPicker = new ChoiceBox<Integer>(FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20));
+	      roomsPicker.setValue("1");
+	      this.roomsPicker.setItems(roompick);
 	      
 	        // set the number of guests for combo box
-	        this.guestPicker = new ChoiceBox<Integer>(FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20));
+	      guestPicker.setValue("1");
+	        this.guestPicker.setItems(guestPick);
 	   
+	        
+	} public void initMain(Main mainWindow) {
+		this.mainWindow = mainWindow;
 		
 	}
 

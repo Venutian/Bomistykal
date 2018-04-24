@@ -13,30 +13,30 @@
 
 <AnchorPane fx:id="anchor" prefHeight="709.0" prefWidth="1029.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label disable="true" layoutX="15.0" layoutY="28.0" prefHeight="44.0" prefWidth="46.0" text="Search">
+      <Label disable="true" layoutX="15.0" layoutY="17.0" prefHeight="44.0" prefWidth="59.0" text="Search">
          <font>
-            <Font size="15.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="campusLoc" layoutX="14.0" layoutY="88.0" prefWidth="150.0" />
-      <DatePicker fx:id="checkIn" layoutX="13.0" layoutY="136.0" prefHeight="26.0" prefWidth="150.0" />
-      <DatePicker fx:id="checkOut" layoutX="12.0" layoutY="185.0" prefHeight="26.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="roomsPicker" layoutX="11.0" layoutY="238.0" prefHeight="26.0" prefWidth="67.0" />
-      <ChoiceBox fx:id="guestPicker" layoutX="92.0" layoutY="239.0" prefHeight="26.0" prefWidth="74.0" />
-      <CheckBox fx:id="roomType1" layoutX="22.0" layoutY="319.0" mnemonicParsing="false" text="Smoking" />
-      <CheckBox fx:id="roomType2" layoutX="22.0" layoutY="342.0" mnemonicParsing="false" text="Non-Smoking" />
-      <CheckBox fx:id="roomType3" layoutX="22.0" layoutY="365.0" mnemonicParsing="false" text="Pets allowed" />
-      <CheckBox fx:id="roomType4" layoutX="22.0" layoutY="388.0" mnemonicParsing="false" text="Adjoint room" />
-      <CheckBox fx:id="bedType1" layoutX="21.0" layoutY="450.0" mnemonicParsing="false" text="Double bed" />
-      <CheckBox fx:id="bedType2" layoutX="21.0" layoutY="474.0" mnemonicParsing="false" text="Twin bed" />
-      <Label layoutX="14.0" layoutY="72.0" text="Campus" />
-      <Label layoutX="15.0" layoutY="119.0" text="Check-in date" />
-      <Label layoutX="15.0" layoutY="168.0" text="Check-out date" />
-      <Label layoutX="12.0" layoutY="221.0" text="Room/s" />
-      <Label layoutX="91.0" layoutY="221.0" text="Guest/s" />
-      <Label layoutX="11.0" layoutY="293.0" text="Room type" />
-      <Label layoutX="13.0" layoutY="428.0" text="Bed type" />
-      <SplitPane dividerPositions="0.7079326923076923" layoutX="195.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="657.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ChoiceBox fx:id="campusLoc" layoutX="14.0" layoutY="89.0" prefWidth="150.0" />
+      <DatePicker fx:id="checkIn" layoutX="13.0" layoutY="145.0" prefHeight="26.0" prefWidth="150.0" />
+      <DatePicker fx:id="checkOut" layoutX="12.0" layoutY="204.0" prefHeight="26.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="roomsPicker" layoutX="11.0" layoutY="261.0" prefHeight="26.0" prefWidth="67.0" />
+      <ChoiceBox fx:id="guestPicker" layoutX="95.0" layoutY="262.0" prefHeight="26.0" prefWidth="74.0" />
+      <CheckBox fx:id="smokingBox" layoutX="22.0" layoutY="355.0" mnemonicParsing="false" text="Smoking" />
+      <CheckBox fx:id="nonSmokingBox" layoutX="22.0" layoutY="381.0" mnemonicParsing="false" text="Non-Smoking" />
+      <CheckBox fx:id="petsBox" layoutX="22.0" layoutY="406.0" mnemonicParsing="false" text="Pets allowed" />
+      <CheckBox fx:id="adjointBox" layoutX="22.0" layoutY="430.0" mnemonicParsing="false" text="Adjoint room" />
+      <CheckBox fx:id="doubleBedBox" layoutX="21.0" layoutY="515.0" mnemonicParsing="false" text="Double bed" />
+      <CheckBox fx:id="twinBedBox" layoutX="21.0" layoutY="541.0" mnemonicParsing="false" text="Twin bed" />
+      <Label layoutX="14.0" layoutY="62.0" text="Campus" />
+      <Label layoutX="15.0" layoutY="120.0" text="Check-in date" />
+      <Label layoutX="15.0" layoutY="179.0" text="Check-out date" />
+      <Label layoutX="12.0" layoutY="237.0" text="Room/s" />
+      <Label layoutX="95.0" layoutY="236.0" text="Guest/s" />
+      <Label layoutX="11.0" layoutY="323.0" text="Room type" />
+      <Label layoutX="13.0" layoutY="485.0" text="Bed type" />
+      <SplitPane dividerPositions="0.7219451371571073" layoutX="225.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="804.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="708.0" prefWidth="558.0">
                <children>
@@ -51,9 +51,9 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="708.0" prefWidth="81.0">
                <children>
-                  <Label disable="true" layoutX="21.0" layoutY="41.0" text="Details ">
+                  <Label disable="true" layoutX="21.0" layoutY="31.0" text="Details ">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
                   <Label fx:id="roomDetails" layoutX="-16.0" layoutY="89.0" prefHeight="619.0" prefWidth="62.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
@@ -64,5 +64,7 @@
             <Insets />
          </opaqueInsets>
       </SplitPane>
+      <CheckBox fx:id="viewBox" layoutX="22.0" layoutY="455.0" mnemonicParsing="false" text="View" />
+      <CheckBox fx:id="SingleBedBox" layoutX="21.0" layoutY="566.0" mnemonicParsing="false" text="Single bed" />
    </children>
 </AnchorPane>
