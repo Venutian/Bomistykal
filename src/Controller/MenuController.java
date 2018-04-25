@@ -34,7 +34,7 @@ public class MenuController {
 	}
 	public void Reserve(ActionEvent event) throws IOException {
 		System.out.println("Reserve");
-		Parent root = FXMLLoader.load(getClass().getResource("/View/BookRoom.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();
