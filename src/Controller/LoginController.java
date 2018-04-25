@@ -3,17 +3,27 @@ package Controller;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
 	
+	private String pass;
+	private String name;
+	    @FXML
+	    private TextField UserName;
+
+	    @FXML
+	    private TextField Password;
 	
 	public void login(ActionEvent event) throws IOException {
-		System.out.println("dddd");
+		System.out.println(UserName.getText());
+
 		Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
@@ -23,7 +33,8 @@ public class LoginController {
 		((Node) (event.getSource())).getScene().getWindow().hide();
 	}
 	
-	
+
+   
 	
 	
 	
