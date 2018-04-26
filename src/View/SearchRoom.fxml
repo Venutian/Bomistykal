@@ -55,7 +55,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="60.0" layoutY="642.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="96.0" text="Reserve">
+                  <Button layoutX="60.0" layoutY="642.0" mnemonicParsing="false" onAction="#reservebtn" prefHeight="52.0" prefWidth="96.0" text="Reserve">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font>
