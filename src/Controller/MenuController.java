@@ -42,6 +42,17 @@ public class MenuController {
 		primaryStage.show();
 		
 	}
+	
+	public void Edit (ActionEvent event) throws IOException {
+		System.out.println("edit");
+		Parent root = FXMLLoader.load(getClass().getResource("/View/EditRoom.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
 	public void Cancel(ActionEvent event) throws IOException {
 		System.out.println("Cancel");
 		Parent root = FXMLLoader.load(getClass().getResource("/View/Cancel.fxml"));
