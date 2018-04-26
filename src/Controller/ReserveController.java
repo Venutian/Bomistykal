@@ -29,7 +29,25 @@ public class ReserveController {
 
     @FXML
     void reserve(ActionEvent event) {
-
+     
+    	
     }
+    /*filter methods are checking the inputs if they are correct.
+     * if they are not an alert window will pop-up saying what is wrong and why.*/
+    private void filterTelNumber() {
+    	
+    }
+     private void filterAdrress() {
+    	
+    } private void filterName() {
+    	
+    } private void filterCreditCardNumber() {
+    	
+    }
+    private void filterIDNumber() {
+    	
+    }
+    
+    
 }
 
