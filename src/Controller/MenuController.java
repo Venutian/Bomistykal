@@ -32,9 +32,20 @@ public class MenuController {
 		primaryStage.show();
 		
 	}
-	public void Reserve(ActionEvent event) throws IOException {
+	public void Search(ActionEvent event) throws IOException {
 		System.out.println("Reserve");
 		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	
+	public void Edit (ActionEvent event) throws IOException {
+		System.out.println("edit");
+		Parent root = FXMLLoader.load(getClass().getResource("/View/EditRoom.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();

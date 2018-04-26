@@ -7,7 +7,11 @@ import java.io.IOException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -15,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 
 
@@ -32,13 +37,7 @@ public class SearchRoomController {
     @FXML
     private DatePicker checkOut;
 
-    @FXML
-    private ChoiceBox<String> roomsPicker;
-
-    @FXML
-    private ChoiceBox<String> guestPicker;
-
-    @FXML
+      @FXML
     private CheckBox smokingBox;
 
     @FXML
@@ -80,9 +79,7 @@ public class SearchRoomController {
     private Main mainWindow;
 
     ObservableList<String> campusLocation  	= FXCollections.observableArrayList("Vaxjo" , "Kalmar");
-    ObservableList<String> roompick= FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
-    ObservableList<String> guestPick= FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
-    // Handles all the choice boxes in search room 
+   
     @FXML
     private void handleSmoking() {
     	if (smokingBox.isSelected()) {
@@ -140,19 +137,25 @@ public class SearchRoomController {
 		
 	      this.campusLoc.setItems(campusLocation);
 	      campusLoc.setValue("Vaxjo");
-	        // set the number of rooms for combo box
-	      roomsPicker.setValue("1");
-	      this.roomsPicker.setItems(roompick);
-	      
-	        // set the number of guests for combo box
-	      guestPicker.setValue("1");
-	        this.guestPicker.setItems(guestPick);
+	   
 	   
 	        
-	} public void initMain(Main mainWindow) {
+	}  @FXML
+    void reservebtn(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/View/Reserve.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	
+	public void initMain(Main mainWindow) {
+	
 		this.mainWindow = mainWindow;
 		
 	}
-
+	
 	
 }
