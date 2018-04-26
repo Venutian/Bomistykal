@@ -32,13 +32,7 @@ public class SearchRoomController {
     @FXML
     private DatePicker checkOut;
 
-    @FXML
-    private ChoiceBox<String> roomsPicker;
-
-    @FXML
-    private ChoiceBox<String> guestPicker;
-
-    @FXML
+      @FXML
     private CheckBox smokingBox;
 
     @FXML
@@ -80,9 +74,7 @@ public class SearchRoomController {
     private Main mainWindow;
 
     ObservableList<String> campusLocation  	= FXCollections.observableArrayList("Vaxjo" , "Kalmar");
-    ObservableList<String> roompick= FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
-    ObservableList<String> guestPick= FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20");
-    // Handles all the choice boxes in search room 
+   
     @FXML
     private void handleSmoking() {
     	if (smokingBox.isSelected()) {
@@ -140,13 +132,7 @@ public class SearchRoomController {
 		
 	      this.campusLoc.setItems(campusLocation);
 	      campusLoc.setValue("Vaxjo");
-	        // set the number of rooms for combo box
-	      roomsPicker.setValue("1");
-	      this.roomsPicker.setItems(roompick);
-	      
-	        // set the number of guests for combo box
-	      guestPicker.setValue("1");
-	        this.guestPicker.setItems(guestPick);
+	   
 	   
 	        
 	} public void initMain(Main mainWindow) {
