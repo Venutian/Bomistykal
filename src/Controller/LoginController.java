@@ -40,7 +40,7 @@ public class LoginController {
 	}
 	
    /*Check if the user name exists If it does not give an alert.*/
-<<<<<<< HEAD
+
    private void checkUserName(String name) {
 	   checkPassword(Password.getText());
    }
@@ -49,18 +49,14 @@ public class LoginController {
 	private void checkPassword(String password) {
 	
 	} 
-	 @FXML
-	public void Managerbtn(ActionEvent event) throws IOException {
-		System.out.println("Manager");
+	@FXML
+    public void Managerbtn(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-	}
-=======
-
->>>>>>> 7612162584716e89728e0de9a0c4f65d60042700
+    }
 	
 }

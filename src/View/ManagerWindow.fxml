@@ -222,13 +222,12 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="38.0" layoutY="73.0" text="Choose the room you wish to delete" />
-            <TableView layoutX="34.0" layoutY="159.0" prefHeight="200.0" prefWidth="908.0">
+            <Label layoutX="38.0" layoutY="73.0" text="Choose the account you wish to delete" />
+            <TableView editable="true" layoutX="23.0" layoutY="159.0" prefHeight="200.0" prefWidth="908.0">
                <columns>
                   <TableColumn prefWidth="100.0" text="ID Number" />
                   <TableColumn prefWidth="578.0" text="Employee Name" />
-                  <TableColumn prefWidth="86.0" text="Price" />
-                  <TableColumn prefWidth="110.0" text="Location" />
+                  <TableColumn prefWidth="86.0" text="Location" />
                </columns>
             </TableView>
             <TextField layoutX="106.0" layoutY="113.0" text="Employee name" />

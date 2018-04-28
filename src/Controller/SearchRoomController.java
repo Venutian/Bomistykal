@@ -4,12 +4,16 @@ package Controller;
 import main.Main;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import Model.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
@@ -18,12 +22,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
 
-public class SearchRoomController {
+public class SearchRoomController implements Initializable{
 	
     @FXML
     private AnchorPane anchor;
@@ -56,16 +61,16 @@ public class SearchRoomController {
     private CheckBox twinBedBox;
 
     @FXML
-    private TableView<?> tabView;
+    private TableView<Room> tabView;
 
     @FXML
-    private TableColumn<?, ?> tabCol_Des;
+    private TableColumn<Room, String> tabCol_Des;
 
     @FXML
-    private TableColumn<?, ?> tabCol_Id;
+    private TableColumn<Room, String> tabCol_Id;
 
     @FXML
-    private TableColumn<?, ?> tabCol_Availble;
+    private TableColumn<Room, String> tabCol_Availble;
 
     @FXML
     private Label roomDetails;
@@ -76,7 +81,7 @@ public class SearchRoomController {
     @FXML
     private CheckBox SingleBedBox;
     
-    private Main mainWindow;
+   
 
     ObservableList<String> campusLocation  	= FXCollections.observableArrayList("Vaxjo" , "Kalmar");
    
@@ -130,17 +135,18 @@ public class SearchRoomController {
  	 }
 
 
-	public void initialize() throws IOException{
+	public void initialize(){
 		
 		// set the choice for campus location choice box button
 		 //data = FXCollections.observableArrayList();
 		
 	      this.campusLoc.setItems(campusLocation);
 	      campusLoc.setValue("Vaxjo");
-	   
-	   
-	        
-	}  @FXML
+	   // table contents 
+	      
+	}
+	
+	@FXML
     void reservebtn(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/View/Reserve.fxml"));
 		Scene scene = new Scene(root);
@@ -151,11 +157,8 @@ public class SearchRoomController {
 		
 	}
 	
-	public void initMain(Main mainWindow) {
 	
-		this.mainWindow = mainWindow;
-		
-	}
+	
 	
 	
 }
