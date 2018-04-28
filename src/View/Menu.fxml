@@ -47,5 +47,6 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
+      <Button layoutX="697.0" layoutY="29.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Sign out" />
    </children>
 </AnchorPane>
