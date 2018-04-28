@@ -40,7 +40,7 @@ public class LoginController {
 	}
 	
    /*Check if the user name exists If it does not give an alert.*/
-<<<<<<< HEAD
+
    private void checkUserName(String name) {
 	   checkPassword(Password.getText());
    }
@@ -59,8 +59,6 @@ public class LoginController {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-=======
 
->>>>>>> 7612162584716e89728e0de9a0c4f65d60042700
 	
 }
