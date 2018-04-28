@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -63,7 +64,7 @@ public class MenuController {
 		primaryStage.show();
 		((Node) (event.getSource())).getScene().getWindow().hide();
 	}
-	
-	
+
+    	
 	
 }

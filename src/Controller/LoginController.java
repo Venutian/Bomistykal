@@ -21,6 +21,7 @@ public class LoginController {
 	    private TextField Password;
 	    
 	    
+	    
 	
 	public void login(ActionEvent event) throws IOException {
 		
@@ -46,7 +47,16 @@ public class LoginController {
    /*Check if the password is correct. If it is not give an alert.*/
 	private void checkPassword(String password) {
 	
+	} 
+	 @FXML
+	public void Managerbtn(ActionEvent event) throws IOException {
+		System.out.println("Manager");
+		Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
-	
 	
 }
