@@ -5,19 +5,46 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 public class Sqlconnection{
 
-public static void main(String[] args) throws Exception {
-	createTable();
+
+
+
+
+public void addRoom(Room room) throws Exception {
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
+	pre.executeUpdate();
+}
+
+public void addEmployee(Employee eployee) throws Exception {
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
+	pre.executeUpdate();
+}
+
+public void addReservation(Reservation reservation) throws Exception {
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
+	pre.executeUpdate();
 }
 
 
 
-public static void createTable() throws Exception {
-	Connection con = getConnection();
 
-	//String name, String IDNumber,String userName,String password,String address,int phoneNumber,boolean manager
-/*	PreparedStatement pre = con.prepareStatement("CREATE TABLE IF NOT EXISTS employee(firstName varchar(255), lastName varchar(255), "
-			+ "IDNumber varchar(255), password varchar(255),  address varchar(255), phoneNumber int, manager BOOLEAN)");*/
-	PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
+public void deleteRoom(Room room) throws Exception{
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,RoomNumber,floor,price,roomsize,location,numofbeds,bedtype) "
+    		+ " VALUES ('"+1+"','"+room.getRoomNumber()+"','"+room.getFloor()+"','"+room.getPrice()+"','"+room.getRoomSize()+"','"+room.getLocation()+"',"
+    				+ "'"+room.getNumOfBed()+"','gfd');");
+	pre.executeUpdate();
+}
+public void deleteEmployee(Employee employee) throws Exception{
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
+	pre.executeUpdate();
+}
+public void deleteReservation(Room reservation) throws Exception{
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
 	pre.executeUpdate();
 }
 
@@ -26,7 +53,7 @@ public static void createTable() throws Exception {
 
 
 
- public static Connection getConnection() throws Exception{
+ private Connection getConnection() throws Exception{
   try{
  //  String driver = "com.mysql.jdbc.Driver";
 	  String driver = "com.mysql.jdbc.Driver";

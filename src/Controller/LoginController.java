@@ -25,7 +25,7 @@ public class LoginController {
 	public void login(ActionEvent event) throws IOException {
 		
 		System.out.println(UserName.getText());
-		checkUserName(UserName.getText());
+		UserName.getText();
 		
 		
 		
@@ -39,14 +39,7 @@ public class LoginController {
 	}
 	
    /*Check if the user name exists If it does not give an alert.*/
-   private void checkUserName(String name) {
-	   checkPassword(Password.getText());
-   }
-   
-   /*Check if the password is correct. If it is not give an alert.*/
-	private void checkPassword(String password) {
-	
-	}
+
 	
 	
 }
