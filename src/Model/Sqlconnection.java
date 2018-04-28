@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 public class Sqlconnection{
-
+	public static void main(String[] args) throws Exception {
+		getConnection();
+	}
 
 
 
@@ -53,7 +55,7 @@ public void deleteReservation(Room reservation) throws Exception{
 
 
 
- private Connection getConnection() throws Exception{
+ private static Connection getConnection() throws Exception{
   try{
  //  String driver = "com.mysql.jdbc.Driver";
 	  String driver = "com.mysql.jdbc.Driver";
@@ -63,6 +65,8 @@ public void deleteReservation(Room reservation) throws Exception{
 	   Class.forName(driver);
 	   
 	   Connection conn = DriverManager.getConnection(url,username,password);
+	  
+	   
 	  
    System.out.println("Connected");
    return conn;
