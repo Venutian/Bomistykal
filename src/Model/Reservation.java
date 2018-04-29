@@ -6,21 +6,30 @@ public class Reservation {
 
 	Date checkIn;
 	Date checkOut;
-	Client client;
-	Room room;
-	Employee emp;
+	String clientID;
+	String roomID;
+	String empUserName;
 	int totalPrice;
+	String ReservationID;
 	
-	public Reservation(Date checkIn,Date checkOut, Client client,Room room,Employee emp,int totalPrice) {
+	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String empUserName) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
-		this.client = client;
-		this.room = room;
-		this.emp = emp;
-		this.totalPrice = totalPrice;
+		this.clientID = clientID;
+		this.roomID = roomID;
+		this.empUserName = empUserName;
+		setReservationID();
 	}
 	
+	private void setReservationID() {
+		/*calculate reservation id */
+		this.ReservationID = "123";
+	}
+	
+	
+	
 	/*setters*/
+	
 	public void setCheckInDate(Date date) {
 		this.checkIn = date;
 	}
@@ -28,14 +37,14 @@ public class Reservation {
    public void setCheckoutDate(Date date) {
 		this.checkOut = date;
 	}
-	public void setClient(Client client) {
-		this.client = client;
+	public void setClient(String client) {
+		this.clientID = client;
 	}
-	public void setRoom(Room room) {
-		this.room = room;
+	public void setRoom(String room) {
+		this.roomID = room;
 	}
-	public void setEmployee(Employee emp) {
-		this.emp = emp;
+	public void setEmployee(String emp) {
+		this.empUserName = emp;
 	}
 	public void setTotalPrice(int price) {
 		this.totalPrice = price;
@@ -48,19 +57,21 @@ public class Reservation {
 	public Date getCheckOutDate() {
 		return this.checkOut;
 	}
-	public Client getClient() {
-		return this.client;
+	public String getClient() {
+		return this.clientID;
 	}
-	public Room getRoom() {
-		return this.room;
+	public String getRoom() {
+		return this.roomID;
 	}
-	public Employee getEmployee() {
-		return this.emp;
+	public String getEmployee() {
+		return this.empUserName;
 	}
 	public int getTotalPrice() {
 		return this.totalPrice;
 	}
-	
+	public String getReservationID() {
+		return this.ReservationID;
+	}
 	
 	
 	
