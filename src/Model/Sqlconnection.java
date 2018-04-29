@@ -85,6 +85,7 @@ public static void addReservation(Reservation reservation) throws Exception {
 public Employee  getEmployee(String userName, String password) throws Exception{
 	Connection con = getConnection();
 	Employee em = null;
+	System.out.println(userName+password);
 	PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE userName = '"+userName+"' AND Password = '"+password+"'  ");
 	 ResultSet rs = pre.executeQuery();
 		while(rs.next()) {

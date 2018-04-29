@@ -21,8 +21,8 @@
          <children>
             <Button layoutX="131.0" layoutY="253.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="68.0" text="Login" />
             <Label layoutX="27.0" layoutY="66.0" prefHeight="31.0" prefWidth="276.0" text="Please, type your username and password to Log in" textAlignment="CENTER" textFill="#dddddd" />
-            <TextField fx:id="UserName" layoutX="135.0" layoutY="188.0" />
-            <TextField fx:id="Password" layoutX="135.0" layoutY="142.0" />
+            <TextField fx:id="UserName" layoutX="125.0" layoutY="142.0" />
+            <TextField fx:id="Password" layoutX="125.0" layoutY="187.0" />
             <Label layoutX="42.0" layoutY="146.0" text="User Name" textFill="#dddddd" />
             <Label layoutX="47.0" layoutY="192.0" text="Password" textFill="#dddddd" />
          </children>
