@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 public class Sqlconnection{
 	public static void main(String[] args) throws Exception {
-		//int floor, String roomNumber, String desc, int price, int roomSize, int numOfBed,String Location
-		Room room = new Room(1,"dd","ddd",3,5,2,"dsa");
+		//int floor, String roomNumber, int price, int roomSize,String Location
+		Room room = new Room(1,"dd",3,5,"dsa");
 		addRoom(room);
 	}
 
