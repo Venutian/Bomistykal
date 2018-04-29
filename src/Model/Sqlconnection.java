@@ -93,6 +93,8 @@ public Employee  getEmployee(String userName, String password) throws Exception{
 		}
 		rs.close();
 	con.close();
+	if(em == null)
+		System.out.println("dksajkdsa");
 	return em;
 }
 

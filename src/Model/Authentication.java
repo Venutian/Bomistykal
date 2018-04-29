@@ -16,7 +16,7 @@ public class Authentication {
 			e.printStackTrace();
 		}
 		
-		if(employee!= null)
+		if(employee == null)
 			System.out.println("here");
 		
 		
