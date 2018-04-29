@@ -5,7 +5,7 @@ public class Authentication {
     
 	public void Athentication(String userName, String password) {
 		
-		
+		/*search in database exist = true if both match*/
 		
 	}
 	

@@ -135,16 +135,6 @@ public class SearchRoomController implements Initializable{
  	 }
 
 
-	public void initialize(){
-		
-		// set the choice for campus location choice box button
-		 //data = FXCollections.observableArrayList();
-		
-	      this.campusLoc.setItems(campusLocation);
-	      campusLoc.setValue("Vaxjo");
-	   // table contents 
-	      
-	}
 	
 	@FXML
     void reservebtn(ActionEvent event) throws IOException {
@@ -155,6 +145,15 @@ public class SearchRoomController implements Initializable{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
+	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// set the choice for campus location choice box button
+				 //data = FXCollections.observableArrayList();
+				
+			      this.campusLoc.setItems(campusLocation);
+			      campusLoc.setValue("Vaxjo");
+			   // table contents 
 	}
 	
 	

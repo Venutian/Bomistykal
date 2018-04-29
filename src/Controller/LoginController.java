@@ -57,11 +57,11 @@ public class LoginController {
 		Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-<<<<<<< HEAD
+
     }
-=======
+
 	}
 
->>>>>>> eba0a571200f5fe82aad48b5ba898439748ccdf6
+
 	
-}
+
