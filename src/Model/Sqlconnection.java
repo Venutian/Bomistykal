@@ -35,7 +35,7 @@ public class Sqlconnection{
 	 Reservation re2 = new Reservation(ff2,ff2,"D","d","fff");
 	
 	 //Employee eo = getEmployee("waeaff","123456");
-	// System.out.println(eo.isManager());
+	 //System.out.println(eo.isManager());
 	 //addReservation(re2);
 	// addReservation(re);
 	// getComingReservations() ;

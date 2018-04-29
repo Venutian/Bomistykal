@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import Model.Authentication;
 import Model.Employee;
+import Model.Sqlconnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,13 +28,20 @@ public class LoginController {
 	
 	public void login(ActionEvent event) throws IOException {
 		
-		Authentication aut = new Authentication("waeaff","12345");
-		Employee emp = aut.getEmployee();
 		
-		if(emp.isManager())
-			LogManager();
-		else
-			LogEmployee();
+		try {
+			Authentication aut = new Authentication(UserName.getText(),Password.getText());			
+			 Employee emp = aut.getEmployee();
+			if(emp.isManager())
+				LogManager();
+			else
+				LogEmployee();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 			
 		
 		
