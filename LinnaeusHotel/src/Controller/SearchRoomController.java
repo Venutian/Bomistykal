@@ -136,6 +136,7 @@ public class SearchRoomController implements Initializable{
 
 
 	
+	
 	@FXML
     void reservebtn(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/View/Reserve.fxml"));
@@ -148,6 +149,7 @@ public class SearchRoomController implements Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
 		// set the choice for campus location choice box button
 				 //data = FXCollections.observableArrayList();
 				

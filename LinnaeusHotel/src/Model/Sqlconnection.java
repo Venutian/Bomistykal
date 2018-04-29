@@ -5,17 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 public class Sqlconnection{
 	public static void main(String[] args) throws Exception {
-		//int floor, String roomNumber, int price, int roomSize,String Location
-		Room room = new Room(1,"dd",3,5,"dsa");
-		addRoom(room);
+		getConnection();
 	}
 
 
 
 
-public static void addRoom(Room room) throws Exception {
+public void addRoom(Room room) throws Exception {
 	Connection con = getConnection();
-    PreparedStatement pre = con.prepareStatement("INSERT INTO Room (id,sz,loc,rn)  VALUES ('"+room.getFloor()+"','"+room.getPrice()+"','"+room.getDescription()+"','"+room.getRoomNumber()+"');");
+    PreparedStatement pre = con.prepareStatement("INSERT INTO room (roomRow,IDRoom)  VALUES ('2','APOEL');");
 	pre.executeUpdate();
 }
 
@@ -57,19 +55,16 @@ public void deleteReservation(Room reservation) throws Exception{
 
 
 
- public static Connection getConnection() throws Exception{
+ private static Connection getConnection() throws Exception{
   try{
  //  String driver = "com.mysql.jdbc.Driver";
-	/*  String driver = "com.mysql.jdbc.Driver";
+	  String driver = "com.mysql.jdbc.Driver";
 	   String url = "jdbc:mysql://localhost:3306/database";
 	   String username = "andreas";
 	   String password = "apoel1234";
-	   Class.forName(driver);*/
-	  
-	  //sql7.freesqldatabase.com
-	  //sql7235306
-	 // ed5j4AGc2a
-	   Connection conn = DriverManager.getConnection("jdbc:mysql://sql7.freesqldatabase.com/sql7235306","sql7235306","ed5j4AGc2a");
+	   Class.forName(driver);
+	   
+	   Connection conn = DriverManager.getConnection(url,username,password);
 	  
 	   
 	  
