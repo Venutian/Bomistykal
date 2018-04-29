@@ -34,10 +34,12 @@ public class Sqlconnection{
 	 Reservation re = new Reservation(ff,ff,"D","d","fff");
 	 Reservation re2 = new Reservation(ff2,ff2,"D","d","fff");
 	
-	 addReservation(re2);
+	 Employee eo = getEmployee("waeaff","123456");
+	 System.out.println(eo.isManager());
+	 //addReservation(re2);
 	// addReservation(re);
 	// getComingReservations() ;
-	 deleteReservation(re2);
+	// deleteReservation(re2);
 	// addReservation(re);
 	 //addReservation(re2);
 	}
@@ -46,7 +48,6 @@ public class Sqlconnection{
 
 /*booom*/
 public static void addRoom(Room room) throws Exception {
-   //int Floor, String	RoomID, int	Price, int	RoomSize,String	Location,String	Description
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("INSERT INTO Room (Floor,RoomID,Price,Location,Description) "
     		+ " VALUES ('"+room.getFloor()+"','"+room.getRoomNumber()+"','"+room.getPrice()+"','"+room.getLocation()+"','"+room.getDescription()+"');");
@@ -56,8 +57,6 @@ public static void addRoom(Room room) throws Exception {
 }
 
 public void addEmployee(Employee eployee) throws Exception {
-	//String name, String IDNumber,String userName,String password,String address,int phoneNumber,boolean manager
-	//Name	IDNumber	UserName	Password	Adrress	PhoneNumber	Manager
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("INSERT INTO Employee (Name,IDNumber,UserName,Password,Adrress,PhoneNumber,Manager) "
     		+ " VALUES ('"+eployee.getName()+"','"+eployee.getIDNumber()+"','"+eployee.getUserName()+"','"+eployee.getPassword()+"','"+eployee.getAddress()+"','"+eployee.getPhoneNumber()+"','"+eployee.isManager()+"');");
@@ -67,15 +66,14 @@ public void addEmployee(Employee eployee) throws Exception {
 }
 
 public static void addReservation(Reservation reservation) throws Exception {
-	//Date checkIn,Date checkOut, Client client,Room room,Employee emp
-	//CheckIn	CheckOut	ClientID	RoomID	EmployeeUN	ReservationID
+
 	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	String a = df.format(reservation.getCheckInDate());
-	System.out.println(a);
+	String checkIn = df.format(reservation.getCheckInDate());
+	String checkOut = df.format(reservation.getCheckOutDate());
+	
 	Connection con = getConnection();
-	// PreparedStatement pre = con.prepareStatement("	INSERT INTO `Reservation` (`CheckIn`, `CheckOut`, `ClientID`, `RoomID`, `EmployeeUN`, `ReservationID`) VALUES ('"+a+"','"+a+"','"+reservation.getClient()+"','"+reservation.getRoom()+"', 'ff', 'rer')");
     PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID)"
-    		+ "  VALUES ('"+a+"','"+a+"','"+reservation.getClient()+"','"+reservation.getRoom()+"','"+reservation.getEmployee()+"','"+reservation.getReservationID()+"');");
+    		+ "  VALUES ('"+checkIn+"','"+checkOut+"','"+reservation.getClient()+"','"+reservation.getRoom()+"','"+reservation.getEmployee()+"','"+reservation.getReservationID()+"');");
 	pre.executeUpdate();
 	pre.close();
 	con.close();
@@ -84,6 +82,27 @@ public static void addReservation(Reservation reservation) throws Exception {
 
 /*get*/
 /*booom*/
+public static Employee  getEmployee(String userName, String password) throws Exception{
+	Connection con = getConnection();
+	Employee em = null;
+	PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE userName = '"+userName+"' AND Password = '"+password+"'  ");
+	 ResultSet rs = pre.executeQuery();
+		while(rs.next()) {
+			System.out.println("sdasdsadsa");
+			em = new Employee(rs.getString("Name"),rs.getString("IDNumber"), rs.getString("UserName"), rs.getString("Password"), rs.getString("Adrress"), rs.getInt("PhoneNumber"), rs.getBoolean("Manager"));
+		}
+		rs.close();
+	con.close();
+	return em;
+}
+
+
+
+
+
+
+
+
 public static ObservableList<Reservation> getComingReservations() throws Exception {
 	ObservableList<Reservation> data =  FXCollections.observableArrayList();
 	Connection con = getConnection();
@@ -131,7 +150,7 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
 
 
 
-/*fixing*/
+/*boyya*/
 public void deleteRoom(Room room) throws Exception{
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("DELETE FROM Room WHERE RoomID = '"+room.getRoomNumber()+"'");
@@ -157,8 +176,7 @@ public static void deleteReservation(Reservation reservation) throws Exception{
 
  public static Connection getConnection() throws Exception{
   try{
-   
-	  //sql7.freesqldatabase.com
+      //sql7.freesqldatabase.com
 	  //sql7235306
 	  //ed5j4AGc2a
 	  Connection  con = DriverManager.getConnection("jdbc:mysql://sql7.freesqldatabase.com/sql7235306","sql7235306","ed5j4AGc2a");
