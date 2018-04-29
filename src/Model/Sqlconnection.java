@@ -34,8 +34,8 @@ public class Sqlconnection{
 	 Reservation re = new Reservation(ff,ff,"D","d","fff");
 	 Reservation re2 = new Reservation(ff2,ff2,"D","d","fff");
 	
-	 Employee eo = getEmployee("waeaff","123456");
-	 System.out.println(eo.isManager());
+	 //Employee eo = getEmployee("waeaff","123456");
+	// System.out.println(eo.isManager());
 	 //addReservation(re2);
 	// addReservation(re);
 	// getComingReservations() ;
@@ -82,7 +82,7 @@ public static void addReservation(Reservation reservation) throws Exception {
 
 /*get*/
 /*booom*/
-public static Employee  getEmployee(String userName, String password) throws Exception{
+public Employee  getEmployee(String userName, String password) throws Exception{
 	Connection con = getConnection();
 	Employee em = null;
 	PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE userName = '"+userName+"' AND Password = '"+password+"'  ");

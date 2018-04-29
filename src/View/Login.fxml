@@ -25,7 +25,6 @@
             <TextField fx:id="Password" layoutX="135.0" layoutY="142.0" />
             <Label layoutX="42.0" layoutY="146.0" text="User Name" textFill="#dddddd" />
             <Label layoutX="47.0" layoutY="192.0" text="Password" textFill="#dddddd" />
-            <Button layoutX="128.0" layoutY="298.0" mnemonicParsing="false" onAction="#Managerbtn" prefHeight="25.0" prefWidth="75.0" text="Manager" />
          </children>
       </AnchorPane>
       <Label layoutX="13.0" layoutY="48.0" prefHeight="104.0" prefWidth="384.0" text="Linnaeus Hotel">

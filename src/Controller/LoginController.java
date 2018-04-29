@@ -2,6 +2,8 @@ package Controller;
 
 import java.io.IOException;
 
+import Model.Authentication;
+import Model.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,32 +27,33 @@ public class LoginController {
 	
 	public void login(ActionEvent event) throws IOException {
 		
-		System.out.println(UserName.getText());
-		UserName.getText();
+		Authentication aut = new Authentication("waeaff","12345");
+		Employee emp = aut.getEmployee();
+		
+		if(emp.isManager())
+			LogManager();
+		else
+			LogEmployee();
+			
 		
 		
-		
+	} 
+	
+	
+	private void LogEmployee() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		((Node) (event.getSource())).getScene().getWindow().hide();
 	}
 	
-   /*Check if the user name exists If it does not give an alert.*/
-
-   private void checkUserName(String name) {
-	   checkPassword(Password.getText());
-   }
-   
-   /*Check if the password is correct. If it is not give an alert.*/
-	private void checkPassword(String password) {
 	
-	} 
-	@FXML
-    public void Managerbtn(ActionEvent event) throws IOException {
+	
+	
+	
+	private void LogManager() throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
