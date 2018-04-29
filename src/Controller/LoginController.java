@@ -28,11 +28,11 @@ public class LoginController {
 	
 	public void login(ActionEvent event) throws IOException {
 		
-		
-		System.out.println(UserName.getText().toString());
+	
 		
 		try {
-			Authentication aut = new Authentication(UserName.getText().toString(),Password.getText().toString());			
+			Authentication aut = new Authentication(UserName.getText().toString(),Password.getText().toString());
+			//Sqlconnection aut = new Sqlconnection();
 			 Employee emp = aut.getEmployee();
 			if(emp.isManager())
 				LogManager();
