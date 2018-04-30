@@ -61,10 +61,7 @@ public void addRoom(Room room) throws Exception {
 	con.close();
 }
 
-private int getBoolean(boolean bol) {
-   int i = bol ? 1 : 0;
-   return i;
-}
+
 
 public  void addEmployee(Employee eployee) throws Exception {
 	Connection con = getConnection();
@@ -183,9 +180,55 @@ public static void deleteReservation(Reservation reservation) throws Exception{
 }
 
 
+/*'UPDATE tutorials_tbl
+      SET tutorial_title="Learning JAVA"
+      ';*/
+public  void editRoom(Room room) throws Exception{
+	Connection con = getConnection();
+	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + getBoolean(room.getLocation()) + "'"
+			+ ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() + "' "
+			+ "WHERE RoomID=3'"+room.getRoomID()+ "';");
+	pre.executeUpdate();
+	pre.close();
+	con.close();
+}
+
+
+public  void editReservation(Reservation reservation) throws Exception{
+	Connection con = getConnection();
+	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	String checkIn = df.format(reservation.getCheckInDate());
+	String checkOut = df.format(reservation.getCheckOutDate());
+	PreparedStatement pre = con.prepareStatement("UPDATE Reservation SET CheckIn='" +checkIn + "', CheckOut='" + checkOut + "',ClientID='" + reservation.getClient() + "', RoomID='" + reservation.getRoom() + "'"
+			+ ",EmployeeUN='" + reservation.getEmployee() + "'  WHERE ReservationID='" + reservation.getReservationID() + "';");
+			
+	pre.executeUpdate();
+	pre.close();
+	con.close();
+}
 
 
 
+
+public  void editEmployee(Employee employee) throws Exception{
+	Connection con = getConnection();
+	//(Name,IDNumber,UserName,Password,Adrress,PhoneNumber,Manager)
+	PreparedStatement pre = con.prepareStatement("UPDATE Employee SET Name='" + employee.getName() + "', IDNumber='" + employee.getIDNumber() + "',UserName='" + employee.getUserName() + "', Password='" + employee.getPassword() + "'"
+			+ ",Adrress='" + employee.getAddress() + "', PhoneNumber='" + employee.getPhoneNumber() + "',Manager'" + getBoolean(employee.isManager()) + "' "
+			+ "WHERE IDNumber='" +employee.getIDNumber() + "';");
+	pre.executeUpdate();
+	pre.close();
+	con.close();
+}
+
+
+
+
+
+private int getBoolean(boolean bol) {
+	   int i = bol ? 1 : 0;
+	   return i;
+	}
 
  public static Connection getConnection() throws Exception{
   try{
