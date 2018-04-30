@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+            prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.ManagerController">
    <children>
       <Label prefHeight="100.0" prefWidth="400.0" text="Manager Menu" AnchorPane.leftAnchor="50.0">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <SplitPane dividerPositions="0.061079545454545456, 0.125, 0.1903409090909091, 0.2556818181818182" layoutY="100.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="130.0">
+       <SplitPane dividerPositions="0.061079545454545456, 0.125, 0.1903409090909091, 0.2556818181818182, 0.5"
+                  layoutY="100.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="130.0">
         <items>
           <AnchorPane prefHeight="50.0" prefWidth="160.0">
                <children>
@@ -19,22 +25,24 @@
             </AnchorPane>
           <AnchorPane prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false"  prefHeight="40.0" prefWidth="130.0" text="XXX" />
+                   <Button mnemonicParsing="false" onAction="#editRoom" prefHeight="40.0" prefWidth="130.0"
+                           text="Manage Rooms"/>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false"  prefHeight="40.0" prefWidth="130.0" text="XXX" />
+                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="XXX"/>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button mnemonicParsing="false"  prefHeight="40.0" prefWidth="130.0" text="XXX" />
+                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="XXX"/>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="110.0" prefWidth="130.0">
                <children>
-                  <Button mnemonicParsing="false"  prefHeight="40.0" prefWidth="130.0" text="XXX" />
+                   <Button mnemonicParsing="false" onAction="#backMenu" prefHeight="40.0" prefWidth="130.0"
+                           text="Menu"/>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="110.0" prefWidth="130.0">

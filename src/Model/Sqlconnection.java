@@ -1,18 +1,17 @@
 package Model;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 public class Sqlconnection{
 	
 	
@@ -49,10 +48,10 @@ public class Sqlconnection{
 	
 
 /*booom*/
-public static void addRoom(Room room) throws Exception {
+public void addRoom(Room room) throws Exception {
 	Connection con = getConnection();
-    PreparedStatement pre = con.prepareStatement("INSERT INTO Room (Floor,RoomID,Price,Location,Description) "
-    		+ " VALUES ('"+room.getFloor()+"','"+room.getRoomNumber()+"','"+room.getPrice()+"','"+room.getLocation()+"','"+room.getDescription()+"');");
+	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (Floor,RoomID,Price,RoomSize,Location,Description) "
+			+ " VALUES ('" + room.getFloor() + "','" + room.getRoomNumber() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getLocation() + "','" + room.getDescription() + "');");
 	pre.executeUpdate();
 	pre.close();
 	con.close();

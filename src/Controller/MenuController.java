@@ -1,7 +1,6 @@
 package Controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -59,7 +58,6 @@ public class MenuController {
 		
 	}
 
-    @FXML
     public void back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
         Scene scene = new Scene(root);

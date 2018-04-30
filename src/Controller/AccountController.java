@@ -18,6 +18,7 @@ import java.io.IOException;
 
 
 public class AccountController {
+
     @FXML
     private TextField eName;
 
@@ -68,13 +69,13 @@ public class AccountController {
         window.setScene(scene);
         window.show();
     }
-    @FXML
     public void back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
     }
+
 }

@@ -3,6 +3,7 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,10 +12,23 @@ import java.io.IOException;
 
 public class ManagerController {
     LoginController lo = new LoginController();
-AccountController ac=new AccountController();
-
+	AccountController ac = new AccountController();
+	MenuController mc = new MenuController();
 	public void Account(ActionEvent event) throws IOException {
 		ac.Account(event);
+	}
+
+	public void back(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+	}
+
+	public void backMenu(ActionEvent event) throws IOException {
+		mc.back(event);
 	}
 
     public void logout(ActionEvent event) throws IOException {
@@ -47,10 +61,7 @@ AccountController ac=new AccountController();
 
 	    }
 
-	    @FXML
-	    public void createNewRoomMenu(ActionEvent event) {
 
-	    }
 
 	    @FXML
 	    public void dailyRepMenu(ActionEvent event) {
@@ -68,15 +79,15 @@ AccountController ac=new AccountController();
 	    }
 
 	    @FXML
-	    public void editResMenu(ActionEvent event) throws IOException {
-	    	Parent root = FXMLLoader.load(getClass().getResource("/View/EditRoom.fxml"));
+		public void editRoom(ActionEvent event) throws IOException {
+			Parent root = FXMLLoader.load(getClass().getResource("/View/EditRooms.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			primaryStage.show();
-	    
-	    }
+			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			window.setScene(scene);
+			window.show();
+
+		}
 
 	    @FXML
 	    public void monRepMenu(ActionEvent event) {
