@@ -61,10 +61,8 @@ public class Employee {
 		return this.address;
 	}
 
-	public int isManager() {
-		if(manager)
-		return 1;
-		return 0;
+	public boolean isManager() {
+		return manager;
 	}
 
 	public void setManager(boolean manager) {
