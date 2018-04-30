@@ -7,39 +7,31 @@ public class Room {
 
     private String desc;
     private int price;
-    private String roomNumber;
-    private int floor;
+    private String roomID;
     private int roomSize;
     private int numOfBed;
-    private String Location;
+    private String adjoinedRoomID;
+    private boolean Location;
     private boolean smoking;
     private boolean view;
-    private boolean petsAllowed;
     private boolean adjoint;
-    private boolean singlebed;
-    private boolean doubleBed;
-    private boolean twin;
 
 
-    public Room(int floor, String roomNumber, int price, int roomSize, String Location, String desc) {
-        this.desc = desc;
-        this.floor = floor;
+
+    public Room(String roomID, int price, int roomSize,int numOfBeds ,boolean Location,boolean view ,boolean smoking,boolean adjoint) {
+       
+        this.numOfBed = numOfBeds;
         this.price = price;
-        this.roomNumber = roomNumber;
+        this.roomID = roomID;
         this.roomSize = roomSize;
-        this.numOfBed = numOfBed;
         this.Location = Location;
-
+        this.view = view;
+        this.smoking = smoking;
+        this.adjoint = adjoint;
+        this.adjoinedRoomID = "0";
     }
 
     // getters and setters for Room object
-    public int getFloor() {
-        return floor;
-    }
-
-    public void setFloor(int floor) {
-        this.floor = floor;
-    }
 
     public String getDescription() {
         return desc;
@@ -57,12 +49,12 @@ public class Room {
         this.price = price;
     }
 
-    public String getRoomNumber() {
-        return roomNumber;
+    public String getRoomID() {
+        return roomID;
     }
 
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setRoomID(String roomNumber) {
+        this.roomID = roomNumber;
     }
 
     public int getNumOfBed() {
@@ -109,46 +101,20 @@ public class Room {
         this.adjoint = adjoint;
     }
 
-    public boolean getPetsAllowed() {
-        return petsAllowed;
-    }
-
-    public void setPetsAllowed(boolean petsAllowed) {
-        this.petsAllowed = petsAllowed;
-    }
-
-    //getters and setter for bedType
-    public boolean getSingleBed() {
-        return singlebed;
-
-    }
-
-    public void setSingleBed(boolean singleBed) {
-        this.singlebed = singleBed;
-    }
-
-    public boolean getDoubleBed() {
-        return doubleBed;
-    }
-
-    public void setDoubleBed(boolean doubleBed) {
-        this.doubleBed = doubleBed;
-    }
-
-    public boolean getTwinBed() {
-        return twin;
-    }
-
-    public void setTwinBed(boolean twin) {
-        this.twin = twin;
-    }
-
-    public String getLocation() {
+    public boolean getLocation() {
         return Location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(boolean location) {
         this.Location = location;
 
     }
+    public void setAdjoindsRoomID(String id) {
+    	this.adjoinedRoomID = id;
+    }
+    public String getAdjoindsRoomID() {
+    	return this.adjoinedRoomID;
+    }
+    
+    
 } 

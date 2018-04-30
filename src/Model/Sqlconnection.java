@@ -35,8 +35,9 @@ public class Sqlconnection{
 	 Reservation re = new Reservation(ff,ff,"D","d","fff");
 	 Reservation re2 = new Reservation(ff2,ff2,"D","d","fff");
 	
-	 //Employee eo = getEmployee("waeaff","123456");
+	// Employee eo =new Employee("gh", "gh", "gh", "gh", "gh", 0, false);
 	 //System.out.println(eo.isManager());
+	// addEmployee(eo);
 	 //addReservation(re2);
 	// addReservation(re);
 	// getComingReservations() ;
@@ -50,17 +51,23 @@ public class Sqlconnection{
 /*booom*/
 public void addRoom(Room room) throws Exception {
 	Connection con = getConnection();
-	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (Floor,RoomID,Price,RoomSize,Location,Description) "
-			+ " VALUES ('" + room.getFloor() + "','" + room.getRoomNumber() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getLocation() + "','" + room.getDescription() + "');");
+	//String roomID, int price, int RoomSize,int NumOfBeds ,boolean Location,boolean view ,boolean smoking, getBoolean(room.getLocation())
+	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID) "
+			+ " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + getBoolean(room.getLocation()) + "','" + getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
 	pre.executeUpdate();
 	pre.close();
 	con.close();
 }
 
-public void addEmployee(Employee eployee) throws Exception {
+private int getBoolean(boolean bol) {
+   int i = bol ? 1 : 0;
+   return i;
+}
+
+public  void addEmployee(Employee eployee) throws Exception {
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("INSERT INTO Employee (Name,IDNumber,UserName,Password,Adrress,PhoneNumber,Manager) "
-    		+ " VALUES ('"+eployee.getName()+"','"+eployee.getIDNumber()+"','"+eployee.getUserName()+"','"+eployee.getPassword()+"','"+eployee.getAddress()+"','"+eployee.getPhoneNumber()+"','"+eployee.isManager()+"');");
+    		+ " VALUES ('"+eployee.getName()+"','"+eployee.getIDNumber()+"','"+eployee.getUserName()+"','"+eployee.getPassword()+"','"+eployee.getAddress()+"','"+eployee.getPhoneNumber()+"','"+getBoolean(eployee.isManager())+"');");
 	pre.executeUpdate();
 	pre.close();
 	con.close();
@@ -157,7 +164,7 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
 /*boyya*/
 public void deleteRoom(Room room) throws Exception{
 	Connection con = getConnection();
-    PreparedStatement pre = con.prepareStatement("DELETE FROM Room WHERE RoomID = '"+room.getRoomNumber()+"'");
+    PreparedStatement pre = con.prepareStatement("DELETE FROM Room WHERE RoomID = '"+room.getRoomID()+"'");
 	pre.executeUpdate();
 }
 public void deleteEmployee(Employee employee) throws Exception{
