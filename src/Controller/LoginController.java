@@ -36,7 +36,7 @@ public class LoginController {
 			 /*to implement. Make a pop up window that says user name or passowrd wrong*/
 			 //if(emp == null)
 				 
-			if(emp.isManager()==1)
+			if(emp.isManager())
 				LogManager();
 			else
 				LogEmployee();

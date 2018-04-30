@@ -51,8 +51,10 @@ public class Sqlconnection{
 /*booom*/
 public void addRoom(Room room) throws Exception {
 	Connection con = getConnection();
+	System.out.println(getBoolean(room.getSmoking()));
+	
 	//String roomID, int price, int RoomSize,int NumOfBeds ,boolean Location,boolean view ,boolean smoking, getBoolean(room.getLocation())
-	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID) "
+	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID) "
 			+ " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + getBoolean(room.getLocation()) + "','" + getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
 	pre.executeUpdate();
 	pre.close();

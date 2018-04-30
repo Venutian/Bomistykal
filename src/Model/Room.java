@@ -18,7 +18,7 @@ public class Room {
 
 
 
-    public Room(String roomID, int price, int roomSize,int numOfBeds ,boolean Location,boolean view ,boolean smoking,boolean adjoint) {
+    public Room(String roomID, int price, int roomSize,int numOfBeds ,boolean Location,boolean view ,boolean smoking,boolean adjoint,String adjoinedRoomID) {
        
         this.numOfBed = numOfBeds;
         this.price = price;
@@ -28,7 +28,7 @@ public class Room {
         this.view = view;
         this.smoking = smoking;
         this.adjoint = adjoint;
-        this.adjoinedRoomID = "0";
+        this.adjoinedRoomID = adjoinedRoomID;
     }
 
     // getters and setters for Room object
