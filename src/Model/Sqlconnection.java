@@ -187,7 +187,7 @@ public  void editRoom(Room room) throws Exception{
 	Connection con = getConnection();
 	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + getBoolean(room.getLocation()) + "'"
 			+ ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() + "' "
-			+ "WHERE RoomID=3'"+room.getRoomID()+ "';");
+			+ "WHERE RoomID='"+room.getRoomID()+ "';");
 	pre.executeUpdate();
 	pre.close();
 	con.close();
@@ -212,7 +212,6 @@ public  void editReservation(Reservation reservation) throws Exception{
 
 public  void editEmployee(Employee employee) throws Exception{
 	Connection con = getConnection();
-	//(Name,IDNumber,UserName,Password,Adrress,PhoneNumber,Manager)
 	PreparedStatement pre = con.prepareStatement("UPDATE Employee SET Name='" + employee.getName() + "', IDNumber='" + employee.getIDNumber() + "',UserName='" + employee.getUserName() + "', Password='" + employee.getPassword() + "'"
 			+ ",Adrress='" + employee.getAddress() + "', PhoneNumber='" + employee.getPhoneNumber() + "',Manager'" + getBoolean(employee.isManager()) + "' "
 			+ "WHERE IDNumber='" +employee.getIDNumber() + "';");
