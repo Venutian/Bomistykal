@@ -1,93 +1,153 @@
 package Controller;
 
+
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
 public class ManagerController {
-    LoginController lo = new LoginController();
-	AccountController ac = new AccountController();
-	MenuController mc = new MenuController();
-	public void Account(ActionEvent event) throws IOException {
-		ac.Account(event);
-	}
 
-	public void back(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		window.setScene(scene);
-		window.show();
-	}
+	//private AccountController ac;
+	private LoginController lg = new LoginController();
+	private MenuController mc;
+	   @FXML
+	    private AnchorPane anchor_CreateRoom;
 
-	public void backMenu(ActionEvent event) throws IOException {
-		mc.back(event);
-	}
+	    @FXML
+	    private AnchorPane anchor_UpdateRoom;
 
-    public void logout(ActionEvent event) throws IOException {
-        lo.logout(event);
-    }
+	    @FXML
+	    private AnchorPane anchor_DeleteRoom;
 
-    @FXML
-    public void DeleteRoomMenu(ActionEvent event) {
+	    @FXML
+	    private AnchorPane anchor_CreateAccount;
 
+	    @FXML
+	    private AnchorPane anchor_EditAccount;
+
+	    @FXML
+	    private AnchorPane anchor_DeleteAccount;
+
+	    @FXML
+	    private MenuItem createNewAccItem;
+
+	    @FXML
+	    private MenuItem changePassOrUserItem;
+
+	    @FXML
+	    private MenuItem deleteAccItem;
+	    @FXML
+	    private MenuItem createNewRoomItem;
+
+	    @FXML
+	    private MenuItem updateRoomItem;
+
+	    @FXML
+	    private MenuItem deleteRoomItem;
+	    
+	    @FXML
+	    private MenuItem goToMenuItem;
+	    
+	    @FXML
+	    private MenuItem signOutItem;
+
+	    
+	    
+	    
+	   @FXML
+	    public void createNewRoomMenu(ActionEvent event) {
+	    	if (event.getTarget() == createNewRoomItem) {
+	    	anchor_CreateRoom.setVisible(true);
+	    	anchor_UpdateRoom.setVisible(false);
+	    	anchor_DeleteRoom.setVisible(false);
+	    	anchor_CreateAccount.setVisible(false);
+			 anchor_EditAccount.setVisible(false);
+			 anchor_DeleteAccount.setVisible(false);
+	    	}
+	   }
+	    @FXML
+	    public void DeleteRoomMenu(ActionEvent event) {
+	    	if (event.getTarget()== deleteRoomItem) {	
+	    		anchor_CreateRoom.setVisible(false);
+	    		anchor_UpdateRoom.setVisible(false);
+		    	anchor_DeleteRoom.setVisible(true);
+		    	anchor_CreateAccount.setVisible(false);
+				 anchor_EditAccount.setVisible(false);
+				 anchor_DeleteAccount.setVisible(false);
+	    	}
 	    }
 
 	    @FXML
 	    public void UpdateRoomMenu(ActionEvent event) {
-
+	    	if (event.getTarget()== updateRoomItem) {	
+	    		anchor_CreateRoom.setVisible(false);
+		    	anchor_DeleteRoom.setVisible(false);
+		    	anchor_UpdateRoom.setVisible(true);
+		    	anchor_CreateAccount.setVisible(false);
+				 anchor_EditAccount.setVisible(false);
+				 anchor_DeleteAccount.setVisible(false);
+	    	} 
+	    	
 	    }
 
-	    @FXML
-	   public void addResMenu(ActionEvent event) throws IOException {
-	    	Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			primaryStage.show();
-	    }
+	   
 	    
-
+	    public void CreateNewAccountMenu(ActionEvent event) throws IOException {
+			 if (event.getTarget()== createNewAccItem) {
+				 anchor_CreateAccount.setVisible(true);
+				 anchor_EditAccount.setVisible(false);
+				 anchor_DeleteAccount.setVisible(false);
+				 anchor_CreateRoom.setVisible(false);
+			    	anchor_DeleteRoom.setVisible(false);
+			    	anchor_UpdateRoom.setVisible(false);
+			 }  }
 	    @FXML
 	    public void changeUserOrPassMenu(ActionEvent event) {
-
+	    	if (event.getTarget()== changePassOrUserItem) {
+				 anchor_CreateAccount.setVisible(false);
+				 anchor_DeleteAccount.setVisible(false);
+				 anchor_EditAccount.setVisible(true);
+				 anchor_CreateRoom.setVisible(false);
+			    	anchor_DeleteRoom.setVisible(false);
+			    	anchor_UpdateRoom.setVisible(false);
+	    	}
 	    }
 
-
+	    @FXML
+	    public void deleteAccountMenu(ActionEvent event) {
+	    	if (event.getTarget()==deleteAccItem) {
+				 anchor_CreateAccount.setVisible(false);
+				 anchor_EditAccount.setVisible(false);
+				 anchor_DeleteAccount.setVisible(true);
+				 anchor_CreateRoom.setVisible(false);
+			    anchor_DeleteRoom.setVisible(false);
+			    anchor_UpdateRoom.setVisible(false);
+			 } 
+	    }
 
 	    @FXML
 	    public void dailyRepMenu(ActionEvent event) {
 
 	    }
-
 	    @FXML
-	    public void deleteAccountMenu(ActionEvent event) {
-
+	    public void goToMenuMenu(ActionEvent event) {
+	    	
 	    }
 
 	    @FXML
 	    void deleteResMenu(ActionEvent event) {
 
 	    }
-
-	    @FXML
-		public void editRoom(ActionEvent event) throws IOException {
-			Parent root = FXMLLoader.load(getClass().getResource("/View/EditRooms.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			window.setScene(scene);
-			window.show();
-
-		}
+	   
 
 	    @FXML
 	    public void monRepMenu(ActionEvent event) {
@@ -95,8 +155,12 @@ public class ManagerController {
 	    }
 
 	    @FXML
-	    public void signOutMenu(ActionEvent event) {
-
+	    public void signOutMenu(ActionEvent event) throws IOException {
+	    	if(event.getTarget() == signOutItem) {
+	    		lg.logout(event);
+	    		
+	    	}
+	    	
 	    }
 
 }

@@ -2,56 +2,245 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
-            prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Controller.ManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
    <children>
-      <Label prefHeight="100.0" prefWidth="400.0" text="Manager Menu" AnchorPane.leftAnchor="50.0">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-       <SplitPane dividerPositions="0.061079545454545456, 0.125, 0.1903409090909091, 0.2556818181818182, 0.5"
-                  layoutY="100.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="130.0">
-        <items>
-          <AnchorPane prefHeight="50.0" prefWidth="160.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#Account" prefHeight="40.0" prefWidth="130.0" text="Accounts" />
-               </children>
-            </AnchorPane>
-          <AnchorPane prefHeight="100.0" prefWidth="160.0">
-               <children>
-                   <Button mnemonicParsing="false" onAction="#editRoom" prefHeight="40.0" prefWidth="130.0"
-                           text="Manage Rooms"/>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="100.0" prefWidth="160.0">
-               <children>
-                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="XXX"/>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="100.0" prefWidth="160.0">
-               <children>
-                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="XXX"/>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="110.0" prefWidth="130.0">
-               <children>
-                   <Button mnemonicParsing="false" onAction="#backMenu" prefHeight="40.0" prefWidth="130.0"
-                           text="Menu"/>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="110.0" prefWidth="130.0">
-                <children>
-                    <Button mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="130.0"
-                            text="Logout"/>
-                </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+      <AnchorPane prefHeight="33.0" prefWidth="968.0">
+         <children>
+            <MenuBar prefHeight="28.0" prefWidth="968.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem fx:id="goToMenuItem" mnemonicParsing="false" onAction="#goToMenuMenu" text="Go to Menu" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Manage Room">
+                  <items>
+                    <MenuItem fx:id="createNewRoomItem" mnemonicParsing="false" onAction="#createNewRoomMenu" text="Create new room" />
+                        <MenuItem fx:id="updateRoomItem" mnemonicParsing="false" onAction="#UpdateRoomMenu" text="Update room" />
+                        <MenuItem fx:id="deleteRoomItem" mnemonicParsing="false" onAction="#DeleteRoomMenu" text="Delete room" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Account Seetings">
+                  <items>
+                    <MenuItem fx:id="createNewAccItem" mnemonicParsing="false" onAction="#CreateNewAccountMenu" text="Create new account " />
+                        <MenuItem fx:id="changePassOrUserItem" mnemonicParsing="false" onAction="#changeUserOrPassMenu" text="Change user/password" />
+                        <MenuItem fx:id="deleteAccItem" mnemonicParsing="false" onAction="#deleteAccountMenu" text="Delete account" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Reports">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#dailyRepMenu" text="Daily report" />
+                        <MenuItem mnemonicParsing="false" onAction="#monRepMenu" text="Monthly report" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Sign out">
+                    <items>
+                      <MenuItem fx:id="signOutItem" mnemonicParsing="false" onAction="#signOutMenu" text="Sign out" />
+                        <MenuItem mnemonicParsing="false" text="Cancel" />
+                    </items>
+                  </Menu>
+              </menus>
+               <effect>
+                  <ColorAdjust brightness="-0.07" />
+               </effect>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor_CreateRoom" layoutX="6.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0" visible="false">
+         <children>
+            <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create New Room">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter the new room information" />
+            <Label layoutX="14.0" layoutY="105.0" text="Room ID" />
+            <TextField layoutX="129.0" layoutY="101.0" />
+            <Label layoutX="14.0" layoutY="144.0" text="Room Description" />
+            <TextField layoutX="129.0" layoutY="140.0" prefHeight="101.0" prefWidth="279.0" />
+            <Label layoutX="13.0" layoutY="271.0" text="Floor" />
+            <TextField layoutX="129.0" layoutY="267.0" />
+            <Label layoutX="13.0" layoutY="311.0" text="Location" />
+            <TextField layoutX="129.0" layoutY="308.0" />
+            <Label layoutX="13.0" layoutY="357.0" text="Price" />
+            <TextField layoutX="129.0" layoutY="353.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="16.0" layoutY="40.0" prefHeight="656.0" prefWidth="949.0" visible="false">
+         <children>
+            <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="303.0" text="Please, Change room information by refilling the texts" />
+            <Label layoutX="14.0" layoutY="143.0" text="Room ID" />
+            <TextField layoutX="129.0" layoutY="141.0" />
+            <Label layoutX="14.0" layoutY="186.0" text="Room Description" />
+            <TextField layoutX="129.0" layoutY="183.0" prefHeight="101.0" prefWidth="279.0" />
+            <Label layoutX="13.0" layoutY="307.0" text="Floor" />
+            <TextField layoutX="129.0" layoutY="302.0" />
+            <Label layoutX="13.0" layoutY="346.0" text="Location" />
+            <TextField layoutX="129.0" layoutY="344.0" />
+            <Label layoutX="13.0" layoutY="393.0" text="Price" />
+            <TextField layoutX="129.0" layoutY="387.0" />
+            <Button layoutX="33.0" layoutY="605.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="96.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="805.0" layoutY="605.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="96.0" text="Save">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <TextField layoutX="14.0" layoutY="101.0" text="Search Room" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor_DeleteRoom" layoutX="-1.0" layoutY="30.0" prefHeight="672.0" prefWidth="968.0" visible="false">
+         <children>
+            <Label layoutX="38.0" layoutY="35.0" text="Delete Room">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="73.0" text="Choose the room you wish to delete" />
+            <TableView layoutX="34.0" layoutY="159.0" prefHeight="200.0" prefWidth="908.0">
+              <columns>
+                <TableColumn prefWidth="100.0" text="Room Number" />
+                <TableColumn prefWidth="578.0" text="Room Description" />
+                  <TableColumn prefWidth="86.0" text="Price" />
+                  <TableColumn prefWidth="110.0" text="Location" />
+              </columns>
+            </TableView>
+            <TextField layoutX="106.0" layoutY="113.0" text="Room ID" />
+            <Label layoutX="38.0" layoutY="117.0" text="Search" />
+            <Button layoutX="818.0" layoutY="613.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="114.0" text="Save ">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="38.0" layoutY="613.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="114.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor_CreateAccount" layoutX="16.0" layoutY="40.0" prefHeight="672.0" prefWidth="959.0" visible="false">
+         <children>
+            <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create Account">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Employee Information" />
+            <Label layoutX="14.0" layoutY="105.0" text="Name" />
+            <TextField layoutX="129.0" layoutY="101.0" />
+            <Label layoutX="14.0" layoutY="144.0" text="ID Number" />
+            <TextField layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label layoutX="13.0" layoutY="264.0" text="Email Address" />
+            <TextField layoutX="129.0" layoutY="259.0" />
+            <Label layoutX="13.0" layoutY="354.0" text="User Name" />
+            <TextField layoutX="129.0" layoutY="350.0" />
+            <Label layoutX="13.0" layoutY="397.0" text="Password" />
+            <TextField layoutX="129.0" layoutY="393.0" />
+            <TextField layoutX="129.0" layoutY="178.0" />
+            <Label layoutX="14.0" layoutY="182.0" text="Address" />
+            <TextField layoutX="129.0" layoutY="219.0" />
+            <Label layoutX="14.0" layoutY="223.0" text="Phone No." />
+            <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Account Information" />
+            <TextField layoutX="128.0" layoutY="435.0" />
+            <Label layoutX="12.0" layoutY="439.0" text="Re-Enter Password" />
+            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="821.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Save">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor_EditAccount" layoutX="11.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0" visible="false">
+         <children>
+            <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Edit Account">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Employee Information" />
+            <Label layoutX="14.0" layoutY="105.0" text="Name" />
+            <TextField layoutX="129.0" layoutY="101.0" />
+            <Label layoutX="14.0" layoutY="144.0" text="ID Number" />
+            <TextField layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label layoutX="13.0" layoutY="264.0" text="Email Address" />
+            <TextField layoutX="129.0" layoutY="259.0" />
+            <Label layoutX="13.0" layoutY="354.0" text="Change User Name" />
+            <TextField layoutX="129.0" layoutY="350.0" />
+            <Label layoutX="13.0" layoutY="397.0" text="Password" />
+            <TextField layoutX="129.0" layoutY="393.0" />
+            <TextField layoutX="129.0" layoutY="178.0" />
+            <Label layoutX="14.0" layoutY="182.0" text="Address" />
+            <TextField layoutX="129.0" layoutY="219.0" />
+            <Label layoutX="14.0" layoutY="223.0" text="Phone No." />
+            <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Account Information" />
+            <TextField layoutX="128.0" layoutY="435.0" />
+            <Label layoutX="12.0" layoutY="439.0" text="Change Password" />
+            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="831.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Save">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <TextField layoutX="127.0" layoutY="479.0" />
+            <Label layoutX="13.0" layoutY="483.0" text="Re-Enter Password" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchor_DeleteAccount" layoutX="9.0" layoutY="40.0" prefHeight="672.0" prefWidth="968.0" visible="false">
+         <children>
+            <Label layoutX="38.0" layoutY="35.0" text="Delete Account">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="73.0" text="Choose the account you wish to delete" />
+            <TableView editable="true" layoutX="23.0" layoutY="159.0" prefHeight="200.0" prefWidth="908.0">
+               <columns>
+                  <TableColumn prefWidth="100.0" text="ID Number" />
+                  <TableColumn prefWidth="578.0" text="Employee Name" />
+                  <TableColumn prefWidth="86.0" text="Location" />
+               </columns>
+            </TableView>
+            <TextField layoutX="106.0" layoutY="113.0" text="Employee name" />
+            <Label layoutX="38.0" layoutY="117.0" text="Search" />
+            <Button layoutX="818.0" layoutY="613.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="114.0" text="Save ">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="38.0" layoutY="613.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="114.0" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

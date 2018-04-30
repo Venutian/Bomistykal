@@ -13,7 +13,7 @@ public class EditRoomController {
     ManagerController ac = new ManagerController();
 
     public void back(ActionEvent event) throws IOException {
-        ac.back(event);
+        //ac.back(event);
     }
 
        
