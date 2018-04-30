@@ -14,6 +14,8 @@ import java.util.GregorianCalendar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 public class Sqlconnection{
+	
+	
 	public static void main(String[] args) throws Exception {
 		//int floor, String roomNumber, int price, int roomSize,String Location
 		 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -183,10 +185,7 @@ public static void deleteReservation(Reservation reservation) throws Exception{
 	  //sql7235306
 	  //ed5j4AGc2a
 	  Connection  con = DriverManager.getConnection("jdbc:mysql://sql7.freesqldatabase.com/sql7235306","sql7235306","ed5j4AGc2a");
-	  
-	   
-	  
-   System.out.println("Connected");
+	System.out.println("Connected");
    return con;
   } catch(Exception e){System.out.println(e);}
   

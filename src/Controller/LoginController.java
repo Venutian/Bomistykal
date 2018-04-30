@@ -46,7 +46,7 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		
-		
+		((Node) (event.getSource())).getScene().getWindow().hide();
 			
 		
 		

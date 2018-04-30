@@ -10,7 +10,6 @@ public class Authentication {
 		/*search in database exist = true if both match*/
 		Sqlconnection sp = new Sqlconnection();
 		try {
-			System.out.println(userName+password+" fdsf ");
 			this.employee =sp.getEmployee(userName, password);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
