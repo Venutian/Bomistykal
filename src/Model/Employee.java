@@ -12,8 +12,9 @@ public class Employee {
 	
 	public Employee(String name, String IDNumber,String userName,String password,String address,int phoneNumber,boolean manager) {
 		this.name = name;
-		this.userName = userName;
 		this.IDNumber = IDNumber;
+		this.userName = userName;
+
 		this.password = password;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
@@ -60,8 +61,10 @@ public class Employee {
 		return this.address;
 	}
 
-	public boolean isManager() {
-		return manager;
+	public int isManager() {
+		if(manager)
+		return 1;
+		return 0;
 	}
 
 	public void setManager(boolean manager) {

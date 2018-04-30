@@ -1,7 +1,5 @@
 package Controller;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,12 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class ManagerController {
 
-	 @FXML
-	   public void CreateNewAccountMenu(ActionEvent event) throws IOException {
-		 
-	 }
+AccountController ac=new AccountController();
+	@FXML
+	public void Account(ActionEvent event) throws IOException {
+		ac.Account(event);
+	}
 	    @FXML
 	    public void DeleteRoomMenu(ActionEvent event) {
 

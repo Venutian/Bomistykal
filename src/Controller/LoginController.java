@@ -1,10 +1,7 @@
 package Controller;
 
-import java.io.IOException;
-
 import Model.Authentication;
 import Model.Employee;
-import Model.Sqlconnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
 	
@@ -37,7 +36,7 @@ public class LoginController {
 			 /*to implement. Make a pop up window that says user name or passowrd wrong*/
 			 //if(emp == null)
 				 
-			if(emp.isManager())
+			if(emp.isManager()==1)
 				LogManager();
 			else
 				LogEmployee();
