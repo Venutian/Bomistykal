@@ -10,14 +10,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ManagerController {
-
+    LoginController lo = new LoginController();
 AccountController ac=new AccountController();
-	@FXML
+
 	public void Account(ActionEvent event) throws IOException {
 		ac.Account(event);
 	}
-	    @FXML
-	    public void DeleteRoomMenu(ActionEvent event) {
+
+    public void logout(ActionEvent event) throws IOException {
+        lo.logout(event);
+    }
+
+    @FXML
+    public void DeleteRoomMenu(ActionEvent event) {
 
 	    }
 

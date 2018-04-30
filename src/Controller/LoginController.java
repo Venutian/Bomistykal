@@ -46,14 +46,23 @@ public class LoginController {
 		}
 		
 		((Node) (event.getSource())).getScene().getWindow().hide();
-			
-		
-		
-	} 
-	
-	
-	private void LogEmployee() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
+
+
+    }
+
+    public void logout(ActionEvent event) throws IOException {
+        System.out.println("CheckIn");
+        Parent root = FXMLLoader.load(getClass().getResource("/View/login.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+    }
+
+    private void LogEmployee() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();

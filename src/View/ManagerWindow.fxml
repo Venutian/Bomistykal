@@ -37,6 +37,12 @@
                   <Button mnemonicParsing="false"  prefHeight="40.0" prefWidth="130.0" text="XXX" />
                </children>
             </AnchorPane>
+            <AnchorPane prefHeight="110.0" prefWidth="130.0">
+                <children>
+                    <Button mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="130.0"
+                            text="Logout"/>
+                </children>
+            </AnchorPane>
         </items>
       </SplitPane>
    </children>
