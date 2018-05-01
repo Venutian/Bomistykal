@@ -2,8 +2,6 @@ package Model;
 
 import java.util.Date;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public class Reservation {
 
 	private Date checkIn;
