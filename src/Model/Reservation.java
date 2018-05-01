@@ -4,32 +4,32 @@ import java.util.Date;
 
 public class Reservation {
 
-	Date checkIn;
-	Date checkOut;
-	String clientID;
-	String roomID;
-	String empUserName;
-	int totalPrice;
-	String ReservationID;
-	
-	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String empUserName) {
+	private Date checkIn;
+	private Date checkOut;
+	private String clientID;
+	private String roomID;
+	private String EmployeeUN;
+	private int totalPrice;
+	private String ReservationID;
+	//new SimpleStringProperty
+	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, String ReservationID) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
-		this.clientID = clientID;
+		this.clientID =clientID;
 		this.roomID = roomID;
-		this.empUserName = empUserName;
-		setReservationID();
+		this.EmployeeUN = EmployeeUN;
+		this.ReservationID = ReservationID;
 	}
 	
-	private void setReservationID() {
-		/*calculate reservation id */
-		this.ReservationID = "123";
-	}
+
+	
 	
 	
 	
 	/*setters*/
-	
+    public void setReservationID(String ReservationID) {
+	this.ReservationID = ReservationID;
+	}
 	public void setCheckInDate(Date date) {
 		this.checkIn = date;
 	}
@@ -38,13 +38,13 @@ public class Reservation {
 		this.checkOut = date;
 	}
 	public void setClient(String client) {
-		this.clientID = client;
+		this.clientID = client ;
 	}
 	public void setRoom(String room) {
 		this.roomID = room;
 	}
 	public void setEmployee(String emp) {
-		this.empUserName = emp;
+		this.EmployeeUN = emp;
 	}
 	public void setTotalPrice(int price) {
 		this.totalPrice = price;
@@ -58,13 +58,13 @@ public class Reservation {
 		return this.checkOut;
 	}
 	public String getClient() {
-		return this.clientID;
+		return this.clientID.toString();
 	}
 	public String getRoom() {
-		return this.roomID;
+		return this.roomID.toString();
 	}
 	public String getEmployee() {
-		return this.empUserName;
+		return this.EmployeeUN;
 	}
 	public int getTotalPrice() {
 		return this.totalPrice;

@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -25,25 +26,14 @@ public class Sqlconnection{
 		
 		 
 		 String testDateString = df.format(myDate);
-		String date2 = "2018-09-30";
+		String date2 = "2018-04-30";
 		 
 		 Date ff =  df.parse(testDateString);
 		 Date ff2 =  df.parse(date2);
 		 
 	   System.out.println(testDateString+" "+date2);
 		
-	 Reservation re = new Reservation(ff,ff,"D","d","fff");
-	 Reservation re2 = new Reservation(ff2,ff2,"D","d","fff");
 	
-	// Employee eo =new Employee("gh", "gh", "gh", "gh", "gh", 0, false);
-	 //System.out.println(eo.isManager());
-	// addEmployee(eo);
-	 //addReservation(re2);
-	// addReservation(re);
-	// getComingReservations() ;
-	// deleteReservation(re2);
-	// addReservation(re);
-	 //addReservation(re2);
 	}
 
 	
@@ -51,12 +41,13 @@ public class Sqlconnection{
 /*booom*/
 public void addRoom(Room room) throws Exception {
 	Connection con = getConnection();
-	System.out.println(getBoolean(room.getSmoking()));
+	
 	
 	//String roomID, int price, int RoomSize,int NumOfBeds ,boolean Location,boolean view ,boolean smoking, getBoolean(room.getLocation())
 	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID) "
-			+ " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + getBoolean(room.getLocation()) + "','" + getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
+			+ " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + room.getLocation() +  "','" +getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
 	pre.executeUpdate();
+	
 	pre.close();
 	con.close();
 }
@@ -92,17 +83,16 @@ public static void addReservation(Reservation reservation) throws Exception {
 public Employee  getEmployee(String userName, String password) throws Exception{
 	Connection con = getConnection();
 	Employee em = null;
-	System.out.println(userName+password);
+	
 	PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE userName = '"+userName+"' AND Password = '"+password+"'  ");
 	 ResultSet rs = pre.executeQuery();
 		while(rs.next()) {
-			System.out.println("sdasdsadsa");
+			
 			em = new Employee(rs.getString("Name"),rs.getString("IDNumber"), rs.getString("UserName"), rs.getString("Password"), rs.getString("Adrress"), rs.getInt("PhoneNumber"), rs.getBoolean("Manager"));
 		}
 		rs.close();
 	con.close();
-	if(em == null)
-		System.out.println("dksajkdsa");
+	
 	return em;
 }
 
@@ -119,8 +109,8 @@ public static ObservableList<Reservation> getComingReservations() throws Excepti
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn >= CURDATE()");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
-		System.out.println(rs.getString("ReservationID"));
-		data.add((Reservation) rs);
+		
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
 	}
 	pre.close();
 	con.close();
@@ -128,15 +118,21 @@ public static ObservableList<Reservation> getComingReservations() throws Excepti
 	
 }
 
-public static ObservableList<Reservation> getTodayCheckIn() throws Exception {
+
+public  ObservableList<Reservation> getTodayCheckIn() throws Exception {
 	ObservableList<Reservation> data =  FXCollections.observableArrayList();
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn = CURDATE()");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
-		System.out.println(rs.getString("ReservationID"));
-		data.add((Reservation) rs);
+
+		
+		//CheckIn, Che
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
 	}
+	
+	rs.close();
+	con.close();
 	return data;   
 }
 
@@ -146,8 +142,21 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut = CURDATE()");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
-		System.out.println(rs.getString("ReservationID"));
-		data.add((Reservation) rs);
+		
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
+	}
+	return data;   
+}
+
+public  ArrayList<Reservation> searchForDates(Date chIn) throws Exception {
+	String CheckIn = convertDate(chIn);
+	System.out.println(CheckIn);
+	ArrayList<Reservation> data =  new ArrayList<Reservation>();
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut <= '"+CheckIn+"' ");
+    ResultSet rs = pre.executeQuery();
+	while(rs.next()) {
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
 	}
 	return data;   
 }
@@ -156,6 +165,37 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
 
 
 
+
+
+
+public  ObservableList<Room> getRooms() throws Exception {
+	ObservableList<Room> data =  FXCollections.observableArrayList();
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("SELECT * FROM Room");
+    ResultSet rs = pre.executeQuery();
+	while(rs.next()) {
+		
+		//String roomID, int price, int roomSize,int numOfBeds ,String Location,boolean view ,boolean smoking,boolean adjoint,String adjoinedRoomID
+		//RoomID,Price,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID
+		data.add(new Room(rs.getString("RoomID"),rs.getInt("Price"),rs.getInt("RoomSize"),rs.getInt("NumOfBeds"),rs.getString("Location"),rs.getBoolean("View"),rs.getBoolean("Smoking"),rs.getBoolean("Adjoint"),rs.getString("AdjointRoomID")));
+	}
+	return data;   
+}
+
+
+//String campusLoc boolean smoking, boolean petsAllowd,boolean adjoined,boolean doubleBed
+public ArrayList<Room> getRoomChoices(String campusLoc, boolean view,boolean smoking,boolean adjoined,boolean doubleBed) throws Exception{
+	ArrayList<Room> data = new ArrayList<Room>();
+	Connection con = getConnection();
+	//	RoomID	Price	RoomSize	NumOfBeds	Location	View	Smoking	Adjoint	AdjointRoomID
+	PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE Location='"+campusLoc+"' AND View='"+getBoolean(view)+"'   AND Smoking='"+getBoolean(smoking)+"' AND Adjoint='"+getBoolean(adjoined)+"' " );
+    ResultSet rs = pre.executeQuery();
+	while(rs.next()) {
+		
+		data.add(new Room(rs.getString("RoomID"),rs.getInt("Price"),rs.getInt("RoomSize"),rs.getInt("NumOfBeds"),rs.getString("Location"),rs.getBoolean("View"),rs.getBoolean("Smoking"),rs.getBoolean("Adjoint"),rs.getString("AdjointRoomID")));
+	}
+	return data;   	
+}
 
 
 
@@ -173,7 +213,7 @@ public void deleteEmployee(Employee employee) throws Exception{
 }
 public static void deleteReservation(Reservation reservation) throws Exception{
 	Connection con = getConnection();
-	System.out.println(reservation.getReservationID());
+
 	PreparedStatement pre = con.prepareStatement("DELETE FROM Reservation WHERE ReservationID = '"+reservation.getReservationID()+"';");
 	pre.executeUpdate();
 	con.close();
@@ -185,7 +225,7 @@ public static void deleteReservation(Reservation reservation) throws Exception{
       ';*/
 public  void editRoom(Room room) throws Exception{
 	Connection con = getConnection();
-	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + getBoolean(room.getLocation()) + "'"
+	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + room.getLocation() + "'"
 			+ ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() + "' "
 			+ "WHERE RoomID='"+room.getRoomID()+ "';");
 	pre.executeUpdate();
@@ -222,7 +262,10 @@ public  void editEmployee(Employee employee) throws Exception{
 
 
 
-
+private String convertDate(Date date) {
+	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	return df.format(date);
+}
 
 private int getBoolean(boolean bol) {
 	   int i = bol ? 1 : 0;
