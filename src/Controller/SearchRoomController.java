@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Model.Reservation;
 import Model.Room;
+import Model.Sqlconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -146,13 +148,30 @@ public class SearchRoomController implements Initializable{
 		primaryStage.show();
 		
 	}
+	
+	@FXML
+    void back(ActionEvent event) {
+
+    }
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// set the choice for campus location choice box button
 				 //data = FXCollections.observableArrayList();
-				
+				Sqlconnection sq = new Sqlconnection();
 			      this.campusLoc.setItems(campusLocation);
 			      campusLoc.setValue("Vaxjo");
+			      ObservableList<Room> data;
+			    /* try {
+					data = sq.getRooms();
+					tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room,String>("roomID"));
+					tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room,String>("desc"));
+					tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room,String>("adjoinedRoomID"));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
+			      //
 			   // table contents 
 	}
 	

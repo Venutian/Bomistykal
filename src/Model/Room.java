@@ -29,6 +29,7 @@ public class Room {
         this.smoking = smoking;
         this.adjoint = adjoint;
         this.adjoinedRoomID = adjoinedRoomID;
+      
     }
 
     // getters and setters for Room object
