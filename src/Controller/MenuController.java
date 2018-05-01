@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,19 +35,31 @@ public class MenuController implements Initializable{
     private TableView<Reservation> CheckInTable;
 
     @FXML
-    private TableColumn<Reservation, SimpleStringProperty> CInRoomNumber;
+    private TableColumn<Reservation, String> CIRoomNumber;
 
     @FXML
-    private TableColumn<Reservation, SimpleStringProperty> CIGuestName;
+    private TableColumn<Reservation, String> CIGuestName;
+    
+    @FXML
+    private TableColumn<Reservation, String> c1;
+
+    @FXML
+    private TableColumn<Reservation, String> c2;
+
+    @FXML
+    private TableColumn<Reservation, String> c3;
+
+    @FXML
+    private TableColumn<Reservation, String> c4;
 
     @FXML
     private TableView<Reservation> CheckOutTable;
 
     @FXML
-    private TableColumn<Reservation, String> COutRoomNum;
+    private TableColumn<Reservation, String> CORoomNum;
 
     @FXML
-    private TableColumn<Reservation, String> COutGN;
+    private TableColumn<Reservation, String> COGuestName;
 
     public void logout(ActionEvent event) throws IOException {
         lo.logout(event);
@@ -114,33 +127,35 @@ public class MenuController implements Initializable{
 			
 			 
 			 String testDateString = df.format(myDate);
-			String date2 = "2018-04-30";
-			 
-			 Date ff =  df.parse(testDateString);
-			 Date ff2 =  df.parse(date2);
-			 
-		   System.out.println(testDateString+" "+date2);
 			
-		 Reservation re = new Reservation(ff,ff,"D","d","fff");
-		 ObservableList<Reservation> data  = FXCollections.observableArrayList(
-				  
-				 );
-		         
-		try {
+			Reservation re = null ;
+			 try {
+				Date ff =  df.parse(testDateString);
+				
+				  re = new Reservation(ff,ff,"D","d","fff","dsa");
+				 
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		
 			
-			/*String clientID;
-	      String roomID;new SimpleStringProperty (clientID)*/
-			CInRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation,SimpleStringProperty>("roomID"));
-			CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation,SimpleStringProperty>("clientID"));
-		      
-		      CheckInTable.setItems(data);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		
+		 ObservableList<Reservation> data  = FXCollections.observableArrayList( );
+		        data.add(re); 
+	
+			//Date checkIn,Date checkOut, String clientID,String roomID,String empUserName, String ReservationID
+			for(Reservation a : data) {
+			CIRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation,String>(a.clientID));
+			CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation,String>("roomID"));
+			c1.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkIn"));
+			c2.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkOut"));
+			c3.setCellValueFactory(new PropertyValueFactory<Reservation,String>("empUserName"));
+			c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
+		    CheckInTable.setItems(data);
+		  
+			}
 	}
 
     	

@@ -51,14 +51,18 @@
         </SplitPane>
         <TableView fx:id="CheckInTable" layoutX="216.0" layoutY="105.0" prefHeight="225.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="CInRoomNumber" prefWidth="184.0" text="Room Number" />
-                <TableColumn fx:id="CIGuestName" minWidth="0.0" prefWidth="515.1999816894531" text="Guest Name" />
+                <TableColumn fx:id="CIRoomNumber" prefWidth="184.0" text="Room Number" />
+                <TableColumn fx:id="CIGuestName" minWidth="0.0" prefWidth="218.400146484375" text="Guest Name" />
+            <TableColumn fx:id="c1" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="c2" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="c3" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="c4" prefWidth="75.0" text="Column X" />
             </columns>
         </TableView>
         <TableView fx:id="CheckOutTable" layoutX="216.0" layoutY="378.0" prefHeight="225.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="COutRoomNum" prefWidth="183.0" text="Room Number" />
-                <TableColumn fx:id="COutGN" prefWidth="513.6000671386719" text="Guest Name" />
+                <TableColumn fx:id="CORoomNum" prefWidth="183.0" text="Room Number" />
+                <TableColumn fx:id="COGuestName" prefWidth="513.6000671386719" text="Guest Name" />
             </columns>
         </TableView>
         <Label layoutX="217.0" layoutY="74.0" prefHeight="31.0" prefWidth="224.0" text="Today's Check-In List">

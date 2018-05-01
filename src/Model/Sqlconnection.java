@@ -32,17 +32,7 @@ public class Sqlconnection{
 		 
 	   System.out.println(testDateString+" "+date2);
 		
-	 //Reservation re = new Reservation(ff,ff,"D","d","fff");
 	
-	// Employee eo =new Employee("gh", "gh", "gh", "gh", "gh", 0, false);
-	 //System.out.println(eo.isManager());
-	// addEmployee(eo);
-	 //addReservation(re2);
-	// addReservation(re);
-	// getComingReservations() ;
-	// deleteReservation(re2);
-	// addReservation(re);
-	 //addReservation(re2);
 	}
 
 	
