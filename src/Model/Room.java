@@ -11,14 +11,14 @@ public class Room {
     private int roomSize;
     private int numOfBed;
     private String adjoinedRoomID;
-    private boolean Location;
+    private String Location;
     private boolean smoking;
     private boolean view;
     private boolean adjoint;
 
 
 
-    public Room(String roomID, int price, int roomSize,int numOfBeds ,boolean Location,boolean view ,boolean smoking,boolean adjoint,String adjoinedRoomID) {
+    public Room(String roomID, int price, int roomSize,int numOfBeds ,String Location,boolean view ,boolean smoking,boolean adjoint,String adjoinedRoomID) {
        
         this.numOfBed = numOfBeds;
         this.price = price;
@@ -101,11 +101,11 @@ public class Room {
         this.adjoint = adjoint;
     }
 
-    public boolean getLocation() {
+    public String getLocation() {
         return Location;
     }
 
-    public void setLocation(boolean location) {
+    public void setLocation(String location) {
         this.Location = location;
 
     }
