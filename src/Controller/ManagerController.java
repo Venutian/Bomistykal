@@ -1,9 +1,6 @@
 package Controller;
 
 
-import java.io.IOException;
-
-import Model.Employee;
 import Model.Room;
 import Model.Sqlconnection;
 import javafx.event.ActionEvent;
@@ -14,11 +11,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class ManagerController {
@@ -59,10 +57,9 @@ public class ManagerController {
 	    @FXML
 	    private CheckBox updateViewCB,updateAdjointCB,updateSmokingCB;
 
-	 
 
-	    
-	   private LoginController lg;
+	private MenuController lg;
+	private MenuController mc;
 	   private Sqlconnection sq;
 	   private Room rm;
 	    
@@ -70,13 +67,13 @@ public class ManagerController {
 	   
 	   @FXML
 	    public void goToMenuMenu(ActionEvent event) throws IOException {
-	    	Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
-	 		Scene scene = new Scene(root);
-	 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-	 		Stage primaryStage = new Stage();
-	 		primaryStage.setScene(scene);
-	 		primaryStage.show();
-	    }
+		   Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
+		   Scene scene = new Scene(root);
+		   scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+		   Stage primaryStage = new Stage();
+		   primaryStage.setScene(scene);
+		   primaryStage.show();
+	   }
 	    
 	   @FXML
 	    public void createNewRoomMenu(ActionEvent event) throws Exception {
