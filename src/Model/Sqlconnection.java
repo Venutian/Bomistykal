@@ -148,12 +148,13 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
 	return data;   
 }
 
-public  ArrayList<Reservation> searchForDates(Date chIn) throws Exception {
+public  ArrayList<Reservation> searchForDates(Date chIn,Date chOut) throws Exception {
 	String CheckIn = convertDate(chIn);
+	String CheckOut = convertDate(chOut);
 	System.out.println(CheckIn);
 	ArrayList<Reservation> data =  new ArrayList<Reservation>();
 	Connection con = getConnection();
-    PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut <= '"+CheckIn+"' ");
+    PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn >= '"+CheckIn+"' AND CheckOut <= '"+CheckOut+"'");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
 		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
