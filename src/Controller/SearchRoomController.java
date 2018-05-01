@@ -161,21 +161,31 @@ public class SearchRoomController implements Initializable{
 				Sqlconnection sq = new Sqlconnection();
 			      this.campusLoc.setItems(campusLocation);
 			      campusLoc.setValue("Vaxjo");
-			      ObservableList<Room> data;
-			    /* try {
+			      ObservableList<Room> data ;
+			     try {
 					data = sq.getRooms();
-					tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room,String>("roomID"));
-					tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room,String>("desc"));
+					
+					tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room,String>("roomID"));
+					tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room,String>("desc"));
 					tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room,String>("adjoinedRoomID"));
+					tabView.setItems(data);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}*/
+				}
 			      //
 			   // table contents 
 	}
 	
-	
+	@FXML
+    void searchForRoom(ActionEvent event) {
+		if(smokingBox.isSelected())
+			System.out.println("smoking");
+		if(petsBox.isSelected())
+			System.out.println("pets");
+		
+
+    }
 	
 	
 	

@@ -1,7 +1,7 @@
 package Controller;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
+import Model.Reservation;
+import Model.Sqlconnection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -25,9 +24,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
-
-import Model.Reservation;
-import Model.Sqlconnection;
 
 public class MenuController implements Initializable{
     LoginController lo = new LoginController();
@@ -144,30 +140,25 @@ public class MenuController implements Initializable{
 		
 		 ObservableList<Reservation> data = null;
 		try {
-			data = FXCollections.observableArrayList();
-		} catch (Exception e) {
+            data = new Sqlconnection().getTodayCheckIn();
+        } catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		       
 		System.out.println(data.size());
-		
-		for( int i = 0; i < 4 ; i ++) {
-		
-			  re = new Reservation(ff,ff,"D","d","fff","dsa");
-			  data.add(re);
-			c1.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkIn"));
-			c2.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkOut"));
-			CIRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation,String>("clientID"));
-			CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation,String>("roomID"));
-			c3.setCellValueFactory(new PropertyValueFactory<Reservation,String>("EmployeeUN"));
-			c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
+
+
+        c1.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
+        c2.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
+        CIRoomNumber.setCellValueFactory(new PropertyValueFactory<>("Client"));
+        CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+        c3.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Employee"));
+        c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
 		    CheckInTable.setItems(data);
-		}
-			
-		  
-			
-	}
+
+
+    }
 
     	
 	

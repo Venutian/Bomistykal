@@ -48,10 +48,21 @@ public class ManagerController {
 	    private CheckBox addViewCB, addAdjointCB, addSmokingCB;
 
 	    @FXML
-	    private AnchorPane anchor_adjoint;
+	    private AnchorPane anchor_adjoint,anchor_updateAdjoint;
 
 	    @FXML
-	    private ChoiceBox<String> addLocChoiceBox;
+	    private ChoiceBox<String> addLocChoiceBox, updateLocChoiceBox;
+	    
+	    @FXML
+	    private TextField searchUpdateRoomTextF,updateRoomIDTextF,priceUpdateTextF,updateRoomSizeTextF,updateNoOfBedTextF,updateAdjointRoomIDTextF,searchDeleteRoomTextF;
+	
+	    @FXML
+	    private CheckBox updateViewCB,updateAdjointCB,updateSmokingCB;
+
+	    @FXML
+	    private TextField addAccNameTextF,addAccPriceTextF,addAccAddTextF,addPhoneNoTextF,addAccEmailTextF,addAccUserTextF,addAccPassWordTextF,
+	    addAccPassWord2TextF,searchEmplNameTextF;
+
 	    
 	   private LoginController lg;
 	   private Sqlconnection sq;
@@ -88,8 +99,8 @@ public class ManagerController {
 	    		anchor_UpdateRoom.setVisible(false);
 		    	anchor_DeleteRoom.setVisible(true);
 		    	anchor_CreateAccount.setVisible(false);
-				 anchor_EditAccount.setVisible(false);
-				 anchor_DeleteAccount.setVisible(false);
+				anchor_EditAccount.setVisible(false);
+				anchor_DeleteAccount.setVisible(false);
 	    	}
 	    }
 
@@ -100,8 +111,8 @@ public class ManagerController {
 		    	anchor_DeleteRoom.setVisible(false);
 		    	anchor_UpdateRoom.setVisible(true);
 		    	anchor_CreateAccount.setVisible(false);
-				 anchor_EditAccount.setVisible(false);
-				 anchor_DeleteAccount.setVisible(false);
+				anchor_EditAccount.setVisible(false);
+				anchor_DeleteAccount.setVisible(false);
 	    	} 
 	    	
 	    }
@@ -122,31 +133,51 @@ public class ManagerController {
 	    @FXML
 	    public void cancelbtn(ActionEvent event) {
 	    	
-	    	while (addRoomIDTextF !=null ||priceAddTextF!=null ||addRoomSizeTextF!=null||addNoOfBedTextF!=null ||addLocChoiceBox!=null||addViewCB!=null
-	    			||addSmokingCB!=null||addAdjointCB!=null||addAdjointRoomIDTextF!=null||addAdjointRoomIDTextF!=null) {
-	    		
-	    		addRoomIDTextF = null;
-	    		priceAddTextF = null; 
-	    		addRoomSizeTextF =null;
-	    		addNoOfBedTextF=null;
-	    		addLocChoiceBox=null;
-	    		addViewCB=null;
-		    	addSmokingCB=null;
-		    	addAdjointCB=null;
-		    	addAdjointRoomIDTextF=null; 
-		    	addAdjointRoomIDTextF=null;
-	    	}
+	    		addRoomIDTextF.setText("");
+	    		priceAddTextF.setText("");
+	    		addRoomSizeTextF.setText("");
+	    		addNoOfBedTextF.setText("");
+	    		addLocChoiceBox.setAccessibleText(null);
+	    		addViewCB.setSelected(false);
+	    		addSmokingCB.setSelected(false);
+	    		addAdjointCB.setSelected(false);
+	    		addAdjointRoomIDTextF.setText("");
 	    		anchor_CreateRoom.setVisible(false);
 	    	}	    
 	    
+	    
+	    @FXML
+	    public void cancelUpdateRoom(ActionEvent event) {
+	    	
+	    	searchUpdateRoomTextF.setText("");
+	    	updateRoomIDTextF.setText("");
+	    	priceUpdateTextF.setText("");
+	    	updateRoomSizeTextF.setText("");
+	    	updateNoOfBedTextF.setText("");
+	    	updateLocChoiceBox.setAccessibleText(null);
+	    	updateViewCB.setSelected(false);
+	    	updateSmokingCB.setSelected(false);
+	    	updateAdjointCB.setSelected(false);
+	    	updateAdjointRoomIDTextF.setText("");
+	    	anchor_UpdateRoom.setVisible(false);
+	    	}	    
+	    
+	    
+	    @FXML
+	    public void cancelDeleteRoom(ActionEvent event) {
+	    	
+	    	searchDeleteRoomTextF.setText("");
+		     anchor_DeleteRoom.setVisible(false);
+
+	    	}	    
 	    public void CreateNewAccountMenu(ActionEvent event) throws IOException {
 			 if (event.getTarget()== createNewAccItem) {
 				 anchor_CreateAccount.setVisible(true);
 				 anchor_EditAccount.setVisible(false);
 				 anchor_DeleteAccount.setVisible(false);
 				 anchor_CreateRoom.setVisible(false);
-			    	anchor_DeleteRoom.setVisible(false);
-			    	anchor_UpdateRoom.setVisible(false);
+			     anchor_DeleteRoom.setVisible(false);
+			     anchor_UpdateRoom.setVisible(false);
 			 }  }
 	    @FXML
 	    public void changeUserOrPassMenu(ActionEvent event) throws Exception{
@@ -155,8 +186,8 @@ public class ManagerController {
 				 anchor_DeleteAccount.setVisible(false);
 				 anchor_EditAccount.setVisible(true);
 				 anchor_CreateRoom.setVisible(false);
-			    	anchor_DeleteRoom.setVisible(false);
-			    	anchor_UpdateRoom.setVisible(false);
+			     anchor_DeleteRoom.setVisible(false);
+			     anchor_UpdateRoom.setVisible(false);
 	    	}
 	    }
 
@@ -171,7 +202,33 @@ public class ManagerController {
 			     anchor_UpdateRoom.setVisible(false);
 			 } 
 	    }
-
+	    @FXML
+	    public void canceCreateAccount(ActionEvent event) {
+	    	
+	    	addAccNameTextF.setText("");
+	    	addAccPriceTextF.setText("");
+	    	addAccAddTextF.setText("");
+	    	addPhoneNoTextF.setText("");
+	    	addAccEmailTextF.setText("");
+	    	addAccUserTextF.setText("");
+	    	addAccPassWordTextF.setText("");
+	    	addAccPassWord2TextF.setText("");
+	    	anchor_CreateAccount.setVisible(false);
+	    	}	    
+	    @FXML
+	    public void cancelEditAcc(ActionEvent event) {
+	    	
+	    	
+	    	anchor_EditAccount.setVisible(false);
+	    	}	    
+	    
+	  
+	    @FXML
+	    public void canceDeleteAcc(ActionEvent event) {
+	    	
+	    	searchEmplNameTextF.setText("");
+	    	anchor_DeleteAccount.setVisible(false);
+	    	}	    
 	    @FXML
 	    public void dailyRepMenu(ActionEvent event) {
 
