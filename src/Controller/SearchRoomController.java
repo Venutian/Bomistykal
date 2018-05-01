@@ -132,7 +132,7 @@ public class SearchRoomController implements Initializable{
 
 	
 	@FXML
-    void reservebtn(ActionEvent event) throws IOException {
+    public void reservebtn(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/View/Reserve.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
@@ -141,7 +141,21 @@ public class SearchRoomController implements Initializable{
 		primaryStage.show();
 		
 	}
-	
+    @FXML
+    public void resetBtn(ActionEvent event) throws IOException {
+    	checkIn.setValue(null);
+    	checkOut.setValue(null);
+    	smokingBox.setSelected(false);
+    	nonSmokingBox.setSelected(false);
+    	petsBox.setSelected(false);
+    	adjointBox.setSelected(false);
+    	doubleBedBox.setSelected(false);
+    	twinBedBox.setSelected(false);
+    	viewBox.setSelected(false);
+    	SingleBedBox.setSelected(false);
+    	campusLoc.setValue(null);;
+		
+	}
 	@FXML
     public void back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
