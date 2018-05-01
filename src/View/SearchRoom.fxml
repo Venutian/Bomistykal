@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchRoomController">
     <children>
         <Label layoutX="53.0" layoutY="2.0" prefHeight="100.0" prefWidth="400.0" text="Search"
                AnchorPane.leftAnchor="53.0">

@@ -118,6 +118,7 @@ public static ObservableList<Reservation> getComingReservations() throws Excepti
 	
 }
 
+
 public  ObservableList<Reservation> getTodayCheckIn() throws Exception {
 	ObservableList<Reservation> data =  FXCollections.observableArrayList();
 	Connection con = getConnection();
@@ -146,6 +147,17 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
 	return data;   
 }
 
+public  ObservableList<Room> getRooms() throws Exception {
+	ObservableList<Room> data =  FXCollections.observableArrayList();
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("SELECT * FROM Room");
+    ResultSet rs = pre.executeQuery();
+	while(rs.next()) {
+		System.out.println(rs.getString("RoomID"));
+		data.add((Room) rs);
+	}
+	return data;   
+}
 
 
 
