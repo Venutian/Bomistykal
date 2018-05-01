@@ -87,7 +87,8 @@
             <Label layoutX="13.0" layoutY="274.0" text="Location" />
             <ChoiceBox fx:id="addLocChoiceBox" layoutX="129.0" layoutY="270.0" prefHeight="26.0" prefWidth="103.0" />
             <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelbtn" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
-            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Create" />
+            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#CreateRoombtn" prefHeight="34.0"
+                    prefWidth="87.0" text="Create"/>
             <AnchorPane fx:id="anchor_CreateRoom1" prefHeight="672.0" prefWidth="959.0" visible="false">
                <children>
                   <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create New Room">
@@ -117,7 +118,8 @@
                   <Label layoutX="13.0" layoutY="274.0" text="Location" />
                   <ChoiceBox fx:id="addLocChoiceBox1" layoutX="129.0" layoutY="270.0" prefHeight="26.0" prefWidth="103.0" />
                   <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelbtn" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
-                  <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Create" />
+                  <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#CreateRoombtn"
+                          prefHeight="34.0" prefWidth="87.0" text="Create"/>
                </children>
             </AnchorPane>
          </children>
@@ -151,7 +153,8 @@
             <Label layoutX="13.0" layoutY="310.0" text="Location" />
             <ChoiceBox fx:id="updateLocChoiceBox" layoutX="129.0" layoutY="306.0" prefHeight="26.0" prefWidth="103.0" />
             <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelUpdateRoom" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
-            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Save" />
+            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#CreateRoombtn" prefHeight="34.0"
+                    prefWidth="87.0" text="Save"/>
             <AnchorPane fx:id="anchor_CreateRoom11" layoutY="36.0" prefHeight="672.0" prefWidth="959.0" visible="false">
                <children>
                   <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create New Room">
@@ -181,7 +184,8 @@
                   <Label layoutX="13.0" layoutY="274.0" text="Location" />
                   <ChoiceBox fx:id="addLocChoiceBox11" layoutX="129.0" layoutY="270.0" prefHeight="26.0" prefWidth="103.0" />
                   <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelbtn" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
-                  <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Create" />
+                  <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#CreateRoombtn"
+                          prefHeight="34.0" prefWidth="87.0" text="Create"/>
                </children>
             </AnchorPane>
             <TextField fx:id="searchUpdateRoomTextF" layoutX="12.0" layoutY="99.0" promptText="Search Room ID" />

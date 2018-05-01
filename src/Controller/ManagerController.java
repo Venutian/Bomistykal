@@ -89,8 +89,9 @@ public class ManagerController {
 	    	anchor_CreateAccount.setVisible(false);
 			anchor_EditAccount.setVisible(false);
 			anchor_DeleteAccount.setVisible(false);
-		       
-	    	} 
+
+			}
+
 	   }
 	    @FXML
 	    public void DeleteRoomMenu(ActionEvent event) throws Exception{
@@ -118,17 +119,20 @@ public class ManagerController {
 	    }
 
 	   @FXML
-	    public void createbtn(ActionEvent event) throws Exception {
-	 
-		   rm =new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()), 
-			Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(),addSmokingCB.isSelected(),
-				  addAdjointCB.isSelected(),addAdjointRoomIDTextF.getText().toString());
-		 sq.addRoom(rm);
-		 ((Node) (event.getSource())).getScene().getWindow().hide();
-	    //if (addAdjointCB.isSelected()) {
-	    		//anchor_adjoint.setVisible(true);
+	   public void CreateRoombtn(ActionEvent event) throws Exception {
+
+		   Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+				   Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
+				   addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+		   Sqlconnection sq = new Sqlconnection();
+		   sq.addRoom(rm);
+
+		   //if (addAdjointCB.isSelected()) {
+		   //anchor_adjoint.setVisible(true);
 	    	//}
-	    }
+
+
+	   }
 	    
 	    @FXML
 	    public void cancelbtn(ActionEvent event) {

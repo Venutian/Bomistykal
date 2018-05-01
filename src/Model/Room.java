@@ -34,13 +34,7 @@ public class Room {
 
     // getters and setters for Room object
 
-    public String getDescription() {
-        return desc;
-    }
 
-    public void setDescription(String description) {
-        this.desc = description;
-    }
 
     public int getPrice() {
         return price;
