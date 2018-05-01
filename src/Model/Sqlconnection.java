@@ -124,8 +124,8 @@ public  ObservableList<Reservation> getTodayCheckIn() throws Exception {
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn = CURDATE()");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
-		System.out.println(rs.getString("ReservationID"));
-		//CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID
+
+        //CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID
 		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
 	}
 	System.out.println(data.size()+"d dsa ada");
