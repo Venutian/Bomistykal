@@ -10,28 +10,28 @@ public class Reservation {
 	private Date checkOut;
 	private String clientID;
 	private String roomID;
-	private String empUserName;
-	 private int totalPrice;
+	private String EmployeeUN;
+	private int totalPrice;
 	private String ReservationID;
 	//new SimpleStringProperty
-	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String empUserName, String ReservationID) {
+	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, String ReservationID) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.clientID =clientID;
 		this.roomID = roomID;
-		this.empUserName = empUserName;
-		setReservationID();
+		this.EmployeeUN = EmployeeUN;
+		this.ReservationID = ReservationID;
 	}
 	
-	private void setReservationID() {
-		/*calculate reservation id */
-		this.ReservationID = "123";
-	}
+
+	
 	
 	
 	
 	/*setters*/
-	
+    public void setReservationID(String ReservationID) {
+	this.ReservationID = ReservationID;
+	}
 	public void setCheckInDate(Date date) {
 		this.checkIn = date;
 	}
@@ -46,7 +46,7 @@ public class Reservation {
 		this.roomID = room;
 	}
 	public void setEmployee(String emp) {
-		this.empUserName = emp;
+		this.EmployeeUN = emp;
 	}
 	public void setTotalPrice(int price) {
 		this.totalPrice = price;
@@ -66,7 +66,7 @@ public class Reservation {
 		return this.roomID.toString();
 	}
 	public String getEmployee() {
-		return this.empUserName;
+		return this.EmployeeUN;
 	}
 	public int getTotalPrice() {
 		return this.totalPrice;

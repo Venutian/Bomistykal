@@ -127,35 +127,46 @@ public class MenuController implements Initializable{
 			
 			 
 			 String testDateString = df.format(myDate);
-			
+			 Date  ff = null;
 			Reservation re = null ;
 			 try {
-				Date ff =  df.parse(testDateString);
 				
-				  re = new Reservation(ff,ff,"D","d","fff","dsa");
+				 ff =  df.parse(testDateString);
+				
 				 
 			} catch (ParseException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
-		
+			
 			
 		
-		 ObservableList<Reservation> data  = FXCollections.observableArrayList( );
-		        data.add(re); 
-	
-			//Date checkIn,Date checkOut, String clientID,String roomID,String empUserName, String ReservationID
-			for(Reservation a : data) {
-			CIRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation,String>(a.clientID));
-			CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation,String>("roomID"));
+		 ObservableList<Reservation> data = null;
+		try {
+			data = FXCollections.observableArrayList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		       
+		System.out.println(data.size());
+		
+		for( int i = 0; i < 4 ; i ++) {
+		
+			  re = new Reservation(ff,ff,"D","d","fff","dsa");
+			  data.add(re);
 			c1.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkIn"));
 			c2.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkOut"));
+			CIRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation,String>("clientID"));
+			CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation,String>("roomID"));
 			c3.setCellValueFactory(new PropertyValueFactory<Reservation,String>("empUserName"));
 			c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
 		    CheckInTable.setItems(data);
+		}
+			
 		  
-			}
+			
 	}
 
     	
