@@ -160,7 +160,7 @@ public class MenuController implements Initializable{
 			c2.setCellValueFactory(new PropertyValueFactory<Reservation,String>("checkOut"));
 			CIRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation,String>("clientID"));
 			CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation,String>("roomID"));
-			c3.setCellValueFactory(new PropertyValueFactory<Reservation,String>("empUserName"));
+			c3.setCellValueFactory(new PropertyValueFactory<Reservation,String>("EmployeeUN"));
 			c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
 		    CheckInTable.setItems(data);
 		}
