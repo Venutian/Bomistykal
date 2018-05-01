@@ -8,74 +8,71 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuController">
     <children>
         <Label prefHeight="100.0" prefWidth="400.0" text="Menu" AnchorPane.leftAnchor="50.0">
             <font>
-                <Font size="30.0"/>
+                <Font size="30.0" />
             </font>
         </Label>
-        <SplitPane dividerPositions="0.061079545454545456, 0.125, 0.1903409090909091, 0.2556818181818182, 0.5"
-                   layoutY="100.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="130.0">
+        <SplitPane dividerPositions="0.061079545454545456, 0.125, 0.1903409090909091, 0.2556818181818182, 0.5" layoutY="100.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="130.0">
             <items>
                 <AnchorPane prefHeight="50.0" prefWidth="160.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#Search" prefHeight="40.0" prefWidth="130.0"
-                                text="Search"/>
+                        <Button mnemonicParsing="false" onAction="#Search" prefHeight="40.0" prefWidth="130.0" text="Search" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#CheckIn" prefHeight="40.0" prefWidth="130.0"
-                                text="Check-In"/>
+                        <Button mnemonicParsing="false" onAction="#CheckIn" prefHeight="40.0" prefWidth="130.0" text="Check-In" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#CheckOut" prefHeight="40.0" prefWidth="130.0"
-                                text="Check-Out"/>
+                        <Button mnemonicParsing="false" onAction="#CheckOut" prefHeight="40.0" prefWidth="130.0" text="Check-Out" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#Edit" prefHeight="40.0" prefWidth="130.0"
-                                text="Booking(WRONG)"/>
+                        <Button mnemonicParsing="false" onAction="#Edit" prefHeight="40.0" prefWidth="130.0" text="Booking(WRONG)" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="110.0" prefWidth="130.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="XXX"/>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="XXX" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="110.0" prefWidth="130.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="130.0"
-                                text="Logout"/>
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="130.0" text="Logout" />
                     </children>
                 </AnchorPane>
             </items>
         </SplitPane>
-        <TableView layoutX="216.0" layoutY="105.0" prefHeight="225.0" prefWidth="700.0">
+        <TableView fx:id="CheckInTable" layoutX="216.0" layoutY="105.0" prefHeight="225.0" prefWidth="700.0">
             <columns>
-                <TableColumn prefWidth="179.0" text="Room Number"/>
-                <TableColumn minWidth="0.0" prefWidth="408.0" text="Guest Name"/>
+                <TableColumn fx:id="CIRoomNumber" prefWidth="184.0" text="Room Number" />
+                <TableColumn fx:id="CIGuestName" minWidth="0.0" prefWidth="218.400146484375" text="Guest Name" />
+            <TableColumn fx:id="c1" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="c2" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="c3" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="c4" prefWidth="75.0" text="Column X" />
             </columns>
         </TableView>
-        <TableView layoutX="216.0" layoutY="378.0" prefHeight="225.0" prefWidth="700.0">
+        <TableView fx:id="CheckOutTable" layoutX="216.0" layoutY="378.0" prefHeight="225.0" prefWidth="700.0">
             <columns>
-                <TableColumn prefWidth="183.0" text="Room Number"/>
-                <TableColumn prefWidth="364.0" text="Guest Name"/>
+                <TableColumn fx:id="CORoomNum" prefWidth="183.0" text="Room Number" />
+                <TableColumn fx:id="COGuestName" prefWidth="513.6000671386719" text="Guest Name" />
             </columns>
         </TableView>
         <Label layoutX="217.0" layoutY="74.0" prefHeight="31.0" prefWidth="224.0" text="Today's Check-In List">
             <font>
-                <Font name="System Bold" size="15.0"/>
+                <Font name="System Bold" size="15.0" />
             </font>
         </Label>
         <Label layoutX="216.0" layoutY="345.0" prefHeight="26.0" prefWidth="193.0" text="Today's Check-Out List">
             <font>
-                <Font name="System Bold" size="15.0"/>
+                <Font name="System Bold" size="15.0" />
             </font>
         </Label>
     </children>
