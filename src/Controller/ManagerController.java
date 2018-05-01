@@ -57,7 +57,17 @@ public class ManagerController {
 	   private Sqlconnection sq;
 	   private Room rm;
 	    
-	    
+	   
+	   
+	   @FXML
+	    public void goToMenuMenu(ActionEvent event) throws IOException {
+	    	Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
+	 		Scene scene = new Scene(root);
+	 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+	 		Stage primaryStage = new Stage();
+	 		primaryStage.setScene(scene);
+	 		primaryStage.show();
+	    }
 	    
 	   @FXML
 	    public void createNewRoomMenu(ActionEvent event) throws Exception {
@@ -166,10 +176,7 @@ public class ManagerController {
 	    public void dailyRepMenu(ActionEvent event) {
 
 	    }
-	    @FXML
-	    public void goToMenuMenu(ActionEvent event) {
-	    	
-	    }
+	    
 
 	    @FXML
 	    void deleteResMenu(ActionEvent event) {
