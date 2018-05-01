@@ -119,9 +119,9 @@ public class ManagerController {
 
 	   @FXML
 	    public void createbtn(ActionEvent event) throws Exception {
-	    	
-		 rm =new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()), 
-			Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getItems().toString(), addViewCB.isSelected(),addSmokingCB.isSelected(),
+	 
+		   rm =new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()), 
+			Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(),addSmokingCB.isSelected(),
 				  addAdjointCB.isSelected(),addAdjointRoomIDTextF.getText().toString());
 		 sq.addRoom(rm);
 		 ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -231,12 +231,6 @@ public class ManagerController {
 	    	}	    
 	    @FXML
 	    public void dailyRepMenu(ActionEvent event) {
-
-	    }
-	    
-
-	    @FXML
-	    void deleteResMenu(ActionEvent event) {
 
 	    }
 	   
