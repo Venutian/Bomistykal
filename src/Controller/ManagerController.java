@@ -59,7 +59,9 @@ public class ManagerController {
 	    @FXML
 	    private CheckBox updateViewCB,updateAdjointCB,updateSmokingCB;
 
-	 
+	    @FXML
+	    private TextField addAccNameTextF,addAccPriceTextF,addAccAddTextF,addPhoneNoTextF,addAccEmailTextF,addAccUserTextF,addAccPassWordTextF,
+	    addAccPassWord2TextF,searchEmplNameTextF;
 
 	    
 	   private LoginController lg;
@@ -200,7 +202,33 @@ public class ManagerController {
 			     anchor_UpdateRoom.setVisible(false);
 			 } 
 	    }
-
+	    @FXML
+	    public void canceCreateAccount(ActionEvent event) {
+	    	
+	    	addAccNameTextF.setText("");
+	    	addAccPriceTextF.setText("");
+	    	addAccAddTextF.setText("");
+	    	addPhoneNoTextF.setText("");
+	    	addAccEmailTextF.setText("");
+	    	addAccUserTextF.setText("");
+	    	addAccPassWordTextF.setText("");
+	    	addAccPassWord2TextF.setText("");
+	    	anchor_CreateAccount.setVisible(false);
+	    	}	    
+	    @FXML
+	    public void cancelEditAcc(ActionEvent event) {
+	    	
+	    	
+	    	anchor_EditAccount.setVisible(false);
+	    	}	    
+	    
+	  
+	    @FXML
+	    public void canceDeleteAcc(ActionEvent event) {
+	    	
+	    	searchEmplNameTextF.setText("");
+	    	anchor_DeleteAccount.setVisible(false);
+	    	}	    
 	    @FXML
 	    public void dailyRepMenu(ActionEvent event) {
 
