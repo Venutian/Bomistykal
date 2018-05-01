@@ -122,7 +122,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="694.0" prefWidth="985.0" visible="false">
+      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="694.0" prefWidth="985.0">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
                <font>
@@ -151,7 +151,7 @@
             <Label layoutX="13.0" layoutY="310.0" text="Location" />
             <ChoiceBox fx:id="updateLocChoiceBox" layoutX="129.0" layoutY="306.0" prefHeight="26.0" prefWidth="103.0" />
             <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelUpdateRoom" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
-            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Create" />
+            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Save" />
             <AnchorPane fx:id="anchor_CreateRoom11" layoutY="36.0" prefHeight="672.0" prefWidth="959.0" visible="false">
                <children>
                   <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create New Room">
@@ -187,7 +187,7 @@
             <TextField fx:id="searchUpdateRoomTextF" layoutX="12.0" layoutY="99.0" promptText="Search Room ID" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchor_DeleteRoom" layoutX="-1.0" layoutY="30.0" prefHeight="672.0" prefWidth="968.0">
+      <AnchorPane fx:id="anchor_DeleteRoom" layoutX="-1.0" layoutY="30.0" prefHeight="672.0" prefWidth="968.0" visible="false">
          <children>
             <Label layoutX="38.0" layoutY="35.0" text="Delete Room">
                <font>
@@ -226,28 +226,28 @@
             </Label>
             <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Employee Information" />
             <Label layoutX="14.0" layoutY="105.0" text="Name" />
-            <TextField layoutX="129.0" layoutY="101.0" />
+            <TextField fx:id="addAccNameTextF" layoutX="129.0" layoutY="101.0" />
             <Label layoutX="14.0" layoutY="144.0" text="ID Number" />
-            <TextField layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="addAccPriceTextF" layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
             <Label layoutX="13.0" layoutY="264.0" text="Email Address" />
-            <TextField layoutX="129.0" layoutY="259.0" />
+            <TextField fx:id="addAccEmailTextF" layoutX="129.0" layoutY="259.0" />
             <Label layoutX="13.0" layoutY="354.0" text="User Name" />
-            <TextField layoutX="129.0" layoutY="350.0" />
+            <TextField fx:id="addAccUserTextF" layoutX="129.0" layoutY="350.0" />
             <Label layoutX="13.0" layoutY="397.0" text="Password" />
-            <TextField layoutX="129.0" layoutY="393.0" />
-            <TextField layoutX="129.0" layoutY="178.0" />
+            <TextField fx:id="addAccPassWordTextF" layoutX="129.0" layoutY="393.0" />
+            <TextField fx:id="addAccAddTextF" layoutX="129.0" layoutY="178.0" />
             <Label layoutX="14.0" layoutY="182.0" text="Address" />
-            <TextField layoutX="129.0" layoutY="219.0" />
+            <TextField fx:id="addPhoneNoTextF" layoutX="129.0" layoutY="219.0" />
             <Label layoutX="14.0" layoutY="223.0" text="Phone No." />
             <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Account Information" />
-            <TextField layoutX="128.0" layoutY="435.0" />
+            <TextField fx:id="addAccPassWord2TextF" layoutX="128.0" layoutY="435.0" />
             <Label layoutX="12.0" layoutY="439.0" text="Re-Enter Password" />
-            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Cancel">
+            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" onAction="#canceCreateAccount" prefHeight="41.0" prefWidth="86.0" text="Cancel">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="821.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Save">
+            <Button layoutX="821.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Create">
                <font>
                   <Font size="13.0" />
                </font>
@@ -279,7 +279,7 @@
             <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Account Information" />
             <TextField layoutX="128.0" layoutY="435.0" />
             <Label layoutX="12.0" layoutY="439.0" text="Change Password" />
-            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Cancel">
+            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" onAction="#cancelEditAcc" prefHeight="41.0" prefWidth="86.0" text="Cancel">
                <font>
                   <Font size="13.0" />
                </font>
@@ -308,14 +308,14 @@
                   <TableColumn prefWidth="86.0" text="Location" />
                </columns>
             </TableView>
-            <TextField layoutX="106.0" layoutY="113.0" text="Employee name" />
+            <TextField fx:id="searchEmplNameTextF" layoutX="106.0" layoutY="113.0" promptText="Employee name" />
             <Label layoutX="38.0" layoutY="117.0" text="Search" />
             <Button layoutX="818.0" layoutY="613.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="114.0" text="Save ">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="38.0" layoutY="613.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="114.0" text="Cancel">
+            <Button layoutX="38.0" layoutY="613.0" mnemonicParsing="false" onAction="#canceDeleteAcc" prefHeight="41.0" prefWidth="114.0" text="Cancel">
                <font>
                   <Font size="13.0" />
                </font>

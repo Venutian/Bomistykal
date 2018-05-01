@@ -1,6 +1,9 @@
 package Controller;
 
 
+import java.io.IOException;
+
+import Model.Employee;
 import Model.Room;
 import Model.Sqlconnection;
 import javafx.event.ActionEvent;
@@ -11,12 +14,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 
 public class ManagerController {
@@ -57,9 +59,12 @@ public class ManagerController {
 	    @FXML
 	    private CheckBox updateViewCB,updateAdjointCB,updateSmokingCB;
 
+	    @FXML
+	    private TextField addAccNameTextF,addAccPriceTextF,addAccAddTextF,addPhoneNoTextF,addAccEmailTextF,addAccUserTextF,addAccPassWordTextF,
+	    addAccPassWord2TextF,searchEmplNameTextF;
 
-	private MenuController lg;
-	private MenuController mc;
+	    
+	   private LoginController lg;
 	   private Sqlconnection sq;
 	   private Room rm;
 	    
@@ -67,13 +72,13 @@ public class ManagerController {
 	   
 	   @FXML
 	    public void goToMenuMenu(ActionEvent event) throws IOException {
-		   Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
-		   Scene scene = new Scene(root);
-		   scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		   Stage primaryStage = new Stage();
-		   primaryStage.setScene(scene);
-		   primaryStage.show();
-	   }
+	    	Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
+	 		Scene scene = new Scene(root);
+	 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+	 		Stage primaryStage = new Stage();
+	 		primaryStage.setScene(scene);
+	 		primaryStage.show();
+	    }
 	    
 	   @FXML
 	    public void createNewRoomMenu(ActionEvent event) throws Exception {
@@ -197,7 +202,33 @@ public class ManagerController {
 			     anchor_UpdateRoom.setVisible(false);
 			 } 
 	    }
-
+	    @FXML
+	    public void canceCreateAccount(ActionEvent event) {
+	    	
+	    	addAccNameTextF.setText("");
+	    	addAccPriceTextF.setText("");
+	    	addAccAddTextF.setText("");
+	    	addPhoneNoTextF.setText("");
+	    	addAccEmailTextF.setText("");
+	    	addAccUserTextF.setText("");
+	    	addAccPassWordTextF.setText("");
+	    	addAccPassWord2TextF.setText("");
+	    	anchor_CreateAccount.setVisible(false);
+	    	}	    
+	    @FXML
+	    public void cancelEditAcc(ActionEvent event) {
+	    	
+	    	
+	    	anchor_EditAccount.setVisible(false);
+	    	}	    
+	    
+	  
+	    @FXML
+	    public void canceDeleteAcc(ActionEvent event) {
+	    	
+	    	searchEmplNameTextF.setText("");
+	    	anchor_DeleteAccount.setVisible(false);
+	    	}	    
 	    @FXML
 	    public void dailyRepMenu(ActionEvent event) {
 
