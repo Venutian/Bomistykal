@@ -55,8 +55,9 @@ public void addRoom(Room room) throws Exception {
 	
 	//String roomID, int price, int RoomSize,int NumOfBeds ,boolean Location,boolean view ,boolean smoking, getBoolean(room.getLocation())
 	PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID) "
-			+ " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + getBoolean(room.getLocation()) + "','" + getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
+			+ " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + room.getLocation() +  "','" +getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
 	pre.executeUpdate();
+	System.out.println("addroom");
 	pre.close();
 	con.close();
 }
@@ -185,7 +186,7 @@ public static void deleteReservation(Reservation reservation) throws Exception{
       ';*/
 public  void editRoom(Room room) throws Exception{
 	Connection con = getConnection();
-	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + getBoolean(room.getLocation()) + "'"
+	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + room.getLocation() + "'"
 			+ ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() + "' "
 			+ "WHERE RoomID='"+room.getRoomID()+ "';");
 	pre.executeUpdate();

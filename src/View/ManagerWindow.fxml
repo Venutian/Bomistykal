@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -65,15 +67,27 @@
             </Label>
             <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter the new room information" />
             <Label layoutX="14.0" layoutY="105.0" text="Room ID" />
-            <TextField layoutX="129.0" layoutY="101.0" />
-            <Label layoutX="14.0" layoutY="144.0" text="Room Description" />
-            <TextField layoutX="129.0" layoutY="140.0" prefHeight="101.0" prefWidth="279.0" />
-            <Label layoutX="13.0" layoutY="271.0" text="Floor" />
-            <TextField layoutX="129.0" layoutY="267.0" />
-            <Label layoutX="13.0" layoutY="311.0" text="Location" />
-            <TextField layoutX="129.0" layoutY="308.0" />
-            <Label layoutX="13.0" layoutY="357.0" text="Price" />
-            <TextField layoutX="129.0" layoutY="353.0" />
+            <TextField fx:id="addRoomIDTextF" layoutX="129.0" layoutY="101.0" />
+            <Label layoutX="12.0" layoutY="144.0" text="Price" />
+            <TextField fx:id="priceAddTextF" layoutX="129.0" layoutY="140.0" prefHeight="26.0" prefWidth="150.0" />
+            <TextField fx:id="addRoomSizeTextF" layoutX="129.0" layoutY="182.0" />
+            <Label layoutX="12.0" layoutY="226.0" text="Number of beds" />
+            <TextField fx:id="addNoOfBedTextF" layoutX="129.0" layoutY="223.0" />
+            <Label layoutX="13.0" layoutY="186.0" text="Room size" />
+            <CheckBox fx:id="addViewCB" layoutX="107.0" layoutY="346.0" mnemonicParsing="false" text="View" />
+            <CheckBox fx:id="addAdjointCB" layoutX="13.0" layoutY="345.0" mnemonicParsing="false" text="Adjoint" />
+            <CheckBox fx:id="addSmokingCB" layoutX="196.0" layoutY="345.0" mnemonicParsing="false" text="Smoking" />
+            <AnchorPane fx:id="anchor_adjoint" layoutX="7.0" layoutY="383.0" prefHeight="126.0" prefWidth="622.0">
+               <children>
+                  <TextField fx:id="addAdjointRoomIDTextF" layoutX="126.0" layoutY="53.0" />
+                  <Label layoutX="10.0" layoutY="58.0" text="Adoint room" />
+                  <Label layoutX="14.0" layoutY="16.0" text="Please, enter the room numbers " />
+               </children>
+            </AnchorPane>
+            <Label layoutX="13.0" layoutY="274.0" text="Location" />
+            <ChoiceBox fx:id="addLocChoiceBox" layoutX="129.0" layoutY="270.0" prefHeight="26.0" prefWidth="103.0" />
+            <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelbtn" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
+            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#createbtn" prefHeight="34.0" prefWidth="87.0" text="Create" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="16.0" layoutY="40.0" prefHeight="656.0" prefWidth="949.0" visible="false">
