@@ -25,15 +25,14 @@ public class Sqlconnection{
 		
 		 
 		 String testDateString = df.format(myDate);
-		String date2 = "2018-09-30";
+		String date2 = "2018-04-30";
 		 
 		 Date ff =  df.parse(testDateString);
 		 Date ff2 =  df.parse(date2);
 		 
 	   System.out.println(testDateString+" "+date2);
 		
-	 Reservation re = new Reservation(ff,ff,"D","d","fff");
-	 Reservation re2 = new Reservation(ff2,ff2,"D","d","fff");
+	 //Reservation re = new Reservation(ff,ff,"D","d","fff");
 	
 	// Employee eo =new Employee("gh", "gh", "gh", "gh", "gh", 0, false);
 	 //System.out.println(eo.isManager());
@@ -128,15 +127,19 @@ public static ObservableList<Reservation> getComingReservations() throws Excepti
 	
 }
 
-public static ObservableList<Reservation> getTodayCheckIn() throws Exception {
+public  ObservableList<Reservation> getTodayCheckIn() throws Exception {
 	ObservableList<Reservation> data =  FXCollections.observableArrayList();
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn = CURDATE()");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
 		System.out.println(rs.getString("ReservationID"));
-		data.add((Reservation) rs);
+		//CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
 	}
+	System.out.println(data.size()+"d dsa ada");
+	rs.close();
+	con.close();
 	return data;   
 }
 
