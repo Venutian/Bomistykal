@@ -124,7 +124,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="694.0" prefWidth="985.0">
+      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="694.0" prefWidth="985.0"
+                  visible="false">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
                <font>
@@ -221,7 +222,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchor_CreateAccount" layoutX="16.0" layoutY="40.0" prefHeight="672.0" prefWidth="959.0" visible="false">
+      <AnchorPane fx:id="anchor_CreateAccount" layoutX="16.0" layoutY="40.0" prefHeight="672.0" prefWidth="959.0">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create Account">
                <font>
@@ -232,7 +233,7 @@
             <Label layoutX="14.0" layoutY="105.0" text="Name" />
             <TextField fx:id="addAccNameTextF" layoutX="129.0" layoutY="101.0" />
             <Label layoutX="14.0" layoutY="144.0" text="ID Number" />
-            <TextField fx:id="addAccPriceTextF" layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="addAccIDTextF" layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0"/>
             <Label layoutX="13.0" layoutY="264.0" text="Email Address" />
             <TextField fx:id="addAccEmailTextF" layoutX="129.0" layoutY="259.0" />
             <Label layoutX="13.0" layoutY="354.0" text="User Name" />
@@ -251,11 +252,13 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="821.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Create">
+            <Button layoutX="821.0" layoutY="598.0" mnemonicParsing="false" onAction="#CreateEmployeeBtn"
+                    prefHeight="41.0" prefWidth="86.0" text="Create">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
+            <CheckBox fx:id="isManager" layoutX="203.0" layoutY="490.0" mnemonicParsing="false" text="Manager"/>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchor_EditAccount" layoutX="11.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0" visible="false">
