@@ -321,25 +321,19 @@ public class ManagerController {
 	public void EditRoomPrice(TableColumn.CellEditEvent editedcell) throws Exception {
 		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
 		selectedRoom.setPrice(Integer.parseInt(String.valueOf(editedcell.getNewValue())));
-		selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-		selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
 		Sqlconnection sql = new Sqlconnection();
 		sql.editRoom(selectedRoom);
 	}
 
 	public void EditRoomSize(TableColumn.CellEditEvent editedcell) throws Exception {
 		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
-		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
 		selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-		selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
 		Sqlconnection sql = new Sqlconnection();
 		sql.editRoom(selectedRoom);
 	}
 
 	public void EditRoomBeds(TableColumn.CellEditEvent editedcell) throws Exception {
 		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
-		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
 		selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
 		Sqlconnection sql = new Sqlconnection();
 		sql.editRoom(selectedRoom);
@@ -347,7 +341,6 @@ public class ManagerController {
 
 	public void EditRoomLocation(TableColumn.CellEditEvent editedcell) throws Exception {
 		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
-		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
 		selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
 		Sqlconnection sql = new Sqlconnection();
 		sql.editRoom(selectedRoom);

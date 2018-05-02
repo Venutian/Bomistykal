@@ -124,17 +124,19 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="694.0" prefWidth="985.0">
+      <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TableView fx:id="tabView" editable="true" layoutX="58.0" layoutY="64.0" prefHeight="499.0"
-                       prefWidth="859.0">
+            <TableView fx:id="tabView" editable="true" layoutX="58.0" layoutY="64.0" prefHeight="553.0"
+                       prefWidth="865.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="60.0"
+                       AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
                <columns>
-                  <TableColumn fx:id="tabCol_Id" minWidth="0.0" prefWidth="105.0" resizable="false" text="Room Number"/>
+                  <TableColumn fx:id="tabCol_Id" editable="false" minWidth="0.0" prefWidth="105.0" resizable="false"
+                               text="Room Number"/>
                   <TableColumn fx:id="tabCol_Price" onEditCommit="#EditRoomPrice" prefWidth="93.99992370605469"
                                resizable="false" text="Price"/>
                   <TableColumn fx:id="tabCol_Size" onEditCommit="#EditRoomSize" prefWidth="73.3333740234375"
@@ -145,9 +147,6 @@
                                resizable="false" text="Location"/>
                </columns>
             </TableView>
-            <Button layoutX="18.0" layoutY="611.0" mnemonicParsing="false" onAction="#cancelUpdateRoom" prefHeight="34.0" prefWidth="87.0" text="Cancel" />
-            <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#CreateRoombtn" prefHeight="34.0"
-                    prefWidth="87.0" text="Save"/>
             <AnchorPane fx:id="anchor_CreateRoom11" layoutY="36.0" prefHeight="672.0" prefWidth="959.0" visible="false">
                <children>
                   <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create New Room">
