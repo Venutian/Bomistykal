@@ -234,12 +234,13 @@ public class ManagerController {
 	    
 	    @FXML
 	    public void cancelDeleteRoom(ActionEvent event) {
-	    	
+
 	    	searchDeleteRoomTextF.setText("");
 		     anchor_DeleteRoom.setVisible(false);
 
-	    	}	    
-	    public void CreateNewAccountMenu(ActionEvent event) throws IOException {
+		}
+
+	public void CreateNewAccountMenu(ActionEvent event) throws IOException {
 			 if (event.getTarget()== createNewAccItem) {
 				 anchor_CreateAccount.setVisible(true);
 				 anchor_EditAccount.setVisible(false);
@@ -344,5 +345,11 @@ public class ManagerController {
 		selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
 		Sqlconnection sql = new Sqlconnection();
 		sql.editRoom(selectedRoom);
+	}
+
+	public void DeleteRoom(ActionEvent event) throws Exception {
+		Room rm = tabView.getSelectionModel().getSelectedItem();
+		Sqlconnection sq = new Sqlconnection();
+		sq.deleteRoom(rm);
 	}
 }
