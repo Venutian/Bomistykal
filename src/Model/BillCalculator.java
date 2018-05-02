@@ -1,8 +1,7 @@
 package Model;
 
-import java.util.Calendar;
+
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.concurrent.TimeUnit;
 
 public class BillCalculator {
@@ -11,28 +10,10 @@ public class BillCalculator {
 	private Sqlconnection sq;
 	private int finalPrice;
 	private int roomPrice;
-	public static void main(String[] args) {
-		Date today = new Date();
-		System.out.println(today);
-		//Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, String ReservationID, int guestNum
-		Calendar calendar = new GregorianCalendar(2018, 4, 10);
-		 Date ENDDATE = calendar.getTime();
-		 
-		System.out.println(getDateDiff( ENDDATE , today));
-		 
-		if(-15 < getDateDiff( ENDDATE , today) && getDateDiff( ENDDATE , today) < 0)
-		System.out.println("dsa");
-		
-	}
+	//this value indicates how many days before someone can cancel before getting fined. 
+	private int daysBeforeCancel = -5;
 	
 	
-	private void cancelBeforeCheckIn() {
-		
-	}
-	
-    private void cancelAfterCheckIn() {
-		
-	 }
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
 		this.sq = new Sqlconnection();
@@ -46,36 +27,57 @@ public class BillCalculator {
 		
 		
 		this.roomPrice = room.getPrice();
+		
+		FeesCalculation(res);
+		
+	}
+	
+	private void FeesCalculation(Reservation res) {
+		Date today = new Date();
 		Date startDate = res.getCheckInDate();
 		Date endDate = res.getCheckOutDate();
 		
-		Date today = new Date();
-		if( 0 > getDateDiff( endDate,today) )
-		System.out.println("dd");
 		
-		/*calculate*/
-		int daysDifference =  getDateDiff(startDate, endDate);
-		calculateFinalPrice(daysDifference,roomPrice) ;
+		
+		if( 0 == getDateDiff(today, endDate)) {
+			calculateFinalPrice(getDateDiff(startDate, endDate),roomPrice) ;
+		}
+		//if today is bigger than startdate that means they checked in
+		//in this case they would pay the entire fee anyway because is to late
+		else if(0 < getDateDiff(startDate, today)) {
+			calculateFinalPrice(getDateDiff(startDate, endDate),roomPrice);
+		}
+		//if today is smaller than startdate that means they did not check in yet
+		//if they cancel in less than 5 days before
+		//they would pay half of the price because is to late.
+		else if(daysBeforeCancel <= getDateDiff(startDate, today) ) {
+		calculateFinalPrice(getDateDiff(startDate, endDate),roomPrice/2) ;
+		}
+		//if they cancel before 5 days then there are no charges
+		else if(daysBeforeCancel > getDateDiff(startDate, today) ) {
+			this.finalPrice = 0;
+		}
+			
+		
+		
 	}
 	
-	private void takeToCalculation(Reservation res) {
-		Date today = new Date();
-		
-	}
-	
-    
+    //calculate price
     private void calculateFinalPrice(int daysDifference,int roomPrice) {
     	this.finalPrice = daysDifference * roomPrice;
     }
     
-	private static int getDateDiff(Date date1, Date date2) {
+    //get date difference
+	private int getDateDiff(Date date1, Date date2) {
 		TimeUnit timeUnit = TimeUnit.DAYS;
 	    long diffInMillies = date2.getTime() - date1.getTime();
 	    return (int) timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
 	}
-	//divide by 2 extra dates if cancel early
+
+	//get price
 	public int getFinalPrice() {
+		System.out.println(finalPrice);
     	return this.finalPrice;
-    }
+     }
     
 }
