@@ -85,7 +85,21 @@ public Employee  getEmployee(String userName, String password) throws Exception{
 	return em;
 }
 
-
+public Client  getClient(String clientID) throws Exception{
+	Connection con = getConnection();
+	Client client = null;
+	
+	PreparedStatement pre = con.prepareStatement("SELECT * FROM Client WHERE IDNumber = '"+clientID+"'  ");
+	 ResultSet rs = pre.executeQuery();
+		while(rs.next()) {
+			//Name,IDNumber,CreditCardNumber,CreditCardExp,PhoneNumber,Address
+			client = new Client(rs.getString("Name"),rs.getString("IDNumber"), rs.getInt("CreditCardNumber"), rs.getDate("CreditCardExp"), rs.getInt("PhoneNumber"), rs.getString("Address"));
+		}
+	rs.close();
+	con.close();
+	
+	return client;
+}
 
 
 

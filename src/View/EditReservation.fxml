@@ -57,6 +57,7 @@
       <Button layoutX="749.0" layoutY="593.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="26.0" prefWidth="88.0" text="Save Canges" />
       <Button layoutX="280.0" layoutY="93.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="102.0" text="Search" />
       <Label layoutX="98.0" layoutY="59.0" prefHeight="18.0" prefWidth="292.0" text="Search based on the Client ID" />
-      <Button layoutX="357.0" layoutY="594.0" mnemonicParsing="false" onAction="#cancelReservation" prefHeight="26.0" prefWidth="118.0" text="Cancel Reservation" />
+      <Button layoutX="482.0" layoutY="593.0" mnemonicParsing="false" onAction="#cancelReservation" prefHeight="26.0" prefWidth="118.0" text="Cancel Reservation" />
+      <Button layoutX="244.0" layoutY="593.0" mnemonicParsing="false" onAction="#editReservation" prefHeight="26.0" prefWidth="88.0" text="Edit" />
    </children>
 </AnchorPane>

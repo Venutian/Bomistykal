@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+import com.sun.corba.se.pept.transport.EventHandler;
 
 import Model.Client;
 import Model.Reservation;
@@ -16,10 +16,12 @@ import Model.Sqlconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -68,6 +70,21 @@ public class EditReservationController implements Initializable{
     private DatePicker creditCardExpDate;
 
     @FXML
+    void editReservation(ActionEvent event) throws Exception {
+    
+    Client client = sq.getClient(reservationsTable.getSelectionModel().getSelectedItem().getClient());
+    		
+    ID.setText(client.getIDNumber());
+    name.setText(client.getName());
+    address.setText(client.getAddress());
+    phoneNum.setText(Integer.toString(client.getPhoneNumber()));
+    creditCardNum.setText(Integer.toString(client.getCreditCardNum()));
+    
+ 
+    }
+ 
+    
+    @FXML
     void cancelReservation(ActionEvent event) throws Exception {
    sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
     }
@@ -104,8 +121,6 @@ public class EditReservationController implements Initializable{
 		checkOut.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
 		reservationsTable.setItems(list);
 		
-		
-	
 		
 	}
 	

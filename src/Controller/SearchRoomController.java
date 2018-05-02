@@ -142,6 +142,9 @@ public class SearchRoomController implements Initializable{
 		Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		FXMLLoader load = new FXMLLoader();
+		//ReserveController dashboardController = load.getController();
+		//dashboardController.serS("da"); 
 		
 	}
     @FXML

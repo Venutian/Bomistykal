@@ -15,6 +15,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class ReserveController {
+	public String s;
+	public void serS(String g) {
+		this.s = g;
+	}
 
 	   @FXML
 	    private TextField name;
@@ -51,7 +55,7 @@ public class ReserveController {
 
     @FXML
     void reserve(ActionEvent event) {
-    	
+    	System.out.println(s);
     	
     }
     @FXML
