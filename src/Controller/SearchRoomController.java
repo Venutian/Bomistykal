@@ -174,10 +174,9 @@ public class SearchRoomController implements Initializable{
 		// set the choice for campus location choice box button
 				 //data = FXCollections.observableArrayList();
 				Sqlconnection sq = new Sqlconnection();
-			      this.campusLoc.setItems(campusLocation);
-			      campusLoc.setValue("Vaxjo");
-			      ObservableList<Room> data ;
-			     try {
+
+		ObservableList<Room> data;
+		try {
 					data = sq.getRooms();
 
                      tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));

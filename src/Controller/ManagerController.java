@@ -2,27 +2,40 @@ package Controller;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import Model.Employee;
 import Model.Room;
 import Model.Sqlconnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
 public class ManagerController {
 
-	
+	@FXML
+	private ChoiceBox<String> campusLoc;
+	@FXML
+	private TableView<Room> tabView;
 
+	@FXML
+	private TableColumn<Room, String> tabCol_Des;
+
+	@FXML
+	private TableColumn<Room, String> tabCol_Id;
+
+	@FXML
+	private TableColumn<Room, String> tabCol_Availble;
 	   @FXML
 	    private AnchorPane anchor_CreateRoom, anchor_UpdateRoom, anchor_DeleteRoom;
 
@@ -61,7 +74,7 @@ public class ManagerController {
         private TextField addAccNameTextF, addAccIDTextF, addAccAddTextF, addPhoneNoTextF, addAccEmailTextF, addAccUserTextF, addAccPassWordTextF,
                 addAccPassWord2TextF,searchEmplNameTextF;
 
-	    
+	ObservableList<String> campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
 	   private LoginController lg;
 	   private Sqlconnection sq;
 	   private Room rm;
@@ -112,9 +125,25 @@ public class ManagerController {
 		    	anchor_CreateAccount.setVisible(false);
 				anchor_EditAccount.setVisible(false);
 				anchor_DeleteAccount.setVisible(false);
-	    	} 
-	    	
-	    }
+			}
+			// set the choice for campus location choice box button
+			//data = FXCollections.observableArrayList();
+			Sqlconnection sq = new Sqlconnection();
+			ObservableList<Room> data;
+			try {
+				data = sq.getRooms();
+
+				tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
+				tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
+				tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room, String>("AdjoindsRoomID"));
+				tabView.setItems(data);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//
+			// table contents
+		}
 
 	   @FXML
 	   public void CreateRoombtn(ActionEvent event) throws Exception {
