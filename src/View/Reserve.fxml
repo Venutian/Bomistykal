@@ -45,7 +45,7 @@
             <Font size="13.0" />
          </font></Label>
       <DatePicker fx:id="CreditCardExpDate" layoutX="513.0" layoutY="516.0" prefHeight="25.0" prefWidth="149.0" />
-      <Button layoutX="23.0" layoutY="665.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Cancel" />
+      <Button layoutX="23.0" layoutY="665.0" mnemonicParsing="false" onAction="#cancelReserve" prefHeight="25.0" prefWidth="83.0" text="Cancel" />
       <ListView layoutX="15.0" layoutY="96.0" prefHeight="153.0" prefWidth="762.0" />
       <TextField fx:id="IDnumber" layoutX="137.0" layoutY="591.0" />
       <Label layoutX="317.0" layoutY="39.0" text="Reserve a room">
@@ -78,9 +78,9 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <DatePicker layoutX="135.0" layoutY="284.0" prefHeight="25.0" prefWidth="158.0" />
-      <DatePicker layoutX="508.0" layoutY="284.0" prefHeight="25.0" prefWidth="149.0" />
-      <ChoiceBox layoutX="135.0" layoutY="339.0" prefHeight="25.0" prefWidth="158.0" />
-      <ChoiceBox layoutX="507.0" layoutY="338.0" prefWidth="150.0" />
+      <DatePicker fx:id="checkInReserve" layoutX="135.0" layoutY="284.0" prefHeight="25.0" prefWidth="158.0" />
+      <DatePicker fx:id="checkOutReserve" layoutX="508.0" layoutY="284.0" prefHeight="25.0" prefWidth="149.0" />
+      <ChoiceBox fx:id="noOfRoomsCheckB" layoutX="135.0" layoutY="339.0" prefHeight="25.0" prefWidth="158.0" />
+      <ChoiceBox fx:id="noOfGuestsCheckB" layoutX="507.0" layoutY="338.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

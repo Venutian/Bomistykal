@@ -11,14 +11,16 @@ public class Reservation {
 	private String EmployeeUN;
 	private int totalPrice;
 	private String ReservationID;
+	private int guestNum;
 	//new SimpleStringProperty
-	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, String ReservationID) {
+	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, String ReservationID, int guestNum) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.clientID =clientID;
 		this.roomID = roomID;
 		this.EmployeeUN = EmployeeUN;
 		this.ReservationID = ReservationID;
+		this.guestNum = guestNum;
 	}
 	
 
@@ -49,6 +51,9 @@ public class Reservation {
 	public void setTotalPrice(int price) {
 		this.totalPrice = price;
 	}
+	public void setGuestNumber(int guestNum) {
+		this.guestNum = guestNum;
+	}
 	
 	/*getters*/
 	public Date getCheckInDate() {
@@ -72,7 +77,9 @@ public class Reservation {
 	public String getReservationID() {
 		return this.ReservationID;
 	}
-	
+	public int getGuestNum() {
+		return this.guestNum; 
+	}
 	
 	
 }
