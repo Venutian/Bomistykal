@@ -2,32 +2,32 @@ package Model;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class ReservationList {
 
-	private ArrayList<Reservation> res ;
+	private ObservableList<Reservation> reservation ;
+	private String clientID;
+	private ObservableList<Reservation> list;
 	
-	public ReservationList() {
-		setRes(new ArrayList<Reservation>());
+	public ReservationList(String clientID, ObservableList<Reservation> list) {
+		this.clientID = clientID;
+		this.list = list;
+		this.reservation = FXCollections.observableArrayList();
+		
+				
+		
+		findReservation();
 	}
 
-	public ArrayList<Reservation> getRes() {
-		return res;
+	private void findReservation() {
+		for(Reservation n : list)
+			if(n.getClient().contains(clientID))
+				reservation.add(n);
 	}
-
-	public void setRes(ArrayList<Reservation> res) {
-		this.res = res;
-	}
-
-	
-	public void addRervation(Reservation rervation) {
-		this.res.add(rervation);
-	}
-	
-	public void removeRervation(Reservation rervation) {
-	for(int i = 0; i < res.size(); i ++) {
-			if(res.get(i).equals(rervation))
-				res.remove(i);
-		}
+	public ObservableList<Reservation> getReservation() {
+		return this.reservation;
 	}
 	
 }

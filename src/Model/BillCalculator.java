@@ -1,6 +1,5 @@
 package Model;
 
-
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -17,17 +16,13 @@ public class BillCalculator {
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
 		this.sq = new Sqlconnection();
-		
 		try {
 			this.room = sq.getTheRoom(res);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
 		this.roomPrice = room.getPrice();
-		
 		FeesCalculation(res);
 		
 	}

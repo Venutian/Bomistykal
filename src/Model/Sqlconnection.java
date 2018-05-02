@@ -33,8 +33,13 @@ public void addRoom(Room room) throws Exception {
 
 
 /*to do.. nth in the database yet about client*/
-public void addClient() {
-	
+public void addClient(Client client) throws Exception {
+	Connection con = getConnection();
+    PreparedStatement pre = con.prepareStatement("INSERT INTO Client (Name,IDNumber,CreditCardNumber,CreditCardExp,PhoneNumber,Address) "
+    		+ " VALUES ('"+client.getName()+"','"+client.getIDNumber()+"','"+client.getCreditCardNum()+"','"+client.getCreditCardExpDate()+"','"+client.getPhoneNumber()+"','"+client.getAddress()+"');");
+	pre.executeUpdate();
+	pre.close();
+	con.close();
 }
 
 
@@ -47,7 +52,7 @@ public  void addEmployee(Employee eployee) throws Exception {
 	con.close();
 }
 
-public static void addReservation(Reservation reservation) throws Exception {
+public  void addReservation(Reservation reservation) throws Exception {
 
 	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	String checkIn = df.format(reservation.getCheckInDate());
@@ -87,7 +92,7 @@ public Employee  getEmployee(String userName, String password) throws Exception{
 
 
 
-public static ObservableList<Reservation> getComingReservations() throws Exception {
+public  ObservableList<Reservation> getComingReservations() throws Exception {
 	ObservableList<Reservation> data =  FXCollections.observableArrayList();
 	Connection con = getConnection();
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn >= CURDATE()");
@@ -210,7 +215,7 @@ public void deleteEmployee(Employee employee) throws Exception{
 	PreparedStatement pre = con.prepareStatement("DELETE FROM Employee WHERE UserName = '"+employee.getUserName()+"';");
 	pre.executeUpdate();
 }
-public static void deleteReservation(Reservation reservation) throws Exception{
+public void deleteReservation(Reservation reservation) throws Exception{
 	Connection con = getConnection();
 
 	PreparedStatement pre = con.prepareStatement("DELETE FROM Reservation WHERE ReservationID = '"+reservation.getReservationID()+"';");
@@ -260,6 +265,14 @@ public  void editEmployee(Employee employee) throws Exception{
 	con.close();
 }
 
+public void editClient(Client client) throws Exception {
+	Connection con = getConnection();
+	PreparedStatement pre = con.prepareStatement("UPDATE Client SET Name='" + client.getName() + "', IDNumber='" + client.getIDNumber() + "',CreditCardNumber='" + client.getCreditCardNum() + "', 	CreditCardExp='" + client.getCreditCardExpDate() + "'"
+			+ " PhoneNumber='" + client.getPhoneNumber() + "' ,Adrress='" + client.getAddress() + "'"
+			+ "WHERE IDNumber='" +client.getIDNumber() + "';");
+	pre.close();
+	con.close();
+}
 
 
 private String convertDate(Date date) {
