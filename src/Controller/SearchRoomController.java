@@ -2,6 +2,7 @@ package Controller;
 
 
 import Model.Room;
+import Model.SearchFactory;
 import Model.Sqlconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
@@ -190,13 +193,22 @@ public class SearchRoomController implements Initializable{
 	}
 	
 	@FXML
-    void searchForRoom(ActionEvent event) {
-		if(smokingBox.isSelected())
-			System.out.println("smoking");
-		if(petsBox.isSelected())
-			System.out.println("pets");
+    void searchForRoom(ActionEvent event) throws Exception {
 		
+		System.out.println(campusLoc.getValue());
+		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
+		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),doubleBedBox.isSelected());
 
+	    ObservableList<Room> data = sc.getAvailableRooms(); 
+	    
+
+        tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
+        tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
+        tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room, String>("AdjoindsRoomID"));
+        tabView.setItems(data);
+	    
     }
 	
 	

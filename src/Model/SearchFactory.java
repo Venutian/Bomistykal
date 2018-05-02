@@ -1,11 +1,12 @@
 package Model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 
 public class SearchFactory {
 /*this class will compare all the rooms with the search choices make a room list out of it
@@ -15,11 +16,11 @@ public class SearchFactory {
 	private ArrayList<Room> roomList;
 	private ArrayList<Reservation> ColapingRess;
 	private ArrayList<Room> NOTavailable;
-	private ArrayList<Room> available; 
+	private ObservableList<Room> available; 
 	
 	public SearchFactory(String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed) throws Exception {
 		
-		Sqlconnection sq = new Sqlconnection();
+		 this.sq = new Sqlconnection();
 		//take the rooms that fit your description
 		 this.roomList = sq.getRoomChoices(campusLoc, view ,smoking,  adjoined, doubleBed);
 		//finding reservations that conflict with your dates  
@@ -40,8 +41,9 @@ public class SearchFactory {
 				
 		}
 	}
-	public ArrayList<Room> getAvailableRooms(){
-		available = new ArrayList<Room>();
+	//  ObservableList<Room> data ;
+	public ObservableList<Room> getAvailableRooms(){
+		available = FXCollections.observableArrayList();
 		for(Room r : roomList) {
 			if(!NOTavailable.contains(r)) {
 				available.add(r);
