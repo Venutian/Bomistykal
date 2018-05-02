@@ -10,31 +10,10 @@ import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 public class Sqlconnection{
 	
-	
-	public static void main(String[] args) throws Exception {
-		//int floor, String roomNumber, int price, int roomSize,String Location
-		 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		
-		
-		Calendar myCalendar = new GregorianCalendar(2021, 02, 11);
-		Date myDate = myCalendar.getTime();
-		
-		 
-		 String testDateString = df.format(myDate);
-		String date2 = "2018-04-30";
-		 
-		 Date ff =  df.parse(testDateString);
-		 Date ff2 =  df.parse(date2);
-		 
-	   System.out.println(testDateString+" "+date2);
-		
-	
-	}
+
 
 	
 
@@ -52,6 +31,11 @@ public void addRoom(Room room) throws Exception {
 	con.close();
 }
 
+
+/*to do.. nth in the database yet about client*/
+public void addClient() {
+	
+}
 
 
 public  void addEmployee(Employee eployee) throws Exception {
@@ -110,7 +94,7 @@ public static ObservableList<Reservation> getComingReservations() throws Excepti
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
 		
-		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"), rs.getInt("GuestsNumber")));
 	}
 	pre.close();
 	con.close();
@@ -128,7 +112,7 @@ public  ObservableList<Reservation> getTodayCheckIn() throws Exception {
 
 		
 		//CheckIn, Che
-		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"),rs.getInt("GuestsNumber")));
 	}
 	
 	rs.close();
@@ -143,7 +127,7 @@ public static ObservableList<Reservation> getTodayCheckOut() throws Exception {
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
 		
-		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"),rs.getInt("GuestsNumber")));
 	}
 	return data;   
 }
@@ -157,14 +141,28 @@ public  ArrayList<Reservation> searchForDates(Date chIn,Date chOut) throws Excep
     PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn >= '"+CheckIn+"' AND CheckOut <= '"+CheckOut+"'");
     ResultSet rs = pre.executeQuery();
 	while(rs.next()) {
-		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID")));
+		data.add(new Reservation(rs.getDate("CheckIn"),rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"),rs.getInt("GuestsNumber")));
 	}
 	return data;   
 }
 
 
 
-
+public Room getTheRoom(Reservation res) throws Exception {
+	Connection con = getConnection();
+	Room room = null;
+	
+	PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE RoomID = '"+res.getRoom()+"'");
+	 ResultSet rs = pre.executeQuery();
+		while(rs.next()) {
+			
+			room = new Room(rs.getString("RoomID"),rs.getInt("Price"),rs.getInt("RoomSize"),rs.getInt("NumOfBeds"),rs.getString("Location"),rs.getBoolean("View"),rs.getBoolean("Smoking"),rs.getBoolean("Adjoint"),rs.getString("AdjointRoomID"));
+		}
+	rs.close();
+	con.close();
+	
+	return room;
+}
 
 
 
