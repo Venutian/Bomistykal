@@ -22,11 +22,7 @@ public class Reservation {
 		this.ReservationID = ReservationID;
 		this.guestNum = guestNum;
 	}
-	
-
-	
-	
-	
+		
 	
 	/*setters*/
     public void setReservationID(String ReservationID) {

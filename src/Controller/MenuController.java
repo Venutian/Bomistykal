@@ -92,9 +92,9 @@ public class MenuController implements Initializable{
 
     }
 
-    public void Edit (ActionEvent event) throws IOException {
+    public void EditReservations(ActionEvent event) throws IOException {
 		System.out.println("edit");
-		Parent root = FXMLLoader.load(getClass().getResource("/View/EditRoom.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/View/EditReservation.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();

@@ -34,7 +34,7 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="100.0" prefWidth="160.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#Edit" prefHeight="40.0" prefWidth="130.0" text="Booking(WRONG)" />
+                        <Button mnemonicParsing="false" onAction="#EditReservations" prefHeight="40.0" prefWidth="130.0" text="Edit Reservation" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="110.0" prefWidth="130.0">
@@ -67,12 +67,12 @@
         </Label>
         <TableView fx:id="CheckInTable" layoutX="216.0" layoutY="105.0" prefHeight="225.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="CIRoomNumber" prefWidth="184.0" text="Room Number"/>
-                <TableColumn fx:id="CIGuestName" minWidth="0.0" prefWidth="218.400146484375" text="Guest Name"/>
-                <TableColumn fx:id="c1" prefWidth="75.0" text="Column X"/>
-                <TableColumn fx:id="c2" prefWidth="75.0" text="Column X"/>
-                <TableColumn fx:id="c3" prefWidth="75.0" text="Column X"/>
-                <TableColumn fx:id="c4" prefWidth="75.0" text="Column X"/>
+                <TableColumn fx:id="CIRoomNumber" prefWidth="184.0" text="Room Number" />
+                <TableColumn fx:id="CIGuestName" minWidth="0.0" prefWidth="218.400146484375" text="Guest Name" />
+                <TableColumn fx:id="c1" prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="c2" prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="c3" prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="c4" prefWidth="75.0" text="Column X" />
             </columns>
         </TableView>
     </children>

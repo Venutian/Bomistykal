@@ -10,36 +10,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/9.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReserveController">
+<AnchorPane prefHeight="640.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditReservationController">
    <children>
       <Label layoutX="281.0" layoutY="30.0" prefHeight="21.0" prefWidth="233.0" text="        Edit or Cancel Reservation">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
       <Label layoutX="20.0" layoutY="96.0" prefHeight="21.0" prefWidth="108.0" text="Client's ID" />
-      <TextField layoutX="98.0" layoutY="94.0" />
-      <TableView layoutX="15.0" layoutY="165.0" prefHeight="174.0" prefWidth="822.0">
+      <TextField fx:id="idSearch" layoutX="98.0" layoutY="94.0" />
+      <TableView fx:id="reservationsTable" layoutX="15.0" layoutY="165.0" prefHeight="174.0" prefWidth="822.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Room No." />
-          <TableColumn prefWidth="419.2000274658203" text="Room Description" />
-            <TableColumn prefWidth="112.79998779296875" text="Check-in date" />
-            <TableColumn prefWidth="136.800048828125" text="Check out date" />
-            <TableColumn prefWidth="78.39996337890625" text="Guest No" />
+          <TableColumn fx:id="reservationNo" prefWidth="181.60000324249268" text="Reservation No." />
+          <TableColumn fx:id="roomID" prefWidth="214.40003967285156" text="Room ID" />
+            <TableColumn fx:id="guestID" prefWidth="172.79998779296875" text="Guest ID" />
+            <TableColumn fx:id="checkIn" prefWidth="131.2000732421875" text="Check in date" />
+            <TableColumn fx:id="checkOut" prefWidth="124.7999267578125" text="Check out date" />
         </columns>
       </TableView>
       <Label layoutX="20.0" layoutY="131.0" prefHeight="35.0" prefWidth="311.0" text="Choose reservation you wish to Edit or Cancel.">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button layoutX="20.0" layoutY="593.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Cancel" />
+      <Button layoutX="20.0" layoutY="593.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Back" />
       <AnchorPane layoutX="14.0" layoutY="359.0" prefHeight="233.0" prefWidth="822.0">
          <children>
-            <TextField layoutX="123.0" layoutY="14.0" />
-            <TextField layoutX="123.0" layoutY="48.0" />
-            <TextField layoutX="123.0" layoutY="81.0" />
-            <TextField layoutX="123.0" layoutY="115.0" />
-            <TextField layoutX="123.0" layoutY="147.0" />
+            <TextField fx:id="ID" layoutX="123.0" layoutY="14.0" />
+            <TextField fx:id="name" layoutX="123.0" layoutY="48.0" />
+            <TextField fx:id="address" layoutX="123.0" layoutY="81.0" />
+            <TextField fx:id="phoneNum" layoutX="123.0" layoutY="115.0" />
+            <TextField fx:id="creditCardNum" layoutX="123.0" layoutY="147.0" />
             <DatePicker layoutX="428.0" layoutY="14.0" />
             <DatePicker layoutX="428.0" layoutY="48.0" />
             <ChoiceBox layoutX="428.0" layoutY="87.0" prefHeight="26.0" prefWidth="51.0" />
@@ -52,9 +51,12 @@
             <Label layoutX="347.0" layoutY="52.0" text="Check-out" />
             <Label layoutX="347.0" layoutY="89.0" text="Guest No." />
             <Label layoutX="5.0" layoutY="190.0" text="Credit Card Exp date" />
-            <DatePicker layoutX="124.0" layoutY="186.0" prefHeight="26.0" prefWidth="149.0" />
+            <DatePicker fx:id="creditCardExpDate" layoutX="124.0" layoutY="186.0" prefHeight="26.0" prefWidth="149.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="750.0" layoutY="593.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" text="Confirm" />
+      <Button layoutX="749.0" layoutY="593.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="26.0" prefWidth="88.0" text="Save Canges" />
+      <Button layoutX="280.0" layoutY="93.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="102.0" text="Search" />
+      <Label layoutX="98.0" layoutY="59.0" prefHeight="18.0" prefWidth="292.0" text="Search based on the Client ID" />
+      <Button layoutX="357.0" layoutY="594.0" mnemonicParsing="false" onAction="#cancelReservation" prefHeight="26.0" prefWidth="118.0" text="Cancel Reservation" />
    </children>
 </AnchorPane>
