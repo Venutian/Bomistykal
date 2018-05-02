@@ -44,6 +44,7 @@ public class Room {
         this.price = price;
     }
 
+
     public String getRoomID() {
         return roomID;
     }
@@ -58,7 +59,6 @@ public class Room {
 
     public void setNumOfBed(int numOfBed) {
         this.numOfBed = numOfBed;
-
     }
 
     public int getRoomSize() {

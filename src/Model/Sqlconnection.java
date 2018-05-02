@@ -224,9 +224,10 @@ public static void deleteReservation(Reservation reservation) throws Exception{
       ';*/
 public  void editRoom(Room room) throws Exception{
 	Connection con = getConnection();
-	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() + "', Location='" + room.getLocation() + "'"
-			+ ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() + "' "
-			+ "WHERE RoomID='"+room.getRoomID()+ "';");
+	PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() +
+			//"Location='" + room.getLocation() + "'" + ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() +
+
+			"'WHERE RoomID='" + room.getRoomID() + "';");
 	pre.executeUpdate();
 	pre.close();
 	con.close();

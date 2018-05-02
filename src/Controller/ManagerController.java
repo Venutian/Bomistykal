@@ -17,8 +17,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.converter.IntegerStringConverter;
 
 
 public class ManagerController {
@@ -28,11 +30,22 @@ public class ManagerController {
 	@FXML
 	private TableView<Room> tabView;
 
-	@FXML
-	private TableColumn<Room, String> tabCol_Des;
+
 
 	@FXML
 	private TableColumn<Room, String> tabCol_Id;
+
+	@FXML
+	private TableColumn<Room, Integer> tabCol_Price;
+
+	@FXML
+	private TableColumn<Room, Integer> tabCol_Size;
+
+	@FXML
+	private TableColumn<Room, Integer> tabCol_Beds;
+
+	@FXML
+	private TableColumn<Room, String> tabCol_Location;
 
 	@FXML
 	private TableColumn<Room, String> tabCol_Availble;
@@ -134,9 +147,17 @@ public class ManagerController {
 				data = sq.getRooms();
 
 				tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-				tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
-				tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room, String>("AdjoindsRoomID"));
+				tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
+				tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
+				tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
+				tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
 				tabView.setItems(data);
+				tabView.setEditable(true);
+				tabCol_Id.setCellFactory(TextFieldTableCell.forTableColumn());
+				tabCol_Price.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
+				tabCol_Size.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
+				tabCol_Beds.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
+				tabCol_Location.setCellFactory(TextFieldTableCell.forTableColumn());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -297,4 +318,38 @@ public class ManagerController {
 	    	
 	    }
 
+	public void EditRoomPrice(TableColumn.CellEditEvent editedcell) throws Exception {
+		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+		selectedRoom.setPrice(Integer.parseInt(String.valueOf(editedcell.getNewValue())));
+		selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
+		selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
+		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
+		Sqlconnection sql = new Sqlconnection();
+		sql.editRoom(selectedRoom);
+	}
+
+	public void EditRoomSize(TableColumn.CellEditEvent editedcell) throws Exception {
+		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
+		selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
+		selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
+		Sqlconnection sql = new Sqlconnection();
+		sql.editRoom(selectedRoom);
+	}
+
+	public void EditRoomBeds(TableColumn.CellEditEvent editedcell) throws Exception {
+		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
+		selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
+		Sqlconnection sql = new Sqlconnection();
+		sql.editRoom(selectedRoom);
+	}
+
+	public void EditRoomLocation(TableColumn.CellEditEvent editedcell) throws Exception {
+		Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+		selectedRoom.setRoomID(String.valueOf(editedcell.getNewValue()));
+		selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
+		Sqlconnection sql = new Sqlconnection();
+		sql.editRoom(selectedRoom);
+	}
 }
