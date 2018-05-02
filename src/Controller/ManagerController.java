@@ -9,12 +9,10 @@ import Model.Sqlconnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -57,11 +55,11 @@ public class ManagerController {
 	    private TextField searchUpdateRoomTextF,updateRoomIDTextF,priceUpdateTextF,updateRoomSizeTextF,updateNoOfBedTextF,updateAdjointRoomIDTextF,searchDeleteRoomTextF;
 	
 	    @FXML
-	    private CheckBox updateViewCB,updateAdjointCB,updateSmokingCB;
+        private CheckBox updateViewCB, updateAdjointCB, updateSmokingCB, isManager;
 
 	    @FXML
-	    private TextField addAccNameTextF,addAccPriceTextF,addAccAddTextF,addPhoneNoTextF,addAccEmailTextF,addAccUserTextF,addAccPassWordTextF,
-	    addAccPassWord2TextF,searchEmplNameTextF;
+        private TextField addAccNameTextF, addAccIDTextF, addAccAddTextF, addPhoneNoTextF, addAccEmailTextF, addAccUserTextF, addAccPassWordTextF,
+                addAccPassWord2TextF,searchEmplNameTextF;
 
 	    
 	   private LoginController lg;
@@ -133,7 +131,24 @@ public class ManagerController {
 
 
 	   }
-	    
+
+    public void CreateEmployeeBtn(ActionEvent event) throws Exception {
+
+        try {
+            Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
+                    addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
+                    addAccAddTextF.getText().toString(), Integer.parseInt(addPhoneNoTextF.getText()), isManager.isSelected());
+            Sqlconnection sq = new Sqlconnection();
+            sq.addEmployee(emp);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 	    @FXML
 	    public void cancelbtn(ActionEvent event) {
 	    	
@@ -210,8 +225,8 @@ public class ManagerController {
 	    public void canceCreateAccount(ActionEvent event) {
 	    	
 	    	addAccNameTextF.setText("");
-	    	addAccPriceTextF.setText("");
-	    	addAccAddTextF.setText("");
+            addAccIDTextF.setText("");
+            addAccAddTextF.setText("");
 	    	addPhoneNoTextF.setText("");
 	    	addAccEmailTextF.setText("");
 	    	addAccUserTextF.setText("");
