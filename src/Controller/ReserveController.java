@@ -16,9 +16,9 @@ import javafx.scene.control.TextField;
 
 public class ReserveController {
 	public String s;
-	public void serS(String g) {
+	/*public void serS(String g) {
 		this.s = g;
-	}
+	}*/
 
 	   @FXML
 	    private TextField name;

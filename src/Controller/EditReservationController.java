@@ -1,30 +1,29 @@
 package Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import com.sun.corba.se.pept.transport.EventHandler;
-
+import Model.BillCalculator;
 import Model.Client;
 import Model.Reservation;
 import Model.ReservationList;
-import Model.Room;
 import Model.Sqlconnection;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class EditReservationController implements Initializable{
 
@@ -82,11 +81,24 @@ public class EditReservationController implements Initializable{
     
  
     }
- 
+
     
     @FXML
     void cancelReservation(ActionEvent event) throws Exception {
-   sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
+    	/* Yoel is a bitch ass*/
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
+        Parent root = (Parent)fxmlLoader.load();
+    	/*before showing the scene make an object of the controller of the fxml that u are going to 
+    	make a set method to set the value that u want in that class*/
+    	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
+    	/*put the value in the setter of that controller class u want */
+    	controller.setBill(reservationsTable.getSelectionModel().getSelectedItem());
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
     }
     
  
