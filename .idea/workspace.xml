@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5d88129f-d8af-40d2-add4-6c0a6f35d929" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/EditReservationController.java" afterPath="$PROJECT_DIR$/src/Controller/EditReservationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/Controller/ManagerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/Login.fxml" afterPath="$PROJECT_DIR$/src/View/Login.fxml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,66 +21,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="33" />
-              <folding>
-                <element signature="e#1298#1299#0" expanded="true" />
-                <element signature="e#1338#1339#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Sqlconnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
+            <state relative-caret-position="4351">
               <caret line="245" column="103" lean-forward="false" selection-start-line="245" selection-start-column="99" selection-end-line="245" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6089#6102#0" expanded="true" />
+                <element signature="e#8189#8195#0" expanded="true" />
                 <marker date="1525357597313" expanded="true" signature="653:1057" ph="INSERT INTO Room... " />
                 <marker date="1525357597313" expanded="true" signature="1308:1588" ph="INSERT INTO Client... " />
                 <marker date="1525357597313" expanded="true" signature="1794:2101" ph="INSERT INTO Employee... " />
                 <marker date="1525357597313" expanded="true" signature="2492:2757" ph="INSERT INTO Reservation... " />
                 <marker date="1525357597313" expanded="true" signature="3020:3104" ph="SELECT * FRO... Employee" />
-                <marker date="1525357597313" expanded="true" signature="4088:4629" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="4249:4301" ph="SELECT * FRO... Reservation" />
-                <marker date="1525357597313" expanded="true" signature="4703:5259" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="4864:4915" ph="SELECT * FRO... Reservation" />
-                <marker date="1525357597313" expanded="true" signature="5339:5849" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="5500:5552" ph="SELECT * FRO... Reservation" />
-                <marker date="1525357597313" expanded="true" signature="5936:6572" ph="{...}" />
-                <marker date="1525357597313" expanded="true" signature="6089:6102" ph="&lt;~&gt;" />
                 <marker date="1525357597313" expanded="true" signature="6191:6278" ph="SELECT * FRO... Reservation" />
-                <marker date="1525357597313" expanded="true" signature="6633:7140" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="6738:6791" ph="SELECT * FRO... Room" />
-                <marker date="1525357597313" expanded="true" signature="7202:7920" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="7356:7374" ph="SELECT * FRO... Room" />
-                <marker date="1525357597313" expanded="true" signature="7442:7661" ph="//..." />
-                <marker date="1525357597313" expanded="true" signature="8150:8848" ph="{...}" />
-                <marker date="1525357597313" expanded="true" signature="8189:8195" ph="&lt;~&gt;" />
                 <marker date="1525357597313" expanded="true" signature="8361:8521" ph="SELECT * FRO... Room" />
-                <marker date="1525357597313" expanded="true" signature="8913:9081" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="9000:9054" ph="DELETE FROM " />
-                <marker date="1525357597313" expanded="true" signature="9144:9322" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="9228:9294" ph="DELETE FROM " />
-                <marker date="1525357597313" expanded="true" signature="9394:9603" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="9479:9561" ph="DELETE FROM " />
-                <marker date="1525357597313" expanded="true" signature="9731:10272" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="9815:9838" ph="UPDATE Room " />
                 <marker date="1525357597313" expanded="true" signature="9815:10216" ph="UPDATE Room " />
-                <marker date="1525357597313" expanded="true" signature="10345:10938" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="10602:10878" ph="UPDATE Reser... " />
-                <marker date="1525357597313" expanded="true" signature="11004:11527" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="11088:11471" ph="UPDATE Emplo... " />
-                <marker date="1525357597313" expanded="true" signature="11584:12046" ph="{...}" />
                 <marker date="1525357597313" expanded="true" signature="11668:12012" ph="UPDATE Clien... " />
-                <marker date="1525357597313" expanded="true" signature="12087:12168" ph="{...}" />
-                <marker date="1525357597313" expanded="true" signature="12206:12249" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="90" column="22" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="90" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,8 +68,8 @@
       <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="353" column="8" lean-forward="false" selection-start-line="353" selection-start-column="8" selection-end-line="353" selection-end-column="30" />
+            <state relative-caret-position="1573">
+              <caret line="299" column="51" lean-forward="true" selection-start-line="299" selection-start-column="12" selection-end-line="299" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5095#5110#0" expanded="true" />
@@ -112,8 +93,41 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="77">
+              <caret line="37" column="46" lean-forward="true" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Login.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="15" column="28" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="15" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Authentication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -128,44 +142,7 @@
             <state relative-caret-position="425">
               <caret line="181" column="18" lean-forward="true" selection-start-line="181" selection-start-column="18" selection-end-line="181" selection-end-column="18" />
               <folding>
-                <marker date="1525297138972" expanded="true" signature="12078:12321" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="12469:13975" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="12489:13955" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="12558:12682" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="12580:12661" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="12892:13265" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="12916:13240" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="13567:13673" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="13589:13651" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="13828:13934" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="13850:13912" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="14124:16596" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="14144:16576" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="14252:14376" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="14274:14355" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16054:16160" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16076:16138" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16336:16442" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16358:16420" ph="..." />
                 <marker date="1525297138972" expanded="true" signature="16554:16576" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16725:18968" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16745:18948" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16851:16975" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="16873:16954" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="18455:18561" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="18477:18539" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="18685:18791" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="18707:18769" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="19098:20516" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="19118:20496" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="19190:19314" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="19212:19293" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="19519:19804" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="19544:19779" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="20110:20216" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="20132:20194" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="20369:20475" ph="..." />
-                <marker date="1525297138972" expanded="true" signature="20391:20453" ph="..." />
               </folding>
             </state>
           </provider>
@@ -174,41 +151,8 @@
       <file leaf-file-name="SearchRoomController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="550">
               <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
-              <folding>
-                <marker date="1525357597311" expanded="true" signature="3182:3569" ph="{...}" />
-                <marker date="1525357597311" expanded="true" signature="3636:4003" ph="{...}" />
-                <marker date="1525357597311" expanded="true" signature="4072:4876" ph="{...}" />
-                <marker date="1525357597311" expanded="true" signature="4076:4182" ph="//..." />
-                <marker date="1525357597311" expanded="true" signature="4846:4873" ph="//..." />
-                <marker date="1525357597311" expanded="true" signature="4945:5869" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInfo.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/UserInfo.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="22" column="69" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="22" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchRoom.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/SearchRoom.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="62" column="28" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="62" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -262,7 +206,6 @@
         <option value="$PROJECT_DIR$/src/View/Menu.fxml" />
         <option value="$PROJECT_DIR$/src/View/xxx.fxml" />
         <option value="$PROJECT_DIR$/src/View/EditReservation.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/View/EditRooms.fxml" />
         <option value="$PROJECT_DIR$/src/View/Login.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/EditRoomController.java" />
@@ -279,6 +222,7 @@
         <option value="$PROJECT_DIR$/src/Model/Sqlconnection.java" />
         <option value="$PROJECT_DIR$/src/Controller/EditReservationController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -623,7 +567,7 @@
       <workItem from="1525078645293" duration="2904000" />
       <workItem from="1525181613681" duration="11617000" />
       <workItem from="1525223627901" duration="116000" />
-      <workItem from="1525272294934" duration="24309000" />
+      <workItem from="1525272294934" duration="27418000" />
     </task>
     <task id="LOCAL-00001" summary="Add Employee">
       <created>1525062764592</created>
@@ -716,11 +660,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525297142316</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Delete Room Updates">
+      <created>1525357909276</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1525357909276</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74874000" />
+    <option name="totallyTimeSpent" value="77983000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -816,7 +767,8 @@
     <MESSAGE value="Edit Room (Not connected to Database)" />
     <MESSAGE value="Edit Room" />
     <MESSAGE value="Delete Room" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete Room" />
+    <MESSAGE value="Delete Room Updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete Room Updates" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -843,44 +795,7 @@
         <state relative-caret-position="676">
           <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding>
-            <marker date="1525297138972" expanded="true" signature="12078:12321" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12469:13975" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12489:13955" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12558:12682" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12580:12661" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12892:13265" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12916:13240" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13567:13673" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13589:13651" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13828:13934" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13850:13912" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14124:16596" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14144:16576" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14252:14376" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14274:14355" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16054:16160" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16076:16138" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16336:16442" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16358:16420" ph="..." />
             <marker date="1525297138972" expanded="true" signature="16554:16576" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16725:18968" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16745:18948" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16851:16975" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16873:16954" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18455:18561" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18477:18539" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18685:18791" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18707:18769" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19098:20516" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19118:20496" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19190:19314" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19212:19293" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19519:19804" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19544:19779" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20110:20216" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20132:20194" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20369:20475" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20391:20453" ph="..." />
           </folding>
         </state>
       </provider>
@@ -925,45 +840,28 @@
           <caret line="53" column="161" lean-forward="false" selection-start-line="53" selection-start-column="161" selection-end-line="53" selection-end-column="161" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6089#6102#0" expanded="true" />
+            <element signature="e#8189#8195#0" expanded="true" />
             <marker date="1525357597313" expanded="true" signature="653:1057" ph="INSERT INTO Room... " />
             <marker date="1525357597313" expanded="true" signature="1308:1588" ph="INSERT INTO Client... " />
             <marker date="1525357597313" expanded="true" signature="1794:2101" ph="INSERT INTO Employee... " />
             <marker date="1525357597313" expanded="true" signature="2492:2757" ph="INSERT INTO Reservation... " />
             <marker date="1525357597313" expanded="true" signature="3020:3104" ph="SELECT * FRO... Employee" />
-            <marker date="1525357597313" expanded="true" signature="4088:4629" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="4249:4301" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="4703:5259" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="4864:4915" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="5339:5849" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="5500:5552" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="5936:6572" ph="{...}" />
-            <marker date="1525357597313" expanded="true" signature="6089:6102" ph="&lt;~&gt;" />
             <marker date="1525357597313" expanded="true" signature="6191:6278" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="6633:7140" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="6738:6791" ph="SELECT * FRO... Room" />
-            <marker date="1525357597313" expanded="true" signature="7202:7920" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="7356:7374" ph="SELECT * FRO... Room" />
-            <marker date="1525357597313" expanded="true" signature="7442:7661" ph="//..." />
-            <marker date="1525357597313" expanded="true" signature="8150:8848" ph="{...}" />
-            <marker date="1525357597313" expanded="true" signature="8189:8195" ph="&lt;~&gt;" />
             <marker date="1525357597313" expanded="true" signature="8361:8521" ph="SELECT * FRO... Room" />
-            <marker date="1525357597313" expanded="true" signature="8913:9081" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9000:9054" ph="DELETE FROM " />
-            <marker date="1525357597313" expanded="true" signature="9144:9322" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9228:9294" ph="DELETE FROM " />
-            <marker date="1525357597313" expanded="true" signature="9394:9603" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9479:9561" ph="DELETE FROM " />
-            <marker date="1525357597313" expanded="true" signature="9731:10272" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9815:9838" ph="UPDATE Room " />
             <marker date="1525357597313" expanded="true" signature="9815:10216" ph="UPDATE Room " />
-            <marker date="1525357597313" expanded="true" signature="10345:10938" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="10602:10878" ph="UPDATE Reser... " />
-            <marker date="1525357597313" expanded="true" signature="11004:11527" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="11088:11471" ph="UPDATE Emplo... " />
-            <marker date="1525357597313" expanded="true" signature="11584:12046" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="11668:12012" ph="UPDATE Clien... " />
-            <marker date="1525357597313" expanded="true" signature="12087:12168" ph="{...}" />
-            <marker date="1525357597313" expanded="true" signature="12206:12249" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1023,44 +921,7 @@
         <state relative-caret-position="676">
           <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding>
-            <marker date="1525297138972" expanded="true" signature="12078:12321" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12469:13975" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12489:13955" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12558:12682" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12580:12661" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12892:13265" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12916:13240" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13567:13673" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13589:13651" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13828:13934" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13850:13912" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14124:16596" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14144:16576" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14252:14376" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14274:14355" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16054:16160" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16076:16138" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16336:16442" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16358:16420" ph="..." />
             <marker date="1525297138972" expanded="true" signature="16554:16576" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16725:18968" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16745:18948" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16851:16975" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16873:16954" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18455:18561" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18477:18539" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18685:18791" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18707:18769" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19098:20516" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19118:20496" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19190:19314" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19212:19293" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19519:19804" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19544:19779" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20110:20216" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20132:20194" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20369:20475" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20391:20453" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1160,37 +1021,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Authentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.fxml/javafx/fxml/Initializable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1298,14 +1132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1231">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/TableEditController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1325,52 +1151,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/EditReservationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1456">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
+        <state relative-caret-position="4351">
           <caret line="245" column="103" lean-forward="false" selection-start-line="245" selection-start-column="99" selection-end-line="245" selection-end-column="103" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6089#6102#0" expanded="true" />
+            <element signature="e#8189#8195#0" expanded="true" />
             <marker date="1525357597313" expanded="true" signature="653:1057" ph="INSERT INTO Room... " />
             <marker date="1525357597313" expanded="true" signature="1308:1588" ph="INSERT INTO Client... " />
             <marker date="1525357597313" expanded="true" signature="1794:2101" ph="INSERT INTO Employee... " />
             <marker date="1525357597313" expanded="true" signature="2492:2757" ph="INSERT INTO Reservation... " />
             <marker date="1525357597313" expanded="true" signature="3020:3104" ph="SELECT * FRO... Employee" />
-            <marker date="1525357597313" expanded="true" signature="4088:4629" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="4249:4301" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="4703:5259" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="4864:4915" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="5339:5849" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="5500:5552" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="5936:6572" ph="{...}" />
-            <marker date="1525357597313" expanded="true" signature="6089:6102" ph="&lt;~&gt;" />
             <marker date="1525357597313" expanded="true" signature="6191:6278" ph="SELECT * FRO... Reservation" />
-            <marker date="1525357597313" expanded="true" signature="6633:7140" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="6738:6791" ph="SELECT * FRO... Room" />
-            <marker date="1525357597313" expanded="true" signature="7202:7920" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="7356:7374" ph="SELECT * FRO... Room" />
-            <marker date="1525357597313" expanded="true" signature="7442:7661" ph="//..." />
-            <marker date="1525357597313" expanded="true" signature="8150:8848" ph="{...}" />
-            <marker date="1525357597313" expanded="true" signature="8189:8195" ph="&lt;~&gt;" />
             <marker date="1525357597313" expanded="true" signature="8361:8521" ph="SELECT * FRO... Room" />
-            <marker date="1525357597313" expanded="true" signature="8913:9081" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9000:9054" ph="DELETE FROM " />
-            <marker date="1525357597313" expanded="true" signature="9144:9322" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9228:9294" ph="DELETE FROM " />
-            <marker date="1525357597313" expanded="true" signature="9394:9603" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9479:9561" ph="DELETE FROM " />
-            <marker date="1525357597313" expanded="true" signature="9731:10272" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="9815:9838" ph="UPDATE Room " />
             <marker date="1525357597313" expanded="true" signature="9815:10216" ph="UPDATE Room " />
-            <marker date="1525357597313" expanded="true" signature="10345:10938" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="10602:10878" ph="UPDATE Reser... " />
-            <marker date="1525357597313" expanded="true" signature="11004:11527" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="11088:11471" ph="UPDATE Emplo... " />
-            <marker date="1525357597313" expanded="true" signature="11584:12046" ph="{...}" />
             <marker date="1525357597313" expanded="true" signature="11668:12012" ph="UPDATE Clien... " />
-            <marker date="1525357597313" expanded="true" signature="12087:12168" ph="{...}" />
-            <marker date="1525357597313" expanded="true" signature="12206:12249" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="15" column="28" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1382,83 +1234,31 @@
         <state relative-caret-position="425">
           <caret line="181" column="18" lean-forward="true" selection-start-line="181" selection-start-column="18" selection-end-line="181" selection-end-column="18" />
           <folding>
-            <marker date="1525297138972" expanded="true" signature="12078:12321" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12469:13975" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12489:13955" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12558:12682" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12580:12661" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12892:13265" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="12916:13240" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13567:13673" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13589:13651" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13828:13934" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="13850:13912" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14124:16596" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14144:16576" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14252:14376" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="14274:14355" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16054:16160" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16076:16138" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16336:16442" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16358:16420" ph="..." />
             <marker date="1525297138972" expanded="true" signature="16554:16576" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16725:18968" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16745:18948" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16851:16975" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="16873:16954" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18455:18561" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18477:18539" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18685:18791" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="18707:18769" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19098:20516" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19118:20496" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19190:19314" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19212:19293" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19519:19804" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="19544:19779" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20110:20216" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20132:20194" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20369:20475" ph="..." />
-            <marker date="1525297138972" expanded="true" signature="20391:20453" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="90" column="22" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="90" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="187" column="42" lean-forward="true" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
-          <folding>
-            <marker date="1525357597311" expanded="true" signature="3182:3569" ph="{...}" />
-            <marker date="1525357597311" expanded="true" signature="3636:4003" ph="{...}" />
-            <marker date="1525357597311" expanded="true" signature="4072:4876" ph="{...}" />
-            <marker date="1525357597311" expanded="true" signature="4076:4182" ph="//..." />
-            <marker date="1525357597311" expanded="true" signature="4846:4873" ph="//..." />
-            <marker date="1525357597311" expanded="true" signature="4945:5869" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/EditReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1456">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="77">
+          <caret line="37" column="46" lean-forward="true" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="353" column="8" lean-forward="false" selection-start-line="353" selection-start-column="8" selection-end-line="353" selection-end-column="30" />
+        <state relative-caret-position="1573">
+          <caret line="299" column="51" lean-forward="true" selection-start-line="299" selection-start-column="12" selection-end-line="299" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5095#5110#0" expanded="true" />

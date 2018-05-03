@@ -229,9 +229,9 @@ public class ManagerController {
 	    	updateAdjointCB.setSelected(false);
 	    	updateAdjointRoomIDTextF.setText("");
 	    	anchor_UpdateRoom.setVisible(false);
-	    	}	    
-	    
-	    
+        }
+
+
 	    @FXML
 	    public void cancelDeleteRoom(ActionEvent event) {
 

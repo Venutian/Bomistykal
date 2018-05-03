@@ -8,39 +8,41 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class LoginController {
-	
-	
-	    @FXML
+    ManagerController mc = new ManagerController();
+
+    @FXML
 	    private TextField UserName;
 
 	    @FXML
 	    private TextField Password;
-	    
-	    
-	    
-	
-	public void login(ActionEvent event) throws IOException {
-		
-	
-		
-		try {
+
+    @FXML
+    private Label WrongLogin;
+
+
+    public void login(ActionEvent event) throws IOException {
+
+
+        try {
 			Authentication aut = new Authentication(UserName.getText().toString(),Password.getText().toString());
 			 Employee emp = aut.getEmployee();
 			
 			 /*to implement. Make a pop up window that says user name or passowrd wrong*/
 			 //if(emp == null)
-				 
-			if(emp.isManager())
-				LogManager();
-			else
-				LogEmployee();
-		} catch (Exception e) {
+            if (emp == null)
+                WrongLog();
+            else if (emp.isManager())
+                LogManager(event);
+            else
+                LogEmployee(event);
+        } catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -48,6 +50,12 @@ public class LoginController {
 		((Node) (event.getSource())).getScene().getWindow().hide();
 
 
+    }
+
+    public void WrongLog() throws IOException {
+        UserName.setText("");
+        Password.setText("");
+        WrongLogin.setVisible(true);
     }
 
     public void logout(ActionEvent event) throws IOException {
@@ -61,26 +69,24 @@ public class LoginController {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
-    private void LogEmployee() throws IOException {
+    private void LogEmployee(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
-		primaryStage.setScene(scene);
-		primaryStage.show();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+
 	}
-	
-	
-	
-	
-	
-	private void LogManager() throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
+
+
+    private void LogManager(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
-		primaryStage.setScene(scene);
-		primaryStage.show();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
 
     }
 
