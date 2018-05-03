@@ -50,7 +50,7 @@
                 </Button>
             </children>
         </AnchorPane>
-        <Button layoutX="53.0" layoutY="632.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="130.0" text="Back" AnchorPane.bottomAnchor="29.0" />
+        <Button layoutX="37.0" layoutY="630.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="70.0" text="Back" AnchorPane.bottomAnchor="30.200000000000045" />
         <SplitPane layoutX="239.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="541.0">
             <items>
                 <TableView fx:id="tabView" prefHeight="680.0" prefWidth="539.0">
@@ -73,9 +73,10 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <ListView layoutX="4.0" layoutY="60.0" prefHeight="544.0" prefWidth="199.0" />
+                <ListView fx:id="roomList" layoutX="4.0" layoutY="60.0" prefHeight="544.0" prefWidth="199.0" />
             <Button layoutX="47.0" layoutY="623.0" mnemonicParsing="false" onAction="#reservebtn" prefHeight="44.0" prefWidth="113.0" text="Reserve" />
             </children>
         </AnchorPane>
+      <Button layoutX="125.0" layoutY="630.0" mnemonicParsing="false" onAction="#addRoomToList" prefHeight="40.0" prefWidth="82.0" text="Add" />
     </children>
 </AnchorPane>

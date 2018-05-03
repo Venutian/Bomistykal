@@ -79,73 +79,30 @@ public class SearchRoomController implements Initializable{
     @FXML
     private CheckBox SingleBedBox;
     
+    @FXML
+    private ListView<String> roomList = new ListView<String>();
    
 
+    private ObservableList<Room> roomsForReserve;
+    
     ObservableList<String> campusLocation  	= FXCollections.observableArrayList("Vaxjo" , "Kalmar");
    
-    @FXML
-    private void handleSmoking() {
-    	if (smokingBox.isSelected()) {
-    		
-    	}
-    }
-    @FXML
-    private void handleNonSmoking() {
-    	if (nonSmokingBox.isSelected()) {
-    		
-    	} 
-    }
-    	@FXML
-        private void handlePets() {
-        	if (petsBox.isSelected()) {
-        		
-        	} 
-    }
-    	 @FXML
-    	    private void handleAdjoint() {
-    	    	if (adjointBox.isSelected()) {
-    	    		
-    	    	}
-    	 } @FXML
-    	    private void handleView() {
- 	    	if (viewBox.isSelected()) {
- 	    		
- 	    	}
-    	 }
-    	 
-    	 @FXML
-    	    private void handleDoubleBed() {
-    	    	if (doubleBedBox.isSelected()) {
-    	    		
-    	    	}
-    	 }
-    	 @FXML
-    	    private void handleTwinBed() {
-    	    	if (twinBedBox.isSelected()) {
-    	    		
-    	    	}
-    	 }
-    	 @FXML
- 	    private void handleSingleBed() {
- 	    	if (SingleBedBox.isSelected()) {
- 	    		
- 	    	}
- 	 }
-
-
+   
 	
 	@FXML
     public void reservebtn(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/View/Reserve.fxml"));
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
+		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Reserve.fxml"));     
+        Parent root = (Parent)fxmlLoader.load();
+    	ReserveController controller = fxmlLoader.<ReserveController>getController();
+    	controller.setRooms(roomsForReserve,checkInD,checkOutD);
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		FXMLLoader load = new FXMLLoader();
-		//ReserveController dashboardController = load.getController();
-		//dashboardController.serS("da"); 
 		
+		 
 	}
     @FXML
     public void resetBtn(ActionEvent event) throws IOException {
@@ -162,6 +119,16 @@ public class SearchRoomController implements Initializable{
     	campusLoc.setValue(null);;
 		
 	}
+    
+    @FXML
+    void addRoomToList(ActionEvent event) {
+    	Room room = tabView.getSelectionModel().getSelectedItem();
+    	roomList.getItems().add(room.getRoomID());
+    	roomsForReserve.add(room);
+    	tabView.getItems().remove(room);
+    }
+    
+    
 	@FXML
     public void back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
@@ -174,9 +141,8 @@ public class SearchRoomController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// set the choice for campus location choice box button
-				 //data = FXCollections.observableArrayList();
-				Sqlconnection sq = new Sqlconnection();
+        roomsForReserve  = FXCollections.observableArrayList();
+		Sqlconnection sq = new Sqlconnection();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
 		ObservableList<Room> data;
