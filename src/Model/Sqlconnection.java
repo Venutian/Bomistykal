@@ -120,8 +120,10 @@ public class Sqlconnection {
     /*to do.. nth in the database yet about client*/
     public void addClient(Client client) throws Exception {
         Connection con = getConnection();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String creditDate = df.format(client.getCreditCardExpDate());
         PreparedStatement pre = con.prepareStatement("INSERT INTO Client (Name,IDNumber,CreditCardNumber,CreditCardExp,PhoneNumber,Address) "
-                + " VALUES ('" + client.getName() + "','" + client.getIDNumber() + "','" + client.getCreditCardNum() + "','" + client.getCreditCardExpDate() + "','" + client.getPhoneNumber() + "','" + client.getAddress() + "');");
+                + " VALUES ('" + client.getName() + "','" + client.getIDNumber() + "','" + client.getCreditCardNum() + "','" + creditDate + "','" + client.getPhoneNumber() + "','" + client.getAddress() + "');");
         pre.executeUpdate();
         pre.close();
         con.close();
@@ -135,8 +137,8 @@ public class Sqlconnection {
         String checkOut = df.format(reservation.getCheckOutDate());
 
         Connection con = getConnection();
-        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID)"
-                + "  VALUES ('" + checkIn + "','" + checkOut + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getReservationID() + "');");
+        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID, GuestsNumber) "                                    
+                + "  VALUES ('" + checkIn + "','" + checkOut + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getReservationID() + "','" + reservation.getGuestNum() + "');");
         pre.executeUpdate();
         pre.close();
         con.close();
