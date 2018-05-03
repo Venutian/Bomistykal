@@ -46,10 +46,6 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		((Node) (event.getSource())).getScene().getWindow().hide();
-
-
     }
 
     public void WrongLog() throws IOException {

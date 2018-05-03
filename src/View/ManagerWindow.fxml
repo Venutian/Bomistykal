@@ -25,17 +25,21 @@
                     <MenuItem fx:id="goToMenuItem" mnemonicParsing="false" onAction="#goToMenuMenu" text="Go to Menu" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Manage Room">
+                 <Menu mnemonicParsing="false" text="Rooms">
                   <items>
-                    <MenuItem fx:id="createNewRoomItem" mnemonicParsing="false" onAction="#createNewRoomMenu" text="Create new room" />
-                        <MenuItem fx:id="updateRoomItem" mnemonicParsing="false" onAction="#UpdateRoomMenu" text="Update room" />
+                     <MenuItem fx:id="createNewRoomItem" mnemonicParsing="false" onAction="#createNewRoomMenu"
+                               text="New Room"/>
+                     <MenuItem fx:id="updateRoomItem" mnemonicParsing="false" onAction="#UpdateRoomMenu"
+                               text="Manage Rooms"/>
                         <MenuItem fx:id="deleteRoomItem" mnemonicParsing="false" onAction="#DeleteRoomMenu" text="Delete room" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Account Seetings">
+                 <Menu mnemonicParsing="false" text="Accounts">
                   <items>
-                    <MenuItem fx:id="createNewAccItem" mnemonicParsing="false" onAction="#CreateNewAccountMenu" text="Create new account " />
-                        <MenuItem fx:id="changePassOrUserItem" mnemonicParsing="false" onAction="#changeUserOrPassMenu" text="Change user/password" />
+                     <MenuItem fx:id="createNewAccItem" mnemonicParsing="false" onAction="#CreateNewAccountMenu"
+                               text="New Account"/>
+                     <MenuItem fx:id="changePassOrUserItem" mnemonicParsing="false" onAction="#changeUserOrPassMenu"
+                               text="Manage Accounts"/>
                         <MenuItem fx:id="deleteAccItem" mnemonicParsing="false" onAction="#deleteAccountMenu" text="Delete account" />
                   </items>
                 </Menu>
@@ -257,36 +261,60 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Employee Information" />
-            <Label layoutX="14.0" layoutY="105.0" text="Name" />
-            <TextField layoutX="129.0" layoutY="101.0" />
-            <Label layoutX="14.0" layoutY="144.0" text="ID Number" />
-            <TextField layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label layoutX="13.0" layoutY="264.0" text="Email Address" />
-            <TextField layoutX="129.0" layoutY="259.0" />
-            <Label layoutX="13.0" layoutY="354.0" text="Change User Name" />
-            <TextField layoutX="129.0" layoutY="350.0" />
-            <Label layoutX="13.0" layoutY="397.0" text="Password" />
-            <TextField layoutX="129.0" layoutY="393.0" />
-            <TextField layoutX="129.0" layoutY="178.0" />
-            <Label layoutX="14.0" layoutY="182.0" text="Address" />
-            <TextField layoutX="129.0" layoutY="219.0" />
-            <Label layoutX="14.0" layoutY="223.0" text="Phone No." />
-            <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Account Information" />
-            <TextField layoutX="128.0" layoutY="435.0" />
-            <Label layoutX="12.0" layoutY="439.0" text="Change Password" />
-            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" onAction="#cancelEditAcc" prefHeight="41.0" prefWidth="86.0" text="Cancel">
+            <Label layoutX="14.0" layoutY="74.0" prefHeight="17.0" prefWidth="217.0"
+                   text="Please, Enter Employee Information" visible="false"/>
+            <Label layoutX="14.0" layoutY="105.0" text="Name" visible="false"/>
+            <TextField layoutX="129.0" layoutY="101.0" visible="false"/>
+            <Label layoutX="14.0" layoutY="144.0" text="ID Number" visible="false"/>
+            <TextField layoutX="129.0" layoutY="140.0" prefHeight="25.0" prefWidth="149.0" visible="false"/>
+            <Label layoutX="13.0" layoutY="264.0" text="Email Address" visible="false"/>
+            <TextField layoutX="129.0" layoutY="259.0" visible="false"/>
+            <Label layoutX="13.0" layoutY="354.0" text="Change User Name" visible="false"/>
+            <TextField layoutX="129.0" layoutY="350.0" visible="false"/>
+            <Label layoutX="13.0" layoutY="397.0" text="Password" visible="false"/>
+            <TextField layoutX="129.0" layoutY="393.0" visible="false"/>
+            <TextField layoutX="129.0" layoutY="178.0" visible="false"/>
+            <Label layoutX="14.0" layoutY="182.0" text="Address" visible="false"/>
+            <TextField layoutX="129.0" layoutY="219.0" visible="false"/>
+            <Label layoutX="14.0" layoutY="223.0" text="Phone No." visible="false"/>
+            <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0"
+                   text="Please, Enter Account Information" visible="false"/>
+            <TextField layoutX="128.0" layoutY="435.0" visible="false"/>
+            <TableView fx:id="tabViewEmp" editable="true" prefHeight="470.0" prefWidth="865.0"
+                       AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0"
+                       AnchorPane.topAnchor="60.0">
+               <columns>
+                  <TableColumn fx:id="tabCol_EmpID" editable="false" prefWidth="93.99992370605469" resizable="false"
+                               text="ID Nr."/>
+                  <TableColumn fx:id="tabCol_EmpName" minWidth="0.0" onEditCommit="#EditEmpName" prefWidth="105.0"
+                               resizable="false" text="Employee Name"/>
+                  <TableColumn fx:id="tabCol_EmpUsername" onEditCommit="#EditEmpUsername" prefWidth="93.99992370605469"
+                               resizable="false" text="Username"/>
+                  <TableColumn fx:id="tabCol_EmpPassword" onEditCommit="#EditEmpPassword" prefWidth="73.3333740234375"
+                               text="Password"/>
+                  <TableColumn fx:id="tabCol_EmpAd" onEditCommit="#EditEmpAd" prefWidth="109.3333740234375"
+                               resizable="false" text="Adress"/>
+                  <TableColumn fx:id="tabCol_EmpPhone" onEditCommit="#EditEmpPhone" prefWidth="136.00009155273438"
+                               resizable="false" text="Phone Nr."/>
+               </columns>
+            </TableView>
+            <Label layoutX="12.0" layoutY="439.0" text="Change Password" visible="false"/>
+            <Button layoutX="20.0" layoutY="598.0" mnemonicParsing="false" onAction="#cancelEditAcc" prefHeight="41.0"
+                    prefWidth="86.0" text="Cancel" visible="false">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="831.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Save">
+            <Button layoutX="831.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0"
+                    text="Save" visible="false">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <TextField layoutX="127.0" layoutY="479.0" />
-            <Label layoutX="13.0" layoutY="483.0" text="Re-Enter Password" />
+            <TextField layoutX="127.0" layoutY="479.0" visible="false"/>
+            <Label layoutX="13.0" layoutY="483.0" text="Re-Enter Password" visible="false"/>
+            <Button layoutX="80.0" layoutY="511.0" mnemonicParsing="false" onAction="#DeleteEmp" prefHeight="41.0"
+                    prefWidth="75.0" text="Delete"/>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchor_DeleteAccount" layoutX="9.0" layoutY="40.0" prefHeight="672.0" prefWidth="968.0" visible="false">
