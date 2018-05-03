@@ -95,7 +95,7 @@ public class EditReservationController implements Initializable{
     	make a set method to set the value that u want in that class*/
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
     	/*put the value in the setter of that controller class u want */
-    	controller.setBill(reservationsTable.getSelectionModel().getSelectedItem());
+    	controller.setCancel(reservationsTable.getSelectionModel().getSelectedItem());
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);

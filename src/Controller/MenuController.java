@@ -62,21 +62,26 @@ public class MenuController implements Initializable{
     }
 
 	public void CheckIn(ActionEvent event) throws IOException {
-		System.out.println("CheckIn");
-		Parent root = FXMLLoader.load(getClass().getResource("/View/CheckIn.fxml"));
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
+		
+
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
+        Parent root = (Parent)fxmlLoader.load();
+    	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
+    	controller.setCheckIn(CheckInTable.getSelectionModel().getSelectedItem());
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
 	}
 	public void CheckOut(ActionEvent event) throws IOException {
-		System.out.println("CheckOut");
-		Parent root = FXMLLoader.load(getClass().getResource("/View/CheckOut.fxml"));
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
+
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
+        Parent root = (Parent)fxmlLoader.load();
+    	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
+    	controller.setCheckOut(CheckInTable.getSelectionModel().getSelectedItem());
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
