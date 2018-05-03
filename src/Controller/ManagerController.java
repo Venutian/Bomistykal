@@ -351,5 +351,6 @@ public class ManagerController {
 		Room rm = tabView.getSelectionModel().getSelectedItem();
 		Sqlconnection sq = new Sqlconnection();
 		sq.deleteRoom(rm);
+		UpdateRoomMenu(event);
 	}
 }

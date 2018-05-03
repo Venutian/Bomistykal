@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.sun.corba.se.pept.transport.EventHandler;
 
 import Model.Client;
 import Model.Reservation;
