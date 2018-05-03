@@ -229,9 +229,9 @@ public class ManagerController {
 	    	updateAdjointCB.setSelected(false);
 	    	updateAdjointRoomIDTextF.setText("");
 	    	anchor_UpdateRoom.setVisible(false);
-	    	}	    
-	    
-	    
+        }
+
+
 	    @FXML
 	    public void cancelDeleteRoom(ActionEvent event) {
 
@@ -351,5 +351,6 @@ public class ManagerController {
 		Room rm = tabView.getSelectionModel().getSelectedItem();
 		Sqlconnection sq = new Sqlconnection();
 		sq.deleteRoom(rm);
+		UpdateRoomMenu(event);
 	}
 }
