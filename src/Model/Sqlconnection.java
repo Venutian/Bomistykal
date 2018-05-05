@@ -137,8 +137,8 @@ public class Sqlconnection {
         String checkOut = df.format(reservation.getCheckOutDate());
 
         Connection con = getConnection();
-        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, ReservationID, GuestsNumber) "                                    
-                + "  VALUES ('" + checkIn + "','" + checkOut + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getReservationID() + "','" + reservation.getGuestNum() + "');");
+        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, GuestsNumber) "                                    
+                + "  VALUES ('" + checkIn + "','" + checkOut + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getGuestNum() + "');");
         pre.executeUpdate();
         pre.close();
         con.close();
@@ -173,8 +173,10 @@ public class Sqlconnection {
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
 
-            data.add(new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"), rs.getInt("GuestsNumber")));
-        }
+        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getInt("GuestsNumber"));
+            res.setReservationID(rs.getString("ReservationID"));
+        	data.add(res);       
+        	}
         pre.close();
         con.close();
         return data;
@@ -188,11 +190,10 @@ public class Sqlconnection {
         PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn = CURDATE()");
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
-
-
-            //CheckIn, Che
-            data.add(new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"), rs.getInt("GuestsNumber")));
-        }
+        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getInt("GuestsNumber"));
+            res.setReservationID(rs.getString("ReservationID"));
+        	data.add(res);
+        }//, rs.getString("ReservationID")
 
         rs.close();
         con.close();
@@ -205,9 +206,10 @@ public class Sqlconnection {
         PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut = CURDATE()");
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
-
-            data.add(new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"), rs.getInt("GuestsNumber")));
-        }
+        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getInt("GuestsNumber"));
+            res.setReservationID(rs.getString("ReservationID"));
+        	data.add(res);
+        }//, rs.getString("ReservationID")
         return data;
     }
 
@@ -220,7 +222,9 @@ public class Sqlconnection {
         PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn >= '" + CheckIn + "' AND CheckOut <= '" + CheckOut + "'");
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
-            data.add(new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getString("ReservationID"), rs.getInt("GuestsNumber")));
+        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getInt("GuestsNumber"));
+            res.setReservationID(rs.getString("ReservationID"));
+        	data.add(res);
         }
         return data;
     }

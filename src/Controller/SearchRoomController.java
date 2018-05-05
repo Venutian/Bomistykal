@@ -101,8 +101,6 @@ public class SearchRoomController implements Initializable{
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
-		 
 	}
     @FXML
     public void resetBtn(ActionEvent event) throws IOException {

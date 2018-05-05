@@ -12,14 +12,13 @@ public class Reservation {
 	private int totalPrice;
 	private String ReservationID;
 	private int guestNum;
-	//new SimpleStringProperty
-	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, String ReservationID, int guestNum) {
+
+	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, int guestNum) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.clientID =clientID;
 		this.roomID = roomID;
 		this.EmployeeUN = EmployeeUN;
-		this.ReservationID = ReservationID;
 		this.guestNum = guestNum;
 	}
 		
