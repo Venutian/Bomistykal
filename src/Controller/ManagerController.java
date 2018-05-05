@@ -334,7 +334,6 @@ public class ManagerController implements Initializable {
         addAccIDTextF.setText("");
         addAccAddTextF.setText("");
         addPhoneNoTextF.setText("");
-        addAccEmailTextF.setText("");
         addAccUserTextF.setText("");
         addAccPassWordTextF.setText("");
         addAccPassWord2TextF.setText("");
