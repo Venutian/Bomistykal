@@ -3,6 +3,7 @@ package Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import Model.Employee;
@@ -234,6 +235,15 @@ public class ManagerController implements Initializable {
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
+    	if (addAccNameTextF.getText().length()==0 || addAccIDTextF.getText().length() ==0 || addAccUserTextF.getText().length() ==0
+    		|| addAccAddTextF.getText().length() ==0 || Integer.parseInt(addPhoneNoTextF.getText()) == 0 || addAccPassWordTextF.getText().length()==0) {
+    		
+    	Alert alert = new Alert(AlertType.ERROR);
+	       alert.setTitle("Error Dialog");
+	       alert.setContentText("Please fill all the text fields!");
+	       alert.showAndWait();
+    	}
+    	else {
         try {
             Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
                     addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
@@ -245,22 +255,31 @@ public class ManagerController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    }
 
     @FXML
     public void cancelbtn(ActionEvent event) {
 
-        addRoomIDTextF.setText("");
-        priceAddTextF.setText("");
-        addRoomSizeTextF.setText("");
-        addNoOfBedTextF.setText("");
-        addLocChoiceBox.setAccessibleText(null);
-        addViewCB.setSelected(false);
-        addSmokingCB.setSelected(false);
-        addAdjointCB.setSelected(false);
-        addAdjointRoomIDTextF.setText("");
-        anchor_CreateRoom.setVisible(false);
-    }
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation Dialog");
+		alert.setContentText("Are you sure you would like to cancel?");
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK){
+			addRoomIDTextF.setText("");
+	        priceAddTextF.setText("");
+	        addRoomSizeTextF.setText("");
+	        addNoOfBedTextF.setText("");
+	        addLocChoiceBox.setAccessibleText(null);
+	        addViewCB.setSelected(false);
+	        addSmokingCB.setSelected(false);
+	        addAdjointCB.setSelected(false);
+	        addAdjointRoomIDTextF.setText("");
+	        anchor_CreateRoom.setVisible(false);
+           
+		} else {
+			alert.close();	}
+    	} 
 
 
     @FXML
@@ -329,7 +348,14 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void canceCreateAccount(ActionEvent event) {
-
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation Dialog");
+		alert.setContentText("Are you sure you would like to cancel?");
+		ButtonType yes = new ButtonType("Yes");
+    	ButtonType no = new ButtonType("No");
+    	alert.getButtonTypes().setAll(yes,no);
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == yes){
         addAccNameTextF.setText("");
         addAccIDTextF.setText("");
         addAccAddTextF.setText("");
@@ -337,9 +363,12 @@ public class ManagerController implements Initializable {
         addAccUserTextF.setText("");
         addAccPassWordTextF.setText("");
         addAccPassWord2TextF.setText("");
+        anchor_UpdateRoom.setVisible(false);
 
+    } else if (result.get() == no){
+    	alert.close();
     }
-
+    }
     @FXML
     public void cancelEditAcc(ActionEvent event) {
 
@@ -360,14 +389,7 @@ public class ManagerController implements Initializable {
 
     }
 
-    @FXML
-    public void signOutMenu(ActionEvent event) throws IOException {
-        if (event.getTarget() == signOutItem) {
-            lg.logout(event);
-
-        }
-
-    }
+    
 
 
     //Room Editing
@@ -452,6 +474,23 @@ public class ManagerController implements Initializable {
     }
 
     public void logout(ActionEvent event) throws IOException {
-        lc.logout(event);
+    	
+        	Alert alert = new Alert(AlertType.CONFIRMATION);
+        	alert.setTitle("Confirmation Dialog");
+        	alert.setContentText("Are you sure you want to log out?");
+        	ButtonType yes = new ButtonType("Yes");
+        	ButtonType no = new ButtonType("No");
+        	alert.getButtonTypes().setAll(yes,no);
+        	Optional<ButtonType> result = alert.showAndWait();
+        	if (result.get() == yes){
+        		 lc.logout(event);
+        	} else if (result.get() == no){
+        	   alert.close();
+        	}
+           
+
+        
+
+       
     }
 }
