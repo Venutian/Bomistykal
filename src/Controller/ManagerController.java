@@ -338,7 +338,7 @@ public class ManagerController implements Initializable {
         addAccUserTextF.setText("");
         addAccPassWordTextF.setText("");
         addAccPassWord2TextF.setText("");
-        anchor_CreateAccount.setVisible(false);
+
     }
 
     @FXML
