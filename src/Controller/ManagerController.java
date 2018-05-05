@@ -13,10 +13,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -25,7 +27,7 @@ import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
-public class ManagerController {
+public class ManagerController implements Initializable {
     LoginController lc = new LoginController();
     @FXML
     private ChoiceBox<String> campusLoc;
@@ -120,7 +122,13 @@ public class ManagerController {
     private Sqlconnection sq;
     private Room rm;
 
-
+    @Override
+   	public void initialize(URL arg0, ResourceBundle arg1) {
+       	this.addLocChoiceBox.setItems(campusLocation);
+       	
+       	   	
+       	
+   	}
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
@@ -185,16 +193,42 @@ public class ManagerController {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-        Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-                Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
-                addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
-        Sqlconnection sq = new Sqlconnection();
-        sq.addRoom(rm);
+    	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
+    			
+    		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
+    		       		
+    		       Alert alert = new Alert(AlertType.ERROR);
+    		       alert.setTitle("Error Dialog");
+    		       alert.setHeaderText("Look, an Error Dialog");
+    		       alert.setContentText("Please fill all the text fields!");
+    		       alert.showAndWait();
+    		       } else if (addAdjointCB.isSelected()==true && addAdjointRoomIDTextF.getText().length() == 0 ){
+    		    	   
+    		    	   Alert alert = new Alert(AlertType.ERROR);
+    		           alert.setTitle("Error Dialog");
+    		           alert.setHeaderText("Look, an Error Dialog");
+    		           alert.setContentText("Please specify the room id of adjoint rooms!");
+    		           alert.showAndWait();
+    		       }
+    		        //if (addAdjointCB.isSelected()) {
+    		        //anchor_adjoint.setVisible(true);
+    		        //}
+    		       else {
+    		    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+    		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
+    		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+    		         Sqlconnection sq = new Sqlconnection();
+    		         sq.addRoom(rm);
+    		        Alert alert = new Alert(AlertType.INFORMATION);
+    		     	alert.setTitle("Information Dialog");
+    		     	alert.setContentText("New room is successfully created");
+    		     	alert.showAndWait();
+    		       }
+    		    
+        
+        
 
-        //if (addAdjointCB.isSelected()) {
-        //anchor_adjoint.setVisible(true);
-        //}
-
+     
 
     }
 
