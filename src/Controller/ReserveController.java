@@ -8,6 +8,7 @@ import Model.Client;
 import Model.Reservation;
 import Model.Room;
 import Model.Sqlconnection;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,7 +54,7 @@ public class ReserveController {
     private ChoiceBox<?> noOfRoomsCheckB;
 
     @FXML
-    private ChoiceBox<?> noOfGuestsCheckB;
+    private ChoiceBox<Integer> noOfGuestsCheckB;
 
     @FXML
     private TableView<Room> tableList;
@@ -71,6 +72,8 @@ public class ReserveController {
 
     @FXML
     private TableColumn<Room, String> roomPrice;
+    
+    ObservableList<Integer> maxGuests  	= FXCollections.observableArrayList();
 
 	private ObservableList<Room> list;
 	private Date checkIn;
@@ -115,6 +118,17 @@ public class ReserveController {
 	bedType.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
 	roomPrice.setCellValueFactory(new PropertyValueFactory<Room, String>("Price"));
 	tableList.setItems(list);
+	int maxNumOfGuests = 0;
+	for(Room r : list) {
+		maxNumOfGuests += r.getNumOfBed();
+	}
+	
+	
+	for(int i = 1;i <= maxNumOfGuests; i ++)
+		maxGuests.add(i);
+		
+	this.noOfGuestsCheckB.setItems(maxGuests);
+	noOfGuestsCheckB.setValue(1);
     }
 
 }
