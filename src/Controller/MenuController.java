@@ -10,6 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -23,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable{
@@ -58,7 +62,19 @@ public class MenuController implements Initializable{
     private TableColumn<Reservation, String> COGuestName;
 
     public void logout(ActionEvent event) throws IOException {
-        lo.logout(event);
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Confirmation Dialog");
+    	alert.setContentText("Are you sure you want to log out?");
+    	ButtonType yes = new ButtonType("Yes");
+    	ButtonType no = new ButtonType("No");
+    	alert.getButtonTypes().setAll(yes,no);
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == yes){
+    		lo.logout(event);
+    	} else if (result.get() == no){
+    	   alert.close();
+    	}
+    	
     }
 
 	public void CheckIn(ActionEvent event) throws IOException {
