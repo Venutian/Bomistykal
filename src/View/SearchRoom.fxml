@@ -20,15 +20,14 @@
                 <Font size="30.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="14.0" layoutY="100.0" prefHeight="524.0" prefWidth="207.0" AnchorPane.bottomAnchor="70.0" AnchorPane.topAnchor="100.0">
+        <AnchorPane layoutX="21.0" layoutY="102.0" prefHeight="524.0" prefWidth="207.0" AnchorPane.bottomAnchor="68.0" AnchorPane.topAnchor="102.0">
             <children>
                 <ChoiceBox fx:id="campusLoc" layoutX="18.0" layoutY="40.0" prefWidth="150.0" />
                 <DatePicker fx:id="checkIn" layoutX="16.0" layoutY="97.0" prefHeight="26.0" prefWidth="150.0" />
                 <DatePicker fx:id="checkOut" layoutX="15.0" layoutY="156.0" prefHeight="26.0" prefWidth="150.0" />
-                <CheckBox fx:id="smokingBox" layoutX="25.0" layoutY="225.0" mnemonicParsing="false" text="Smoking" />
-                <CheckBox fx:id="nonSmokingBox" layoutX="25.0" layoutY="249.0" mnemonicParsing="false" text="Non-Smoking" />
-                <CheckBox fx:id="petsBox" layoutX="25.0" layoutY="275.0" mnemonicParsing="false" text="Pets allowed" />
-                <CheckBox fx:id="adjointBox" layoutX="25.0" layoutY="301.0" mnemonicParsing="false" text="Adjoint room" />
+                <CheckBox fx:id="smokingBox" layoutX="20.0" layoutY="224.0" mnemonicParsing="false" text="Smoking" />
+                <CheckBox fx:id="petsBox" layoutX="18.0" layoutY="256.0" mnemonicParsing="false" text="Pets allowed" />
+                <CheckBox fx:id="adjointBox" layoutX="17.0" layoutY="285.0" mnemonicParsing="false" text="Adjoint room" />
                 <CheckBox fx:id="doubleBedBox" layoutX="24.0" layoutY="387.0" mnemonicParsing="false" text="Double bed" />
                 <CheckBox fx:id="twinBedBox" layoutX="24.0" layoutY="410.0" mnemonicParsing="false" text="Twin bed" />
                 <Label layoutX="17.0" layoutY="14.0" text="Campus" />
@@ -36,7 +35,7 @@
                 <Label layoutX="18.0" layoutY="131.0" text="Check-out date" />
                 <Label layoutX="14.0" layoutY="191.0" text="Room type" />
                 <Label layoutX="16.0" layoutY="359.0" text="Bed type" />
-                <CheckBox fx:id="viewBox" layoutX="25.0" layoutY="327.0" mnemonicParsing="false" text="View" />
+                <CheckBox fx:id="viewBox" layoutX="19.0" layoutY="318.0" mnemonicParsing="false" text="View" />
                 <CheckBox fx:id="SingleBedBox" layoutX="24.0" layoutY="433.0" mnemonicParsing="false" text="Single bed" />
                 <Button layoutX="24.0" layoutY="466.0" mnemonicParsing="false" onAction="#searchForRoom" prefHeight="44.0" prefWidth="70.0" text="Search">
                     <font>

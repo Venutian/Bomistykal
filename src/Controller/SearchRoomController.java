@@ -40,11 +40,8 @@ public class SearchRoomController implements Initializable{
     @FXML
     private DatePicker checkOut;
 
-      @FXML
+     @FXML
     private CheckBox smokingBox;
-
-    @FXML
-    private CheckBox nonSmokingBox;
 
     @FXML
     private CheckBox petsBox;
@@ -107,7 +104,6 @@ public class SearchRoomController implements Initializable{
     	checkIn.setValue(null);
     	checkOut.setValue(null);
     	smokingBox.setSelected(false);
-    	nonSmokingBox.setSelected(false);
     	petsBox.setSelected(false);
     	adjointBox.setSelected(false);
     	doubleBedBox.setSelected(false);
@@ -152,11 +148,10 @@ public class SearchRoomController implements Initializable{
                      tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room, String>("AdjoindsRoomID"));
                      tabView.setItems(data);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+				
 					e.printStackTrace();
 				}
-			      //
-			   // table contents 
+			 
 	}
 	
 	@FXML
@@ -166,7 +161,13 @@ public class SearchRoomController implements Initializable{
 		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
 		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),doubleBedBox.isSelected());
+		int numOfBeds = 0;
+		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
+			numOfBeds = 2;
+		else if(SingleBedBox.isSelected())
+			numOfBeds = 1;
+		
+	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),numOfBeds);
 
 	    ObservableList<Room> data = sc.getAvailableRooms(); 
 	    

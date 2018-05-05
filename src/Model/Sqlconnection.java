@@ -248,11 +248,11 @@ public class Sqlconnection {
 
 
     //String campusLoc boolean smoking, boolean petsAllowd,boolean adjoined,boolean doubleBed
-    public ArrayList<Room> getRoomChoices(String campusLoc, boolean view, boolean smoking, boolean adjoined, boolean doubleBed) throws Exception {
+    public ArrayList<Room> getRoomChoices(String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds) throws Exception {
         ArrayList<Room> data = new ArrayList<Room>();
         Connection con = getConnection();
         //	RoomID	Price	RoomSize	NumOfBeds	Location	View	Smoking	Adjoint	AdjointRoomID
-        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND View='" + getBoolean(view) + "'   AND Smoking='" + getBoolean(smoking) + "' AND Adjoint='" + getBoolean(adjoined) + "' ");
+        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND View='" + getBoolean(view) + "'   AND Smoking='" + getBoolean(smoking) + "' AND Adjoint='" + getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "'");
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
 

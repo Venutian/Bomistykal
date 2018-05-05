@@ -18,11 +18,11 @@ public class SearchFactory {
 	private ArrayList<Room> NOTavailable;
 	private ObservableList<Room> available; 
 	
-	public SearchFactory(String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed) throws Exception {
+	public SearchFactory(String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,int numOfBeds) throws Exception {
 		
 		 this.sq = new Sqlconnection();
 		//take the rooms that fit your description
-		 this.roomList = sq.getRoomChoices(campusLoc, view ,smoking,  adjoined, doubleBed);
+		 this.roomList = sq.getRoomChoices(campusLoc, view ,smoking,  adjoined, numOfBeds);
 		//finding reservations that conflict with your dates  
 		 this.ColapingRess = sq.searchForDates(s,s);
 		 
