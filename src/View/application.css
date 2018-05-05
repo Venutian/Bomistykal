@@ -30,6 +30,10 @@
     -fx-text-fill: -fx-primarytext;
 }
 
+.mainTi {
+    -fx-font-family: monospace;
+}
+
 .text-field {
     -fx-text-fill: -fx-primary;
     -fx-font-size: 11pt;

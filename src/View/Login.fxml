@@ -30,14 +30,15 @@
                           AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0"/>
                <TextField fx:id="Password" layoutX="150.0" layoutY="229.0" promptText="Password"
                           AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0"/>
-               <Label fx:id="WrongLogin" layoutX="54.0" layoutY="110.0" prefHeight="31.0" prefWidth="239.0"
+               <Label fx:id="WrongLogin" layoutX="230.0" layoutY="130.0" prefHeight="31.0" prefWidth="239.0"
                       text="Wrong Username or Password, Try Again" textAlignment="CENTER" textFill="RED"
                       visible="false"/>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="62.0" prefHeight="100.0"
-                      prefWidth="400.0" text="Linnaeus Hotel" textAlignment="CENTER" AnchorPane.leftAnchor="145.0"
+               <Label fx:id="mainTi" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" layoutX="145.0"
+                      layoutY="62.0" lineSpacing="1.0" mouseTransparent="true" prefHeight="100.0" prefWidth="400.0"
+                      text="LINNAEUS HOTEL" textAlignment="CENTER" AnchorPane.leftAnchor="145.0"
                       AnchorPane.rightAnchor="145.0">
                    <font>
-                       <Font name="Arial Black" size="45.0"/>
+                       <Font name="Agency FB" size="53.0"/>
                    </font>
                </Label>
            </children>
