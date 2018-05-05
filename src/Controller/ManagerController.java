@@ -13,18 +13,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
 
 public class ManagerController {
-
+    LoginController lc = new LoginController();
     @FXML
     private ChoiceBox<String> campusLoc;
 
@@ -86,7 +88,6 @@ public class ManagerController {
     @FXML
     private MenuItem createNewAccItem, changePassOrUserItem, deleteAccItem;
 
-
     @FXML
     private MenuItem goToMenuItem;
 
@@ -128,6 +129,7 @@ public class ManagerController {
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     @FXML
@@ -135,36 +137,23 @@ public class ManagerController {
         if (event.getTarget() == createNewRoomItem) {
             anchor_CreateRoom.setVisible(true);
             anchor_UpdateRoom.setVisible(false);
-            anchor_DeleteRoom.setVisible(false);
             anchor_CreateAccount.setVisible(false);
             anchor_EditAccount.setVisible(false);
-            anchor_DeleteAccount.setVisible(false);
+
 
         }
 
     }
 
-    @FXML
-    public void DeleteRoomMenu(ActionEvent event) throws Exception {
-        if (event.getTarget() == deleteRoomItem) {
-            anchor_CreateRoom.setVisible(false);
-            anchor_UpdateRoom.setVisible(false);
-            anchor_DeleteRoom.setVisible(true);
-            anchor_CreateAccount.setVisible(false);
-            anchor_EditAccount.setVisible(false);
-            anchor_DeleteAccount.setVisible(false);
-        }
-    }
 
     @FXML
     public void UpdateRoomMenu(ActionEvent event) throws Exception {
         if (event.getTarget() == updateRoomItem) {
             anchor_CreateRoom.setVisible(false);
-            anchor_DeleteRoom.setVisible(false);
             anchor_UpdateRoom.setVisible(true);
             anchor_CreateAccount.setVisible(false);
             anchor_EditAccount.setVisible(false);
-            anchor_DeleteAccount.setVisible(false);
+
         }
         // set the choice for campus location choice box button
         //data = FXCollections.observableArrayList();
@@ -254,37 +243,28 @@ public class ManagerController {
         updateAdjointCB.setSelected(false);
         updateAdjointRoomIDTextF.setText("");
         anchor_UpdateRoom.setVisible(false);
-    }
-
-
-    @FXML
-    public void cancelDeleteRoom(ActionEvent event) {
-
-        searchDeleteRoomTextF.setText("");
-        anchor_DeleteRoom.setVisible(false);
 
     }
+
+
 
     public void CreateNewAccountMenu(ActionEvent event) throws IOException {
         if (event.getTarget() == createNewAccItem) {
             anchor_CreateAccount.setVisible(true);
             anchor_EditAccount.setVisible(false);
-            anchor_DeleteAccount.setVisible(false);
             anchor_CreateRoom.setVisible(false);
-            anchor_DeleteRoom.setVisible(false);
             anchor_UpdateRoom.setVisible(false);
+
         }
     }
-
     @FXML
     public void changeUserOrPassMenu(ActionEvent event) throws Exception {
         if (event.getTarget() == changePassOrUserItem) {
             anchor_CreateAccount.setVisible(false);
-            anchor_DeleteAccount.setVisible(false);
             anchor_EditAccount.setVisible(true);
             anchor_CreateRoom.setVisible(false);
-            anchor_DeleteRoom.setVisible(false);
             anchor_UpdateRoom.setVisible(false);
+
         }
         Sqlconnection sq = new Sqlconnection();
         ObservableList<Employee> data;
@@ -314,18 +294,6 @@ public class ManagerController {
     }
 
     @FXML
-    public void deleteAccountMenu(ActionEvent event) throws Exception {
-        if (event.getTarget() == deleteAccItem) {
-            anchor_CreateAccount.setVisible(false);
-            anchor_EditAccount.setVisible(false);
-            anchor_DeleteAccount.setVisible(true);
-            anchor_CreateRoom.setVisible(false);
-            anchor_DeleteRoom.setVisible(false);
-            anchor_UpdateRoom.setVisible(false);
-        }
-    }
-
-    @FXML
     public void canceCreateAccount(ActionEvent event) {
 
         addAccNameTextF.setText("");
@@ -347,12 +315,6 @@ public class ManagerController {
     }
 
 
-    @FXML
-    public void canceDeleteAcc(ActionEvent event) {
-
-        searchEmplNameTextF.setText("");
-        anchor_DeleteAccount.setVisible(false);
-    }
 
     @FXML
     public void dailyRepMenu(ActionEvent event) {
@@ -454,5 +416,9 @@ public class ManagerController {
         Sqlconnection sq = new Sqlconnection();
         sq.deleteEmployee(emp);
         changeUserOrPassMenu(event);
+    }
+
+    public void logout(ActionEvent event) throws IOException {
+        lc.logout(event);
     }
 }

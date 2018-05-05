@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
-    ManagerController mc = new ManagerController();
+
 
     @FXML
 	    private TextField UserName;
