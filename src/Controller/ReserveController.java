@@ -91,7 +91,7 @@ public class ReserveController {
     Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
     sq.addClient(client);
     for(Room room : list)
-    	sq.addReservation(new Reservation(checkIn,checkOut,client.getIDNumber(),"employee","change",2));
+    	sq.addReservation(new Reservation(checkIn,checkOut,client.getIDNumber(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
     
     
     }
