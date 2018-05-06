@@ -198,8 +198,8 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-    	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
-    			
+    	/*if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
+
     		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
     		       		
     		       Alert alert = new Alert(AlertType.ERROR);
@@ -218,8 +218,8 @@ public class ManagerController implements Initializable {
     		        //if (addAdjointCB.isSelected()) {
     		        //anchor_adjoint.setVisible(true);
     		        //}
-    		       else {
-    		    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+    		       else {*/
+        Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
     		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
     		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
     		         Sqlconnection sq = new Sqlconnection();
@@ -229,13 +229,7 @@ public class ManagerController implements Initializable {
     		     	alert.setContentText("New room is successfully created");
     		     	alert.showAndWait();
     		       }
-    		    
-        
-        
 
-     
-
-    }
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
