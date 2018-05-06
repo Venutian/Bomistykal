@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5d88129f-d8af-40d2-add4-6c0a6f35d929" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/EditReservationController.java" afterPath="$PROJECT_DIR$/src/Controller/EditReservationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/Controller/ManagerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MenuController.java" afterPath="$PROJECT_DIR$/src/Controller/MenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ReserveController.java" afterPath="$PROJECT_DIR$/src/Controller/ReserveController.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -90,7 +85,7 @@
             <state relative-caret-position="-971">
               <caret line="140" column="14" lean-forward="false" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="14" />
               <folding>
-                <marker date="1525636446710" expanded="true" signature="3192:3286" ph="{...}" />
+                <marker date="1525636466561" expanded="true" signature="3192:3286" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -472,7 +467,7 @@
       <workItem from="1525361304548" duration="7175000" />
       <workItem from="1525528090744" duration="18555000" />
       <workItem from="1525550365714" duration="163000" />
-      <workItem from="1525635950271" duration="505000" />
+      <workItem from="1525635950271" duration="522000" />
     </task>
     <task id="LOCAL-00001" summary="Add Employee">
       <created>1525062764592</created>
@@ -649,11 +644,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525636017341</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Logo">
+      <created>1525636472355</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1525636472355</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104535000" />
+    <option name="totallyTimeSpent" value="104552000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -829,7 +831,7 @@
         <state relative-caret-position="1586">
           <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <marker date="1525636446710" expanded="true" signature="3192:3286" ph="{...}" />
+            <marker date="1525636466561" expanded="true" signature="3192:3286" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1161,7 +1163,7 @@
         <state relative-caret-position="-971">
           <caret line="140" column="14" lean-forward="false" selection-start-line="140" selection-start-column="14" selection-end-line="140" selection-end-column="14" />
           <folding>
-            <marker date="1525636446710" expanded="true" signature="3192:3286" ph="{...}" />
+            <marker date="1525636466561" expanded="true" signature="3192:3286" ph="{...}" />
           </folding>
         </state>
       </provider>
