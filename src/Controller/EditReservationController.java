@@ -25,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class EditReservationController implements Initializable{
@@ -98,7 +99,10 @@ public class EditReservationController implements Initializable{
     	controller.setCancel(reservationsTable.getSelectionModel().getSelectedItem());
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
-		primaryStage.setScene(scene);
+        Image anotherIcon = new Image("logo.png");
+        primaryStage.getIcons().add(anotherIcon);
+        primaryStage.setTitle("Linnaeus Hotel");
+        primaryStage.setScene(scene);
 		primaryStage.show();
 		sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
     }
