@@ -29,7 +29,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 
 public class ManagerController implements Initializable {
-    LoginController lc = new LoginController();
+    
     @FXML
     private ChoiceBox<String> campusLoc;
 
@@ -119,9 +119,8 @@ public class ManagerController implements Initializable {
             addAccPassWord2TextF, searchEmplNameTextF;
 
     ObservableList<String> campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
-    private LoginController lg;
-    private Sqlconnection sq;
-    private Room rm;
+    
+   private LoginController lc;
 
     @Override
    	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -194,7 +193,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-    	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
+    	/*if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
     			
     		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
     		       		
@@ -211,13 +210,11 @@ public class ManagerController implements Initializable {
     		           alert.setContentText("Please specify the room id of adjoint rooms!");
     		           alert.showAndWait();
     		       }
-    		        //if (addAdjointCB.isSelected()) {
-    		        //anchor_adjoint.setVisible(true);
-    		        //}
-    		       else {
+    		        
+    		       else {*/
     		    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-    		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
-    		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+    		           Integer.parseInt(addNoOfBedTextF.getText()), "Växjö", addViewCB.isSelected(), addSmokingCB.isSelected(),
+    		          addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
     		         Sqlconnection sq = new Sqlconnection();
     		         sq.addRoom(rm);
     		        Alert alert = new Alert(AlertType.INFORMATION);
@@ -231,7 +228,7 @@ public class ManagerController implements Initializable {
 
      
 
-    }
+    
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
@@ -242,18 +239,33 @@ public class ManagerController implements Initializable {
 	       alert.setTitle("Error Dialog");
 	       alert.setContentText("Please fill all the text fields!");
 	       alert.showAndWait();
-    	}
-    	else {
+    	} else
+    	{
         try {
             Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
-                    addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
-                    addAccAddTextF.getText().toString(), Integer.parseInt(addPhoneNoTextF.getText()), isManager.isSelected());
+            addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
+            addAccAddTextF.getText().toString(), Integer.parseInt(addPhoneNoTextF.getText()), isManager.isSelected());
             Sqlconnection sq = new Sqlconnection();
             sq.addEmployee(emp);
+            Alert alert = new Alert(AlertType.INFORMATION);
+	     	alert.setTitle("Information Dialog");
+	     	alert.setContentText("New account is successfully created");
+	     	alert.showAndWait();
+	     	// after the account is created the fields return empty
+	     		addAccNameTextF.setText("");
+	            addAccIDTextF.setText("");
+	            addAccAddTextF.setText("");
+	            addPhoneNoTextF.setText("");
+	            addAccUserTextF.setText("");
+	            addAccPassWordTextF.setText("");
+	            addAccPassWord2TextF.setText("");
+	            isManager.setSelected(false);
+	            
+	     	
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        } 
     }
     }
 
@@ -424,8 +436,21 @@ public class ManagerController implements Initializable {
     public void DeleteRoom(ActionEvent event) throws Exception {
         Room rm = tabView.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
-        sq.deleteRoom(rm);
-        UpdateRoomMenu(event);
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Confirmation Dialog");
+    	alert.setContentText("Are you sure you want to log out?");
+    	ButtonType yes = new ButtonType("Yes");
+    	ButtonType no = new ButtonType("No");
+    	alert.getButtonTypes().setAll(yes,no);
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == yes){
+    		sq.deleteRoom(rm);
+            UpdateRoomMenu(event);
+    	} else if (result.get() == no){
+    	   alert.close();
+    	}
+        
+        
     }
 
     //Employee Editing
@@ -474,7 +499,7 @@ public class ManagerController implements Initializable {
     }
 
     public void logout(ActionEvent event) throws IOException {
-    	
+    		lc = new LoginController();
         	Alert alert = new Alert(AlertType.CONFIRMATION);
         	alert.setTitle("Confirmation Dialog");
         	alert.setContentText("Are you sure you want to log out?");

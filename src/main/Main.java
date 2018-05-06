@@ -15,8 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
         primaryStage.setScene(new Scene(root));
-        Image anotherIcon = new Image("logo.png");
-        primaryStage.getIcons().add(anotherIcon);
+       // Image anotherIcon = new Image("logo.png");
+       // primaryStage.getIcons().add(anotherIcon);
         primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.show();
     }
