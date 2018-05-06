@@ -16,6 +16,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -108,7 +109,10 @@ public class MenuController implements Initializable{
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+		Image anotherIcon = new Image("logo.png");
+		window.getIcons().add(anotherIcon);
+		window.setTitle("Linnaeus Hotel");
+		window.setScene(scene);
         window.show();
 
     }
@@ -119,6 +123,9 @@ public class MenuController implements Initializable{
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
 		Stage primaryStage = new Stage();
+		Image anotherIcon = new Image("logo.png");
+		primaryStage.getIcons().add(anotherIcon);
+		primaryStage.setTitle("Linnaeus Hotel");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
@@ -129,7 +136,10 @@ public class MenuController implements Initializable{
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+		Image anotherIcon = new Image("logo.png");
+		window.getIcons().add(anotherIcon);
+		window.setTitle("Linnaeus Hotel");
+		window.setScene(scene);
         window.show();
     }
 

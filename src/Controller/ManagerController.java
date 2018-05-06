@@ -22,6 +22,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -137,6 +138,9 @@ public class ManagerController implements Initializable {
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
+        Image anotherIcon = new Image("logo.png");
+        primaryStage.getIcons().add(anotherIcon);
+        primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }

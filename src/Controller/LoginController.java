@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -60,6 +61,9 @@ public class LoginController {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage primaryStage = new Stage();
+        Image anotherIcon = new Image("logo.png");
+        primaryStage.getIcons().add(anotherIcon);
+        primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.setScene(scene);
         primaryStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -70,6 +74,9 @@ public class LoginController {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Image anotherIcon = new Image("logo.png");
+        window.getIcons().add(anotherIcon);
+        window.setTitle("Linnaeus Hotel");
         window.setScene(scene);
         window.show();
 
@@ -81,6 +88,9 @@ public class LoginController {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Image anotherIcon = new Image("logo.png");
+        window.getIcons().add(anotherIcon);
+        window.setTitle("Linnaeus Hotel");
         window.setScene(scene);
         window.show();
 
