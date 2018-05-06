@@ -59,10 +59,19 @@ public class SearchRoomController implements Initializable{
     private TableView<Room> tabView;
 
     @FXML
-    private TableColumn<Room, String> tabCol_Des;
+    private TableColumn<Room, String> tabCol_Id;
 
     @FXML
-    private TableColumn<Room, String> tabCol_Id;
+    private TableColumn<Room, Integer> tabCol_Price;
+
+    @FXML
+    private TableColumn<Room, Integer> tabCol_Size;
+
+    @FXML
+    private TableColumn<Room, Integer> tabCol_Beds;
+
+    @FXML
+    private TableColumn<Room, String> tabCol_Location;
 
     @FXML
     private TableColumn<Room, String> tabCol_Availble;
@@ -143,9 +152,11 @@ public class SearchRoomController implements Initializable{
 		try {
 					data = sq.getRooms();
 
-                     tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-                     tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
-                     tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room, String>("AdjoindsRoomID"));
+            tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
+            tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
+            tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
+            tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
+            tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
                      tabView.setItems(data);
 				} catch (Exception e) {
 				
@@ -169,14 +180,15 @@ public class SearchRoomController implements Initializable{
 		
 	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),numOfBeds);
 
-	    ObservableList<Room> data = sc.getAvailableRooms(); 
-	    
+        ObservableList<Room> data = sc.getAvailableRooms();
+
 
         tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-        tabCol_Des.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
-        tabCol_Availble.setCellValueFactory(new PropertyValueFactory<Room, String>("AdjoindsRoomID"));
-        tabView.setItems(data);
-	    
+        tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
+        tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
+        tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
+        tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
+
     }
 	
 	

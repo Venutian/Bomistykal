@@ -29,8 +29,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class EditReservationController implements Initializable{
-
-	private Sqlconnection sq;
+    SearchRoomController src = new SearchRoomController();
+    private Sqlconnection sq;
 	private ObservableList<Reservation> list ;
     @FXML
     private TextField idSearch;
@@ -85,7 +85,10 @@ public class EditReservationController implements Initializable{
  
     }
 
-    
+    @FXML
+    public void back(ActionEvent event) throws IOException {
+        src.back(event);
+    }
     @FXML
     void cancelReservation(ActionEvent event) throws Exception {
     	/* Yoel is a bitch ass*/
