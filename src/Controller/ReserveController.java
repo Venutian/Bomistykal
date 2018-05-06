@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -43,15 +44,15 @@ public class ReserveController {
 
     @FXML
     private TextField telNumber;
+    
+    @FXML
+    private Label checkinLabel;
 
     @FXML
-    private DatePicker checkInReserve;
+    private Label checkOutLabel;
 
     @FXML
-    private DatePicker checkOutReserve;
-
-    @FXML
-    private ChoiceBox<?> noOfRoomsCheckB;
+    private Label numOfRoomsLabel;
 
     @FXML
     private ChoiceBox<Integer> noOfGuestsCheckB;
@@ -90,18 +91,19 @@ public class ReserveController {
     Date credit = Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
     Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
     sq.addClient(client);
+    Reservation reservation = null;
     for(Room room : list)
-    	sq.addReservation(new Reservation(checkIn,checkOut,client.getIDNumber(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
+    	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,client.getIDNumber(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
     
-    
+    goToConfirm(reservation);
     }
     
-    public void goToConfirm() throws IOException {
+    public void goToConfirm(Reservation res) throws IOException {
        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
         //need to implement 
-    	//ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
-    	//controller.reservationConfirm(list.get(0), 3);
+    	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
+    	controller.reservationConfirm(res);
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
@@ -112,6 +114,9 @@ public class ReserveController {
     public void setRooms(ObservableList<Room> roomsForReserve, Date startDate, Date endDate) {
 	this.checkIn= startDate;
 	this.checkOut = endDate;
+	checkinLabel.setText(checkIn.toString());
+	checkOutLabel.setText(checkOut.toString());
+	
 	this.list = roomsForReserve;
 	roomNo.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
 	roomDesc.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
@@ -123,7 +128,7 @@ public class ReserveController {
 		maxNumOfGuests += r.getNumOfBed();
 	}
 	
-	
+	numOfRoomsLabel.setText(Integer.toString(list.size()));
 	for(int i = 1;i <= maxNumOfGuests; i ++)
 		maxGuests.add(i);
 		
