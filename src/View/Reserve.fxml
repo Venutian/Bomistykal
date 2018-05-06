@@ -78,9 +78,6 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <DatePicker fx:id="checkInReserve" layoutX="135.0" layoutY="284.0" prefHeight="25.0" prefWidth="158.0" />
-      <DatePicker fx:id="checkOutReserve" layoutX="508.0" layoutY="284.0" prefHeight="25.0" prefWidth="149.0" />
-      <ChoiceBox fx:id="noOfRoomsCheckB" layoutX="135.0" layoutY="339.0" prefHeight="25.0" prefWidth="158.0" />
       <ChoiceBox fx:id="noOfGuestsCheckB" layoutX="507.0" layoutY="338.0" prefWidth="150.0" />
       <TableView fx:id="tableList" layoutX="38.0" layoutY="77.0" prefHeight="186.0" prefWidth="652.0">
         <columns>
@@ -90,5 +87,8 @@
             <TableColumn fx:id="roomPrice" prefWidth="96.0" text="Price" />
         </columns>
       </TableView>
+      <Label fx:id="checkinLabel" layoutX="144.0" layoutY="289.0" prefHeight="18.0" prefWidth="158.0" text="Label" />
+      <Label fx:id="checkOutLabel" layoutX="513.0" layoutY="288.0" prefHeight="18.0" prefWidth="158.0" text="Label" />
+      <Label fx:id="numOfRoomsLabel" layoutX="144.0" layoutY="341.0" prefHeight="18.0" prefWidth="134.0" text="Label" />
    </children>
 </AnchorPane>

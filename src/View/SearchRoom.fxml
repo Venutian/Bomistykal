@@ -10,6 +10,8 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -20,44 +22,90 @@
                 <Font size="30.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="21.0" layoutY="102.0" prefHeight="524.0" prefWidth="207.0" AnchorPane.bottomAnchor="68.0" AnchorPane.topAnchor="102.0">
+        <AnchorPane layoutX="21.0" layoutY="102.0" prefHeight="505.0" prefWidth="207.0" AnchorPane.bottomAnchor="93.0"
+                    AnchorPane.topAnchor="102.0">
             <children>
                 <ChoiceBox fx:id="campusLoc" layoutX="18.0" layoutY="40.0" prefWidth="150.0" />
                 <DatePicker fx:id="checkIn" layoutX="16.0" layoutY="97.0" prefHeight="26.0" prefWidth="150.0" />
                 <DatePicker fx:id="checkOut" layoutX="15.0" layoutY="156.0" prefHeight="26.0" prefWidth="150.0" />
-                <CheckBox fx:id="smokingBox" layoutX="20.0" layoutY="224.0" mnemonicParsing="false" text="Smoking" />
-                <CheckBox fx:id="petsBox" layoutX="18.0" layoutY="256.0" mnemonicParsing="false" text="Pets allowed" />
-                <CheckBox fx:id="adjointBox" layoutX="17.0" layoutY="285.0" mnemonicParsing="false" text="Adjoint room" />
-                <CheckBox fx:id="doubleBedBox" layoutX="24.0" layoutY="387.0" mnemonicParsing="false" text="Double bed" />
-                <CheckBox fx:id="twinBedBox" layoutX="24.0" layoutY="410.0" mnemonicParsing="false" text="Twin bed" />
-                <Label layoutX="17.0" layoutY="14.0" text="Campus" />
-                <Label layoutX="18.0" layoutY="72.0" text="Check-in date" />
-                <Label layoutX="18.0" layoutY="131.0" text="Check-out date" />
-                <Label layoutX="14.0" layoutY="191.0" text="Room type" />
-                <Label layoutX="16.0" layoutY="359.0" text="Bed type" />
-                <CheckBox fx:id="viewBox" layoutX="19.0" layoutY="318.0" mnemonicParsing="false" text="View" />
-                <CheckBox fx:id="SingleBedBox" layoutX="24.0" layoutY="433.0" mnemonicParsing="false" text="Single bed" />
-                <Button layoutX="24.0" layoutY="466.0" mnemonicParsing="false" onAction="#searchForRoom" prefHeight="44.0" prefWidth="70.0" text="Search">
+                <CheckBox fx:id="smokingBox" layoutX="20.0" layoutY="220.0" mnemonicParsing="false" text="Smoking"/>
+                <CheckBox fx:id="adjointBox" layoutX="20.0" layoutY="250.0" mnemonicParsing="false"
+                          text="Adjoint room"/>
+                <CheckBox fx:id="doubleBedBox" layoutX="20.0" layoutY="340.0" mnemonicParsing="false"
+                          text="Double bed"/>
+                <CheckBox fx:id="twinBedBox" layoutX="20.0" layoutY="370.0" mnemonicParsing="false" text="Twin bed"/>
+                <Label layoutX="15.0" layoutY="14.0" text="Campus"/>
+                <Label layoutX="15.0" layoutY="72.0" text="Check-in date"/>
+                <Label layoutX="15.0" layoutY="131.0" text="Check-out date"/>
+                <Label layoutX="15.0" layoutY="191.0" text="Room type"/>
+                <Label layoutX="15.0" layoutY="310.0" text="Bed type"/>
+                <CheckBox fx:id="viewBox" layoutX="20.0" layoutY="280.0" mnemonicParsing="false" text="View"/>
+                <CheckBox fx:id="SingleBedBox" layoutX="20.0" layoutY="400.0" mnemonicParsing="false"
+                          text="Single bed"/>
+                <Button layoutX="110.0" layoutY="430.0" mnemonicParsing="false" onAction="#searchForRoom"
+                        prefHeight="40.0" prefWidth="70.0">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../lib/images/icons8-search-filled-50.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
                 </Button>
-                <Button layoutX="117.0" layoutY="466.0" mnemonicParsing="false" onAction="#resetBtn" prefHeight="44.0" prefWidth="70.0" text="Reset">
+                <Button layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#resetBtn" prefHeight="40.0"
+                        prefWidth="70.0">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font>
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../lib/images/icons8-synchronize-26.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
                 </Button>
             </children>
         </AnchorPane>
-        <Button layoutX="37.0" layoutY="630.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="70.0" text="Back" AnchorPane.bottomAnchor="30.200000000000045" />
-        <SplitPane layoutX="239.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="541.0">
+        <Button contentDisplay="TOP" layoutX="51.0" layoutY="620.0" mnemonicParsing="false" onAction="#back"
+                prefHeight="60.0" prefWidth="150.0" text="Back" AnchorPane.bottomAnchor="20.0"
+                AnchorPane.rightAnchor="810.0" AnchorPane.topAnchor="620.0">
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../lib/images/icons8-back-26.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button contentDisplay="TOP" layoutX="467.0" layoutY="550.0" mnemonicParsing="false" onAction="#addRoomToList"
+                prefHeight="60.0" prefWidth="150.0" text="Add" AnchorPane.bottomAnchor="107.33333333333337"
+                AnchorPane.rightAnchor="383.0" AnchorPane.topAnchor="533.0">
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../lib/images/icons8-add-filled-50.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <SplitPane layoutX="239.0" layoutY="62.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                   minWidth="-Infinity" prefHeight="439.0" prefWidth="541.0">
             <items>
-                <TableView fx:id="tabView" prefHeight="680.0" prefWidth="539.0">
+                <TableView fx:id="tabView" editable="true" layoutX="58.0" layoutY="64.0" prefHeight="469.0"
+                           prefWidth="539.0" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="60.0"
+                           AnchorPane.rightAnchor="192.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                        <TableColumn fx:id="tabCol_Des" prefWidth="267.0" resizable="false" text="Room Describtion" />
-                        <TableColumn fx:id="tabCol_Id" minWidth="0.0" prefWidth="105.0" resizable="false" text="Room Number" />
-                        <TableColumn fx:id="tabCol_Availble" prefWidth="75.0" resizable="false" text="Availablity" />
-                        <TableColumn prefWidth="92.0" text="Add Room" />
+                        <TableColumn fx:id="tabCol_Id" editable="false" minWidth="0.0" prefWidth="105.0"
+                                     resizable="false" text="Room Number"/>
+                        <TableColumn fx:id="tabCol_Price" prefWidth="93.99992370605469" resizable="false" text="Price"/>
+                        <TableColumn fx:id="tabCol_Size" prefWidth="73.3333740234375" text="Size"/>
+                        <TableColumn fx:id="tabCol_Beds" prefWidth="109.3333740234375" resizable="false" text="Beds"/>
+                        <TableColumn fx:id="tabCol_Location" prefWidth="136.00009155273438" resizable="false"
+                                     text="Location"/>
                     </columns>
                 </TableView>
             </items>
@@ -72,10 +120,24 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <ListView fx:id="roomList" layoutX="4.0" layoutY="60.0" prefHeight="544.0" prefWidth="199.0" />
-            <Button layoutX="47.0" layoutY="623.0" mnemonicParsing="false" onAction="#reservebtn" prefHeight="44.0" prefWidth="113.0" text="Reserve" />
+                <ListView fx:id="roomList" layoutX="4.0" layoutY="60.0" prefHeight="440.0" prefWidth="199.0"/>
+                <Button contentDisplay="TOP" layoutX="35.0" layoutY="550.0" mnemonicParsing="false"
+                        onAction="#reservebtn" prefHeight="60.0" prefWidth="150.0" text="Reserve"
+                        AnchorPane.bottomAnchor="107.333" AnchorPane.topAnchor="533.0">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../lib/images/icons8-check-book-26.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
             </children>
         </AnchorPane>
-      <Button layoutX="125.0" layoutY="630.0" mnemonicParsing="false" onAction="#addRoomToList" prefHeight="40.0" prefWidth="82.0" text="Add" />
+        <Label disable="true" layoutX="284.0" layoutY="17.0" text="Available Rooms">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
     </children>
 </AnchorPane>

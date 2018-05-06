@@ -22,6 +22,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -136,6 +137,9 @@ public class ManagerController implements Initializable {
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
+        Image anotherIcon = new Image("logo.png");
+        primaryStage.getIcons().add(anotherIcon);
+        primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
@@ -194,7 +198,11 @@ public class ManagerController implements Initializable {
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
     	/*if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
+<<<<<<< HEAD
     			
+=======
+
+>>>>>>> 7d57a79e2b4db18508f7f7d61c7026423eba65a8
     		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
     		       		
     		       Alert alert = new Alert(AlertType.ERROR);
@@ -210,11 +218,14 @@ public class ManagerController implements Initializable {
     		           alert.setContentText("Please specify the room id of adjoint rooms!");
     		           alert.showAndWait();
     		       }
+<<<<<<< HEAD
     		        
+
     		       else {*/
-    		    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-    		           Integer.parseInt(addNoOfBedTextF.getText()), "Växjö", addViewCB.isSelected(), addSmokingCB.isSelected(),
-    		          addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+        Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+    		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
+    		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+
     		         Sqlconnection sq = new Sqlconnection();
     		         sq.addRoom(rm);
     		        Alert alert = new Alert(AlertType.INFORMATION);
@@ -222,13 +233,8 @@ public class ManagerController implements Initializable {
     		     	alert.setContentText("New room is successfully created");
     		     	alert.showAndWait();
     		       }
-    		    
-        
-        
 
-     
 
-    
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
