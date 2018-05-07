@@ -93,6 +93,7 @@ public class ReserveController {
     Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
     sq.addClient(client);
     Reservation reservation = null;
+    //should make one reservation for adjoining romms???
     for(Room room : list)
     	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,client.getIDNumber(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
     
