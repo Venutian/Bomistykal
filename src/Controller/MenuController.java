@@ -167,7 +167,7 @@ public class MenuController implements Initializable{
 			}
 			
 			
-			
+			//if i choose one reservation that has adjoined both rooms should be checked in
 		
 		 ObservableList<Reservation> data = null;
 		try {

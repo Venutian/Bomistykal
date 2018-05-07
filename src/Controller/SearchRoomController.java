@@ -116,7 +116,10 @@ public class SearchRoomController implements Initializable{
     
     @FXML
     void addRoomToList(ActionEvent event) {
+    	
     	Room room = tabView.getSelectionModel().getSelectedItem();
+    	if(adjointBox.isSelected())
+    		;//method that checks the list finds the other adjoining room and adds it to the lists.
     	roomList.getItems().add(room.getRoomID());
     	roomsForReserve.add(room);
     	tabView.getItems().remove(room);
@@ -167,6 +170,7 @@ public class SearchRoomController implements Initializable{
 		else if(SingleBedBox.isSelected())
 			numOfBeds = 1;
 		
+		/*adjoint should work together   here*/
 	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),numOfBeds);
 
 	    ObservableList<Room> data = sc.getAvailableRooms(); 
