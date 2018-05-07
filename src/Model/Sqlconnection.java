@@ -267,7 +267,7 @@ public class Sqlconnection {
 
     public void deleteReservation(Reservation reservation) throws Exception {
         Connection con = getConnection();
-System.out.println(reservation.getReservationID());
+
         PreparedStatement pre = con.prepareStatement("DELETE FROM Reservation WHERE ReservationID = '" + reservation.getReservationID() + "';");
         pre.executeUpdate();
         con.close();

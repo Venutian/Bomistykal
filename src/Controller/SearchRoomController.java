@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,12 +24,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
 
 public class SearchRoomController implements Initializable{
     private	 ObservableList<Room> data;
+    private InputChecker inputCheck;
     @FXML
     private AnchorPane anchor;
 
@@ -193,16 +196,19 @@ public class SearchRoomController implements Initializable{
     void searchForRoom(ActionEvent event) throws Exception {
 		
 		System.out.println(campusLoc.getValue());
-		InputChecker nr = new InputChecker();
 		
 		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
 		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		
 		
-		if(!nr.datesCorrection(checkInD, checkOutD))
-			//alert box saying that the dates should be in the future and stuff
-			;
+		if(!inputCheck.datesCorrection(checkInD, checkOutD)) {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Confirmation Dialog");
+    	alert.setContentText("Check in and Check Out Date should be in the future!");
+    	//Optional<ButtonType> result = alert.showAndWait();
+    	alert.showAndWait();
+    	}
 		
 		
 		int numOfBeds = 0;
