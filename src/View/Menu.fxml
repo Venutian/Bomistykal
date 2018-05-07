@@ -81,7 +81,11 @@
                         <Insets bottom="10.0"/>
                     </VBox.margin>
                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../lib/images/icons8-ok-52.png"/>
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
                 <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#CheckOut" prefHeight="60.0"
@@ -90,7 +94,11 @@
                         <Insets bottom="10.0"/>
                     </VBox.margin>
                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true"/>
+                        <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../lib/images/icons8-cancel-52.png"/>
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
                 <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#logout" prefHeight="60.0"
