@@ -16,8 +16,9 @@ public class BillCalculator {
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
 		this.sq = new Sqlconnection();
+		RoomList rm = new RoomList();
 		try {
-			this.room = sq.getTheRoom(res);
+			this.room = rm.getTheRoom(res);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

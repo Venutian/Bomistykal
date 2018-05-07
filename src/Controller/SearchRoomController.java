@@ -3,6 +3,7 @@ package Controller;
 
 import Model.InputChecker;
 import Model.Room;
+import Model.RoomList;
 import Model.SearchFactory;
 import Model.Sqlconnection;
 import javafx.collections.FXCollections;
@@ -175,9 +176,9 @@ public class SearchRoomController implements Initializable{
 		Sqlconnection sq = new Sqlconnection();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
-		
+		RoomList rm = new RoomList();
 		try {
-					data = sq.getRooms();
+					data = rm.getRooms();
 
             tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
             tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));

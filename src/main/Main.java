@@ -19,7 +19,6 @@ public class Main extends Application {
 
         Image anotherIcon = new Image("logo.png");
 
-<<<<<<< HEAD
 
         //Image anotherIcon = new Image("lnu.png");
 
@@ -28,8 +27,6 @@ public class Main extends Application {
 
 
 
-=======
->>>>>>> 351f6c3a14a1e4d36c25f8c533c4a4c2eb45659c
         primaryStage.getIcons().add(anotherIcon);
 
         primaryStage.setTitle("Linnaeus Hotel");
