@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Reservation;
+import Model.ReservationList;
 import Model.Sqlconnection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -171,7 +172,7 @@ public class MenuController implements Initializable{
 		
 		 ObservableList<Reservation> data = null;
 		try {
-            data = new Sqlconnection().getTodayCheckIn();
+            data = new ReservationList().getTodayCheckIn();
         } catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

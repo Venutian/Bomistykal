@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Authentication;
+import Model.EmployeeList;
 import Model.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,8 +32,8 @@ public class LoginController {
 
 
         try {
-			Authentication aut = new Authentication(UserName.getText().toString(),Password.getText().toString());
-			 Employee emp = aut.getEmployee();
+			EmployeeList aut = new EmployeeList();
+			 Employee emp = aut.authenticationControll(UserName.getText().toString(),Password.getText().toString());
 			
 			 /*to implement. Make a pop up window that says user name or passowrd wrong*/
 			 //if(emp == null)

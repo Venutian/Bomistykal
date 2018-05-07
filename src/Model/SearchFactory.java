@@ -1,6 +1,9 @@
 package Model;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,16 +18,17 @@ public class SearchFactory {
 	private Sqlconnection sq;
 	private ArrayList<Room> roomList;
 	private ArrayList<Reservation> ColapingRess;
+	private ReservationList rs ;
 	private ArrayList<Room> NOTavailable;
 	private ObservableList<Room> available; 
 	
-	public SearchFactory(String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,int numOfBeds) throws Exception {
-		
+	public SearchFactory(String campusLoc,Date startDate, Date endDate,boolean view ,boolean smoking,boolean adjoined,int numOfBeds) throws Exception {
+		this.rs = new ReservationList();
 		 this.sq = new Sqlconnection();
 		//take the rooms that fit your description
-		 this.roomList = sq.getRoomChoices(campusLoc, view ,smoking,  adjoined, numOfBeds);
+		 this.roomList = getRoomChoices(campusLoc, view ,smoking,  adjoined, numOfBeds);
 		//finding reservations that conflict with your dates  
-		 this.ColapingRess = sq.searchForDates(s,s);
+		 this.ColapingRess = rs.searchForDates(startDate,endDate);
 		 
 		 this.NOTavailable = new ArrayList<Room>();
 		
@@ -52,7 +56,24 @@ public class SearchFactory {
 	return available;
 	}
 	
-	
+	  private ArrayList<Room> getRoomChoices(String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds) throws Exception {
+	      
+		  ArrayList<Room> data = new ArrayList<Room>();
+	        Connection con = sq.getConnection();
+	        PreparedStatement pre;
+	   if(adjoined)
+	      pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND Adjoint='" + sq.getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "'");
+	   else
+		  pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND NumOfBeds='" + numOfBeds + "'");
+	        
+	   ResultSet rs = pre.executeQuery();
+	        while (rs.next()) {
+
+	            data.add(new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("RoomView"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID")));
+	        }
+	        return data;
+	    }
+
 	
 	
 }

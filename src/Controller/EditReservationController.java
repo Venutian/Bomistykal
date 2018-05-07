@@ -32,6 +32,7 @@ public class EditReservationController implements Initializable{
     SearchRoomController src = new SearchRoomController();
     private Sqlconnection sq;
 	private ObservableList<Reservation> list ;
+	private  ReservationList rs;
     @FXML
     private TextField idSearch;
 
@@ -73,8 +74,8 @@ public class EditReservationController implements Initializable{
 
     @FXML
     void editReservation(ActionEvent event) throws Exception {
-    
-    Client client = sq.getClient(reservationsTable.getSelectionModel().getSelectedItem().getClient());
+    rs = new ReservationList();
+    Client client = rs.getClient(reservationsTable.getSelectionModel().getSelectedItem().getClient());
     		
     ID.setText(client.getIDNumber());
     name.setText(client.getName());
@@ -121,16 +122,17 @@ public class EditReservationController implements Initializable{
     }
     @FXML
     void search(ActionEvent event) {
-    	ReservationList rl = new ReservationList(idSearch.getText().toString(),list);
-    	this.list = rl.getReservation();
+    	ReservationList rl = new ReservationList();
+    	this.list = rl.getReservation(idSearch.getText().toString(),list);
         reservationsTable.setItems(list);
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	    this.sq = new Sqlconnection();
+	    this.rs = new ReservationList();
 		try {
-			this.list = sq.getComingReservations();
+			this.list = rs.getComingReservations();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

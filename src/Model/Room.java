@@ -5,7 +5,7 @@ package Model;
  */
 public class Room {
 
-    private String desc;
+   
     private int price;
     private String roomID;
     private int roomSize;

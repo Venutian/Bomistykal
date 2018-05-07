@@ -7,7 +7,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import Model.Employee;
+import Model.EmployeeList;
 import Model.Room;
+import Model.RoomList;
 import Model.Sqlconnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -177,9 +179,10 @@ public class ManagerController implements Initializable {
         // set the choice for campus location choice box button
         //data = FXCollections.observableArrayList();
         Sqlconnection sq = new Sqlconnection();
+        RoomList rm = new RoomList();
         ObservableList<Room> data;
         try {
-            data = sq.getRooms();
+            data = rm.getRooms();
 
             tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
             tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
@@ -350,8 +353,9 @@ public class ManagerController implements Initializable {
         }
         Sqlconnection sq = new Sqlconnection();
         ObservableList<Employee> data;
+        EmployeeList em = new EmployeeList();
         try {
-            data = sq.getEmps();
+            data = em.getEmployyesList();
 
 
             tabCol_EmpID.setCellValueFactory(new PropertyValueFactory<Employee, String>("IDNumber"));
