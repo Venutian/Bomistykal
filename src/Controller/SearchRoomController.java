@@ -1,6 +1,7 @@
 package Controller;
 
 
+import Model.InputChecker;
 import Model.Room;
 import Model.SearchFactory;
 import Model.Sqlconnection;
@@ -14,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -22,12 +24,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
 
 public class SearchRoomController implements Initializable{
-	
+    private	 ObservableList<Room> data;
+    private InputChecker inputCheck;
     @FXML
     private AnchorPane anchor;
 
@@ -43,8 +47,7 @@ public class SearchRoomController implements Initializable{
      @FXML
     private CheckBox smokingBox;
 
-    @FXML
-    private CheckBox petsBox;
+   
 
     @FXML
     private CheckBox adjointBox;
@@ -113,7 +116,6 @@ public class SearchRoomController implements Initializable{
     	checkIn.setValue(null);
     	checkOut.setValue(null);
     	smokingBox.setSelected(false);
-    	petsBox.setSelected(false);
     	adjointBox.setSelected(false);
     	doubleBedBox.setSelected(false);
     	twinBedBox.setSelected(false);
@@ -125,12 +127,37 @@ public class SearchRoomController implements Initializable{
     
     @FXML
     void addRoomToList(ActionEvent event) {
+    	
     	Room room = tabView.getSelectionModel().getSelectedItem();
+    	
+    	
+    	//method that checks the list finds the other adjoining room and adds it to the lists.
     	roomList.getItems().add(room.getRoomID());
     	roomsForReserve.add(room);
     	tabView.getItems().remove(room);
+    	
+    	if(adjointBox.isSelected()) {
+    		Room adjoined = adjoinedFind(room);
+    		roomList.getItems().add(adjoined.getRoomID());
+        	roomsForReserve.add(adjoined);
+        	tabView.getItems().remove(adjoined);
+    	}
+    		
     }
     
+    
+    //move to model
+    private Room adjoinedFind(Room room) {
+    	Room returnRoom = null;
+    	for(Room adRoom : data) {
+    		System.out.println(adRoom.getRoomID());
+    	if(room.getAdjoindsRoomID().equals(adRoom.getRoomID())) {
+    			returnRoom = adRoom ;
+    		}
+    	}	
+    		
+    	return returnRoom;
+    }
     
 	@FXML
     public void back(ActionEvent event) throws IOException {
@@ -148,7 +175,7 @@ public class SearchRoomController implements Initializable{
 		Sqlconnection sq = new Sqlconnection();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
-		ObservableList<Room> data;
+		
 		try {
 					data = sq.getRooms();
 
@@ -169,15 +196,28 @@ public class SearchRoomController implements Initializable{
     void searchForRoom(ActionEvent event) throws Exception {
 		
 		System.out.println(campusLoc.getValue());
+		
 		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
 		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		
+		
+		if(!inputCheck.datesCorrection(checkInD, checkOutD)) {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Confirmation Dialog");
+    	alert.setContentText("Check in and Check Out Date should be in the future!");
+    	//Optional<ButtonType> result = alert.showAndWait();
+    	alert.showAndWait();
+    	}
+		
+		
 		int numOfBeds = 0;
 		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
 			numOfBeds = 2;
 		else if(SingleBedBox.isSelected())
 			numOfBeds = 1;
 		
+		/*adjoint should work together   here*/
 	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),numOfBeds);
 
         ObservableList<Room> data = sc.getAvailableRooms();

@@ -95,6 +95,7 @@ public class EditReservationController implements Initializable{
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
+        sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
     	/*before showing the scene make an object of the controller of the fxml that u are going to 
     	make a set method to set the value that u want in that class*/
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
@@ -107,7 +108,7 @@ public class EditReservationController implements Initializable{
         primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.setScene(scene);
 		primaryStage.show();
-		sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
+		
     }
     
  
