@@ -115,6 +115,7 @@ public class Room {
 		sb.append(getSmoking() + ", " +getView()+", "+getAdjoint()+ "\n");
 		
 		
+		
 		return sb.toString();
     }
     

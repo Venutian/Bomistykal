@@ -198,11 +198,7 @@ public class ManagerController implements Initializable {
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
     	/*if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
-<<<<<<< HEAD
-    			
-=======
 
->>>>>>> 7d57a79e2b4db18508f7f7d61c7026423eba65a8
     		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
     		       		
     		       Alert alert = new Alert(AlertType.ERROR);
