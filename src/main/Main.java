@@ -22,8 +22,11 @@ public class Main extends Application {
 
         //Image anotherIcon = new Image("lnu.png");
 
+<<<<<<< HEAD
        // Image anotherIcon = new Image("logo.png");
 
+=======
+>>>>>>> cd68a2b971dd63fe522f5d0f0ab4ad47e13b7e9a
 
         primaryStage.getIcons().add(anotherIcon);
 

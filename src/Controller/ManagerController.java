@@ -54,10 +54,17 @@ public class ManagerController implements Initializable {
     private TableColumn<Room, String> tabCol_Location;
 
     @FXML
-    private TableColumn<Room, String> tabCol_Availble;
+    private TableColumn <Room, String> tabCol_View;
 
     @FXML
-    private MenuItem createNewRoomItem, updateRoomItem, deleteRoomItem;
+    private TableColumn <Room, String> tabCol_Smoke;
+
+    @FXML
+    private TableColumn <Room, String> tabCol_Adjoint;
+    @FXML
+    private TableColumn <Room, String> tabCol_AdjointID;
+    @FXML
+    private MenuItem createNewRoomItem, updateRoomItem;
 
 
     //Employee
@@ -179,6 +186,10 @@ public class ManagerController implements Initializable {
             tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
             tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
             tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
+            tabCol_View.setCellValueFactory(new PropertyValueFactory <Room, String>("Views"));
+            tabCol_Smoke.setCellValueFactory(new PropertyValueFactory <Room, String>("Smoke"));
+            tabCol_Adjoint.setCellValueFactory(new PropertyValueFactory <Room, String>("Adjoints"));
+            tabCol_AdjointID.setCellValueFactory(new PropertyValueFactory <Room, String>("AdjoindsRoomID"));
             tabView.setItems(data);
             tabView.setEditable(true);
             tabCol_Id.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -186,6 +197,9 @@ public class ManagerController implements Initializable {
             tabCol_Size.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
             tabCol_Beds.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
             tabCol_Location.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_View.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_Smoke.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_AdjointID.setCellFactory(TextFieldTableCell.forTableColumn());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -439,6 +453,33 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    public void EditRoomView (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setView(String.valueOf(editedcell.getNewValue().toString()));
+        Sqlconnection sql = new Sqlconnection();
+        sql.editRoom(selectedRoom);
+    }
+
+    public void EditRoomAdjoint (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setAdjoint(String.valueOf(editedcell.getNewValue().toString()));
+        Sqlconnection sql = new Sqlconnection();
+        sql.editRoom(selectedRoom);
+    }
+
+    public void EditRoomAdjointID (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setAdjoindsRoomID(String.valueOf(editedcell.getNewValue().toString()));
+        Sqlconnection sql = new Sqlconnection();
+        sql.editRoom(selectedRoom);
+    }
+
+    public void EditRoomSmoke (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setSmoking(String.valueOf(editedcell.getNewValue().toString()));
+        Sqlconnection sql = new Sqlconnection();
+        sql.editRoom(selectedRoom);
+    }
     public void DeleteRoom(ActionEvent event) throws Exception {
         Room rm = tabView.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
