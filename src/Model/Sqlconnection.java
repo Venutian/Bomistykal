@@ -19,7 +19,7 @@ public class Sqlconnection {
     public void addRoom(Room room) throws Exception {
         Connection con = getConnection();
         //String roomID, int price, int RoomSize,int NumOfBeds ,boolean Location,boolean view ,boolean smoking, getBoolean(room.getLocation())
-        PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID) "
+        PreparedStatement pre = con.prepareStatement("INSERT INTO Room (RoomID,Price,RoomSize,NumOfBeds,Location,RoomView,Smoking,Adjoint,AdjointRoomID) "
                 + " VALUES ('" + room.getRoomID() + "','" + room.getPrice() + "','" + room.getRoomSize() + "','" + room.getNumOfBed() + "','" + room.getLocation() + "','" + getBoolean(room.getView()) + "','" + getBoolean(room.getSmoking()) + "','" + getBoolean(room.getAdjoint()) + "','" + room.getAdjoindsRoomID() + "');");
         pre.executeUpdate();
         pre.close();
@@ -34,7 +34,7 @@ public class Sqlconnection {
         while (rs.next()) {
             //String roomID, int price, int roomSize,int numOfBeds ,String Location,boolean view ,boolean smoking,boolean adjoint,String adjoinedRoomID
             //RoomID,Price,RoomSize,NumOfBeds,Location,View,Smoking,Adjoint,AdjointRoomID
-            data.add(new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("View"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID")));
+            data.add(new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("RoomView"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID")));
         }
         return data;
     }
@@ -48,9 +48,8 @@ public class Sqlconnection {
     public void editRoom(Room room) throws Exception {
         Connection con = getConnection();
         PreparedStatement pre = con.prepareStatement("UPDATE Room SET Price='" + room.getPrice() + "', RoomSize='" + room.getRoomSize() + "',NumOfBeds='" + room.getNumOfBed() +
-                //"Location='" + room.getLocation() + "'" + ",View='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + "',Adjoint'" + getBoolean(room.getAdjoint()) + "',AdjointRoomID='" + room.getAdjoindsRoomID() +
-
-                "'WHERE RoomID='" + room.getRoomID() + "';");
+                "',Location='" + room.getLocation() + "', RoomView='" + getBoolean(room.getView()) + "', Smoking='" + getBoolean(room.getSmoking()) + //"',Adjoint'" + getBoolean(room.getAdjoint()) +  "',AdjointRoomID='" + room.getAdjoindsRoomID() +"' " +
+                "' WHERE RoomID='" + room.getRoomID() + "';");
         pre.executeUpdate();
         pre.close();
         con.close();
@@ -238,7 +237,7 @@ public class Sqlconnection {
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
 
-            room = new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("View"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID"));
+            room = new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("RoomView"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID"));
         }
         rs.close();
         con.close();
@@ -252,11 +251,11 @@ public class Sqlconnection {
         ArrayList<Room> data = new ArrayList<Room>();
         Connection con = getConnection();
         //	RoomID	Price	RoomSize	NumOfBeds	Location	View	Smoking	Adjoint	AdjointRoomID
-        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND View='" + getBoolean(view) + "'   AND Smoking='" + getBoolean(smoking) + "' AND Adjoint='" + getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "'");
+        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + getBoolean(view) + "'   AND Smoking='" + getBoolean(smoking) + "' AND Adjoint='" + getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "'");
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
 
-            data.add(new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("View"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID")));
+            data.add(new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("RoomView"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID")));
         }
         return data;
     }
