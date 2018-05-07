@@ -15,17 +15,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
         primaryStage.setScene(new Scene(root));
-<<<<<<< HEAD
+
 
         Image anotherIcon = new Image("logo.png");
 
 
         //Image anotherIcon = new Image("lnu.png");
 
-=======
-        Image anotherIcon = new Image("logo.png");
 
->>>>>>> a81c3376b9c5c23bcc86005162fa0984c36c7328
         primaryStage.getIcons().add(anotherIcon);
 
         primaryStage.setTitle("Linnaeus Hotel");
