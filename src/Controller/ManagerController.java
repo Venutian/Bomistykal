@@ -199,6 +199,7 @@ public class ManagerController implements Initializable {
             tabCol_Location.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_View.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_Smoke.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_Adjoint.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_AdjointID.setCellFactory(TextFieldTableCell.forTableColumn());
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -421,9 +422,8 @@ public class ManagerController implements Initializable {
 
     }
 
-    
 
-
+    @FXML
     //Room Editing
     public void EditRoomPrice(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
@@ -432,6 +432,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomSize(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
@@ -439,6 +440,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomBeds(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
@@ -446,6 +448,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomLocation(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
@@ -453,6 +456,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomView (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setView(String.valueOf(editedcell.getNewValue().toString()));
@@ -460,6 +464,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomAdjoint (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoint(String.valueOf(editedcell.getNewValue().toString()));
@@ -467,6 +472,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomAdjointID (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoindsRoomID(String.valueOf(editedcell.getNewValue().toString()));
@@ -474,30 +480,33 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomSmoke (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setSmoking(String.valueOf(editedcell.getNewValue().toString()));
         Sqlconnection sql = new Sqlconnection();
         sql.editRoom(selectedRoom);
     }
+
+    @FXML
     public void DeleteRoom(ActionEvent event) throws Exception {
         Room rm = tabView.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
         Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Confirmation Dialog");
-    	alert.setContentText("Are you sure you want to log out?");
-    	ButtonType yes = new ButtonType("Yes");
-    	ButtonType no = new ButtonType("No");
-    	alert.getButtonTypes().setAll(yes,no);
-    	Optional<ButtonType> result = alert.showAndWait();
-    	if (result.get() == yes){
-    		sq.deleteRoom(rm);
+        alert.setTitle("Confirmation Dialog");
+        alert.setContentText("Are you sure you want to log out?");
+        ButtonType yes = new ButtonType("Yes");
+        ButtonType no = new ButtonType("No");
+        alert.getButtonTypes().setAll(yes,no);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == yes){
+            sq.deleteRoom(rm);
             UpdateRoomMenu(event);
-    	} else if (result.get() == no){
-    	   alert.close();
-    	}
-        
-        
+        } else if (result.get() == no){
+            alert.close();
+        }
+
+
     }
 
     //Employee Editing

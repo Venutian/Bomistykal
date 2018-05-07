@@ -70,41 +70,39 @@ public class Room {
 
     // getters and setters for RoomType
     public String getSmoke ( ) {
-
-        if (this.smoking) {
-            return "Y";
-        } else {
-            return "N";
-
-        }
+        String str = "";
+        if (this.smoking == true)
+            str = "Y";
+        else if (this.smoking == false)
+            str = "N";
+        return str;
     }
 
     public void setAdjoint (String str) {
-        if (str == "Y") {
-            this.adjoint = true;
-        } else
-            this.adjoint = false;
+        if (str.equals("Y")) {
+            adjoint = true;
+        } else if (str.equals("N"))
+            adjoint = false;
 
     }
 
     public String getAdjoints ( ) {
+        String str = "";
+        if (this.adjoint == true)
+            str = "Y";
+        else if (this.adjoint == false)
+            str = "N";
 
-        if (this.adjoint) {
-            return "Y";
-        } else {
-            return "N";
-
-        }
+        return str;
     }
 
     public String getViews ( ) {
-
-        if (this.view) {
-            return "Y";
-        } else {
-            return "N";
-
-        }
+        String str = "";
+        if (this.view == true)
+            str = "Y";
+        else if (this.view == false)
+            str = "N";
+        return str;
     }
 
     public boolean getSmoking ( ) {
@@ -112,18 +110,18 @@ public class Room {
     }
 
     public void setView (String str) {
-        if (str == "Y") {
-            this.view = true;
-        } else
-            this.view = false;
+        if (str.equals("Y"))
+            view = true;
+        else if (str.equals("N"))
+            view = false;
 
     }
 
     public void setSmoking (String str) {
-        if (str == "Y") {
-            this.smoking = true;
-        } else
-            this.smoking = false;
+        if (str.equals("Y"))
+            smoking = true;
+        else if (str.equals("N"))
+            smoking = false;
 
     }
 
