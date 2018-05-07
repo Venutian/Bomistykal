@@ -215,9 +215,11 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-    	/*if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
-
-    		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
+    	
+  
+    /*	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || 
+    	  Integer.parseInt(addRoomSizeTextF.getText()) ==0 || Integer.parseInt(addNoOfBedTextF.getText())==0 ||
+    	 campusLoc.getSelectionModel() == null ) {
     		       		
     		       Alert alert = new Alert(AlertType.ERROR);
     		       alert.setTitle("Error Dialog");
@@ -232,10 +234,9 @@ public class ManagerController implements Initializable {
     		           alert.setContentText("Please specify the room id of adjoint rooms!");
     		           alert.showAndWait();
     		       }
-<<<<<<< HEAD
-    		        
 
-    		       else {*/
+    		     
+   		       else {*/
         Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
     		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
     		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
@@ -247,7 +248,7 @@ public class ManagerController implements Initializable {
     		     	alert.setContentText("New room is successfully created");
     		     	alert.showAndWait();
     		       }
-
+    
 
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
@@ -492,9 +493,16 @@ public class ManagerController implements Initializable {
     public void DeleteRoom(ActionEvent event) throws Exception {
         Room rm = tabView.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
+        
+        if(rm == null) {
+        	Alert alert = new Alert(AlertType.ERROR);
+        	alert.setTitle("Error Dialog");
+        	alert.setContentText("Please Select a room to delete!");
+        	alert.showAndWait();
+        } else {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
-        alert.setContentText("Are you sure you want to log out?");
+        alert.setContentText("Are you sure you want to delete this room?");
         ButtonType yes = new ButtonType("Yes");
         ButtonType no = new ButtonType("No");
         alert.getButtonTypes().setAll(yes,no);
@@ -506,7 +514,7 @@ public class ManagerController implements Initializable {
             alert.close();
         }
 
-
+        }
     }
 
     //Employee Editing
