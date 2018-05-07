@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 
 public class SearchRoomController implements Initializable{
-	
+    private	 ObservableList<Room> data;
     @FXML
     private AnchorPane anchor;
 
@@ -43,8 +43,7 @@ public class SearchRoomController implements Initializable{
      @FXML
     private CheckBox smokingBox;
 
-    @FXML
-    private CheckBox petsBox;
+   
 
     @FXML
     private CheckBox adjointBox;
@@ -113,7 +112,6 @@ public class SearchRoomController implements Initializable{
     	checkIn.setValue(null);
     	checkOut.setValue(null);
     	smokingBox.setSelected(false);
-    	petsBox.setSelected(false);
     	adjointBox.setSelected(false);
     	doubleBedBox.setSelected(false);
     	twinBedBox.setSelected(false);
@@ -127,13 +125,35 @@ public class SearchRoomController implements Initializable{
     void addRoomToList(ActionEvent event) {
     	
     	Room room = tabView.getSelectionModel().getSelectedItem();
-    	if(adjointBox.isSelected())
-    		;//method that checks the list finds the other adjoining room and adds it to the lists.
+    	
+    	
+    	//method that checks the list finds the other adjoining room and adds it to the lists.
     	roomList.getItems().add(room.getRoomID());
     	roomsForReserve.add(room);
     	tabView.getItems().remove(room);
+    	
+    	if(adjointBox.isSelected()) {
+    		Room adjoined = adjoinedFind(room);
+    		roomList.getItems().add(adjoined.getRoomID());
+        	roomsForReserve.add(adjoined);
+        	tabView.getItems().remove(adjoined);
+    	}
+    		
     }
     
+    
+    //move to model
+    private Room adjoinedFind(Room room) {
+    	Room returnRoom = null;
+    	for(Room adRoom : data) {
+    		System.out.println(adRoom.getRoomID());
+    	if(room.getAdjoindsRoomID().equals(adRoom.getRoomID())) {
+    			returnRoom = adRoom ;
+    		}
+    	}	
+    		
+    	return returnRoom;
+    }
     
 	@FXML
     public void back(ActionEvent event) throws IOException {
@@ -151,7 +171,7 @@ public class SearchRoomController implements Initializable{
 		Sqlconnection sq = new Sqlconnection();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
-		ObservableList<Room> data;
+		
 		try {
 					data = sq.getRooms();
 
