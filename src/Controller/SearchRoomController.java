@@ -1,6 +1,7 @@
 package Controller;
 
 
+import Model.InputChecker;
 import Model.Room;
 import Model.SearchFactory;
 import Model.Sqlconnection;
@@ -192,9 +193,18 @@ public class SearchRoomController implements Initializable{
     void searchForRoom(ActionEvent event) throws Exception {
 		
 		System.out.println(campusLoc.getValue());
+		InputChecker nr = new InputChecker();
+		
 		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
 		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		
+		
+		if(!nr.datesCorrection(checkInD, checkOutD))
+			//alert box saying that the dates should be in the future and stuff
+			;
+		
+		
 		int numOfBeds = 0;
 		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
 			numOfBeds = 2;
