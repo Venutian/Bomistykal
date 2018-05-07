@@ -122,12 +122,12 @@ public class MenuController implements Initializable{
 		Parent root = FXMLLoader.load(getClass().getResource("/View/EditReservation.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Image anotherIcon = new Image("logo.png");
-		primaryStage.getIcons().add(anotherIcon);
-		primaryStage.setTitle("Linnaeus Hotel");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		window.getIcons().add(anotherIcon);
+		window.setTitle("Linnaeus Hotel");
+		window.setScene(scene);
+		window.show();
 		
 	}
 

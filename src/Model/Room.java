@@ -110,6 +110,12 @@ public class Room {
     public String getAdjoindsRoomID() {
     	return this.adjoinedRoomID;
     }
-    
+    public String toString() {
+    	StringBuilder sb = new StringBuilder();
+		sb.append(getSmoking() + ", " +getView()+", "+getAdjoint()+ "\n");
+		
+		
+		return sb.toString();
+    }
     
 } 
