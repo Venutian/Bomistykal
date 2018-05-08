@@ -216,6 +216,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
+
     	
   
     /*	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || 
@@ -239,6 +240,7 @@ public class ManagerController implements Initializable {
     		     
    		       else {*/
     	RoomList rl = new RoomList();
+<<<<<<< HEAD
     	if(rl.checkIfRoomExists(addRoomIDTextF.getText()))
     		al.reportError("A room with the same room id already exists in the database.");
     	
@@ -250,6 +252,16 @@ public class ManagerController implements Initializable {
 
     	 Sqlconnection sq = new Sqlconnection();
     	sq.addRoom(rm);
+=======
+    	rl.checkIfRoomExists(addRoomIDTextF.getText());
+    	//alert box
+        Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+                Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
+                addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+
+    		         Sqlconnection sq = new Sqlconnection();
+    		         sq.addRoom(rm);
+>>>>>>> 3cfc2d7133293d2f05f068ca43f9838686d5928b
     		     
     	al.reportError("New room is successfully created");
     		       }
