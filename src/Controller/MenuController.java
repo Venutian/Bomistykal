@@ -171,11 +171,9 @@ public class MenuController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		       
-		System.out.println(data.size());
 
 
-        c1.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
+		c1.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
         c2.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
         CIRoomNumber.setCellValueFactory(new PropertyValueFactory<>("Client"));
         CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));

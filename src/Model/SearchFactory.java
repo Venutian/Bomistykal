@@ -20,13 +20,13 @@ public class SearchFactory {
 	private ArrayList<Reservation> ColapingRess;
 	private ReservationList rs ;
 	private ArrayList<Room> NOTavailable;
-	private ObservableList<Room> available; 
-	
-	public SearchFactory(String campusLoc,Date startDate, Date endDate,boolean view ,boolean smoking,boolean adjoined,int numOfBeds) throws Exception {
+	private ObservableList<Room> available;
+
+	public SearchFactory (String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
 		this.rs = new ReservationList();
 		 this.sq = new Sqlconnection();
 		//take the rooms that fit your description
-		 this.roomList = getRoomChoices(campusLoc, view ,smoking,  adjoined, numOfBeds);
+		this.roomList = getRoomChoices(campusLoc, view, smoking, adjoined, numOfBeds, RoomSize);
 		//finding reservations that conflict with your dates  
 		 this.ColapingRess = rs.searchForDates(startDate,endDate);
 		 
@@ -55,14 +55,14 @@ public class SearchFactory {
 		}
 	return available;
 	}
-	
-	  private ArrayList<Room> getRoomChoices(String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds) throws Exception {
-	      
-		  ArrayList<Room> data = new ArrayList<Room>();
+
+	private ArrayList <Room> getRoomChoices (String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
+
+		ArrayList<Room> data = new ArrayList<Room>();
 	        Connection con = sq.getConnection();
 	        PreparedStatement pre;
 	   if(adjoined)
-	      pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND Adjoint='" + sq.getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "'");
+		   pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND Adjoint='" + sq.getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "' AND RoomSize='" + RoomSize + "'");
 	   else
 		  pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND NumOfBeds='" + numOfBeds + "'");
 	        
