@@ -41,7 +41,19 @@ private Sqlconnection sq;
 	        return room;
 	    }
 	
-	
+	  public boolean checkIfRoomExists(String idNumber) throws Exception {
+			Connection con = sq.getConnection();
+
+	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE RoomID = '" + idNumber + "'  ");
+	        ResultSet rs = pre.executeQuery();
+	        if (rs.next()) {
+	         return false;
+	        }
+	        rs.close();
+	        con.close();
+
+			return true;
+		}
 	
 	
 	

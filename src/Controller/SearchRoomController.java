@@ -141,6 +141,7 @@ public class SearchRoomController implements Initializable{
     		Room adjoined = adjoinedFind(room);
     		roomList.getItems().add(adjoined.getRoomID());
         	roomsForReserve.add(adjoined);
+        	//remove needs fixing
         	tabView.getItems().remove(adjoined);
     	}
     		
@@ -151,7 +152,6 @@ public class SearchRoomController implements Initializable{
     private Room adjoinedFind(Room room) {
     	Room returnRoom = null;
     	for(Room adRoom : data) {
-    		System.out.println(adRoom.getRoomID());
     	if(room.getAdjoindsRoomID().equals(adRoom.getRoomID())) {
     			returnRoom = adRoom ;
     		}
@@ -183,7 +183,7 @@ public class SearchRoomController implements Initializable{
             tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
             tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
             tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
-            tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("toString"));
+            tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
             tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
                      tabView.setItems(data);
 				} catch (Exception e) {
@@ -229,7 +229,7 @@ public class SearchRoomController implements Initializable{
         tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
         tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
         tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
-
+        tabView.setItems(data);
     }
 	
 	

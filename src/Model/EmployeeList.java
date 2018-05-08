@@ -46,6 +46,32 @@ public class EmployeeList {
 
         return em;
     }
+	public boolean checkIfEmployeeExists(String idNumber) throws Exception {
+		Connection con = sq.getConnection();
+
+        PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE IDNumber = '" + idNumber + "'  ");
+        ResultSet rs = pre.executeQuery();
+        if (rs.next()) {
+         return false;
+        }
+        rs.close();
+        con.close();
+
+		return true;
+	}
+	public boolean checkIfUserNameExists(String userName) throws Exception {
+		Connection con = sq.getConnection();
+
+        PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE userName = '" + userName + "'  ");
+        ResultSet rs = pre.executeQuery();
+        if (rs.next()) {
+         return false;
+        }
+        rs.close();
+        con.close();
+
+		return true;
+	}
 	
 	
 }
