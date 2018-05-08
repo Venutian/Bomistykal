@@ -215,6 +215,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
+
     	
   
     /*	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || 
@@ -238,8 +239,8 @@ public class ManagerController implements Initializable {
     		     
    		       else {*/
         Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-    		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
-    		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+                Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
+                addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
 
     		         Sqlconnection sq = new Sqlconnection();
     		         sq.addRoom(rm);
