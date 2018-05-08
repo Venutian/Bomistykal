@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 public class BillCalculator {
 	/*this class calculates the final price*/
 	private Room room;
-	private Sqlconnection sq;
 	private int finalPrice;
 	private int roomPrice;
 	//this value indicates how many days before someone can cancel before getting fined. 
@@ -15,7 +14,7 @@ public class BillCalculator {
 	
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
-		this.sq = new Sqlconnection();
+		
 		RoomList rm = new RoomList();
 		try {
 			this.room = rm.getTheRoom(res);

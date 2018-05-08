@@ -203,13 +203,13 @@ public class SearchRoomController implements Initializable{
 		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
 		
 		
-		if(!inputCheck.datesCorrection(checkInD, checkOutD)) {
+		/*if(!inputCheck.datesCorrection(checkInD, checkOutD)) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
     	alert.setTitle("Confirmation Dialog");
     	alert.setContentText("Check in and Check Out Date should be in the future!");
     	//Optional<ButtonType> result = alert.showAndWait();
     	alert.showAndWait();
-    	}
+    	}*/
 		
 		
 		int numOfBeds = 0;
