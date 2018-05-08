@@ -65,7 +65,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <CheckBox fx:id="bigRoomBox" layoutX="19.0" layoutY="415.0" mnemonicParsing="false" text="Big"/>
+                <CheckBox fx:id="bigRoomBox" layoutX="19.0" layoutY="415.0" mnemonicParsing="false" text="Suite"/>
                 <CheckBox fx:id="mediumRoomBox" layoutX="19.0" layoutY="440.0" mnemonicParsing="false" text="Medium"/>
                 <Label layoutX="14.0" layoutY="390.0" text="Room Size"/>
                 <CheckBox fx:id="smallRoomBox" layoutX="19.0" layoutY="465.0" mnemonicParsing="false" text="Small"/>
