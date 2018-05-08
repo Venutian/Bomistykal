@@ -5,7 +5,7 @@ package Model;
  */
 public class Room {
 
-   
+    private String desc;
     private int price;
     private String roomID;
     private int roomSize;
@@ -72,16 +72,16 @@ public class Room {
     public String getSmoke ( ) {
         String str = "";
         if (this.smoking == true)
-            str = "Y";
+            str = "Smoking";
         else if (this.smoking == false)
-            str = "N";
+            str = " ";
         return str;
     }
 
     public void setAdjoint (String str) {
-        if (str.equals("Y")) {
+        if (str.equals("Adjoint")) {
             adjoint = true;
-        } else if (str.equals("N"))
+        } else if (str.equals(" "))
             adjoint = false;
 
     }
@@ -89,9 +89,9 @@ public class Room {
     public String getAdjoints ( ) {
         String str = "";
         if (this.adjoint == true)
-            str = "Y";
+            str = "Adjoint";
         else if (this.adjoint == false)
-            str = "N";
+            str = " ";
 
         return str;
     }
@@ -99,9 +99,9 @@ public class Room {
     public String getViews ( ) {
         String str = "";
         if (this.view == true)
-            str = "Y";
+            str = "View";
         else if (this.view == false)
-            str = "N";
+            str = " ";
         return str;
     }
 
@@ -110,17 +110,17 @@ public class Room {
     }
 
     public void setView (String str) {
-        if (str.equals("Y"))
+        if (str.equals("View"))
             view = true;
-        else if (str.equals("N"))
+        else if (str.equals(" "))
             view = false;
 
     }
 
     public void setSmoking (String str) {
-        if (str.equals("Y"))
+        if (str.equals("Smoking"))
             smoking = true;
-        else if (str.equals("N"))
+        else if (str.equals(" "))
             smoking = false;
 
     }
@@ -163,12 +163,17 @@ public class Room {
         return this.adjoinedRoomID;
     }
 
-    public String toString ( ) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getSmoking() + ", " + getView() + ", " + getAdjoint() + "\n");
+   /* public String toString() {
+    	StringBuilder sb = new StringBuilder();
+		sb.append(getSmoking() + ", " +getView()+", "+getAdjoint()+ "\n");
+		
+		
+		
+		return sb.toString();
+=======
 
+    
 
-        return sb.toString();
-    }
+    */
 
 } 
