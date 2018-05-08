@@ -59,6 +59,17 @@ public class SearchRoomController implements Initializable{
     @FXML
     private CheckBox twinBedBox;
 
+
+    @FXML
+    private CheckBox bigRoomBox;
+
+    @FXML
+    private CheckBox mediumRoomBox;
+
+    @FXML
+    private CheckBox smallRoomBox;
+
+
     @FXML
     private TableView<Room> tabView;
 
@@ -217,9 +228,17 @@ public class SearchRoomController implements Initializable{
 			numOfBeds = 2;
 		else if(SingleBedBox.isSelected())
 			numOfBeds = 1;
-		
+
+        int RoomSize = 0;
+        if (bigRoomBox.isSelected())
+            RoomSize = 50;
+        else if (mediumRoomBox.isSelected())
+            RoomSize = 35;
+        else if (smallRoomBox.isSelected())
+            RoomSize = 25;
+
 		/*adjoint should work together   here*/
-	    SearchFactory sc = new SearchFactory(campusLoc.getValue(),checkInD,checkOutD,viewBox.isSelected(),smokingBox.isSelected(),adjointBox.isSelected(),numOfBeds);
+        SearchFactory sc = new SearchFactory(campusLoc.getValue(), checkInD, checkOutD, viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
         ObservableList<Room> data = sc.getAvailableRooms();
 
