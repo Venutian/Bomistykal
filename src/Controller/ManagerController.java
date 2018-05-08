@@ -11,6 +11,7 @@ import Model.EmployeeList;
 import Model.Room;
 import Model.RoomList;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +33,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 
 public class ManagerController implements Initializable {
-    
+	Alerts al = new Alerts();
     @FXML
     private ChoiceBox<String> campusLoc;
 
@@ -238,16 +239,17 @@ public class ManagerController implements Initializable {
 
     		     
    		       else {*/
+    	RoomList rl = new RoomList();
+    	rl.checkIfRoomExists(addRoomIDTextF.getText());
+    	//alert box
         Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
                 Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
 
     		         Sqlconnection sq = new Sqlconnection();
     		         sq.addRoom(rm);
-    		        Alert alert = new Alert(AlertType.INFORMATION);
-    		     	alert.setTitle("Information Dialog");
-    		     	alert.setContentText("New room is successfully created");
-    		     	alert.showAndWait();
+    		     
+    		     	al.reportError("New room is successfully created");
     		       }
     
 
@@ -257,22 +259,22 @@ public class ManagerController implements Initializable {
     	if (addAccNameTextF.getText().length()==0 || addAccIDTextF.getText().length() ==0 || addAccUserTextF.getText().length() ==0
     		|| addAccAddTextF.getText().length() ==0 || Integer.parseInt(addPhoneNoTextF.getText()) == 0 || addAccPassWordTextF.getText().length()==0) {
     		
-    	Alert alert = new Alert(AlertType.ERROR);
-	       alert.setTitle("Error Dialog");
-	       alert.setContentText("Please fill all the text fields!");
-	       alert.showAndWait();
+    	  al.reportError("Please fill all the text fields!");
+	       
     	} else
     	{
         try {
+        	EmployeeList s = new EmployeeList();
+        	s.checkIfEmployeeExists(addAccIDTextF.getText(),addAccNameTextF.getText());
+        	//put alert
+        	
             Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
             addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
             addAccAddTextF.getText().toString(), Integer.parseInt(addPhoneNoTextF.getText()), isManager.isSelected());
             Sqlconnection sq = new Sqlconnection();
             sq.addEmployee(emp);
-            Alert alert = new Alert(AlertType.INFORMATION);
-	     	alert.setTitle("Information Dialog");
-	     	alert.setContentText("New account is successfully created");
-	     	alert.showAndWait();
+            
+	     	al.reportError("New account is successfully created");
 	     	// after the account is created the fields return empty
 	     		addAccNameTextF.setText("");
 	            addAccIDTextF.setText("");
@@ -294,12 +296,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void cancelbtn(ActionEvent event) {
 
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmation Dialog");
-		alert.setContentText("Are you sure you would like to cancel?");
-
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == ButtonType.OK){
+		if (al.responseAlert("Are you sure you would like to cancel?")){
 			addRoomIDTextF.setText("");
 	        priceAddTextF.setText("");
 	        addRoomSizeTextF.setText("");
@@ -311,8 +308,7 @@ public class ManagerController implements Initializable {
 	        addAdjointRoomIDTextF.setText("");
 	        anchor_CreateRoom.setVisible(false);
            
-		} else {
-			alert.close();	}
+		} 
     	} 
 
 
@@ -383,14 +379,8 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void canceCreateAccount(ActionEvent event) {
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmation Dialog");
-		alert.setContentText("Are you sure you would like to cancel?");
-		ButtonType yes = new ButtonType("Yes");
-    	ButtonType no = new ButtonType("No");
-    	alert.getButtonTypes().setAll(yes,no);
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == yes){
+    	
+		if (al.responseAlert("Are you sure you would like to cancel?")){
         addAccNameTextF.setText("");
         addAccIDTextF.setText("");
         addAccAddTextF.setText("");
@@ -400,9 +390,7 @@ public class ManagerController implements Initializable {
         addAccPassWord2TextF.setText("");
         anchor_UpdateRoom.setVisible(false);
 
-    } else if (result.get() == no){
-    	alert.close();
-    }
+    } 
     }
     @FXML
     public void cancelEditAcc(ActionEvent event) {
@@ -495,27 +483,14 @@ public class ManagerController implements Initializable {
         Room rm = tabView.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
         
-        if(rm == null) {
-        	Alert alert = new Alert(AlertType.ERROR);
-        	alert.setTitle("Error Dialog");
-        	alert.setContentText("Please Select a room to delete!");
-        	alert.showAndWait();
-        } else {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog");
-        alert.setContentText("Are you sure you want to delete this room?");
-        ButtonType yes = new ButtonType("Yes");
-        ButtonType no = new ButtonType("No");
-        alert.getButtonTypes().setAll(yes,no);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == yes){
+        if(rm == null) 
+        	al.reportError("Please Select a room to delete!");
+           else 
+        if (al.responseAlert("Are you sure you want to delete this room?")){
             sq.deleteRoom(rm);
             UpdateRoomMenu(event);
-        } else if (result.get() == no){
-            alert.close();
-        }
+        } 
 
-        }
     }
 
     //Employee Editing
@@ -564,23 +539,9 @@ public class ManagerController implements Initializable {
     }
 
     public void logout(ActionEvent event) throws IOException {
-    		lc = new LoginController();
-        	Alert alert = new Alert(AlertType.CONFIRMATION);
-        	alert.setTitle("Confirmation Dialog");
-        	alert.setContentText("Are you sure you want to log out?");
-        	ButtonType yes = new ButtonType("Yes");
-        	ButtonType no = new ButtonType("No");
-        	alert.getButtonTypes().setAll(yes,no);
-        	Optional<ButtonType> result = alert.showAndWait();
-        	if (result.get() == yes){
-        		 lc.logout(event);
-        	} else if (result.get() == no){
-        	   alert.close();
-        	}
-           
-
-        
-
-       
+    	
+    	if(al.responseAlert("Are you sure you want to log out?"))
+    	lc.logout(event);
+    	
     }
 }

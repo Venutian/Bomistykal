@@ -3,6 +3,7 @@ package Controller;
 import Model.Reservation;
 import Model.ReservationList;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,20 +63,13 @@ public class MenuController implements Initializable{
 
     @FXML
     private TableColumn<Reservation, String> COGuestName;
-
+    Alerts al = new Alerts();
+    
     public void logout(ActionEvent event) throws IOException {
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Confirmation Dialog");
-    	alert.setContentText("Are you sure you want to log out?");
-    	ButtonType yes = new ButtonType("Yes");
-    	ButtonType no = new ButtonType("No");
-    	alert.getButtonTypes().setAll(yes,no);
-    	Optional<ButtonType> result = alert.showAndWait();
-    	if (result.get() == yes){
+    	
+    	if (al.responseAlert("Are you sure you want to log out?"))
     		lo.logout(event);
-    	} else if (result.get() == no){
-    	   alert.close();
-    	}
+    	
     	
     }
 

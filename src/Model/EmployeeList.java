@@ -46,10 +46,10 @@ public class EmployeeList {
 
         return em;
     }
-	public boolean checkIfEmployeeExists(String idNumber) throws Exception {
+	public boolean checkIfEmployeeExists(String idNumber,String userName) throws Exception {
 		Connection con = sq.getConnection();
 
-        PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE IDNumber = '" + idNumber + "'  ");
+        PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE IDNumber = '" + idNumber + "' AND userName = '" + userName + "' ");
         ResultSet rs = pre.executeQuery();
         if (rs.next()) {
          return false;
@@ -59,19 +59,7 @@ public class EmployeeList {
 
 		return true;
 	}
-	public boolean checkIfUserNameExists(String userName) throws Exception {
-		Connection con = sq.getConnection();
-
-        PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE userName = '" + userName + "'  ");
-        ResultSet rs = pre.executeQuery();
-        if (rs.next()) {
-         return false;
-        }
-        rs.close();
-        con.close();
-
-		return true;
-	}
+	
 	
 	
 }

@@ -6,6 +6,7 @@ import java.util.Date;
 
 import Model.Client;
 import Model.Reservation;
+import Model.ReservationList;
 import Model.Room;
 import Model.Sqlconnection;
 import javafx.collections.FXCollections;
@@ -90,6 +91,10 @@ public class ReserveController {
     void reserve(ActionEvent event) throws Exception {
     Sqlconnection sq = new Sqlconnection();
     Date credit = Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+    ReservationList rs = new ReservationList();
+    if(rs.checkIfClientExists(name.getText().toString())) 
+    	;//bring client back and shit like that
+    
     Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
     sq.addClient(client);
     Reservation reservation = null;
