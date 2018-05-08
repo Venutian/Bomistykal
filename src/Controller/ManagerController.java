@@ -239,18 +239,21 @@ public class ManagerController implements Initializable {
     		     
    		       else {*/
     	RoomList rl = new RoomList();
-    	rl.checkIfRoomExists(addRoomIDTextF.getText());
-    	//alert box
-        Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-    		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
-    		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
+    	if(rl.checkIfRoomExists(addRoomIDTextF.getText()))
+    		al.reportError("A room with the same room id already exists in the database.");
+    	
+    	
+    	else {
+    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+    	 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
+    	 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
 
-    		         Sqlconnection sq = new Sqlconnection();
-    		         sq.addRoom(rm);
+    	 Sqlconnection sq = new Sqlconnection();
+    	sq.addRoom(rm);
     		     
-    		     	al.reportError("New room is successfully created");
+    	al.reportError("New room is successfully created");
     		       }
-    
+    }
 
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
@@ -463,9 +466,11 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void EditRoomAdjointID (TableColumn.CellEditEvent editedcell) throws Exception {
+    	RoomList rl = new RoomList();
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoindsRoomID(String.valueOf(editedcell.getNewValue().toString()));
         Sqlconnection sql = new Sqlconnection();
+        
         sql.editRoom(selectedRoom);
     }
 
@@ -538,7 +543,7 @@ public class ManagerController implements Initializable {
     }
 
     public void logout(ActionEvent event) throws IOException {
-    	
+    	lc = new LoginController();
     	if(al.responseAlert("Are you sure you want to log out?"))
     	lc.logout(event);
     	

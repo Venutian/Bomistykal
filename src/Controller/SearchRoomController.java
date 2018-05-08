@@ -6,6 +6,7 @@ import Model.Room;
 import Model.RoomList;
 import Model.SearchFactory;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,6 +34,7 @@ import java.util.ResourceBundle;
 public class SearchRoomController implements Initializable{
     private	 ObservableList<Room> data;
     private InputChecker inputCheck;
+    Alerts al = new Alerts();
     @FXML
     private AnchorPane anchor;
 
@@ -184,7 +186,6 @@ public class SearchRoomController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
         roomsForReserve  = FXCollections.observableArrayList();
-		Sqlconnection sq = new Sqlconnection();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
 		RoomList rm = new RoomList();
@@ -215,11 +216,8 @@ public class SearchRoomController implements Initializable{
 		
 		
 		/*if(!inputCheck.datesCorrection(checkInD, checkOutD)) {
-		Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Confirmation Dialog");
-    	alert.setContentText("Check in and Check Out Date should be in the future!");
-    	//Optional<ButtonType> result = alert.showAndWait();
-    	alert.showAndWait();
+		al.responseAlert("Check in and Check Out Date should be in the future!");
+    	
     	}*/
 		
 		
@@ -237,7 +235,6 @@ public class SearchRoomController implements Initializable{
         else if (smallRoomBox.isSelected())
             RoomSize = 25;
 
-		/*adjoint should work together   here*/
         SearchFactory sc = new SearchFactory(campusLoc.getValue(), checkInD, checkOutD, viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
         ObservableList<Room> data = sc.getAvailableRooms();

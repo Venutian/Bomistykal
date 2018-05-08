@@ -92,15 +92,14 @@ public class ReserveController {
     Sqlconnection sq = new Sqlconnection();
     Date credit = Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
     ReservationList rs = new ReservationList();
-    if(rs.checkIfClientExists(name.getText().toString())) 
-    	;//bring client back and shit like that
     
-    Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
-    sq.addClient(client);
+    if(!rs.checkIfClientExists(name.getText().toString())) {
+    	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
+        sq.addClient(client);
+    }
     Reservation reservation = null;
-    //should make one reservation for adjoining romms???
     for(Room room : list)
-    	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,client.getIDNumber(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
+    	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,idNumber.getText().toString(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
     
     goToConfirm(reservation);
     }
@@ -108,8 +107,7 @@ public class ReserveController {
     public void goToConfirm(Reservation res) throws IOException {
        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
-        //need to implement 
-    	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
+        ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
     	controller.reservationConfirm(res);
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();

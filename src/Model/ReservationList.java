@@ -111,12 +111,12 @@ public class ReservationList {
         PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE IDNumber = '" + idNumber + "'  ");
         ResultSet rs = pre.executeQuery();
         if (rs.next()) {
-         return false;
+         return true;
         }
         rs.close();
         con.close();
 
-		return true;
+		return false;
 	}
 	
 }
