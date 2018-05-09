@@ -5,7 +5,6 @@ package Controller;
 import Model.Room;
 import Model.RoomList;
 import Model.SearchFactory;
-import Model.Sqlconnection;
 import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,13 +16,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -32,12 +31,8 @@ import java.util.ResourceBundle;
 
 
 public class SearchRoomController implements Initializable{
-    private	 ObservableList<Room> data;
-  
-    Alerts al = new Alerts();
-    private boolean isManager;
+   
 
-	
     @FXML
     private AnchorPane anchor;
 
@@ -45,37 +40,13 @@ public class SearchRoomController implements Initializable{
     private ChoiceBox<String> campusLoc;
 
     @FXML
-    private DatePicker checkIn;
+    private DatePicker checkIn,checkOut;
 
     @FXML
-    private DatePicker checkOut;
-
-     @FXML
-    private CheckBox smokingBox;
-
-     @FXML
-     private TextField managerSearch;
+    private TextField managerSearch;
    
-
     @FXML
-    private CheckBox adjointBox;
-
-    @FXML
-    private CheckBox doubleBedBox;
-
-    @FXML
-    private CheckBox twinBedBox;
-
-
-    @FXML
-    private CheckBox bigRoomBox;
-
-    @FXML
-    private CheckBox mediumRoomBox;
-
-    @FXML
-    private CheckBox smallRoomBox;
-
+    private CheckBox smokingBox,adjointBox,doubleBedBox,twinBedBox,bigRoomBox,mediumRoomBox,smallRoomBox,viewBox,SingleBedBox;
 
     @FXML
     private TableView<Room> tabView;
@@ -84,48 +55,36 @@ public class SearchRoomController implements Initializable{
     private TableColumn<Room, String> tabCol_Id;
 
     @FXML
-    private TableColumn<Room, Integer> tabCol_Price;
+    private TableColumn<Room, Integer> tabCol_Price,tabCol_Size,tabCol_Beds;
 
     @FXML
-    private TableColumn<Room, Integer> tabCol_Size;
-
-    @FXML
-    private TableColumn<Room, Integer> tabCol_Beds;
-
-    @FXML
-    private TableColumn<Room, String> tabCol_Location;
-
-    @FXML
-    private TableColumn<Room, String> tabCol_Availble;
+    private TableColumn<Room, String> tabCol_Location,tabCol_Availble;
 
     @FXML
     private Label roomDetails;
 
     @FXML
-    private CheckBox viewBox;
-
-    @FXML
-    private CheckBox SingleBedBox;
-    @FXML
     private AnchorPane managers;
-    @FXML
-    private ListView<String> roomList = new ListView<String>();
-   
-
-    private ObservableList<Room> roomsForReserve;
     
-    ObservableList<String> campusLocation  	= FXCollections.observableArrayList("Vaxjo" , "Kalmar");
-   
-   
+    
+    private  ListView<String> roomList;
+    private	 ObservableList<Room> data;
+    private  Alerts al ;
+    private  boolean isManager;
+    private  ObservableList<Room> roomsForReserve;
+    private  ObservableList<String> campusLocation;
+    private  RoomList rm ;
+    private  Room room;
+    private SearchFactory sc;
+    
 	
 	@FXML
     public void reservebtn(ActionEvent event) throws IOException {
-		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Reserve.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ReserveController controller = fxmlLoader.<ReserveController>getController();
-    	controller.setRooms(roomsForReserve,checkInD,checkOutD);
+    	controller.setRooms(roomsForReserve,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()));
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
@@ -148,16 +107,14 @@ public class SearchRoomController implements Initializable{
     @FXML
     void addRoomToList(ActionEvent event) {
     	
-    	Room room = tabView.getSelectionModel().getSelectedItem();
-    	
-    	
+    	room = tabView.getSelectionModel().getSelectedItem();
     	//method that checks the list finds the other adjoining room and adds it to the lists.
     	roomList.getItems().add(room.getRoomID());
     	roomsForReserve.add(room);
     	tabView.getItems().remove(room);
     	
     	if(adjointBox.isSelected()) {
-    		Room adjoined = adjoinedFind(room);
+    		Room adjoined = rm.adjoinedFind(room,data);
     		roomList.getItems().add(adjoined.getRoomID());
         	roomsForReserve.add(adjoined);
         	//remove needs fixing
@@ -167,17 +124,8 @@ public class SearchRoomController implements Initializable{
     }
     
     
-    //move to model
-    private Room adjoinedFind(Room room) {
-    	Room returnRoom = null;
-    	for(Room adRoom : data) {
-    	if(room.getAdjoindsRoomID().equals(adRoom.getRoomID())) {
-    			returnRoom = adRoom ;
-    		}
-    	}	
-    		
-    	return returnRoom;
-    }
+    
+   
     
 	@FXML
     public void back(ActionEvent event) throws IOException {
@@ -188,87 +136,97 @@ public class SearchRoomController implements Initializable{
         window.setScene(scene);
         window.show();
     }
-	public void isAmanager() {
-		this.isManager = true;
-	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//make it to appear only foir the manager
+		
+		this.campusLocation = FXCollections.observableArrayList("Vaxjo" , "Kalmar");
+		this.al = new Alerts();
+		this.roomList = new ListView<String>();
+		this.roomsForReserve  = FXCollections.observableArrayList();
+		this.campusLoc.setItems(campusLocation);
+		this.campusLoc.setValue("Vaxjo");
+		this.rm = new RoomList();
+		
+		//make it to appear only for the manager
 		if(!isManager)
 		managers.setVisible(false);
-		
-        roomsForReserve  = FXCollections.observableArrayList();
-		this.campusLoc.setItems(campusLocation);
-		campusLoc.setValue("Vaxjo");
-		RoomList rm = new RoomList();
 		try {
-					data = rm.getRooms();
+		this.data = rm.getRooms();
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
 
-            tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-            tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
-            tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
-            tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
-            tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
-                     tabView.setItems(data);
-				} catch (Exception e) {
-				
-					e.printStackTrace();
-				}
-			 
+		setTable();
 	}
 	
 	@FXML
     void searchForRoom(ActionEvent event) throws Exception {
 		
+		int numOfBeds = getNumOfBeds();
+		int RoomSize = getRoomSize();
+        
 		
 		
-		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
-		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-		Date checkOutD = Date.from(checkOut.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-		
-		
-		/*if(!inputCheck.datesCorrection(checkInD, checkOutD)) {
-		al.responseAlert("Check in and Check Out Date should be in the future!");
-    	
-    	}*/
-		
-		
-		int numOfBeds = 0;
-		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
-			numOfBeds = 2;
-		else if(SingleBedBox.isSelected())
-			numOfBeds = 1;
+		if(numOfBeds == 0 || RoomSize == 0) {
+			al.reportError("Please fill all the choices before you proceed on searching for a room!");
+		}
+		else {
+		sc = new SearchFactory(campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
-        int RoomSize = 0;
-        if (bigRoomBox.isSelected())
-            RoomSize = 50;
-        else if (mediumRoomBox.isSelected())
-            RoomSize = 35;
-        else if (smallRoomBox.isSelected())
-            RoomSize = 25;
-
-        SearchFactory sc = new SearchFactory(campusLoc.getValue(), checkInD, checkOutD, viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
-
-        ObservableList<Room> data = sc.getAvailableRooms();	
+		if(sc.getAvailableRooms().isEmpty())
+			al.reportError("Please fill the dates properly!");
+		else {
+		 data = sc.getAvailableRooms();	
 
         if(data.isEmpty()) {
         String otherCampus = sc.offerRoomToOtherCampus(campusLoc.getValue());
-        sc = new SearchFactory(otherCampus, checkInD, checkOutD, viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
+        sc = new SearchFactory(otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
+     
         if(!sc.getAvailableRooms().isEmpty())
         	al.reportInformation("There are no available rooms in "+campusLoc.getValue()+" but there are in " +otherCampus);
         data = sc.getAvailableRooms();	
         }
        
-       
-        tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-        tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
-        tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
-        tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
-        tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
-        tabView.setItems(data);
+       setTable();
+		}
+	}
     }
 	
 	
 	
+	private int getNumOfBeds() {
+		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
+			return 2;
+		else if(SingleBedBox.isSelected())
+			return 1;
+		return 0;
+	}
+	private int getRoomSize() {
+		 if (bigRoomBox.isSelected())
+            return 50;
+        else if (mediumRoomBox.isSelected())
+        	return 35;
+        else if (smallRoomBox.isSelected())
+        	return 25;
+        
+        return 0;
+	}
 	
+	private void setTable() {
+		    tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
+	        tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
+	        tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
+	        tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
+	        tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
+	        tabView.setItems(data);
+	}
+	
+	private Date convertToDate(LocalDate locaDate) {
+    	return Date.from(locaDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
+    
+    public void isAmanager() {
+		this.isManager = true;
+	}
 }

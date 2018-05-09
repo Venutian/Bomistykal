@@ -89,7 +89,20 @@ public class ReservationList {
 	        return data;
 	    }
 
-	
+	  public ObservableList<Integer> getNumOfGuests(ObservableList<Room> list){
+		  ObservableList<Integer>  maxGuests  = FXCollections.observableArrayList();
+		  int maxNumOfGuests = 0;
+			for(Room r : list) {
+				maxNumOfGuests += r.getNumOfBed();
+			}
+			
+			for(int i = 1;i <= maxNumOfGuests; i ++)
+				maxGuests.add(i);
+			
+		return maxGuests;  
+	  }
+	    
+	  
 	    public Client getClient(String clientID) throws Exception {
 	        Connection con = sq.getConnection();
 	        Client client = null;
@@ -105,7 +118,8 @@ public class ReservationList {
 
 	        return client;
 	    }
-	public boolean checkIfClientExists(String idNumber) throws Exception {
+	/*---------------------------------------------gone
+	 * public boolean checkIfClientExists(String idNumber) throws Exception {
 		Connection con = sq.getConnection();
 
         PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE IDNumber = '" + idNumber + "'  ");
@@ -117,6 +131,6 @@ public class ReservationList {
         con.close();
 
 		return false;
-	}
+	}*/
 	
 }

@@ -56,6 +56,14 @@ private Sqlconnection sq;
 			return true;
 		}
 	
-	
+	  public Room adjoinedFind(Room room,ObservableList<Room> data) {
+	    	Room returnRoom = null;
+	    	for(Room adRoom : data) {
+	    	if(room.getAdjoindsRoomID().equals(adRoom.getRoomID())) {
+	    			returnRoom = adRoom ;
+	    		}
+	    	}	
+	    	return returnRoom;
+	    }
 	
 }

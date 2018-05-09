@@ -1,10 +1,9 @@
 package View;
 
-import java.io.IOException;
+
 import java.util.Optional;
 
-import Controller.LoginController;
-import javafx.event.ActionEvent;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;

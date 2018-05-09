@@ -216,29 +216,6 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-
-    	
-  
-    /*	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || 
-    	  Integer.parseInt(addRoomSizeTextF.getText()) ==0 || Integer.parseInt(addNoOfBedTextF.getText())==0 ||
-    	 campusLoc.getSelectionModel() == null ) {
-    		       		
-    		       Alert alert = new Alert(AlertType.ERROR);
-    		       alert.setTitle("Error Dialog");
-    		       alert.setHeaderText("Look, an Error Dialog");
-    		       alert.setContentText("Please fill all the text fields!");
-    		       alert.showAndWait();
-    		       } else if (addAdjointCB.isSelected()==true && addAdjointRoomIDTextF.getText().length() == 0 ){
-    		    	   
-    		    	   Alert alert = new Alert(AlertType.ERROR);
-    		           alert.setTitle("Error Dialog");
-    		           alert.setHeaderText("Look, an Error Dialog");
-    		           alert.setContentText("Please specify the room id of adjoint rooms!");
-    		           alert.showAndWait();
-    		       }
-
-    		     
-   		       else {*/
     	RoomList rl = new RoomList();
 
     	if(!rl.checkIfRoomExists(addRoomIDTextF.getText()))
@@ -538,7 +515,7 @@ public class ManagerController implements Initializable {
         Employee emp = tabViewEmp.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
         if (emp == null)
-            al.reportError("Please Select a room to delete!");
+            al.reportError("Please Select a room that you whant to delete!");
         else if (al.responseAlert("Are you sure you want to delete this room?")) {
             sq.deleteEmployee(emp);
             changeUserOrPassMenu(event);

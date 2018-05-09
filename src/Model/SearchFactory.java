@@ -25,16 +25,35 @@ public class SearchFactory {
 	public SearchFactory (String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
 		this.rs = new ReservationList();
 		 this.sq = new Sqlconnection();
+		 this.available = FXCollections.observableArrayList();
 		//take the rooms that fit your description
+		 if(checkDates(startDate,endDate)) {
 		this.roomList = getRoomChoices(campusLoc, view, smoking, adjoined, numOfBeds, RoomSize);
 		//finding reservations that conflict with your dates  
-		 this.ColapingRess = rs.searchForDates(startDate,endDate);
+		this.ColapingRess = rs.searchForDates(startDate,endDate);
 		 
-		 this.NOTavailable = new ArrayList<Room>();
+		this.NOTavailable = new ArrayList<Room>();
 		
 		setNOTavailable();
-	
+		setAvailableRooms();
+		 }
 		}
+	//fixing
+	private boolean checkDates(Date startDate,Date endDate) {
+		Date today = new Date();
+		
+		if(today.after(startDate))
+			return false;
+		if(startDate.after(endDate))
+			return false;
+		if(today.after(endDate))
+			return false;
+		if(startDate.compareTo(endDate)== 0)
+			return false;
+		
+		return true;
+	}
+	
 	public String offerRoomToOtherCampus(String campusLocation) {
 		if(campusLocation.equals("Kalmar"))
 			return "Vaxjo";
@@ -50,15 +69,17 @@ public class SearchFactory {
 				
 		}
 	}
-	//  ObservableList<Room> data ;
-	public ObservableList<Room> getAvailableRooms(){
-		available = FXCollections.observableArrayList();
+	private void setAvailableRooms(){
+		
 		for(Room r : roomList) {
 			if(!NOTavailable.contains(r)) {
 				available.add(r);
 			}
 		}
-	return available;
+	}
+	
+	public ObservableList<Room> getAvailableRooms(){
+		return this.available;
 	}
 
 	private ArrayList <Room> getRoomChoices (String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {

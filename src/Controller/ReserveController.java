@@ -11,7 +11,6 @@ import Model.ReservationList;
 import Model.Room;
 import Model.Sqlconnection;
 import View.Alerts;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,31 +30,13 @@ import javafx.stage.Stage;
 public class ReserveController {
 
     @FXML
-    private TextField idNumber;
-
-    @FXML
-    private TextField name;
-
-    @FXML
-    private TextField creditCardNo;
-
-    @FXML
-    private TextField addres;
+    private TextField idNumber,name,creditCardNo,addres,telNumber;
 
     @FXML
     private DatePicker CreditCardExpDate;
-
+   
     @FXML
-    private TextField telNumber;
-    
-    @FXML
-    private Label checkinLabel;
-
-    @FXML
-    private Label checkOutLabel;
-
-    @FXML
-    private Label numOfRoomsLabel;
+    private Label checkinLabel,checkOutLabel,numOfRoomsLabel;
 
     @FXML
     private ChoiceBox<Integer> noOfGuestsCheckB;
@@ -64,54 +45,44 @@ public class ReserveController {
     private TableView<Room> tableList;
     
     @FXML
-    private TableColumn<Room, String> roomNo;
+    private TableColumn<Room, String> roomNo,roomDesc,bedType,roomPrice;
 
-    @FXML
-    private TableColumn<Room, String> roomDesc;
     
-
-    @FXML
-    private TableColumn<Room, String> bedType;
-    
-
-    @FXML
-    private TableColumn<Room, String> roomPrice;
-    
-    ObservableList<Integer> maxGuests  	= FXCollections.observableArrayList();
-
-	private ObservableList<Room> list;
+    private Sqlconnection sq ;
+    private ReservationList rs ;
+    private ObservableList<Integer> maxGuests;
+    private ObservableList<Room> list;
 	private Date checkIn;
 	private Date checkOut;
-	Alerts al = new Alerts();
-
-    @FXML
+	private Alerts al;
+	private Reservation reservation;
+   
+	@FXML
     void cancelReserve(ActionEvent event) {
       //yoel make it go back
     }
     
     @FXML
     void reserve(ActionEvent event) throws Exception {
-    Sqlconnection sq = new Sqlconnection();
-    Date credit = Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-    ReservationList rs = new ReservationList();
-    
    
-	
-    if(!rs.checkIfClientExists(name.getText().toString())) {
-    	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),creditCardNo.getText().toString(),credit,telNumber.getText().toString(),addres.getText().toString());
+    if(name.getText().isEmpty()||idNumber.getText().isEmpty()||creditCardNo.getText().isEmpty()||telNumber.getText().isEmpty()||addres.getText().isEmpty())
+    	al.reportError("Please fill all the text fields!");
+    else {
+    //if the client does not already exists in the database.. add him/her.
+     if(rs.getClient(name.getText().toString()) == null) {
+    	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),creditCardNo.getText().toString(),Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()),telNumber.getText().toString(),addres.getText().toString());
         sq.addClient(client);
     }
-    Reservation reservation = null;
-    for(Room room : list)
+   
+     //every room we book we make a new reservation for it. It makes it easier to manage reservations.
+    for(Room room : list) {
     	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,idNumber.getText().toString(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
-    
-    goToConfirm(reservation);
-    
-    
+        goToConfirm(reservation);
     }
+     }}
     
     public void goToConfirm(Reservation res) throws IOException {
-       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
         ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
     	controller.reservationConfirm(res);
@@ -126,25 +97,26 @@ public class ReserveController {
 	}
     
     public void setRooms(ObservableList<Room> roomsForReserve, Date startDate, Date endDate) {
-	this.checkIn= startDate;
+	
+    this.checkIn= startDate;
 	this.checkOut = endDate;
-	checkinLabel.setText(checkIn.toString());
-	checkOutLabel.setText(checkOut.toString());
-	
+	this.checkinLabel.setText(checkIn.toString());
+	this.checkOutLabel.setText(checkOut.toString());
+	this.sq = new Sqlconnection();
+	this.rs = new ReservationList();
+	this.maxGuests  = rs.getNumOfGuests(roomsForReserve);
+	this.al = new Alerts();
 	this.list = roomsForReserve;
-	roomNo.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-	roomDesc.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
-	bedType.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
-	roomPrice.setCellValueFactory(new PropertyValueFactory<Room, String>("Price"));
-	tableList.setItems(list);
-	int maxNumOfGuests = 0;
-	for(Room r : list) {
-		maxNumOfGuests += r.getNumOfBed();
-	}
 	
-	numOfRoomsLabel.setText(Integer.toString(list.size()));
-	for(int i = 1;i <= maxNumOfGuests; i ++)
-		maxGuests.add(i);
+	
+	this.roomNo.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
+	this.roomDesc.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
+	this.bedType.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
+	this.roomPrice.setCellValueFactory(new PropertyValueFactory<Room, String>("Price"));
+	this.tableList.setItems(list);
+	this.numOfRoomsLabel.setText(Integer.toString(list.size()));
+	
+	
 		
 	this.noOfGuestsCheckB.setItems(maxGuests);
 	noOfGuestsCheckB.setValue(1);
