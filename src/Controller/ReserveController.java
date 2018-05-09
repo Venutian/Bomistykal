@@ -5,10 +5,12 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import Model.Client;
+import Model.InputChecker;
 import Model.Reservation;
 import Model.ReservationList;
 import Model.Room;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,18 +82,29 @@ public class ReserveController {
 	private ObservableList<Room> list;
 	private Date checkIn;
 	private Date checkOut;
+	InputChecker ic = new InputChecker();
+	Alerts al = new Alerts();
 
     @FXML
     void cancelReserve(ActionEvent event) {
       //yoel make it go back
     }
-
+     private boolean checkinput() {
+    	// ic
+    if(ic.checkIfIsString(name.getText())||ic.checkIfIsString(idNumber.getText())||ic.checkIfIsInt(creditCardNo.getText())||ic.checkIfIsInt(telNumber.getText())||ic.checkIfIsString(addres.getText()))
+    	al.reportError("Please fill in the inputs with proper form!");
+   	 
+    if(ic.checkStrSize(name.getText(), 45) || ic.checkStrSize(idNumber.getText(), 45) || ic.checkIntSize(creditCardNo.getText(), 16) ||ic.checkIntSize(telNumber.getText(), 16) ||ic.checkStrSize(addres.getText(), 45))
+         ;
+    	return false;
+     }
     @FXML
     void reserve(ActionEvent event) throws Exception {
     Sqlconnection sq = new Sqlconnection();
     Date credit = Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
     ReservationList rs = new ReservationList();
     
+   
     if(!rs.checkIfClientExists(name.getText().toString())) {
     	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
         sq.addClient(client);
