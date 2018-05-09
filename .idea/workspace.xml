@@ -19,16 +19,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="216" column="8" lean-forward="false" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="8" />
+            <state relative-caret-position="6974">
+              <caret line="539" column="23" lean-forward="true" selection-start-line="539" selection-start-column="23" selection-end-line="539" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1525820829584" expanded="true" signature="19374:19380" ph="{...}" />
-                <marker date="1525820829584" expanded="true" signature="22074:22080" ph="{...}" />
+                <element signature="e#6425#6440#0" expanded="true" />
+                <element signature="e#6545#6560#0" expanded="true" />
+                <element signature="e#6665#6680#0" expanded="true" />
+                <element signature="e#13856#13875#0" expanded="true" />
+                <marker date="1525876412273" expanded="true" signature="20567:20573" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputChecker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/InputChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1025">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Alerts.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-50">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,112 +69,9 @@
       <file leaf-file-name="SearchRoomController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-160">
-              <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="36" />
+            <state relative-caret-position="665">
+              <caret line="201" column="36" lean-forward="true" selection-start-line="201" selection-start-column="36" selection-end-line="201" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JAVA/Model" pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/Model">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>Model</OriginalElement>
-              <nodes>
-                <node x="0.0" y="368.0">Model.RoomList</node>
-                <node x="236.0" y="0.0">Model.Sqlconnection</node>
-                <node x="0.0" y="0.0">Model.ReservationList</node>
-                <node x="228.0" y="92.0">Model.EmployeeList</node>
-                <node x="0.0" y="184.0">Model.InputChecker</node>
-                <node x="193.0" y="368.0">Model.Room</node>
-                <node x="0.0" y="92.0">Model.SearchFactory</node>
-                <node x="0.0" y="276.0">Model.Reservation</node>
-                <node x="210.0" y="276.0">Model.Employee</node>
-                <node x="222.0" y="184.0">Model.BillCalculator</node>
-                <node x="360.0" y="368.0">Model.Client</node>
-              </nodes>
-              <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="1.0" x="-216.0" y="144.0" />
-              <SelectedNodes>
-                <node>Model.RoomList</node>
-              </SelectedNodes>
-              <Categories />
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JAVA/Controller" pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/Controller">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>Controller</OriginalElement>
-              <nodes>
-                <node x="286.5949074074074" y="202.0">Controller.MenuController</node>
-                <node x="20.0" y="97.0">Controller.ReserveController</node>
-                <node x="0.0" y="194.0">Controller.SearchRoomController</node>
-                <node x="130.59722222222223" y="0.0">Controller.ConfirmationController</node>
-                <node x="416.1875" y="0.0">Controller.LoginController</node>
-                <node x="41.886574074074076" y="394.0">Controller.EditReservationController</node>
-                <node x="505.5949074074074" y="125.0">Controller.ManagerController</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="Controller.SearchRoomController" target="Controller.ReserveController">
-                  <point x="0.0" y="-23.5" />
-                  <point x="0.0" y="23.5" />
-                </edge>
-                <edge source="Controller.MenuController" target="Controller.ConfirmationController">
-                  <point x="-65.33333333333331" y="-23.5" />
-                  <point x="319.2615740740741" y="72.0" />
-                  <point x="343.09722222222223" y="72.0" />
-                  <point x="85.0" y="23.5" />
-                </edge>
-                <edge source="Controller.ReserveController" target="Controller.ConfirmationController">
-                  <point x="0.0" y="-23.5" />
-                  <point x="126.0" y="72.0" />
-                  <point x="173.09722222222223" y="72.0" />
-                  <point x="-85.0" y="23.5" />
-                </edge>
-                <edge source="Controller.EditReservationController" target="Controller.SearchRoomController">
-                  <point x="0.0" y="-23.5" />
-                  <point x="179.38657407407408" y="266.0" />
-                  <point x="189.0" y="266.0" />
-                  <point x="63.0" y="23.5" />
-                </edge>
-                <edge source="Controller.ManagerController" target="Controller.LoginController">
-                  <point x="-55.25" y="-23.5" />
-                  <point x="557.8449074074074" y="72.0" />
-                  <point x="538.0625" y="72.0" />
-                  <point x="24.375" y="23.5" />
-                </edge>
-                <edge source="Controller.EditReservationController" target="Controller.ConfirmationController">
-                  <point x="91.0" y="-23.5" />
-                  <point x="270.3865740740741" y="266.0" />
-                  <point x="262.5" y="266.0" />
-                  <point x="262.5" y="72.0" />
-                  <point x="258.09722222222223" y="72.0" />
-                  <point x="0.0" y="23.5" />
-                </edge>
-                <edge source="Controller.MenuController" target="Controller.LoginController">
-                  <point x="1.4210854715202004E-14" y="-23.5" />
-                  <point x="384.5949074074074" y="72.0" />
-                  <point x="440.5625" y="72.0" />
-                  <point x="-73.125" y="23.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="-215.5" y="144.0" />
-              <SelectedNodes>
-                <node>Controller.ManagerController</node>
-              </SelectedNodes>
-              <Categories />
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
             </state>
           </provider>
         </entry>
@@ -160,8 +80,14 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="205">
-              <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-              <folding />
+              <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+              <folding>
+                <marker date="1525875170006" expanded="true" signature="3251:3254" ph="{...}" />
+                <marker date="1525875170006" expanded="true" signature="3313:3816" ph="{...}" />
+                <marker date="1525875170006" expanded="true" signature="3889:4381" ph="{...}" />
+                <marker date="1525875170006" expanded="true" signature="4442:4923" ph="{...}" />
+                <marker date="1525875170006" expanded="true" signature="4991:6344" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,12 +98,9 @@
             <state relative-caret-position="216">
               <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
-                <marker date="1525816113188" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
-                <marker date="1525816113188" expanded="true" signature="1709:1760" ph="SELECT * FRO... Reservation" />
-                <marker date="1525816113188" expanded="true" signature="2504:2556" ph="SELECT * FRO... Reservation" />
-                <marker date="1525816113188" expanded="true" signature="3396:3491" ph="SELECT * FRO... Reservation" />
-                <marker date="1525816113188" expanded="true" signature="4097:4153" ph="SELECT * FRO... Client" />
-                <marker date="1525816113188" expanded="true" signature="4757:4815" ph="SELECT * FRO... Employee" />
+                <marker date="1525875170047" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
+                <marker date="1525875170047" expanded="true" signature="1709:1760" ph="SELECT * FRO... Reservation" />
+                <marker date="1525875170047" expanded="true" signature="5013:5018" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -189,8 +112,12 @@
             <state relative-caret-position="205">
               <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
-                <marker date="1525818134727" expanded="true" signature="2095:2350" ph="SELECT * FRO... Room" />
-                <marker date="1525818134727" expanded="true" signature="2395:2572" ph="SELECT * FRO... Room" />
+                <marker date="1525875170056" expanded="true" signature="1502:1658" ph="{...}" />
+                <marker date="1525875170056" expanded="true" signature="1740:1907" ph="{...}" />
+                <marker date="1525875170056" expanded="true" signature="2064:3102" ph="{...}" />
+                <marker date="1525875170056" expanded="false" signature="2105:2111" ph="&lt;~&gt;" />
+                <marker date="1525875170056" expanded="true" signature="2243:2498" ph="SELECT * FRO... Room" />
+                <marker date="1525875170056" expanded="true" signature="2543:2720" ph="SELECT * FRO... Room" />
               </folding>
             </state>
           </provider>
@@ -202,31 +129,21 @@
             <state relative-caret-position="240">
               <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
               <folding>
-                <marker date="1525814690512" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
-                <marker date="1525814690512" expanded="true" signature="1153:1211" ph="DELETE FROM " />
-                <marker date="1525814690512" expanded="true" signature="1402:1838" ph="UPDATE Room " />
-                <marker date="1525814690512" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
-                <marker date="1525814690512" expanded="true" signature="2876:2946" ph="DELETE FROM " />
-                <marker date="1525814690512" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
-                <marker date="1525814690512" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
-                <marker date="1525814690512" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
-                <marker date="1525814690512" expanded="true" signature="5321:5719" ph="INSERT INTO Reservation... " />
-                <marker date="1525814690512" expanded="true" signature="5979:6065" ph="DELETE FROM " />
-                <marker date="1525814690512" expanded="true" signature="6309:6667" ph="UPDATE Reser... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoomList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/RoomList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <marker date="1525816113207" expanded="true" signature="536:554" ph="SELECT * FRO... Room" />
-                <marker date="1525816113207" expanded="true" signature="1124:1181" ph="SELECT * FRO... Room" />
-                <marker date="1525816113207" expanded="true" signature="1770:1822" ph="SELECT * FRO... Room" />
+                <marker date="1525875170065" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
+                <marker date="1525875170065" expanded="true" signature="1153:1211" ph="DELETE FROM " />
+                <marker date="1525875170065" expanded="true" signature="1402:1838" ph="UPDATE Room " />
+                <marker date="1525875170065" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
+                <marker date="1525875170065" expanded="true" signature="2876:2946" ph="DELETE FROM " />
+                <marker date="1525875170065" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
+                <marker date="1525875170065" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
+                <marker date="1525875170065" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
+                <marker date="1525875170065" expanded="true" signature="5321:5407" ph="INSERT INTO Reservation... " />
+                <marker date="1525875170065" expanded="true" signature="6837:6905" ph="UPDATE Reser... " />
+                <marker date="1525875170065" expanded="true" signature="6837:6987" ph="{...}" />
+                <marker date="1525875170065" expanded="true" signature="7039:7138" ph="{...}" />
+                <marker date="1525875170065" expanded="true" signature="7182:7236" ph="{...}" />
+                <marker date="1525875170065" expanded="true" signature="7403:7820" ph="{...}" />
+                <marker date="1525875170065" expanded="true" signature="7431:7507" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -262,8 +179,8 @@
       <find>table</find>
       <find>view</find>
       <find>getRoom</find>
-      <find>campus</find>
       <find>sloc</find>
+      <find>campus</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -310,6 +227,7 @@
         <option value="$PROJECT_DIR$/src/Model/SearchFactory.java" />
         <option value="$PROJECT_DIR$/src/Controller/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/SearchRoomController.java" />
+        <option value="$PROJECT_DIR$/src/View/ManagerWindow.xsd" />
         <option value="$PROJECT_DIR$/src/Controller/ManagerController.java" />
       </list>
     </option>
@@ -390,12 +308,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2DV603_Hotel-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2DV603-Software-Engineering-Project-Team16-master" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="SearchEverywhereHistoryKey" value="rese&#9;ACTION&#9;Git.Reset&#10;git&#9;ACTION&#9;Git.Menu&#10;menuitem&#9;PSI&#9;JAVA://java.awt.MenuItem" />
+    <property name="SearchEverywhereHistoryKey" value="diagram&#9;ACTION&#9;UML.EditorGroup&#10;rese&#9;ACTION&#9;Git.Reset&#10;git&#9;ACTION&#9;Git.Menu&#10;menuitem&#9;PSI&#9;JAVA://java.awt.MenuItem" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -420,11 +338,16 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/EditReservationController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/ManagerController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/MenuController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/ReserveController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/SearchRoomController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/EmployeeList.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/InputChecker.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/Reservation.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/ReservationList.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/RoomList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/SearchFactory.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/Sqlconnection.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/View/SearchRoom.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -664,7 +587,7 @@
       <workItem from="1525635950271" duration="9985000" />
       <workItem from="1525708363923" duration="20000" />
       <workItem from="1525708788772" duration="13319000" />
-      <workItem from="1525814640393" duration="5270000" />
+      <workItem from="1525814640393" duration="9915000" />
     </task>
     <task id="LOCAL-00001" summary="Add Employee">
       <created>1525062764592</created>
@@ -932,11 +855,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525818201923</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Kalmar Rooms">
+      <created>1525820883862</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1525820883862</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132624000" />
+    <option name="totallyTimeSpent" value="137269000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1026,7 +956,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Room" />
     <MESSAGE value="Black" />
     <MESSAGE value="Add room Update" />
     <MESSAGE value="Add Employee Update" />
@@ -1051,7 +980,8 @@
     <MESSAGE value="Edit Room" />
     <MESSAGE value="Big Room" />
     <MESSAGE value="Suite" />
-    <option name="LAST_COMMIT_MESSAGE" value="Suite" />
+    <MESSAGE value="Kalmar Rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kalmar Rooms" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1059,51 +989,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/View/EditRooms.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1586">
-          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/ManagerWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding>
-            <marker date="1525721993038" expanded="true" signature="20361:20404" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1525820829584" expanded="true" signature="19374:19380" ph="{...}" />
-            <marker date="1525820829584" expanded="true" signature="22074:22080" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/AccountController.java" />
     <entry file="jrt://C:/Program Files/Java/jdk-9.0.4!/jdk.localedata/sun/text/resources/cldr/ext/FormatData_sah.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1245,10 +1130,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="545">
           <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="e#1503#1504#0" expanded="false" />
-            <element signature="e#1532#1533#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1270,7 +1152,7 @@
           <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1525709255392" expanded="true" signature="4063:4209" ph="{...}" />
+            <marker date="1525875170014" expanded="true" signature="4143:4289" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1357,8 +1239,8 @@
         <state relative-caret-position="925">
           <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
           <folding>
-            <element signature="e#1297#1298#0" expanded="true" />
-            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="false" />
+            <element signature="e#1323#1324#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1388,17 +1270,21 @@
         <state relative-caret-position="240">
           <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding>
-            <marker date="1525814690512" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
-            <marker date="1525814690512" expanded="true" signature="1153:1211" ph="DELETE FROM " />
-            <marker date="1525814690512" expanded="true" signature="1402:1838" ph="UPDATE Room " />
-            <marker date="1525814690512" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
-            <marker date="1525814690512" expanded="true" signature="2876:2946" ph="DELETE FROM " />
-            <marker date="1525814690512" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
-            <marker date="1525814690512" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
-            <marker date="1525814690512" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
-            <marker date="1525814690512" expanded="true" signature="5321:5719" ph="INSERT INTO Reservation... " />
-            <marker date="1525814690512" expanded="true" signature="5979:6065" ph="DELETE FROM " />
-            <marker date="1525814690512" expanded="true" signature="6309:6667" ph="UPDATE Reser... " />
+            <marker date="1525875170065" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
+            <marker date="1525875170065" expanded="true" signature="1153:1211" ph="DELETE FROM " />
+            <marker date="1525875170065" expanded="true" signature="1402:1838" ph="UPDATE Room " />
+            <marker date="1525875170065" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
+            <marker date="1525875170065" expanded="true" signature="2876:2946" ph="DELETE FROM " />
+            <marker date="1525875170065" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
+            <marker date="1525875170065" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
+            <marker date="1525875170065" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
+            <marker date="1525875170065" expanded="true" signature="5321:5407" ph="INSERT INTO Reservation... " />
+            <marker date="1525875170065" expanded="true" signature="6837:6905" ph="UPDATE Reser... " />
+            <marker date="1525875170065" expanded="true" signature="6837:6987" ph="{...}" />
+            <marker date="1525875170065" expanded="true" signature="7039:7138" ph="{...}" />
+            <marker date="1525875170065" expanded="true" signature="7182:7236" ph="{...}" />
+            <marker date="1525875170065" expanded="true" signature="7403:7820" ph="{...}" />
+            <marker date="1525875170065" expanded="true" signature="7431:7507" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -1406,8 +1292,14 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
-          <folding />
+          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding>
+            <marker date="1525875170006" expanded="true" signature="3251:3254" ph="{...}" />
+            <marker date="1525875170006" expanded="true" signature="3313:3816" ph="{...}" />
+            <marker date="1525875170006" expanded="true" signature="3889:4381" ph="{...}" />
+            <marker date="1525875170006" expanded="true" signature="4442:4923" ph="{...}" />
+            <marker date="1525875170006" expanded="true" signature="4991:6344" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1416,12 +1308,9 @@
         <state relative-caret-position="216">
           <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <marker date="1525816113188" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
-            <marker date="1525816113188" expanded="true" signature="1709:1760" ph="SELECT * FRO... Reservation" />
-            <marker date="1525816113188" expanded="true" signature="2504:2556" ph="SELECT * FRO... Reservation" />
-            <marker date="1525816113188" expanded="true" signature="3396:3491" ph="SELECT * FRO... Reservation" />
-            <marker date="1525816113188" expanded="true" signature="4097:4153" ph="SELECT * FRO... Client" />
-            <marker date="1525816113188" expanded="true" signature="4757:4815" ph="SELECT * FRO... Employee" />
+            <marker date="1525875170047" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
+            <marker date="1525875170047" expanded="true" signature="1709:1760" ph="SELECT * FRO... Reservation" />
+            <marker date="1525875170047" expanded="true" signature="5013:5018" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1431,8 +1320,12 @@
         <state relative-caret-position="205">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
-            <marker date="1525818134727" expanded="true" signature="2095:2350" ph="SELECT * FRO... Room" />
-            <marker date="1525818134727" expanded="true" signature="2395:2572" ph="SELECT * FRO... Room" />
+            <marker date="1525875170056" expanded="true" signature="1502:1658" ph="{...}" />
+            <marker date="1525875170056" expanded="true" signature="1740:1907" ph="{...}" />
+            <marker date="1525875170056" expanded="true" signature="2064:3102" ph="{...}" />
+            <marker date="1525875170056" expanded="false" signature="2105:2111" ph="&lt;~&gt;" />
+            <marker date="1525875170056" expanded="true" signature="2243:2498" ph="SELECT * FRO... Room" />
+            <marker date="1525875170056" expanded="true" signature="2543:2720" ph="SELECT * FRO... Room" />
           </folding>
         </state>
       </provider>
@@ -1458,6 +1351,22 @@
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="68" column="67" lean-forward="false" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="201" column="36" lean-forward="true" selection-start-line="201" selection-start-column="36" selection-end-line="201" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1497,13 +1406,13 @@
           <ID>JAVA</ID>
           <OriginalElement>Controller</OriginalElement>
           <nodes>
-            <node x="286.5949074074074" y="202.0">Controller.MenuController</node>
+            <node x="322.61111111111114" y="97.0">Controller.MenuController</node>
             <node x="20.0" y="97.0">Controller.ReserveController</node>
             <node x="0.0" y="194.0">Controller.SearchRoomController</node>
-            <node x="130.59722222222223" y="0.0">Controller.ConfirmationController</node>
-            <node x="416.1875" y="0.0">Controller.LoginController</node>
-            <node x="41.886574074074076" y="394.0">Controller.EditReservationController</node>
-            <node x="505.5949074074074" y="125.0">Controller.ManagerController</node>
+            <node x="129.56481481481484" y="0.0">Controller.ConfirmationController</node>
+            <node x="404.56481481481484" y="0.0">Controller.LoginController</node>
+            <node x="42.77777777777783" y="291.0">Controller.EditReservationController</node>
+            <node x="538.6111111111111" y="97.0">Controller.ManagerController</node>
           </nodes>
           <notes />
           <edges>
@@ -1513,78 +1422,123 @@
             </edge>
             <edge source="Controller.MenuController" target="Controller.ConfirmationController">
               <point x="-65.33333333333331" y="-23.5" />
-              <point x="319.2615740740741" y="72.0" />
-              <point x="343.09722222222223" y="72.0" />
+              <point x="355.2777777777778" y="72.0" />
+              <point x="342.06481481481484" y="72.0" />
               <point x="85.0" y="23.5" />
             </edge>
             <edge source="Controller.ReserveController" target="Controller.ConfirmationController">
               <point x="0.0" y="-23.5" />
               <point x="126.0" y="72.0" />
-              <point x="173.09722222222223" y="72.0" />
+              <point x="172.06481481481484" y="72.0" />
               <point x="-85.0" y="23.5" />
             </edge>
             <edge source="Controller.EditReservationController" target="Controller.SearchRoomController">
               <point x="0.0" y="-23.5" />
-              <point x="179.38657407407408" y="266.0" />
+              <point x="179.27777777777783" y="266.0" />
               <point x="189.0" y="266.0" />
               <point x="63.0" y="23.5" />
             </edge>
             <edge source="Controller.ManagerController" target="Controller.LoginController">
-              <point x="-55.25" y="-23.5" />
-              <point x="557.8449074074074" y="72.0" />
-              <point x="538.0625" y="72.0" />
-              <point x="24.375" y="23.5" />
+              <point x="0.0" y="-23.5" />
+              <point x="649.1111111111111" y="72.0" />
+              <point x="567.0648148148148" y="72.0" />
+              <point x="65.0" y="23.5" />
             </edge>
             <edge source="Controller.EditReservationController" target="Controller.ConfirmationController">
               <point x="91.0" y="-23.5" />
-              <point x="270.3865740740741" y="266.0" />
+              <point x="270.2777777777778" y="266.0" />
               <point x="262.5" y="266.0" />
               <point x="262.5" y="72.0" />
-              <point x="258.09722222222223" y="72.0" />
+              <point x="257.06481481481484" y="72.0" />
               <point x="0.0" y="23.5" />
             </edge>
             <edge source="Controller.MenuController" target="Controller.LoginController">
-              <point x="1.4210854715202004E-14" y="-23.5" />
-              <point x="384.5949074074074" y="72.0" />
-              <point x="440.5625" y="72.0" />
-              <point x="-73.125" y="23.5" />
+              <point x="0.0" y="-23.5" />
+              <point x="420.61111111111114" y="72.0" />
+              <point x="437.06481481481484" y="72.0" />
+              <point x="-65.0" y="23.5" />
             </edge>
           </edges>
           <settings layout="Hierarchic Group" zoom="1.0" x="-215.5" y="144.0" />
-          <SelectedNodes>
-            <node>Controller.ManagerController</node>
-          </SelectedNodes>
+          <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/YoelM/Desktop/LinnaeusHotel/src">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="694.5" y="323.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Controller.ManagerController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Controller.ManagerController</OriginalElement>
+          <nodes>
+            <node x="" y="">javafx.fxml.Initializable</node>
+            <node x="" y="">Controller.ManagerController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="110.5" y="72.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/ManagerWindow.xsd">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="68" column="67" lean-forward="false" selection-start-line="68" selection-start-column="67" selection-end-line="68" selection-end-column="67" />
+        <state relative-caret-position="346">
+          <caret line="429" column="81" lean-forward="true" selection-start-line="429" selection-start-column="81" selection-end-line="429" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
+    <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="36" />
+        <state relative-caret-position="-50">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="216" column="8" lean-forward="false" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="8" />
+        <state relative-caret-position="6974">
+          <caret line="539" column="23" lean-forward="true" selection-start-line="539" selection-start-column="23" selection-end-line="539" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1525820829584" expanded="true" signature="19374:19380" ph="{...}" />
-            <marker date="1525820829584" expanded="true" signature="22074:22080" ph="{...}" />
+            <element signature="e#6425#6440#0" expanded="true" />
+            <element signature="e#6545#6560#0" expanded="true" />
+            <element signature="e#6665#6680#0" expanded="true" />
+            <element signature="e#13856#13875#0" expanded="true" />
+            <marker date="1525876412273" expanded="true" signature="20567:20573" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/InputChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1025">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

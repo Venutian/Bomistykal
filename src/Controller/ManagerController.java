@@ -537,8 +537,12 @@ public class ManagerController implements Initializable {
     public void DeleteEmp(ActionEvent event) throws Exception {
         Employee emp = tabViewEmp.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
-        sq.deleteEmployee(emp);
-        changeUserOrPassMenu(event);
+        if (emp == null)
+            al.reportError("Please Select a room to delete!");
+        else if (al.responseAlert("Are you sure you want to delete this room?")) {
+            sq.deleteEmployee(emp);
+            changeUserOrPassMenu(event);
+        }
     }
 
     public void logout(ActionEvent event) throws IOException {
