@@ -35,7 +35,12 @@ public class SearchFactory {
 		setNOTavailable();
 	
 		}
-	
+	public String offerRoomToOtherCampus(String campusLocation) {
+		if(campusLocation.equals("Kalmar"))
+			return "Vaxjo";
+		else
+			return "Kalmar";
+	}
 	private void setNOTavailable() {
 		for(Room r : roomList) {
 			for(Reservation res : ColapingRess) {

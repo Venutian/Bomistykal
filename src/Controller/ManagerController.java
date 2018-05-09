@@ -179,7 +179,7 @@ public class ManagerController implements Initializable {
         }
         // set the choice for campus location choice box button
         //data = FXCollections.observableArrayList();
-        Sqlconnection sq = new Sqlconnection();
+   
         RoomList rm = new RoomList();
         ObservableList<Room> data;
         try {
@@ -240,11 +240,9 @@ public class ManagerController implements Initializable {
     		     
    		       else {*/
     	RoomList rl = new RoomList();
-<<<<<<< HEAD
+
     	if(rl.checkIfRoomExists(addRoomIDTextF.getText()))
     		al.reportError("A room with the same room id already exists in the database.");
-    	
-    	
     	else {
     	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
     	 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
@@ -252,18 +250,7 @@ public class ManagerController implements Initializable {
 
     	 Sqlconnection sq = new Sqlconnection();
     	sq.addRoom(rm);
-=======
-    	rl.checkIfRoomExists(addRoomIDTextF.getText());
-    	//alert box
-        Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-                Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
-                addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
-
-    		         Sqlconnection sq = new Sqlconnection();
-    		         sq.addRoom(rm);
->>>>>>> 3cfc2d7133293d2f05f068ca43f9838686d5928b
-    		     
-    	al.reportError("New room is successfully created");
+			al.reportError("New room is successfully created");
     		       }
     }
 
@@ -363,7 +350,7 @@ public class ManagerController implements Initializable {
             anchor_UpdateRoom.setVisible(false);
 
         }
-        Sqlconnection sq = new Sqlconnection();
+        
         ObservableList<Employee> data;
         EmployeeList em = new EmployeeList();
         try {

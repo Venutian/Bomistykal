@@ -106,8 +106,8 @@ public class Sqlconnection {
     public void addReservation(Reservation reservation) throws Exception {
 
         Connection con = getConnection();
-        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, GuestsNumber) "                                    
-                + "  VALUES ('" + convertDate(reservation.getCheckInDate()) + "','" + convertDate(reservation.getCheckOutDate()) + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getGuestNum() + "');");
+        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, GuestsNumber,checkedIn,checkedOut) "                                    
+                + "  VALUES ('" + convertDate(reservation.getCheckInDate()) + "','" + convertDate(reservation.getCheckOutDate()) + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getGuestNum() + "','" + getBoolean(reservation.isCheckedIn()) + "','" + getBoolean(reservation.isCheckedOut()) + "');");
         pre.executeUpdate();
         pre.close();
         con.close();
@@ -127,7 +127,7 @@ public class Sqlconnection {
         Connection con = getConnection();
         
         PreparedStatement pre = con.prepareStatement("UPDATE Reservation SET CheckIn='" + convertDate(reservation.getCheckInDate()) + "', CheckOut='" + convertDate(reservation.getCheckOutDate()) + "',ClientID='" + reservation.getClient() + "', RoomID='" + reservation.getRoom() + "'"
-                + ",EmployeeUN='" + reservation.getEmployee() + "'  WHERE ReservationID='" + reservation.getReservationID() + "';");
+                + ",EmployeeUN='" + reservation.getEmployee() + "', checkedIn='" + getBoolean(reservation.isCheckedIn()) + "', checkedOut='" + getBoolean(reservation.isCheckedOut()) + "'  WHERE ReservationID='" + reservation.getReservationID() + "';");
 
         pre.executeUpdate();
         pre.close();

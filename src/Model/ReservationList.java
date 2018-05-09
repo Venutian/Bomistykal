@@ -47,7 +47,7 @@ public class ReservationList {
 	    public ObservableList<Reservation> getTodayCheckIn() throws Exception {
 	        ObservableList<Reservation> data = FXCollections.observableArrayList();
 	        Connection con = sq.getConnection();
-	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn = CURDATE()");
+	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckIn = CURDATE() AND checkedIn = 0");
 	        ResultSet rs = pre.executeQuery();
 	        while (rs.next()) {
 	        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getInt("GuestsNumber"));
@@ -63,7 +63,7 @@ public class ReservationList {
 	    public  ObservableList<Reservation> getTodayCheckOut() throws Exception {
 	        ObservableList<Reservation> data = FXCollections.observableArrayList();
 	        Connection con = sq.getConnection();
-	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut = CURDATE()");
+	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut = CURDATE() AND checkedOut = 0");
 	        ResultSet rs = pre.executeQuery();
 	        while (rs.next()) {
 	        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"), rs.getString("EmployeeUN"), rs.getInt("GuestsNumber"));

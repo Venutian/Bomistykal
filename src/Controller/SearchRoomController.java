@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Optional;
+
 import java.util.ResourceBundle;
 
 
@@ -35,6 +35,9 @@ public class SearchRoomController implements Initializable{
     private	 ObservableList<Room> data;
     private InputChecker inputCheck;
     Alerts al = new Alerts();
+
+	@FXML
+    private TextField searchSpecific;
     @FXML
     private AnchorPane anchor;
 
@@ -185,6 +188,7 @@ public class SearchRoomController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//searchSpecific.setVisible(true);
         roomsForReserve  = FXCollections.observableArrayList();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
@@ -208,7 +212,7 @@ public class SearchRoomController implements Initializable{
 	@FXML
     void searchForRoom(ActionEvent event) throws Exception {
 		
-		System.out.println(campusLoc.getValue());
+		
 		
 		//String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,boolean doubleBed
 		Date checkInD = Date.from(checkIn.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -237,9 +241,17 @@ public class SearchRoomController implements Initializable{
 
         SearchFactory sc = new SearchFactory(campusLoc.getValue(), checkInD, checkOutD, viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
-        ObservableList<Room> data = sc.getAvailableRooms();
+        ObservableList<Room> data = sc.getAvailableRooms();	
 
-
+        if(data.isEmpty()) {
+        String otherCampus = sc.offerRoomToOtherCampus(campusLoc.getValue());
+        sc = new SearchFactory(otherCampus, checkInD, checkOutD, viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
+        if(!sc.getAvailableRooms().isEmpty())
+        	al.reportInformation("There are no available rooms in "+campusLoc.getValue()+" but there are in " +otherCampus);
+        data = sc.getAvailableRooms();	
+        }
+       
+       
         tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
         tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
         tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
@@ -247,6 +259,7 @@ public class SearchRoomController implements Initializable{
         tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
         tabView.setItems(data);
     }
+	
 	
 	
 	

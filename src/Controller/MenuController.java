@@ -70,21 +70,28 @@ public class MenuController implements Initializable{
     	
     }
 
-	public void CheckIn(ActionEvent event) throws IOException {
+	public void CheckIn(ActionEvent event) throws Exception {
 		
-
+        Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
+        res.setCheckedIn(true);
+        Sqlconnection sq = new Sqlconnection();
+		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
-    	controller.setCheckIn(CheckInTable.getSelectionModel().getSelectedItem());
+    	controller.setCheckIn(res);
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		CheckInTable.getItems().remove(res);
 		
 	}
-	public void CheckOut(ActionEvent event) throws IOException {
-
+	public void CheckOut(ActionEvent event) throws Exception {
+		Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
+		res.setCheckedOut(true);
+		Sqlconnection sq = new Sqlconnection();
+		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
@@ -93,7 +100,7 @@ public class MenuController implements Initializable{
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
+		CheckOutTable.getItems().remove(res);
 	}
 	public void Search(ActionEvent event) throws IOException {
 		System.out.println("Reserve");

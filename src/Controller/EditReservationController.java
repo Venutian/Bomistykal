@@ -13,6 +13,7 @@ import Model.Client;
 import Model.Reservation;
 import Model.ReservationList;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,6 +34,7 @@ public class EditReservationController implements Initializable{
     private Sqlconnection sq;
 	private ObservableList<Reservation> list ;
 	private  ReservationList rs;
+	Alerts al = new Alerts();
     @FXML
     private TextField idSearch;
 
@@ -92,8 +94,9 @@ public class EditReservationController implements Initializable{
     }
     @FXML
     void cancelReservation(ActionEvent event) throws Exception {
-    	/* Yoel is a bitch ass*/
     	
+    	
+    	if(al.responseAlert("Are you sure you want to cancel this reservation!?")) {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
         sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
@@ -109,16 +112,17 @@ public class EditReservationController implements Initializable{
         primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.setScene(scene);
 		primaryStage.show();
-		
+    	}
     }
     
  
     @FXML
     void saveChanges(ActionEvent event) throws Exception {
+    	
     Date creditCardExp = Date.from(creditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
     Client client = new Client(name.getText().toString(),ID.getText().toString(),Integer.parseInt(creditCardNum.getText()),creditCardExp,Integer.parseInt(phoneNum.getText()),address.getText().toString());
     sq.editClient(client);
-    
+    al.reportInformation("Changes have been made!");
     }
     @FXML
     void search(ActionEvent event) {

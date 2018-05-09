@@ -28,7 +28,6 @@ import javafx.stage.Stage;
 
 public class ReserveController {
 
-
     @FXML
     private TextField idNumber;
 
