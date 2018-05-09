@@ -5,10 +5,6 @@ import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
-
-
-import Model.BillCalculator;
-
 import Model.Client;
 import Model.Reservation;
 import Model.ReservationList;
@@ -30,11 +26,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class EditReservationController implements Initializable{
-    SearchRoomController src = new SearchRoomController();
-    private Sqlconnection sq;
-	private ObservableList<Reservation> list ;
-	private  ReservationList rs;
-	Alerts al = new Alerts();
+  
     @FXML
     private TextField idSearch;
 
@@ -73,10 +65,17 @@ public class EditReservationController implements Initializable{
 
     @FXML
     private DatePicker creditCardExpDate;
+    
+    private  SearchRoomController src;
+    private  Sqlconnection sq;
+	private  ObservableList<Reservation> list ;
+	private  ReservationList rs;
+	private  Alerts al;
+	
 
     @FXML
     void editReservation(ActionEvent event) throws Exception {
-    rs = new ReservationList();
+    
     Client client = rs.getClient(reservationsTable.getSelectionModel().getSelectedItem().getClient());
     		
     ID.setText(client.getIDNumber());
@@ -118,38 +117,45 @@ public class EditReservationController implements Initializable{
  
     @FXML
     void saveChanges(ActionEvent event) throws Exception {
-    	
-    Date creditCardExp = Date.from(creditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-    Client client = new Client(name.getText().toString(),ID.getText().toString(),creditCardNum.getText().toString(),creditCardExp,phoneNum.getText().toString(),address.getText().toString());
+    if(name.getText().isEmpty()||ID.getText().isEmpty()||creditCardNum.getText().isEmpty()||phoneNum.getText().isEmpty()||address.getText().isEmpty()||creditCardExpDate.getValue() == null)
+    		al.reportError("Please fill everything before saving!");
+    else
+    	{
+    Client client = new Client(name.getText().toString(),ID.getText().toString(),creditCardNum.getText().toString(),Date.from(creditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()),phoneNum.getText().toString(),address.getText().toString());
     sq.editClient(client);
     al.reportInformation("Changes have been made!");
+    	}
     }
+    
     @FXML
     void search(ActionEvent event) {
-    	ReservationList rl = new ReservationList();
-    	this.list = rl.getReservation(idSearch.getText().toString(),list);
+    if(idSearch.getText().isEmpty())
+    	al.reportError("Please fill in with clients id before searching!");
+    else {
+    	this.list = rs.getReservation(idSearch.getText().toString(),list);
         reservationsTable.setItems(list);
+    }
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	    this.sq = new Sqlconnection();
 	    this.rs = new ReservationList();
-		try {
-			this.list = rs.getComingReservations();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	    this.src = new SearchRoomController();
+	    this.al = new Alerts();
+		
+			try {
+				this.list = rs.getComingReservations();
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
 		reservationNo.setCellValueFactory(new PropertyValueFactory<Reservation, String>("ReservationID"));
 		roomID.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
 		guestID.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Client"));
 		checkIn.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckInDate"));
 		checkOut.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
 		reservationsTable.setItems(list);
-		
-		
 	}
 	
 

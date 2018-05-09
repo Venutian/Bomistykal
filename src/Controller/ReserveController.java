@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
@@ -58,14 +59,19 @@ public class ReserveController {
 	private Reservation reservation;
    
 	@FXML
-    void cancelReserve(ActionEvent event) {
-      //yoel make it go back
+    void cancelReserve(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
     
     @FXML
     void reserve(ActionEvent event) throws Exception {
    
-    if(name.getText().isEmpty()||idNumber.getText().isEmpty()||creditCardNo.getText().isEmpty()||telNumber.getText().isEmpty()||addres.getText().isEmpty())
+    if(name.getText().isEmpty()||idNumber.getText().isEmpty()||creditCardNo.getText().isEmpty()||telNumber.getText().isEmpty()||addres.getText().isEmpty()||CreditCardExpDate.getValue() == null)
     	al.reportError("Please fill all the text fields!");
     else {
     //if the client does not already exists in the database.. add him/her.

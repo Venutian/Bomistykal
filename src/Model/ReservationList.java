@@ -118,19 +118,6 @@ public class ReservationList {
 
 	        return client;
 	    }
-	/*---------------------------------------------gone
-	 * public boolean checkIfClientExists(String idNumber) throws Exception {
-		Connection con = sq.getConnection();
 
-        PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee WHERE IDNumber = '" + idNumber + "'  ");
-        ResultSet rs = pre.executeQuery();
-        if (rs.next()) {
-         return true;
-        }
-        rs.close();
-        con.close();
-
-		return false;
-	}*/
 	
 }

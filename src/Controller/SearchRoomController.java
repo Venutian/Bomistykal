@@ -66,8 +66,10 @@ public class SearchRoomController implements Initializable{
     @FXML
     private AnchorPane managers;
     
+    @FXML
+    private ListView<String> roomList;
     
-    private  ListView<String> roomList;
+    
     private	 ObservableList<Room> data;
     private  Alerts al ;
     private  boolean isManager;
@@ -75,12 +77,14 @@ public class SearchRoomController implements Initializable{
     private  ObservableList<String> campusLocation;
     private  RoomList rm ;
     private  Room room;
-    private SearchFactory sc;
+    private  SearchFactory sc;
     
 	
 	@FXML
     public void reservebtn(ActionEvent event) throws IOException {
-		
+		if(roomsForReserve.isEmpty())
+			al.reportError("Please choose a room before proceeding to make a reservation!");
+		else {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Reserve.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ReserveController controller = fxmlLoader.<ReserveController>getController();
@@ -89,6 +93,7 @@ public class SearchRoomController implements Initializable{
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		}
 	}
     @FXML
     public void resetBtn(ActionEvent event) throws IOException {
@@ -100,13 +105,16 @@ public class SearchRoomController implements Initializable{
     	twinBedBox.setSelected(false);
     	viewBox.setSelected(false);
     	SingleBedBox.setSelected(false);
-    	campusLoc.setValue(null);;
+    	campusLoc.setValue(null);
 		
 	}
     
     @FXML
     void addRoomToList(ActionEvent event) {
-    	
+    	//checkIn,checkOut
+    	if(checkIn.getValue() == null || checkOut.getValue() == null) 
+    		al.reportError("Please fill choose check in and check out date!");
+    	else{
     	room = tabView.getSelectionModel().getSelectedItem();
     	//method that checks the list finds the other adjoining room and adds it to the lists.
     	roomList.getItems().add(room.getRoomID());
@@ -120,7 +128,7 @@ public class SearchRoomController implements Initializable{
         	//remove needs fixing
         	tabView.getItems().remove(adjoined);
     	}
-    		
+    	}	
     }
     
     
@@ -137,12 +145,12 @@ public class SearchRoomController implements Initializable{
         window.show();
     }
 	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 		this.campusLocation = FXCollections.observableArrayList("Vaxjo" , "Kalmar");
 		this.al = new Alerts();
-		this.roomList = new ListView<String>();
 		this.roomsForReserve  = FXCollections.observableArrayList();
 		this.campusLoc.setItems(campusLocation);
 		this.campusLoc.setValue("Vaxjo");
@@ -169,16 +177,19 @@ public class SearchRoomController implements Initializable{
 		
 		
 		if(numOfBeds == 0 || RoomSize == 0) {
-			al.reportError("Please fill all the choices before you proceed on searching for a room!");
+			al.reportError("Please tick one of the choices bed type and room type!!");
 		}
 		else {
 		sc = new SearchFactory(campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
-		if(sc.getAvailableRooms().isEmpty())
+		if(!sc.datesAreCorrect())
 			al.reportError("Please fill the dates properly!");
 		else {
 		 data = sc.getAvailableRooms();	
 
+		 /*if the list that comes back for the campus that we search for is empty
+		  * it will check on the other campus if there are available rooms and offer only if they
+		  * are available..*/
         if(data.isEmpty()) {
         String otherCampus = sc.offerRoomToOtherCampus(campusLoc.getValue());
         sc = new SearchFactory(otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
@@ -196,6 +207,8 @@ public class SearchRoomController implements Initializable{
 	
 	
 	private int getNumOfBeds() {
+		if(doubleBedBox.isSelected() && twinBedBox.isSelected()&&SingleBedBox.isSelected())
+			return 0;
 		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
 			return 2;
 		else if(SingleBedBox.isSelected())
@@ -203,7 +216,9 @@ public class SearchRoomController implements Initializable{
 		return 0;
 	}
 	private int getRoomSize() {
-		 if (bigRoomBox.isSelected())
+		if(bigRoomBox.isSelected()&&mediumRoomBox.isSelected()&&smallRoomBox.isSelected())
+			return 0;
+		     if (bigRoomBox.isSelected())
             return 50;
         else if (mediumRoomBox.isSelected())
         	return 35;

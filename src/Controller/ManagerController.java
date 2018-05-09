@@ -234,8 +234,8 @@ public class ManagerController implements Initializable {
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
-    	if (addAccNameTextF.getText().length()==0 || addAccIDTextF.getText().length() ==0 || addAccUserTextF.getText().length() ==0
-    		|| addAccAddTextF.getText().length() ==0 || Integer.parseInt(addPhoneNoTextF.getText()) == 0 || addAccPassWordTextF.getText().length()==0) {
+    	if (addAccNameTextF.getText().isEmpty()|| addAccIDTextF.getText().isEmpty() || addAccUserTextF.getText().isEmpty()
+    		|| addAccAddTextF.getText().isEmpty()|| addPhoneNoTextF.getText().isEmpty()| addAccPassWordTextF.getText().isEmpty()) {
     		
     	  al.reportError("Please fill all the text fields!");
 	       

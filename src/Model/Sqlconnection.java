@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Sqlconnection {
 
@@ -134,7 +135,12 @@ public class Sqlconnection {
         con.close();
     }
 
-
+  //get date difference
+  	protected int getDateDiff(Date date1, Date date2) {
+  		TimeUnit timeUnit = TimeUnit.DAYS;
+  	    long diffInMillies = date2.getTime() - date1.getTime();
+  	    return (int) timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
+  	}
    
 
     protected String convertDate(Date date) {
