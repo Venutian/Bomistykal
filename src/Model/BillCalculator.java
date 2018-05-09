@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+
 
 public class BillCalculator {
 	/*this class calculates the final price*/
@@ -11,12 +11,13 @@ public class BillCalculator {
 	//this value indicates how many days before someone can cancel before getting fined. 
 	private int daysBeforeCancel = -5;
 	private Sqlconnection sq;
+	private RoomList rm;
 	
 	
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
 		this.sq = new Sqlconnection();
-		RoomList rm = new RoomList();
+		this.rm = new RoomList();
 		try {
 			this.room = rm.getTheRoom(res);
 		} catch (Exception e) {

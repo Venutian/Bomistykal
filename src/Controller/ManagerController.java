@@ -129,16 +129,17 @@ public class ManagerController implements Initializable {
     private TextField addAccNameTextF, addAccIDTextF, addAccAddTextF, addPhoneNoTextF, addAccEmailTextF, addAccUserTextF, addAccPassWordTextF,
             addAccPassWord2TextF, searchEmplNameTextF;
 
-    ObservableList<String> campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
-    Alerts al = new Alerts();
+   private ObservableList<String> campusLocation;
+   private Alerts al;
    private LoginController lc;
+   private Sqlconnection sq;
 
     @Override
    	public void initialize(URL arg0, ResourceBundle arg1) {
        	this.addLocChoiceBox.setItems(campusLocation);
-       	
-       	   	
-       	
+        this.al = new Alerts();
+       	this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
+       	this.sq = new Sqlconnection();
    	}
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
@@ -243,17 +244,19 @@ public class ManagerController implements Initializable {
     	{
         try {
         	EmployeeList s = new EmployeeList();
-        	s.checkIfEmployeeExists(addAccIDTextF.getText(),addAccNameTextF.getText());
-        	//put alert
+        	if(s.checkIfEmployeeExists(addAccIDTextF.getText(),addAccNameTextF.getText()))
+        		al.reportError("Employee already exists with this idnumber or user name!");
+        	else {
+        		
+        	
         	
             Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
             addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
-                    addAccAddTextF.getText().toString(), addPhoneNoTextF.getText().toString(), isManager.isSelected());
-            Sqlconnection sq = new Sqlconnection();
+            addAccAddTextF.getText().toString(), addPhoneNoTextF.getText().toString(), isManager.isSelected());
             sq.addEmployee(emp);
             
-	     	al.reportError("New account is successfully created");
-	     	// after the account is created the fields return empty
+	     	 al.reportInformation("New account is successfully created");
+	     	
 	     		addAccNameTextF.setText("");
 	            addAccIDTextF.setText("");
 	            addAccAddTextF.setText("");
@@ -264,10 +267,11 @@ public class ManagerController implements Initializable {
 	            isManager.setSelected(false);
 	            
 	     	
-        } catch (Exception e) {
+        	}} catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } 
+        }
+        
     }
     }
 
@@ -412,32 +416,32 @@ public class ManagerController implements Initializable {
     public void EditRoomBeds(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+        
+        sq.editRoom(selectedRoom);
     }
 
     @FXML
     public void EditRoomLocation(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+      
+        sq.editRoom(selectedRoom);
     }
 
     @FXML
     public void EditRoomView (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setView(String.valueOf(editedcell.getNewValue().toString()));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+      
+        sq.editRoom(selectedRoom);
     }
 
     @FXML
     public void EditRoomAdjoint (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoint(String.valueOf(editedcell.getNewValue().toString()));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+     
+        sq.editRoom(selectedRoom);
     }
 
     @FXML
@@ -445,29 +449,24 @@ public class ManagerController implements Initializable {
     	RoomList rl = new RoomList();
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoindsRoomID(String.valueOf(editedcell.getNewValue().toString()));
-        Sqlconnection sql = new Sqlconnection();
-        
-        sql.editRoom(selectedRoom);
+        sq.editRoom(selectedRoom);
     }
 
     @FXML
     public void EditRoomSmoke (TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setSmoking(String.valueOf(editedcell.getNewValue().toString()));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+        sq.editRoom(selectedRoom);
     }
 
     @FXML
     public void DeleteRoom(ActionEvent event) throws Exception {
-        Room rm = tabView.getSelectionModel().getSelectedItem();
-        Sqlconnection sq = new Sqlconnection();
         
-        if(rm == null) 
+       if(tabView.getSelectionModel().getSelectedItem() == null) 
         	al.reportError("Please Select a room to delete!");
            else 
         if (al.responseAlert("Are you sure you want to delete this room?")){
-            sq.deleteRoom(rm);
+            sq.deleteRoom(tabView.getSelectionModel().getSelectedItem());
             UpdateRoomMenu(event);
         } 
 

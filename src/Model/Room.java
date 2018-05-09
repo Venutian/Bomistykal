@@ -5,7 +5,6 @@ package Model;
  */
 public class Room {
 
-    private String desc;
     private int price;
     private String roomID;
     private int roomSize;
@@ -163,17 +162,17 @@ public class Room {
         return this.adjoinedRoomID;
     }
 
-   /* public String toString() {
+    public String toString() {
     	StringBuilder sb = new StringBuilder();
 		sb.append(getSmoking() + ", " +getView()+", "+getAdjoint()+ "\n");
 		
 		
 		
 		return sb.toString();
-=======
+    }
 
     
 
-    */
+    
 
 } 
