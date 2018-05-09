@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5d88129f-d8af-40d2-add4-6c0a6f35d929" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/Controller/ManagerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Employee.java" afterPath="$PROJECT_DIR$/src/Model/Employee.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,21 +23,30 @@
       <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6974">
-              <caret line="539" column="24" lean-forward="false" selection-start-line="539" selection-start-column="24" selection-end-line="539" selection-end-column="24" />
+            <state relative-caret-position="749">
+              <caret line="361" column="57" lean-forward="true" selection-start-line="361" selection-start-column="57" selection-end-line="361" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6425#6440#0" expanded="true" />
-                <element signature="e#6545#6560#0" expanded="true" />
-                <element signature="e#6665#6680#0" expanded="true" />
-                <element signature="e#13856#13875#0" expanded="true" />
-                <marker date="1525876787127" expanded="true" signature="20569:20575" ph="{...}" />
+                <element signature="e#6424#6439#0" expanded="true" />
+                <element signature="e#6544#6559#0" expanded="true" />
+                <element signature="e#6664#6679#0" expanded="true" />
+                <marker date="1525879083083" expanded="true" signature="20495:20501" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InputChecker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1200">
+              <caret line="113" column="24" lean-forward="true" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputChecker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/InputChecker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1025">
@@ -55,6 +66,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Sqlconnection.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+              <folding>
+                <marker date="1525875170065" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
+                <marker date="1525875170065" expanded="true" signature="1153:1211" ph="DELETE FROM " />
+                <marker date="1525875170065" expanded="true" signature="1402:1838" ph="UPDATE Room " />
+                <marker date="1525875170065" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
+                <marker date="1525875170065" expanded="true" signature="2876:2946" ph="DELETE FROM " />
+                <marker date="1525875170065" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
+                <marker date="1525875170065" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
+                <marker date="1525875170065" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
+                <marker date="1525875170065" expanded="true" signature="5321:5407" ph="INSERT INTO Reservation... " />
+                <marker date="1525875170065" expanded="true" signature="5321:5837" ph="INSERT INTO Reservation... " />
+                <marker date="1525875170065" expanded="true" signature="6097:6183" ph="DELETE FROM " />
+                <marker date="1525875170065" expanded="true" signature="6837:6905" ph="UPDATE Reser... " />
+                <marker date="1525875170065" expanded="true" signature="6837:6987" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,28 +100,25 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding>
+                <element signature="e#1309#1310#0" expanded="true" />
+                <element signature="e#1335#1336#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SearchRoomController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="665">
               <caret line="201" column="36" lean-forward="true" selection-start-line="201" selection-start-column="36" selection-end-line="201" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-              <folding>
-                <marker date="1525875170006" expanded="true" signature="3251:3254" ph="{...}" />
-                <marker date="1525875170006" expanded="true" signature="3313:3816" ph="{...}" />
-                <marker date="1525875170006" expanded="true" signature="3889:4381" ph="{...}" />
-                <marker date="1525875170006" expanded="true" signature="4442:4923" ph="{...}" />
-                <marker date="1525875170006" expanded="true" signature="4991:6344" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -117,32 +149,6 @@
                 <marker date="1525875170056" expanded="false" signature="2105:2111" ph="&lt;~&gt;" />
                 <marker date="1525875170056" expanded="true" signature="2243:2498" ph="SELECT * FRO... Room" />
                 <marker date="1525875170056" expanded="true" signature="2543:2720" ph="SELECT * FRO... Room" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sqlconnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-              <folding>
-                <marker date="1525875170065" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
-                <marker date="1525875170065" expanded="true" signature="1153:1211" ph="DELETE FROM " />
-                <marker date="1525875170065" expanded="true" signature="1402:1838" ph="UPDATE Room " />
-                <marker date="1525875170065" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
-                <marker date="1525875170065" expanded="true" signature="2876:2946" ph="DELETE FROM " />
-                <marker date="1525875170065" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
-                <marker date="1525875170065" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
-                <marker date="1525875170065" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
-                <marker date="1525875170065" expanded="true" signature="5321:5407" ph="INSERT INTO Reservation... " />
-                <marker date="1525875170065" expanded="true" signature="6837:6905" ph="UPDATE Reser... " />
-                <marker date="1525875170065" expanded="true" signature="6837:6987" ph="{...}" />
-                <marker date="1525875170065" expanded="true" signature="7039:7138" ph="{...}" />
-                <marker date="1525875170065" expanded="true" signature="7182:7236" ph="{...}" />
-                <marker date="1525875170065" expanded="true" signature="7403:7820" ph="{...}" />
-                <marker date="1525875170065" expanded="true" signature="7431:7507" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -211,7 +217,6 @@
         <option value="$PROJECT_DIR$/src/Model/Reservation.java" />
         <option value="$PROJECT_DIR$/src/View/Reserve.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/TableEditController.java" />
-        <option value="$PROJECT_DIR$/src/Model/Employee.java" />
         <option value="$PROJECT_DIR$/src/View/ManagerWindow.fxml" />
         <option value="$PROJECT_DIR$/src/View/Login.fxml" />
         <option value="$PROJECT_DIR$/src/View/SearchRoom.fxml" />
@@ -227,6 +232,7 @@
         <option value="$PROJECT_DIR$/src/Controller/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/SearchRoomController.java" />
         <option value="$PROJECT_DIR$/src/View/ManagerWindow.xsd" />
+        <option value="$PROJECT_DIR$/src/Model/Employee.java" />
         <option value="$PROJECT_DIR$/src/Controller/ManagerController.java" />
       </list>
     </option>
@@ -586,7 +592,7 @@
       <workItem from="1525635950271" duration="9985000" />
       <workItem from="1525708363923" duration="20000" />
       <workItem from="1525708788772" duration="13319000" />
-      <workItem from="1525814640393" duration="9939000" />
+      <workItem from="1525814640393" duration="10851000" />
     </task>
     <task id="LOCAL-00001" summary="Add Employee">
       <created>1525062764592</created>
@@ -868,11 +874,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525876790417</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="aa">
+      <created>1525876804082</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1525876804082</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137293000" />
+    <option name="totallyTimeSpent" value="138205000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1240,25 +1253,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
-          <folding>
-            <element signature="e#1297#1298#0" expanded="false" />
-            <element signature="e#1323#1324#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="123" column="12" lean-forward="false" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/RoomList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1267,30 +1261,6 @@
             <marker date="1525816113207" expanded="true" signature="536:554" ph="SELECT * FRO... Room" />
             <marker date="1525816113207" expanded="true" signature="1124:1181" ph="SELECT * FRO... Room" />
             <marker date="1525816113207" expanded="true" signature="1770:1822" ph="SELECT * FRO... Room" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <marker date="1525875170065" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
-            <marker date="1525875170065" expanded="true" signature="1153:1211" ph="DELETE FROM " />
-            <marker date="1525875170065" expanded="true" signature="1402:1838" ph="UPDATE Room " />
-            <marker date="1525875170065" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
-            <marker date="1525875170065" expanded="true" signature="2876:2946" ph="DELETE FROM " />
-            <marker date="1525875170065" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
-            <marker date="1525875170065" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
-            <marker date="1525875170065" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
-            <marker date="1525875170065" expanded="true" signature="5321:5407" ph="INSERT INTO Reservation... " />
-            <marker date="1525875170065" expanded="true" signature="6837:6905" ph="UPDATE Reser... " />
-            <marker date="1525875170065" expanded="true" signature="6837:6987" ph="{...}" />
-            <marker date="1525875170065" expanded="true" signature="7039:7138" ph="{...}" />
-            <marker date="1525875170065" expanded="true" signature="7182:7236" ph="{...}" />
-            <marker date="1525875170065" expanded="true" signature="7403:7820" ph="{...}" />
-            <marker date="1525875170065" expanded="true" signature="7431:7507" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -1525,26 +1495,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6974">
-          <caret line="539" column="24" lean-forward="false" selection-start-line="539" selection-start-column="24" selection-end-line="539" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6425#6440#0" expanded="true" />
-            <element signature="e#6545#6560#0" expanded="true" />
-            <element signature="e#6665#6680#0" expanded="true" />
-            <element signature="e#13856#13875#0" expanded="true" />
-            <marker date="1525876787127" expanded="true" signature="20569:20575" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/InputChecker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1025">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="113" column="24" lean-forward="true" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="361" column="57" lean-forward="true" selection-start-line="361" selection-start-column="57" selection-end-line="361" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6424#6439#0" expanded="true" />
+            <element signature="e#6544#6559#0" expanded="true" />
+            <element signature="e#6664#6679#0" expanded="true" />
+            <marker date="1525879083083" expanded="true" signature="20495:20501" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding>
+            <marker date="1525875170065" expanded="true" signature="492:913" ph="INSERT INTO Room... " />
+            <marker date="1525875170065" expanded="true" signature="1153:1211" ph="DELETE FROM " />
+            <marker date="1525875170065" expanded="true" signature="1402:1838" ph="UPDATE Room " />
+            <marker date="1525875170065" expanded="true" signature="2277:2622" ph="INSERT INTO Employee... " />
+            <marker date="1525875170065" expanded="true" signature="2876:2946" ph="DELETE FROM " />
+            <marker date="1525875170065" expanded="true" signature="3150:3564" ph="UPDATE Emplo... " />
+            <marker date="1525875170065" expanded="true" signature="3996:4324" ph="INSERT INTO Client... " />
+            <marker date="1525875170065" expanded="true" signature="4566:4937" ph="UPDATE Clien... " />
+            <marker date="1525875170065" expanded="true" signature="5321:5407" ph="INSERT INTO Reservation... " />
+            <marker date="1525875170065" expanded="true" signature="5321:5837" ph="INSERT INTO Reservation... " />
+            <marker date="1525875170065" expanded="true" signature="6097:6183" ph="DELETE FROM " />
+            <marker date="1525875170065" expanded="true" signature="6837:6905" ph="UPDATE Reser... " />
+            <marker date="1525875170065" expanded="true" signature="6837:6987" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

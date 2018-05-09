@@ -90,7 +90,7 @@ public class ManagerController implements Initializable {
     private TableColumn<Employee, String> tabCol_EmpAd;
 
     @FXML
-    private TableColumn<Employee, Integer> tabCol_EmpPhone;
+    private TableColumn <Employee, String> tabCol_EmpPhone;
 
 
     @FXML
@@ -271,7 +271,7 @@ public class ManagerController implements Initializable {
         	
             Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
             addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
-            addAccAddTextF.getText().toString(), Integer.parseInt(addPhoneNoTextF.getText()), isManager.isSelected());
+                    addAccAddTextF.getText().toString(), addPhoneNoTextF.getText().toString(), isManager.isSelected());
             Sqlconnection sq = new Sqlconnection();
             sq.addEmployee(emp);
             
@@ -362,7 +362,7 @@ public class ManagerController implements Initializable {
             tabCol_EmpUsername.setCellValueFactory(new PropertyValueFactory<Employee, String>("UserName"));
             tabCol_EmpPassword.setCellValueFactory(new PropertyValueFactory<Employee, String>("Password"));
             tabCol_EmpAd.setCellValueFactory(new PropertyValueFactory<Employee, String>("Address"));
-            tabCol_EmpPhone.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("PhoneNumber"));
+            tabCol_EmpPhone.setCellValueFactory(new PropertyValueFactory <Employee, String>("PhoneNumber"));
             tabViewEmp.setItems(data);
             tabViewEmp.setEditable(true);
 
@@ -371,7 +371,7 @@ public class ManagerController implements Initializable {
             tabCol_EmpUsername.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_EmpPassword.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_EmpAd.setCellFactory(TextFieldTableCell.forTableColumn());
-            tabCol_EmpPhone.setCellFactory(TextFieldTableCell.<Employee, Integer>forTableColumn(new IntegerStringConverter()));
+            tabCol_EmpPhone.setCellFactory(TextFieldTableCell.forTableColumn());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -529,7 +529,7 @@ public class ManagerController implements Initializable {
 
     public void EditEmpPhone(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
-        selectedEmp.setPhoneNumber(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
+        selectedEmp.setPhoneNumber(String.valueOf(editedcell.getNewValue().toString()));
         Sqlconnection sql = new Sqlconnection();
         sql.editEmployee(selectedEmp);
     }
