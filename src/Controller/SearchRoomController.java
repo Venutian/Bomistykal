@@ -35,9 +35,9 @@ public class SearchRoomController implements Initializable{
     private	 ObservableList<Room> data;
     private InputChecker inputCheck;
     Alerts al = new Alerts();
+    private boolean isManager;
 
-	@FXML
-    private TextField searchSpecific;
+	
     @FXML
     private AnchorPane anchor;
 
@@ -53,6 +53,8 @@ public class SearchRoomController implements Initializable{
      @FXML
     private CheckBox smokingBox;
 
+     @FXML
+     private TextField managerSearch;
    
 
     @FXML
@@ -104,7 +106,8 @@ public class SearchRoomController implements Initializable{
 
     @FXML
     private CheckBox SingleBedBox;
-    
+    @FXML
+    private AnchorPane managers;
     @FXML
     private ListView<String> roomList = new ListView<String>();
    
@@ -185,10 +188,15 @@ public class SearchRoomController implements Initializable{
         window.setScene(scene);
         window.show();
     }
-	
+	public void isAmanager() {
+		this.isManager = true;
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//searchSpecific.setVisible(true);
+		//make it to appear only foir the manager
+		if(!isManager)
+		managers.setVisible(false);
+		
         roomsForReserve  = FXCollections.observableArrayList();
 		this.campusLoc.setItems(campusLocation);
 		campusLoc.setValue("Vaxjo");
