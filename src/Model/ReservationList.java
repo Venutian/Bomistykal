@@ -98,7 +98,7 @@ public class ReservationList {
 	        ResultSet rs = pre.executeQuery();
 	        while (rs.next()) {
 	            //Name,IDNumber,CreditCardNumber,CreditCardExp,PhoneNumber,Address
-	            client = new Client(rs.getString("Name"), rs.getString("IDNumber"), rs.getInt("CreditCardNumber"), rs.getDate("CreditCardExp"), rs.getInt("PhoneNumber"), rs.getString("Address"));
+	            client = new Client(rs.getString("Name"), rs.getString("IDNumber"), rs.getString("CreditCardNumber"), rs.getDate("CreditCardExp"), rs.getString("PhoneNumber"), rs.getString("Address"));
 	        }
 	        rs.close();
 	        con.close();

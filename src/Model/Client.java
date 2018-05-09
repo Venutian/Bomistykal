@@ -5,14 +5,14 @@ import java.util.Date;
 public class Client {
 	/*name,address, telephone number, credit card, passport number,*/
 	private String name;
-	private int creditCardNumber;
+	private String creditCardNumber;
 	private Date creditCardExpDate;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String IDNumber;
 	private String address;
 	
 	
-	public Client (String name,String IDNumber, int creditCardNumber,Date creditCardExpDate, int phoneNumber,String address) {
+	public Client (String name,String IDNumber, String creditCardNumber,Date creditCardExpDate, String phoneNumber,String address) {
 		this.name = name;
 		this.IDNumber = IDNumber;
 		this.creditCardNumber = creditCardNumber;
@@ -30,13 +30,13 @@ public class Client {
 	public void setIDNumber(String id) {
 		this.IDNumber = id;
 	}
-	public void setCreditCardNum(int crn) {
+	public void setCreditCardNum(String crn) {
 		this.creditCardNumber = crn;
 	}
 	public void setCreditCardExpDate(Date creditCardExpDate) {
 		this.creditCardExpDate =creditCardExpDate;
 	}
-	public void setPhoneNumber(int pnum) {
+	public void setPhoneNumber(String pnum) {
 		this.phoneNumber = pnum;
 	}
 	public void setAddress(String address) {
@@ -50,13 +50,13 @@ public class Client {
 	public String getIDNumber() {
 		return this.IDNumber;
 	}
-	public int getCreditCardNum() {
+	public String getCreditCardNum() {
 		return this.creditCardNumber;
 	} 
 	public Date getCreditCardExpDate() {
 		return this.creditCardExpDate;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}
 	public String getAddress() {

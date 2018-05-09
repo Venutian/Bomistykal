@@ -89,15 +89,7 @@ public class ReserveController {
     void cancelReserve(ActionEvent event) {
       //yoel make it go back
     }
-     private boolean checkinput() {
-    	// ic
-    if(ic.checkIfIsString(name.getText())||ic.checkIfIsString(idNumber.getText())||ic.checkIfIsInt(creditCardNo.getText())||ic.checkIfIsInt(telNumber.getText())||ic.checkIfIsString(addres.getText()))
-    	al.reportError("Please fill in the inputs with proper form!");
-   	 
-    if(ic.checkStrSize(name.getText(), 45) || ic.checkStrSize(idNumber.getText(), 45) || ic.checkIntSize(creditCardNo.getText(), 16) ||ic.checkIntSize(telNumber.getText(), 16) ||ic.checkStrSize(addres.getText(), 45))
-         ;
-    	return false;
-     }
+    
     @FXML
     void reserve(ActionEvent event) throws Exception {
     Sqlconnection sq = new Sqlconnection();
@@ -105,8 +97,9 @@ public class ReserveController {
     ReservationList rs = new ReservationList();
     
    
+	
     if(!rs.checkIfClientExists(name.getText().toString())) {
-    	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),Integer.parseInt(creditCardNo.getText().toString()),credit,Integer.parseInt(telNumber.getText().toString()),addres.getText().toString());
+    	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),creditCardNo.getText().toString(),credit,telNumber.getText().toString(),addres.getText().toString());
         sq.addClient(client);
     }
     Reservation reservation = null;
@@ -114,6 +107,8 @@ public class ReserveController {
     	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,idNumber.getText().toString(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
     
     goToConfirm(reservation);
+    
+    
     }
     
     public void goToConfirm(Reservation res) throws IOException {

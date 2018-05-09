@@ -82,8 +82,8 @@ public class EditReservationController implements Initializable{
     ID.setText(client.getIDNumber());
     name.setText(client.getName());
     address.setText(client.getAddress());
-    phoneNum.setText(Integer.toString(client.getPhoneNumber()));
-    creditCardNum.setText(Integer.toString(client.getCreditCardNum()));
+    phoneNum.setText(client.getPhoneNumber());
+    creditCardNum.setText(client.getCreditCardNum());
     
  
     }
@@ -120,7 +120,7 @@ public class EditReservationController implements Initializable{
     void saveChanges(ActionEvent event) throws Exception {
     	
     Date creditCardExp = Date.from(creditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-    Client client = new Client(name.getText().toString(),ID.getText().toString(),Integer.parseInt(creditCardNum.getText()),creditCardExp,Integer.parseInt(phoneNum.getText()),address.getText().toString());
+    Client client = new Client(name.getText().toString(),ID.getText().toString(),creditCardNum.getText().toString(),creditCardExp,phoneNum.getText().toString(),address.getText().toString());
     sq.editClient(client);
     al.reportInformation("Changes have been made!");
     }
