@@ -20,17 +20,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable{
-    LoginController lo = new LoginController();
+    
     @FXML
     private TableView<Reservation> CheckInTable;
 
@@ -41,16 +34,12 @@ public class MenuController implements Initializable{
     private TableColumn<Reservation, String> CIGuestName;
     
     @FXML
-    private TableColumn<Reservation, String> c1;
+    private TableColumn<Reservation, String> CICheckInDate;
 
     @FXML
-    private TableColumn<Reservation, String> c2;
+    private TableColumn<Reservation, String> CICheckOutDate;
 
-    @FXML
-    private TableColumn<Reservation, String> c3;
 
-    @FXML
-    private TableColumn<Reservation, String> c4;
 
     @FXML
     private TableView<Reservation> CheckOutTable;
@@ -60,7 +49,18 @@ public class MenuController implements Initializable{
 
     @FXML
     private TableColumn<Reservation, String> COGuestName;
-    Alerts al = new Alerts();
+    
+    @FXML
+    private TableColumn<Reservation, String> COCheckInDate;
+
+    @FXML
+    private TableColumn<Reservation, String> COCheckOutDate;
+   
+    private Alerts al;
+    private LoginController lo;
+    private ReservationList rl;
+	private ObservableList<Reservation> checkInList;
+    private ObservableList<Reservation> checkOutList;
     
     public void logout(ActionEvent event) throws IOException {
     	
@@ -103,7 +103,6 @@ public class MenuController implements Initializable{
 		CheckOutTable.getItems().remove(res);
 	}
 	public void Search(ActionEvent event) throws IOException {
-		System.out.println("Reserve");
 		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
@@ -117,7 +116,6 @@ public class MenuController implements Initializable{
     }
 
     public void EditReservations(ActionEvent event) throws IOException {
-		System.out.println("edit");
 		Parent root = FXMLLoader.load(getClass().getResource("/View/EditReservation.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
@@ -144,47 +142,30 @@ public class MenuController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		Sqlconnection sq  = new Sqlconnection();
-		 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-			
-			
-			Calendar myCalendar = new GregorianCalendar(2021, 02, 11);
-			Date myDate = myCalendar.getTime();
-			
-			 
-			 String testDateString = df.format(myDate);
-			 Date  ff = null;
-			Reservation re = null ;
-			 try {
-				
-				 ff =  df.parse(testDateString);
-				
-				 
-			} catch (ParseException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			
-			//if i choose one reservation that has adjoined both rooms should be checked in
-		
-		 ObservableList<Reservation> data = null;
+		this.al = new Alerts();
+	    this.lo = new LoginController();
+	    this.rl = new ReservationList();
+		 
+
 		try {
-            data = new ReservationList().getTodayCheckIn();
+			this.checkInList = rl.getTodayCheckIn();
+			this.checkOutList = rl.getTodayCheckOut();
         } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 
-		c1.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
-        c2.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
+		CICheckInDate.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
+		CICheckOutDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
         CIRoomNumber.setCellValueFactory(new PropertyValueFactory<>("Client"));
         CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
-        c3.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Employee"));
-        c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
-		    CheckInTable.setItems(data);
-
+		CheckInTable.setItems(checkInList);
+        
+		COCheckInDate.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
+		COCheckOutDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
+		CORoomNum.setCellValueFactory(new PropertyValueFactory<>("Client"));
+		COGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+		CheckOutTable.setItems(checkOutList);
 
     }
 	

@@ -33,7 +33,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 
 public class ManagerController implements Initializable {
-	Alerts al = new Alerts();
+	
     @FXML
     private ChoiceBox<String> campusLoc;
 
@@ -130,7 +130,7 @@ public class ManagerController implements Initializable {
             addAccPassWord2TextF, searchEmplNameTextF;
 
     ObservableList<String> campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
-    
+    Alerts al = new Alerts();
    private LoginController lc;
 
     @Override
