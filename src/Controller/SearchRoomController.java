@@ -1,7 +1,7 @@
 package Controller;
 
 
-import Model.InputChecker;
+
 import Model.Room;
 import Model.RoomList;
 import Model.SearchFactory;
@@ -33,7 +33,7 @@ import java.util.ResourceBundle;
 
 public class SearchRoomController implements Initializable{
     private	 ObservableList<Room> data;
-    private InputChecker inputCheck;
+  
     Alerts al = new Alerts();
     private boolean isManager;
 

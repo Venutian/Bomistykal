@@ -5,7 +5,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import Model.Client;
-import Model.InputChecker;
+
 import Model.Reservation;
 import Model.ReservationList;
 import Model.Room;
@@ -82,7 +82,6 @@ public class ReserveController {
 	private ObservableList<Room> list;
 	private Date checkIn;
 	private Date checkOut;
-	InputChecker ic = new InputChecker();
 	Alerts al = new Alerts();
 
     @FXML

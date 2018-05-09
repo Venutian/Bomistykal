@@ -26,7 +26,7 @@ public class EmployeeList {
         PreparedStatement pre = con.prepareStatement("SELECT * FROM Employee");
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
-           data.add(new Employee(rs.getString("Name"), rs.getString("IDNumber"), rs.getString("UserName"), rs.getString("Password"), rs.getString("Adrress"), rs.getInt("PhoneNumber"), rs.getBoolean("Manager")));
+           data.add(new Employee(rs.getString("Name"), rs.getString("IDNumber"), rs.getString("UserName"), rs.getString("Password"), rs.getString("Adrress"), rs.getString("PhoneNumber"), rs.getBoolean("Manager")));
         }
         return data;
     }
@@ -39,7 +39,7 @@ public class EmployeeList {
         ResultSet rs = pre.executeQuery();
         while (rs.next()) {
 
-            em = new Employee(rs.getString("Name"), rs.getString("IDNumber"), rs.getString("UserName"), rs.getString("Password"), rs.getString("Adrress"), rs.getInt("PhoneNumber"), rs.getBoolean("Manager"));
+            em = new Employee(rs.getString("Name"), rs.getString("IDNumber"), rs.getString("UserName"), rs.getString("Password"), rs.getString("Adrress"), rs.getString("PhoneNumber"), rs.getBoolean("Manager"));
         }
         rs.close();
         con.close();

@@ -47,6 +47,7 @@ private Sqlconnection sq;
 	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE RoomID = '" + idNumber + "'  ");
 	        ResultSet rs = pre.executeQuery();
 	        if (rs.next()) {
+	        	System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRr");
 	         return false;
 	        }
 	        rs.close();

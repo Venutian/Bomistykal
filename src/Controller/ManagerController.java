@@ -241,16 +241,16 @@ public class ManagerController implements Initializable {
    		       else {*/
     	RoomList rl = new RoomList();
 
-    	if(rl.checkIfRoomExists(addRoomIDTextF.getText()))
+    	if(!rl.checkIfRoomExists(addRoomIDTextF.getText()))
     		al.reportError("A room with the same room id already exists in the database.");
     	else {
     	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-    	 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
+    	 Integer.parseInt(addNoOfBedTextF.getText()),addLocChoiceBox.getValue() , addViewCB.isSelected(), addSmokingCB.isSelected(),
     	 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
 
     	 Sqlconnection sq = new Sqlconnection();
     	sq.addRoom(rm);
-			al.reportError("New room is successfully created");
+			al.reportInformation("New room is successfully created");
     		       }
     }
 
