@@ -3,7 +3,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ConfirmationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0"
+            prefWidth="876.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/9.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ConfirmationController">
    <children>
       <Label fx:id="ConfirmationType" layoutX="284.0" layoutY="29.0" prefHeight="18.0" prefWidth="262.0" />
       <Label fx:id="billPrice" layoutX="254.0" layoutY="132.0" prefHeight="18.0" prefWidth="322.0" />

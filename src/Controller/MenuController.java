@@ -157,14 +157,14 @@ public class MenuController implements Initializable{
 
 		CICheckInDate.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
 		CICheckOutDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
-        CIRoomNumber.setCellValueFactory(new PropertyValueFactory<>("Client"));
-        CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+		CIRoomNumber.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+		CIGuestName.setCellValueFactory(new PropertyValueFactory<>("Client"));
 		CheckInTable.setItems(checkInList);
         
 		COCheckInDate.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
 		COCheckOutDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
-		CORoomNum.setCellValueFactory(new PropertyValueFactory<>("Client"));
-		COGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+		CORoomNum.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+		COGuestName.setCellValueFactory(new PropertyValueFactory<>("Client"));
 		CheckOutTable.setItems(checkOutList);
 
     }
