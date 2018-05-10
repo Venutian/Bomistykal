@@ -1,16 +1,7 @@
 package Controller;
 
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-
-import Model.Employee;
-import Model.EmployeeList;
-import Model.Room;
-import Model.RoomList;
-import Model.Sqlconnection;
+import Model.*;
 import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,14 +13,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class ManagerController implements Initializable {
@@ -136,10 +129,10 @@ public class ManagerController implements Initializable {
 
     @Override
    	public void initialize(URL arg0, ResourceBundle arg1) {
-       	this.addLocChoiceBox.setItems(campusLocation);
+
         this.al = new Alerts();
-       	this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
-       	this.sq = new Sqlconnection();
+
+        this.sq = new Sqlconnection();
    	}
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
@@ -157,13 +150,13 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void createNewRoomMenu(ActionEvent event) throws Exception {
+        this.addLocChoiceBox.setItems(campusLocation);
+        this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
         if (event.getTarget() == createNewRoomItem) {
             anchor_CreateRoom.setVisible(true);
             anchor_UpdateRoom.setVisible(false);
             anchor_CreateAccount.setVisible(false);
             anchor_EditAccount.setVisible(false);
-
-
         }
 
     }
