@@ -155,7 +155,6 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-       
 
         if (rl.checkIfRoomExists(addRoomIDTextF.getText()) != null)
             al.reportError("A room with the same room id already exists in the database.");
