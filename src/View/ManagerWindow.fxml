@@ -43,8 +43,7 @@
             </MenuBar>
          </children>
       </AnchorPane>
-       <AnchorPane fx:id="anchor_CreateRoom" layoutX="6.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0"
-                   visible="false">
+       <AnchorPane fx:id="anchor_CreateRoom" layoutX="6.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0" visible="false">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Create New Room">
                <font>
@@ -123,8 +122,7 @@
              </Button>
          </children>
       </AnchorPane>
-       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0"
-                   visible="false">
+       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0" visible="false">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
                <font>
@@ -137,16 +135,11 @@
                    <TableColumn fx:id="tabCol_Price" onEditCommit="#EditRoomPrice" prefWidth="93.99992370605469" resizable="false" text="Price" />
                    <TableColumn fx:id="tabCol_Size" onEditCommit="#EditRoomSize" prefWidth="73.3333740234375" text="Size" />
                    <TableColumn fx:id="tabCol_Beds" onEditCommit="#EditRoomBeds" prefWidth="109.3333740234375" resizable="false" text="Beds" />
-                   <TableColumn fx:id="tabCol_Location" onEditCommit="#EditRoomLocation" prefWidth="81.333251953125"
-                                resizable="false" text="Location"/>
-                   <TableColumn fx:id="tabCol_View" onEditCommit="#EditRoomView" prefWidth="46.66668701171875"
-                                resizable="false" text="View"/>
-                   <TableColumn fx:id="tabCol_Smoke" onEditCommit="#EditRoomSmoke" prefWidth="72.66668701171875"
-                                resizable="false" text="Smoking"/>
-                   <TableColumn fx:id="tabCol_Adjoint" onEditCommit="#EditRoomAdjoint" prefWidth="60.0"
-                                resizable="false" text="Adjoint"/>
-                   <TableColumn fx:id="tabCol_AdjointID" onEditCommit="#EditRoomAdjointID" prefWidth="80.66668701171875"
-                                resizable="false" text="Adjoint ID"/>
+                   <TableColumn fx:id="tabCol_Location" onEditCommit="#EditRoomLocation" prefWidth="81.333251953125" resizable="false" text="Location" />
+                   <TableColumn fx:id="tabCol_View" onEditCommit="#EditRoomView" prefWidth="46.66668701171875" resizable="false" text="View" />
+                   <TableColumn fx:id="tabCol_Smoke" onEditCommit="#EditRoomSmoke" prefWidth="72.66668701171875" resizable="false" text="Smoking" />
+                   <TableColumn fx:id="tabCol_Adjoint" onEditCommit="#EditRoomAdjoint" prefWidth="60.0" resizable="false" text="Adjoint" />
+                   <TableColumn fx:id="tabCol_AdjointID" onEditCommit="#EditRoomAdjointID" prefWidth="80.66668701171875" resizable="false" text="Adjoint ID" />
                </columns>
             </TableView>
              <Button fx:id="DelRoomBtn" contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#DeleteRoom" prefHeight="60.0" prefWidth="150.0" text="Delete">
@@ -267,7 +260,7 @@
          <children>
              <VBox layoutY="14.0" prefHeight="200.0" prefWidth="150.0">
                  <children>
-                     <Button fx:id="goToMenu" contentDisplay="TOP" mnemonicParsing="false" onAction="#goToMenuMenu" prefHeight="60.0" prefWidth="150.0" text="Menu">
+                     <Button fx:id="goToMenu" contentDisplay="TOP" mnemonicParsing="false" onAction="#goToMenuMenu" prefHeight="60.0" prefWidth="150.0" text="search">
                          <VBox.margin>
                              <Insets bottom="10.0" />
                          </VBox.margin>

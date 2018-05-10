@@ -71,10 +71,12 @@ public class ManagerController implements Initializable {
     private Alerts al;
     private LoginController lc;
     private Sqlconnection sq;
+    private  RoomList rl;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         this.al = new Alerts();
+        this.rl = new RoomList();
         this.sq = new Sqlconnection();
         this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
         this.addLocChoiceBox.setItems(campusLocation);
@@ -82,7 +84,7 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
+        /*Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage primaryStage = new Stage();
@@ -90,7 +92,15 @@ public class ManagerController implements Initializable {
         Image anotherIcon = new Image("logo.png");
         primaryStage.getIcons().add(anotherIcon);
         primaryStage.setTitle("Linnaeus Hotel");
-        primaryStage.show();
+        primaryStage.show();*/
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
+    	Parent root = (Parent)fxmlLoader.load();
+    	SearchRoomController controller = fxmlLoader.<SearchRoomController>getController();
+    	controller.start(true);
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
@@ -117,10 +127,10 @@ public class ManagerController implements Initializable {
         // set the choice for campus location choice box button
         //data = FXCollections.observableArrayList();
 
-        RoomList rm = new RoomList();
+        
         ObservableList<Room> data;
         try {
-            data = rm.getRooms();
+            data = rl.getRooms();
 
             tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
             tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
@@ -153,16 +163,15 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-        RoomList rl = new RoomList();
+       
 
-        if (!rl.checkIfRoomExists(addRoomIDTextF.getText()))
+        if (rl.checkIfRoomExists(addRoomIDTextF.getText()) == null)
             al.reportError("A room with the same room id already exists in the database.");
         else {
             Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
                     Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
                     addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
 
-            Sqlconnection sq = new Sqlconnection();
             sq.addRoom(rm);
             al.reportInformation("New room is successfully created");
         }

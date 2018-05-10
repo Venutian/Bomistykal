@@ -41,18 +41,18 @@ private Sqlconnection sq;
 	        return room;
 	    }
 	
-	  public boolean checkIfRoomExists(String idNumber) throws Exception {
+	  public Room checkIfRoomExists(String idNumber) throws Exception {
 			Connection con = sq.getConnection();
 
 	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Room WHERE RoomID = '" + idNumber + "'  ");
 	        ResultSet rs = pre.executeQuery();
 	        if (rs.next()) {
-	         return false;
+	         return new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("RoomView"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID"));
 	        }
 	        rs.close();
 	        con.close();
 
-			return true;
+			return null;
 		}
 	
 	  public Room adjoinedFind(Room room,ObservableList<Room> data) {

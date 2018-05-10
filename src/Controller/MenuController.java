@@ -103,15 +103,16 @@ public class MenuController implements Initializable{
 		CheckOutTable.getItems().remove(res);
 	}
 	public void Search(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Image anotherIcon = new Image("logo.png");
-		window.getIcons().add(anotherIcon);
-		window.setTitle("Linnaeus Hotel");
-		window.setScene(scene);
-        window.show();
+	
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
+    	Parent root = (Parent)fxmlLoader.load();
+    	SearchRoomController controller = fxmlLoader.<SearchRoomController>getController();
+    	controller.start(false);
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
 
     }
 

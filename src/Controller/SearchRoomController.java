@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 
 
 
-public class SearchRoomController implements Initializable{
+public class SearchRoomController{
    
 
     @FXML
@@ -146,8 +146,8 @@ public class SearchRoomController implements Initializable{
     }
 	
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	
+	public void start(boolean isManager) {
 		
 		this.campusLocation = FXCollections.observableArrayList("Vaxjo" , "Kalmar");
 		this.al = new Alerts();
@@ -155,10 +155,13 @@ public class SearchRoomController implements Initializable{
 		this.campusLoc.setItems(campusLocation);
 		this.campusLoc.setValue("Vaxjo");
 		this.rm = new RoomList();
+		this.isManager = isManager;
 		
 		//make it to appear only for the manager
-		if(!isManager)
-		managers.setVisible(false);
+		if(!isManager) {
+			managers.setVisible(false);
+		}
+		
 		try {
 		this.data = rm.getRooms();
 		} catch (Exception e) {
@@ -170,17 +173,19 @@ public class SearchRoomController implements Initializable{
 	
 	@FXML
     void searchForRoom(ActionEvent event) throws Exception {
+		if(isManager && !managerSearch.getText().isEmpty())
+			managerSpecificRoom();
+		else {
+			
 		
 		int numOfBeds = getNumOfBeds();
 		int RoomSize = getRoomSize();
         
-		
-		
 		if(numOfBeds == 0 || RoomSize == 0) {
 			al.reportError("Please tick one of the choices bed type and room type!!");
 		}
 		else {
-		sc = new SearchFactory(campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
+		sc = new SearchFactory(false,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
 		if(!sc.datesAreCorrect())
 			al.reportError("Please fill the dates properly!");
@@ -192,7 +197,7 @@ public class SearchRoomController implements Initializable{
 		  * are available..*/
         if(data.isEmpty()) {
         String otherCampus = sc.offerRoomToOtherCampus(campusLoc.getValue());
-        sc = new SearchFactory(otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
+        sc = new SearchFactory(false,otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
      
         if(!sc.getAvailableRooms().isEmpty())
         	al.reportInformation("There are no available rooms in "+campusLoc.getValue()+" but there are in " +otherCampus);
@@ -201,10 +206,22 @@ public class SearchRoomController implements Initializable{
        
        setTable();
 		}
+		}
 	}
     }
 	
-	
+	private void managerSpecificRoom() throws Exception {
+		Room specificRoom = rm.checkIfRoomExists(managerSearch.getText());
+		if(specificRoom == null) {
+			al.reportError("Room with this Room ID does not exists!");
+		}
+		else {
+		sc = new SearchFactory(true,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), 0, 0);
+		sc.setSpecificRoom(specificRoom);
+		data = sc.getAvailableRooms();
+		setTable();
+		}
+	}
 	
 	private int getNumOfBeds() {
 		if(doubleBedBox.isSelected() && twinBedBox.isSelected()&&SingleBedBox.isSelected())
@@ -241,7 +258,5 @@ public class SearchRoomController implements Initializable{
     	return Date.from(locaDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
     
-    public void isAmanager() {
-		this.isManager = true;
-	}
+   
 }

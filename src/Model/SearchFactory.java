@@ -22,23 +22,38 @@ public class SearchFactory {
 	private ArrayList<Room> NOTavailable;
 	private ObservableList<Room> available;
 	private boolean datesValid;
+	private Date startDate;
+	private Date endDate;
 
-	public SearchFactory (String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
-		this.rs = new ReservationList();
+	public SearchFactory (boolean managerSearch,String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
+		 this.rs = new ReservationList();
 		 this.sq = new Sqlconnection();
+		 this.startDate = startDate;
+		 this.endDate = endDate;
 		 this.available = FXCollections.observableArrayList();
+		 this.NOTavailable = new ArrayList<Room>();
+		 
 		 checkDates(startDate,endDate);
 		 if(datesValid) {
+	    if(!managerSearch) {
 		this.roomList = getRoomChoices(campusLoc, view, smoking, adjoined, numOfBeds, RoomSize);
 		//finding reservations that conflict with your dates  
 		this.ColapingRess = rs.searchForDates(startDate,endDate);
-		 
-		this.NOTavailable = new ArrayList<Room>();
-		
 		setNOTavailable();
 		setAvailableRooms();
+			 }
 		 }
-		}
+	}
+	public void setSpecificRoom(Room room) throws Exception {
+	   this.roomList = new ArrayList<Room>();
+	   roomList.add(room);
+	   this.ColapingRess = rs.searchForDates(startDate,endDate);
+	   setNOTavailable();
+	   setAvailableRooms();
+	}
+	
+	
+	
 	public boolean datesAreCorrect() {
 		return datesValid;
 	}
