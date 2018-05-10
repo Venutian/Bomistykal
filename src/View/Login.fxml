@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,8 +29,6 @@
                </Button>
                <TextField fx:id="UserName" alignment="TOP_LEFT" layoutX="150.0" layoutY="170.0" promptText="Username"
                           AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0"/>
-               <TextField fx:id="Password" layoutX="150.0" layoutY="229.0" promptText="Password"
-                          AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0"/>
                <Label fx:id="WrongLogin" layoutX="230.0" layoutY="130.0" prefHeight="31.0" prefWidth="239.0"
                       text="Wrong Username or Password, Try Again" textAlignment="CENTER" textFill="RED"
                       visible="false"/>
@@ -41,6 +40,8 @@
                        <Font name="Agency FB" size="53.0"/>
                    </font>
                </Label>
+               <PasswordField fx:id="Password" layoutX="150.0" layoutY="229.0" promptText="Password"
+                              AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0"/>
            </children>
            <opaqueInsets>
                <Insets/>
