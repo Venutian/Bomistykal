@@ -36,12 +36,6 @@
                       <MenuItem fx:id="changePassOrUserItem" mnemonicParsing="false" onAction="#changeUserOrPassMenu" text="Manage Accounts" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Reports">
-                    <items>
-                      <MenuItem mnemonicParsing="false" onAction="#dailyRepMenu" text="Daily report" />
-                        <MenuItem mnemonicParsing="false" onAction="#monRepMenu" text="Monthly report" />
-                    </items>
-                  </Menu>
               </menus>
                <effect>
                   <ColorAdjust brightness="-0.07" />
@@ -129,7 +123,8 @@
              </Button>
          </children>
       </AnchorPane>
-       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0">
+       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0"
+                   visible="false">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
                <font>

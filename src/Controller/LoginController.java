@@ -60,7 +60,6 @@ public class LoginController {
     }
 
     public void logout(ActionEvent event) throws IOException {
-        System.out.println("CheckIn");
         Parent root = FXMLLoader.load(getClass().getResource("/View/login.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());

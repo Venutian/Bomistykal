@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d88129f-d8af-40d2-add4-6c0a6f35d929" name="Default" comment="aa">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="5d88129f-d8af-40d2-add4-6c0a6f35d929" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/Login.fxml" afterPath="$PROJECT_DIR$/src/View/Login.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/Controller/ManagerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/ManagerWindow.fxml" afterPath="$PROJECT_DIR$/src/View/ManagerWindow.fxml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,31 +24,46 @@
       <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="139" column="14" lean-forward="false" selection-start-line="139" selection-start-column="14" selection-end-line="139" selection-end-column="14" />
+            <state relative-caret-position="218">
+              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
+      <file leaf-file-name="Alerts.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+            <state relative-caret-position="208">
+              <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sqlconnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
+      <file leaf-file-name="ReservationList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/ReservationList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2782">
-              <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+            <state relative-caret-position="1057">
+              <caret line="71" column="46" lean-forward="true" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1525932826546" expanded="true" signature="7729:7805" ph="//..." />
+                <marker date="1525934662137" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
+                <marker date="1525934662137" expanded="true" signature="1709:1778" ph="SELECT * FRO... Reservation" />
+                <marker date="1525934662137" expanded="true" signature="2522:2593" ph="SELECT * FRO... Reservation" />
+                <marker date="1525934662137" expanded="true" signature="3433:3528" ph="SELECT * FRO... Reservation" />
+                <marker date="1525934662137" expanded="true" signature="4495:4551" ph="SELECT * FRO... Client" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reservation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Reservation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+              <folding>
+                <element signature="e#1583#1584#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,79 +72,16 @@
       <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2574">
-              <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+            <state relative-caret-position="-7300">
+              <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
               <folding>
-                <marker date="1525933647849" expanded="true" signature="3632:3849" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="3927:4484" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="4566:4839" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="4919:7386" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="5190:5299" ph="//..." />
-                <marker date="1525933647849" expanded="true" signature="6522:6537" ph="&lt;~&gt;" />
-                <marker date="1525933647849" expanded="true" signature="6642:6657" ph="&lt;~&gt;" />
-                <marker date="1525933647849" expanded="true" signature="6762:6777" ph="&lt;~&gt;" />
-                <marker date="1525933647849" expanded="true" signature="7352:7380" ph="//..." />
-                <marker date="1525933647849" expanded="true" signature="7464:8166" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="8239:9808" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="9865:10365" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="10431:10913" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="10992:11262" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="11346:13089" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="13155:13553" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="13613:13668" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="13730:13738" ph="{}" />
-                <marker date="1525933647849" expanded="true" signature="13797:13805" ph="{}" />
-                <marker date="1525933647849" expanded="true" signature="13922:14180" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="14276:14548" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="14644:14875" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="14975:15186" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="15283:15490" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="15590:15799" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="15901:16146" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="16244:16447" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="16522:16879" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="16988:17246" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="17336:17598" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="17687:17949" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="18032:18293" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="18379:18644" ph="{...}" />
-                <marker date="1525933647849" expanded="true" signature="18708:19109" ph="{...}" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5045#5060#0" expanded="true" />
+                <element signature="e#5165#5180#0" expanded="true" />
+                <element signature="e#5285#5300#0" expanded="true" />
+                <element signature="e#16471#16472#0" expanded="true" />
+                <element signature="e#16523#16524#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditReservationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/EditReservationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2652">
-              <caret line="112" column="28" lean-forward="false" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
-              <folding>
-                <marker date="1525932841976" expanded="true" signature="5192:5195" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditRooms.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/EditRooms.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -136,44 +89,55 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state relative-caret-position="419">
+              <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Login.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
+      <file leaf-file-name="BillCalculator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/BillCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
           </provider>
-          <provider editor-type-id="text-editor">
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
               <folding>
-                <marker date="1525933790541" expanded="true" signature="2612:2633" ph="..." />
-                <marker date="1525933790541" expanded="true" signature="2612:2647" ph="..." />
+                <element signature="e#1259#1260#0" expanded="true" />
+                <element signature="e#1289#1290#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchRoomController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
+      <file leaf-file-name="EmployeeList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/EmployeeList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1936">
-              <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
+            <state relative-caret-position="-918">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
-                <marker date="1525933647854" expanded="true" signature="4076:4139" ph="{...}" />
-                <marker date="1525933647854" expanded="true" signature="4210:4690" ph="{...}" />
-                <marker date="1525933647854" expanded="true" signature="4759:6085" ph="{...}" />
-                <marker date="1525933647854" expanded="true" signature="6120:6357" ph="{...}" />
-                <marker date="1525933647854" expanded="true" signature="6385:6702" ph="{...}" />
-                <marker date="1525933647854" expanded="true" signature="6730:7235" ph="{...}" />
-                <marker date="1525933647854" expanded="true" signature="7286:7375" ph="{...}" />
-                <marker date="1525933647854" expanded="false" signature="7409:7414" ph=" { " />
-                <marker date="1525933647854" expanded="false" signature="7436:7439" ph=" }" />
+                <marker date="1525932826340" expanded="true" signature="796:818" ph="SELECT * FRO... Employee" />
+                <marker date="1525932826340" expanded="true" signature="1360:1452" ph="SELECT * FRO... Employee" />
+                <marker date="1525932826340" expanded="true" signature="2002:2094" ph="SELECT * FRO... Employee" />
               </folding>
             </state>
           </provider>
@@ -248,17 +212,19 @@
         <option value="$PROJECT_DIR$/src/Controller/ReserveController.java" />
         <option value="$PROJECT_DIR$/src/Controller/EditReservationController.java" />
         <option value="$PROJECT_DIR$/src/View/application.css" />
-        <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/Model/Room.java" />
         <option value="$PROJECT_DIR$/src/Model/Sqlconnection.java" />
         <option value="$PROJECT_DIR$/src/Model/RoomList.java" />
         <option value="$PROJECT_DIR$/src/Model/SearchFactory.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/SearchRoomController.java" />
         <option value="$PROJECT_DIR$/src/View/ManagerWindow.xsd" />
         <option value="$PROJECT_DIR$/src/Model/Employee.java" />
+        <option value="$PROJECT_DIR$/src/Model/ReservationList.java" />
+        <option value="$PROJECT_DIR$/src/View/Alerts.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MenuController.java" />
         <option value="$PROJECT_DIR$/src/Controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -361,7 +327,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="SearchEverywhereHistoryKey" value="diagram&#9;ACTION&#9;UML.EditorGroup&#10;rese&#9;ACTION&#9;Git.Reset&#10;git&#9;ACTION&#9;Git.Menu&#10;menuitem&#9;PSI&#9;JAVA://java.awt.MenuItem" />
+    <property name="SearchEverywhereHistoryKey" value="git&#9;ACTION&#9;Git.ContextMenu&#10;diagram&#9;ACTION&#9;UML.EditorGroup&#10;rese&#9;ACTION&#9;Git.Reset&#10;menuitem&#9;PSI&#9;JAVA://java.awt.MenuItem" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1624,11 +1590,32 @@
       <option name="project" value="LOCAL" />
       <updated>1525876804082</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Password">
+      <created>1525933847413</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1525933847414</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Bugs">
+      <created>1525935984808</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1525935984808</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Bugs">
+      <created>1525936283089</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1525936283089</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138380000" />
+    <option name="totallyTimeSpent" value="142637000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1739,8 +1726,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add room Update" />
-    <MESSAGE value="Add Employee Update" />
     <MESSAGE value="Edit employee list" />
     <MESSAGE value="Vaxjo option" />
     <MESSAGE value="Edit Room (Not connected to Database)" />
@@ -1764,7 +1749,9 @@
     <MESSAGE value="Suite" />
     <MESSAGE value="Kalmar Rooms" />
     <MESSAGE value="aa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aa" />
+    <MESSAGE value="Password" />
+    <MESSAGE value="Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugs" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1772,21 +1759,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jrt://C:/Program Files/Java/jdk-9.0.4!/jdk.localedata/sun/text/resources/cldr/ext/FormatData_sah.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.desktop/java/awt/MenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3637">
-          <caret line="73" column="6" lean-forward="true" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Cancel.fxml" />
     <entry file="file://$PROJECT_DIR$/src/View/xxx.fxml" />
     <entry file="file://$PROJECT_DIR$/src/lnu.png">
       <provider selected="true" editor-type-id="images">
@@ -1808,13 +1780,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/CheckOut.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Model/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Campus.java" />
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.fxml/javafx/fxml/Initializable.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1888,18 +1853,11 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
-            <marker date="1525933790541" expanded="true" signature="2612:2633" ph="..." />
-            <marker date="1525933790541" expanded="true" signature="2612:2647" ph="..." />
+            <marker date="1525933842292" expanded="true" signature="2851:2872" ph="..." />
+            <marker date="1525933842292" expanded="true" signature="2851:2886" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Reservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1911,6 +1869,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1993,34 +1952,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/RoomList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="139" column="14" lean-forward="false" selection-start-line="139" selection-start-column="14" selection-end-line="139" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ReservationList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2052,14 +1988,6 @@
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2216,69 +2144,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/ManagerWindow.xsd" />
-    <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/InputChecker.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2574">
-          <caret line="39" column="3" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
-          <folding>
-            <marker date="1525933647849" expanded="true" signature="3632:3849" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="3927:4484" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="4566:4839" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="4919:7386" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="5190:5299" ph="//..." />
-            <marker date="1525933647849" expanded="true" signature="6522:6537" ph="&lt;~&gt;" />
-            <marker date="1525933647849" expanded="true" signature="6642:6657" ph="&lt;~&gt;" />
-            <marker date="1525933647849" expanded="true" signature="6762:6777" ph="&lt;~&gt;" />
-            <marker date="1525933647849" expanded="true" signature="7352:7380" ph="//..." />
-            <marker date="1525933647849" expanded="true" signature="7464:8166" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="8239:9808" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="9865:10365" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="10431:10913" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="10992:11262" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="11346:13089" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="13155:13553" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="13613:13668" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="13730:13738" ph="{}" />
-            <marker date="1525933647849" expanded="true" signature="13797:13805" ph="{}" />
-            <marker date="1525933647849" expanded="true" signature="13922:14180" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="14276:14548" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="14644:14875" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="14975:15186" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="15283:15490" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="15590:15799" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="15901:16146" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="16244:16447" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="16522:16879" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="16988:17246" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="17336:17598" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="17687:17949" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="18032:18293" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="18379:18644" ph="{...}" />
-            <marker date="1525933647849" expanded="true" signature="18708:19109" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2290,6 +2161,124 @@
             <element signature="imports" expanded="true" />
             <marker date="1525932826546" expanded="true" signature="7729:7805" ph="//..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/javafx.controls/javafx/scene/control/skin/ChoiceBoxSkin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="396" column="0" lean-forward="false" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/BillCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="e#1259#1260#0" expanded="true" />
+            <element signature="e#1289#1290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/EmployeeList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <marker date="1525932826340" expanded="true" signature="796:818" ph="SELECT * FRO... Employee" />
+            <marker date="1525932826340" expanded="true" signature="1360:1452" ph="SELECT * FRO... Employee" />
+            <marker date="1525932826340" expanded="true" signature="2002:2094" ph="SELECT * FRO... Employee" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ReservationList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1057">
+          <caret line="71" column="46" lean-forward="true" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+          <folding>
+            <marker date="1525934662137" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
+            <marker date="1525934662137" expanded="true" signature="1709:1778" ph="SELECT * FRO... Reservation" />
+            <marker date="1525934662137" expanded="true" signature="2522:2593" ph="SELECT * FRO... Reservation" />
+            <marker date="1525934662137" expanded="true" signature="3433:3528" ph="SELECT * FRO... Reservation" />
+            <marker date="1525934662137" expanded="true" signature="4495:4551" ph="SELECT * FRO... Client" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Reservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding>
+            <element signature="e#1583#1584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7300">
+          <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5045#5060#0" expanded="true" />
+            <element signature="e#5165#5180#0" expanded="true" />
+            <element signature="e#5285#5300#0" expanded="true" />
+            <element signature="e#16471#16472#0" expanded="true" />
+            <element signature="e#16523#16524#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
