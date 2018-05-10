@@ -1,7 +1,9 @@
 package Controller;
 
 import Model.Reservation;
+import Model.ReservationList;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,27 +12,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable{
-    LoginController lo = new LoginController();
+    
     @FXML
     private TableView<Reservation> CheckInTable;
 
@@ -41,16 +34,12 @@ public class MenuController implements Initializable{
     private TableColumn<Reservation, String> CIGuestName;
     
     @FXML
-    private TableColumn<Reservation, String> c1;
+    private TableColumn<Reservation, String> CICheckInDate;
 
     @FXML
-    private TableColumn<Reservation, String> c2;
+    private TableColumn<Reservation, String> CICheckOutDate;
 
-    @FXML
-    private TableColumn<Reservation, String> c3;
 
-    @FXML
-    private TableColumn<Reservation, String> c4;
 
     @FXML
     private TableView<Reservation> CheckOutTable;
@@ -60,38 +49,49 @@ public class MenuController implements Initializable{
 
     @FXML
     private TableColumn<Reservation, String> COGuestName;
+    
+    @FXML
+    private TableColumn<Reservation, String> COCheckInDate;
 
+    @FXML
+    private TableColumn<Reservation, String> COCheckOutDate;
+   
+    private Alerts al;
+    private LoginController lo;
+    private ReservationList rl;
+	private ObservableList<Reservation> checkInList;
+    private ObservableList<Reservation> checkOutList;
+    
     public void logout(ActionEvent event) throws IOException {
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setTitle("Confirmation Dialog");
-    	alert.setContentText("Are you sure you want to log out?");
-    	ButtonType yes = new ButtonType("Yes");
-    	ButtonType no = new ButtonType("No");
-    	alert.getButtonTypes().setAll(yes,no);
-    	Optional<ButtonType> result = alert.showAndWait();
-    	if (result.get() == yes){
+    	
+    	if (al.responseAlert("Are you sure you want to log out?"))
     		lo.logout(event);
-    	} else if (result.get() == no){
-    	   alert.close();
-    	}
+    	
     	
     }
 
-	public void CheckIn(ActionEvent event) throws IOException {
+	public void CheckIn(ActionEvent event) throws Exception {
 		
-
+        Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
+        res.setCheckedIn(true);
+        Sqlconnection sq = new Sqlconnection();
+		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
-    	controller.setCheckIn(CheckInTable.getSelectionModel().getSelectedItem());
+    	controller.setCheckIn(res);
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		CheckInTable.getItems().remove(res);
 		
 	}
-	public void CheckOut(ActionEvent event) throws IOException {
-
+	public void CheckOut(ActionEvent event) throws Exception {
+		Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
+		res.setCheckedOut(true);
+		Sqlconnection sq = new Sqlconnection();
+		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
@@ -100,27 +100,31 @@ public class MenuController implements Initializable{
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
+		CheckOutTable.getItems().remove(res);
 	}
 	public void Search(ActionEvent event) throws IOException {
-		System.out.println("Reserve");
 		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+		Image anotherIcon = new Image("logo.png");
+		window.getIcons().add(anotherIcon);
+		window.setTitle("Linnaeus Hotel");
+		window.setScene(scene);
         window.show();
 
     }
 
     public void EditReservations(ActionEvent event) throws IOException {
-		System.out.println("edit");
 		Parent root = FXMLLoader.load(getClass().getResource("/View/EditReservation.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-		Stage primaryStage = new Stage();
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Image anotherIcon = new Image("logo.png");
+		window.getIcons().add(anotherIcon);
+		window.setTitle("Linnaeus Hotel");
+		window.setScene(scene);
+		window.show();
 		
 	}
 
@@ -129,57 +133,42 @@ public class MenuController implements Initializable{
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+		Image anotherIcon = new Image("logo.png");
+		window.getIcons().add(anotherIcon);
+		window.setTitle("Linnaeus Hotel");
+		window.setScene(scene);
         window.show();
     }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		Sqlconnection sq  = new Sqlconnection();
-		 DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-			
-			
-			Calendar myCalendar = new GregorianCalendar(2021, 02, 11);
-			Date myDate = myCalendar.getTime();
-			
-			 
-			 String testDateString = df.format(myDate);
-			 Date  ff = null;
-			Reservation re = null ;
-			 try {
-				
-				 ff =  df.parse(testDateString);
-				
-				 
-			} catch (ParseException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			
-			
-		
-		 ObservableList<Reservation> data = null;
+		this.al = new Alerts();
+	    this.lo = new LoginController();
+	    this.rl = new ReservationList();
+		 
+
 		try {
-            data = new Sqlconnection().getTodayCheckIn();
+			this.checkInList = rl.getTodayCheckIn();
+			this.checkOutList = rl.getTodayCheckOut();
         } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		       
-		System.out.println(data.size());
 
 
-        c1.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
-        c2.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
+		CICheckInDate.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
+		CICheckOutDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
         CIRoomNumber.setCellValueFactory(new PropertyValueFactory<>("Client"));
         CIGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
-        c3.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Employee"));
-        c4.setCellValueFactory(new PropertyValueFactory<Reservation,String>("ReservationID"));
-		    CheckInTable.setItems(data);
-
+		CheckInTable.setItems(checkInList);
+        
+		COCheckInDate.setCellValueFactory(new PropertyValueFactory<>("CheckInDate"));
+		COCheckOutDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("CheckOutDate"));
+		CORoomNum.setCellValueFactory(new PropertyValueFactory<>("Client"));
+		COGuestName.setCellValueFactory(new PropertyValueFactory<Reservation, String>("Room"));
+		CheckOutTable.setItems(checkOutList);
 
     }
+	
 
 
 }

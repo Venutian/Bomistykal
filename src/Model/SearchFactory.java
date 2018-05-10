@@ -1,6 +1,9 @@
 package Model;
 
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,23 +18,49 @@ public class SearchFactory {
 	private Sqlconnection sq;
 	private ArrayList<Room> roomList;
 	private ArrayList<Reservation> ColapingRess;
+	private ReservationList rs ;
 	private ArrayList<Room> NOTavailable;
-	private ObservableList<Room> available; 
-	
-	public SearchFactory(String campusLoc,Date s, Date sa,boolean view ,boolean smoking,boolean adjoined,int numOfBeds) throws Exception {
-		
+	private ObservableList<Room> available;
+	private boolean datesValid;
+
+	public SearchFactory (String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
+		this.rs = new ReservationList();
 		 this.sq = new Sqlconnection();
-		//take the rooms that fit your description
-		 this.roomList = sq.getRoomChoices(campusLoc, view ,smoking,  adjoined, numOfBeds);
+		 this.available = FXCollections.observableArrayList();
+		 checkDates(startDate,endDate);
+		 if(datesValid) {
+		this.roomList = getRoomChoices(campusLoc, view, smoking, adjoined, numOfBeds, RoomSize);
 		//finding reservations that conflict with your dates  
-		 this.ColapingRess = sq.searchForDates(s,s);
+		this.ColapingRess = rs.searchForDates(startDate,endDate);
 		 
-		 this.NOTavailable = new ArrayList<Room>();
+		this.NOTavailable = new ArrayList<Room>();
 		
 		setNOTavailable();
-	
+		setAvailableRooms();
+		 }
 		}
+	public boolean datesAreCorrect() {
+		return datesValid;
+	}
+	private void checkDates(Date startDate,Date endDate) {
+		Date today = new Date();
+		
+		if(sq.getDateDiff(startDate, today) > 0)
+			this.datesValid = false;
+		else if(sq.getDateDiff(startDate, endDate) <= 0)
+			this.datesValid = false;
+		else if(sq.getDateDiff(endDate, today) > 0)
+			this.datesValid = false;
+		else
+			this.datesValid = true;
+	}
 	
+	public String offerRoomToOtherCampus(String campusLocation) {
+		if(campusLocation.equals("Kalmar"))
+			return "Vaxjo";
+		else
+			return "Kalmar";
+	}
 	private void setNOTavailable() {
 		for(Room r : roomList) {
 			for(Reservation res : ColapingRess) {
@@ -41,18 +70,37 @@ public class SearchFactory {
 				
 		}
 	}
-	//  ObservableList<Room> data ;
-	public ObservableList<Room> getAvailableRooms(){
-		available = FXCollections.observableArrayList();
+	private void setAvailableRooms(){
+		
 		for(Room r : roomList) {
 			if(!NOTavailable.contains(r)) {
 				available.add(r);
 			}
 		}
-	return available;
 	}
 	
-	
+	public ObservableList<Room> getAvailableRooms(){
+		return this.available;
+	}
+
+	private ArrayList <Room> getRoomChoices (String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
+
+		ArrayList<Room> data = new ArrayList<Room>();
+	        Connection con = sq.getConnection();
+	        PreparedStatement pre;
+	   if(adjoined)
+		   pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND Adjoint='" + sq.getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "' AND RoomSize='" + RoomSize + "'");
+	   else
+		  pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND NumOfBeds='" + numOfBeds + "'");
+	        
+	   ResultSet rs = pre.executeQuery();
+	        while (rs.next()) {
+
+	            data.add(new Room(rs.getString("RoomID"), rs.getInt("Price"), rs.getInt("RoomSize"), rs.getInt("NumOfBeds"), rs.getString("Location"), rs.getBoolean("RoomView"), rs.getBoolean("Smoking"), rs.getBoolean("Adjoint"), rs.getString("AdjointRoomID")));
+	        }
+	        return data;
+	    }
+
 	
 	
 }

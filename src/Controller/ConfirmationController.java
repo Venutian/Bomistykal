@@ -29,7 +29,7 @@ public class ConfirmationController{
     @FXML
     private Label CheckOut;
 
-    public void reservationConfirm(Reservation res,int num) {
+    public void reservationConfirm(Reservation res) {
     	ConfirmationType.setText("Reservation is Complete!");
     	ClientsID.setText(res.getClient());
     	CheckIn.setText(res.getCheckInDate().toString());

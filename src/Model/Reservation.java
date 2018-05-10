@@ -12,6 +12,8 @@ public class Reservation {
 	private int totalPrice;
 	private String ReservationID;
 	private int guestNum;
+	private boolean checkedIn;
+	private boolean checkedOut;
 
 	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, int guestNum) {
 		this.checkIn = checkIn;
@@ -20,6 +22,8 @@ public class Reservation {
 		this.roomID = roomID;
 		this.EmployeeUN = EmployeeUN;
 		this.guestNum = guestNum;
+		this.checkedIn = false;
+		this.checkedOut = false;
 	}
 		
 	
@@ -74,6 +78,26 @@ public class Reservation {
 	}
 	public int getGuestNum() {
 		return this.guestNum; 
+	}
+
+
+	public boolean isCheckedIn() {
+		return checkedIn;
+	}
+
+
+	public void setCheckedIn(boolean checkedIn) {
+		this.checkedIn = checkedIn;
+	}
+
+
+	public boolean isCheckedOut() {
+		return checkedOut;
+	}
+
+
+	public void setCheckedOut(boolean checkedOut) {
+		this.checkedOut = checkedOut;
 	}
 	
 	

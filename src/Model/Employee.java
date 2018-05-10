@@ -7,10 +7,10 @@ public class Employee {
 	private String IDNumber;
 	private String password;
 	private String address;
-	private int phoneNumber;
+	private String phoneNumber;
 	private boolean manager;
-	
-	public Employee(String name, String IDNumber,String userName,String password,String address,int phoneNumber,boolean manager) {
+
+	public Employee (String name, String IDNumber, String userName, String password, String address, String phoneNumber, boolean manager) {
 		this.name = name;
 		this.IDNumber = IDNumber;
 		this.userName = userName;
@@ -34,7 +34,8 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setPhoneNumber(int pnum) {
+
+	public void setPhoneNumber (String pnum) {
 		this.phoneNumber = pnum;
 	}
 	public void setAddress(String address) {
@@ -54,7 +55,8 @@ public class Employee {
 	public String getPassword() {
 		return this.password;
 	}
-	public int getPhoneNumber() {
+
+	public String getPhoneNumber ( ) {
 		return this.phoneNumber;
 	}
 	public String getAddress() {

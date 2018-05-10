@@ -7,8 +7,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import Model.Employee;
+import Model.EmployeeList;
 import Model.Room;
+import Model.RoomList;
 import Model.Sqlconnection;
+import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +25,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -29,7 +33,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 
 public class ManagerController implements Initializable {
-    LoginController lc = new LoginController();
+	
     @FXML
     private ChoiceBox<String> campusLoc;
 
@@ -53,10 +57,17 @@ public class ManagerController implements Initializable {
     private TableColumn<Room, String> tabCol_Location;
 
     @FXML
-    private TableColumn<Room, String> tabCol_Availble;
+    private TableColumn <Room, String> tabCol_View;
 
     @FXML
-    private MenuItem createNewRoomItem, updateRoomItem, deleteRoomItem;
+    private TableColumn <Room, String> tabCol_Smoke;
+
+    @FXML
+    private TableColumn <Room, String> tabCol_Adjoint;
+    @FXML
+    private TableColumn <Room, String> tabCol_AdjointID;
+    @FXML
+    private MenuItem createNewRoomItem, updateRoomItem;
 
 
     //Employee
@@ -79,7 +90,7 @@ public class ManagerController implements Initializable {
     private TableColumn<Employee, String> tabCol_EmpAd;
 
     @FXML
-    private TableColumn<Employee, Integer> tabCol_EmpPhone;
+    private TableColumn <Employee, String> tabCol_EmpPhone;
 
 
     @FXML
@@ -118,17 +129,17 @@ public class ManagerController implements Initializable {
     private TextField addAccNameTextF, addAccIDTextF, addAccAddTextF, addPhoneNoTextF, addAccEmailTextF, addAccUserTextF, addAccPassWordTextF,
             addAccPassWord2TextF, searchEmplNameTextF;
 
-    ObservableList<String> campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
-    private LoginController lg;
-    private Sqlconnection sq;
-    private Room rm;
+   private ObservableList<String> campusLocation;
+   private Alerts al;
+   private LoginController lc;
+   private Sqlconnection sq;
 
     @Override
    	public void initialize(URL arg0, ResourceBundle arg1) {
        	this.addLocChoiceBox.setItems(campusLocation);
-       	
-       	   	
-       	
+        this.al = new Alerts();
+       	this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
+       	this.sq = new Sqlconnection();
    	}
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
@@ -137,6 +148,9 @@ public class ManagerController implements Initializable {
         scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
+        Image anotherIcon = new Image("logo.png");
+        primaryStage.getIcons().add(anotherIcon);
+        primaryStage.setTitle("Linnaeus Hotel");
         primaryStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
@@ -166,16 +180,21 @@ public class ManagerController implements Initializable {
         }
         // set the choice for campus location choice box button
         //data = FXCollections.observableArrayList();
-        Sqlconnection sq = new Sqlconnection();
+   
+        RoomList rm = new RoomList();
         ObservableList<Room> data;
         try {
-            data = sq.getRooms();
+            data = rm.getRooms();
 
             tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
             tabCol_Price.setCellValueFactory(new PropertyValueFactory<Room, Integer>("Price"));
             tabCol_Size.setCellValueFactory(new PropertyValueFactory<Room, Integer>("RoomSize"));
             tabCol_Beds.setCellValueFactory(new PropertyValueFactory<Room, Integer>("NumOfBed"));
             tabCol_Location.setCellValueFactory(new PropertyValueFactory<Room, String>("Location"));
+            tabCol_View.setCellValueFactory(new PropertyValueFactory <Room, String>("Views"));
+            tabCol_Smoke.setCellValueFactory(new PropertyValueFactory <Room, String>("Smoke"));
+            tabCol_Adjoint.setCellValueFactory(new PropertyValueFactory <Room, String>("Adjoints"));
+            tabCol_AdjointID.setCellValueFactory(new PropertyValueFactory <Room, String>("AdjoindsRoomID"));
             tabView.setItems(data);
             tabView.setEditable(true);
             tabCol_Id.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -183,6 +202,10 @@ public class ManagerController implements Initializable {
             tabCol_Size.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
             tabCol_Beds.setCellFactory(TextFieldTableCell.<Room, Integer>forTableColumn(new IntegerStringConverter()));
             tabCol_Location.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_View.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_Smoke.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_Adjoint.setCellFactory(TextFieldTableCell.forTableColumn());
+            tabCol_AdjointID.setCellFactory(TextFieldTableCell.forTableColumn());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -194,78 +217,68 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
-    	if (addRoomIDTextF.getText().length()==0 || Integer.parseInt(priceAddTextF.getText()) == 0 || Integer.parseInt(addRoomSizeTextF.getText()) ==0
-    			
-    		    || Integer.parseInt(addNoOfBedTextF.getText())==0 || campusLoc.getSelectionModel() == null ) {
-    		       		
-    		       Alert alert = new Alert(AlertType.ERROR);
-    		       alert.setTitle("Error Dialog");
-    		       alert.setHeaderText("Look, an Error Dialog");
-    		       alert.setContentText("Please fill all the text fields!");
-    		       alert.showAndWait();
-    		       } else if (addAdjointCB.isSelected()==true && addAdjointRoomIDTextF.getText().length() == 0 ){
-    		    	   
-    		    	   Alert alert = new Alert(AlertType.ERROR);
-    		           alert.setTitle("Error Dialog");
-    		           alert.setHeaderText("Look, an Error Dialog");
-    		           alert.setContentText("Please specify the room id of adjoint rooms!");
-    		           alert.showAndWait();
-    		       }
-    		        //if (addAdjointCB.isSelected()) {
-    		        //anchor_adjoint.setVisible(true);
-    		        //}
-    		       else {
-    		    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-    		                 Integer.parseInt(addNoOfBedTextF.getText()), "Vaxjo", addViewCB.isSelected(), addSmokingCB.isSelected(),
-    		                 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
-    		         Sqlconnection sq = new Sqlconnection();
-    		         sq.addRoom(rm);
-    		        Alert alert = new Alert(AlertType.INFORMATION);
-    		     	alert.setTitle("Information Dialog");
-    		     	alert.setContentText("New room is successfully created");
-    		     	alert.showAndWait();
-    		       }
-    		    
-        
-        
+    	RoomList rl = new RoomList();
 
-     
+    	if(!rl.checkIfRoomExists(addRoomIDTextF.getText()))
+    		al.reportError("A room with the same room id already exists in the database.");
+    	else {
+    	 Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
+    	 Integer.parseInt(addNoOfBedTextF.getText()),addLocChoiceBox.getValue() , addViewCB.isSelected(), addSmokingCB.isSelected(),
+    	 addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
 
+    	 Sqlconnection sq = new Sqlconnection();
+    	sq.addRoom(rm);
+			al.reportInformation("New room is successfully created");
+    		       }
     }
+
 
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
-    	if (addAccNameTextF.getText().length()==0 || addAccIDTextF.getText().length() ==0 || addAccUserTextF.getText().length() ==0
-    		|| addAccAddTextF.getText().length() ==0 || Integer.parseInt(addPhoneNoTextF.getText()) == 0 || addAccPassWordTextF.getText().length()==0) {
+    	if (addAccNameTextF.getText().isEmpty()|| addAccIDTextF.getText().isEmpty() || addAccUserTextF.getText().isEmpty()
+    		|| addAccAddTextF.getText().isEmpty()|| addPhoneNoTextF.getText().isEmpty()| addAccPassWordTextF.getText().isEmpty()) {
     		
-    	Alert alert = new Alert(AlertType.ERROR);
-	       alert.setTitle("Error Dialog");
-	       alert.setContentText("Please fill all the text fields!");
-	       alert.showAndWait();
-    	}
-    	else {
+    	  al.reportError("Please fill all the text fields!");
+	       
+    	} else
+    	{
         try {
+        	EmployeeList s = new EmployeeList();
+        	if(s.checkIfEmployeeExists(addAccIDTextF.getText(),addAccNameTextF.getText()))
+        		al.reportError("Employee already exists with this idnumber or user name!");
+        	else {
+        		
+        	
+        	
             Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
-                    addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
-                    addAccAddTextF.getText().toString(), Integer.parseInt(addPhoneNoTextF.getText()), isManager.isSelected());
-            Sqlconnection sq = new Sqlconnection();
+            addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
+            addAccAddTextF.getText().toString(), addPhoneNoTextF.getText().toString(), isManager.isSelected());
             sq.addEmployee(emp);
-        } catch (Exception e) {
+            
+	     	 al.reportInformation("New account is successfully created");
+	     	
+	     		addAccNameTextF.setText("");
+	            addAccIDTextF.setText("");
+	            addAccAddTextF.setText("");
+	            addPhoneNoTextF.setText("");
+	            addAccUserTextF.setText("");
+	            addAccPassWordTextF.setText("");
+	            addAccPassWord2TextF.setText("");
+	            isManager.setSelected(false);
+	            
+	     	
+        	}} catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        
     }
     }
 
     @FXML
     public void cancelbtn(ActionEvent event) {
 
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmation Dialog");
-		alert.setContentText("Are you sure you would like to cancel?");
-
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == ButtonType.OK){
+		if (al.responseAlert("Are you sure you would like to cancel?")){
 			addRoomIDTextF.setText("");
 	        priceAddTextF.setText("");
 	        addRoomSizeTextF.setText("");
@@ -277,8 +290,7 @@ public class ManagerController implements Initializable {
 	        addAdjointRoomIDTextF.setText("");
 	        anchor_CreateRoom.setVisible(false);
            
-		} else {
-			alert.close();	}
+		} 
     	} 
 
 
@@ -319,10 +331,11 @@ public class ManagerController implements Initializable {
             anchor_UpdateRoom.setVisible(false);
 
         }
-        Sqlconnection sq = new Sqlconnection();
+        
         ObservableList<Employee> data;
+        EmployeeList em = new EmployeeList();
         try {
-            data = sq.getEmps();
+            data = em.getEmployyesList();
 
 
             tabCol_EmpID.setCellValueFactory(new PropertyValueFactory<Employee, String>("IDNumber"));
@@ -330,7 +343,7 @@ public class ManagerController implements Initializable {
             tabCol_EmpUsername.setCellValueFactory(new PropertyValueFactory<Employee, String>("UserName"));
             tabCol_EmpPassword.setCellValueFactory(new PropertyValueFactory<Employee, String>("Password"));
             tabCol_EmpAd.setCellValueFactory(new PropertyValueFactory<Employee, String>("Address"));
-            tabCol_EmpPhone.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("PhoneNumber"));
+            tabCol_EmpPhone.setCellValueFactory(new PropertyValueFactory <Employee, String>("PhoneNumber"));
             tabViewEmp.setItems(data);
             tabViewEmp.setEditable(true);
 
@@ -339,7 +352,7 @@ public class ManagerController implements Initializable {
             tabCol_EmpUsername.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_EmpPassword.setCellFactory(TextFieldTableCell.forTableColumn());
             tabCol_EmpAd.setCellFactory(TextFieldTableCell.forTableColumn());
-            tabCol_EmpPhone.setCellFactory(TextFieldTableCell.<Employee, Integer>forTableColumn(new IntegerStringConverter()));
+            tabCol_EmpPhone.setCellFactory(TextFieldTableCell.forTableColumn());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -348,14 +361,8 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void canceCreateAccount(ActionEvent event) {
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("Confirmation Dialog");
-		alert.setContentText("Are you sure you would like to cancel?");
-		ButtonType yes = new ButtonType("Yes");
-    	ButtonType no = new ButtonType("No");
-    	alert.getButtonTypes().setAll(yes,no);
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == yes){
+    	
+		if (al.responseAlert("Are you sure you would like to cancel?")){
         addAccNameTextF.setText("");
         addAccIDTextF.setText("");
         addAccAddTextF.setText("");
@@ -365,9 +372,7 @@ public class ManagerController implements Initializable {
         addAccPassWord2TextF.setText("");
         anchor_UpdateRoom.setVisible(false);
 
-    } else if (result.get() == no){
-    	alert.close();
-    }
+    } 
     }
     @FXML
     public void cancelEditAcc(ActionEvent event) {
@@ -389,9 +394,8 @@ public class ManagerController implements Initializable {
 
     }
 
-    
 
-
+    @FXML
     //Room Editing
     public void EditRoomPrice(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
@@ -400,6 +404,7 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomSize(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
@@ -407,25 +412,64 @@ public class ManagerController implements Initializable {
         sql.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomBeds(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+        
+        sq.editRoom(selectedRoom);
     }
 
+    @FXML
     public void EditRoomLocation(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
-        Sqlconnection sql = new Sqlconnection();
-        sql.editRoom(selectedRoom);
+      
+        sq.editRoom(selectedRoom);
     }
 
+    @FXML
+    public void EditRoomView (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setView(String.valueOf(editedcell.getNewValue().toString()));
+      
+        sq.editRoom(selectedRoom);
+    }
+
+    @FXML
+    public void EditRoomAdjoint (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setAdjoint(String.valueOf(editedcell.getNewValue().toString()));
+     
+        sq.editRoom(selectedRoom);
+    }
+
+    @FXML
+    public void EditRoomAdjointID (TableColumn.CellEditEvent editedcell) throws Exception {
+    	RoomList rl = new RoomList();
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setAdjoindsRoomID(String.valueOf(editedcell.getNewValue().toString()));
+        sq.editRoom(selectedRoom);
+    }
+
+    @FXML
+    public void EditRoomSmoke (TableColumn.CellEditEvent editedcell) throws Exception {
+        Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
+        selectedRoom.setSmoking(String.valueOf(editedcell.getNewValue().toString()));
+        sq.editRoom(selectedRoom);
+    }
+
+    @FXML
     public void DeleteRoom(ActionEvent event) throws Exception {
-        Room rm = tabView.getSelectionModel().getSelectedItem();
-        Sqlconnection sq = new Sqlconnection();
-        sq.deleteRoom(rm);
-        UpdateRoomMenu(event);
+        
+       if(tabView.getSelectionModel().getSelectedItem() == null) 
+        	al.reportError("Please Select a room to delete!");
+           else 
+        if (al.responseAlert("Are you sure you want to delete this room?")){
+            sq.deleteRoom(tabView.getSelectionModel().getSelectedItem());
+            UpdateRoomMenu(event);
+        } 
+
     }
 
     //Employee Editing
@@ -461,7 +505,7 @@ public class ManagerController implements Initializable {
 
     public void EditEmpPhone(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
-        selectedEmp.setPhoneNumber(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
+        selectedEmp.setPhoneNumber(String.valueOf(editedcell.getNewValue().toString()));
         Sqlconnection sql = new Sqlconnection();
         sql.editEmployee(selectedEmp);
     }
@@ -469,28 +513,18 @@ public class ManagerController implements Initializable {
     public void DeleteEmp(ActionEvent event) throws Exception {
         Employee emp = tabViewEmp.getSelectionModel().getSelectedItem();
         Sqlconnection sq = new Sqlconnection();
-        sq.deleteEmployee(emp);
-        changeUserOrPassMenu(event);
+        if (emp == null)
+            al.reportError("Please Select a room that you whant to delete!");
+        else if (al.responseAlert("Are you sure you want to delete this room?")) {
+            sq.deleteEmployee(emp);
+            changeUserOrPassMenu(event);
+        }
     }
 
     public void logout(ActionEvent event) throws IOException {
+    	lc = new LoginController();
+    	if(al.responseAlert("Are you sure you want to log out?"))
+    	lc.logout(event);
     	
-        	Alert alert = new Alert(AlertType.CONFIRMATION);
-        	alert.setTitle("Confirmation Dialog");
-        	alert.setContentText("Are you sure you want to log out?");
-        	ButtonType yes = new ButtonType("Yes");
-        	ButtonType no = new ButtonType("No");
-        	alert.getButtonTypes().setAll(yes,no);
-        	Optional<ButtonType> result = alert.showAndWait();
-        	if (result.get() == yes){
-        		 lc.logout(event);
-        	} else if (result.get() == no){
-        	   alert.close();
-        	}
-           
-
-        
-
-       
     }
 }
