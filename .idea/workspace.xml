@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d88129f-d8af-40d2-add4-6c0a6f35d929" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/Controller/ManagerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/ManagerWindow.fxml" afterPath="$PROJECT_DIR$/src/View/ManagerWindow.fxml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/azureSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,11 +22,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MenuController.java">
+      <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
+            <state relative-caret-position="265">
+              <caret line="166" column="60" lean-forward="false" selection-start-line="166" selection-start-column="60" selection-end-line="166" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3203#3225#0" expanded="true" />
+                <element signature="e#5477#5492#0" expanded="true" />
+                <element signature="e#5597#5612#0" expanded="true" />
+                <element signature="e#5717#5732#0" expanded="true" />
+                <element signature="e#16820#16821#0" expanded="true" />
+                <element signature="e#16872#16873#0" expanded="true" />
+                <marker date="1525957715803" expanded="true" signature="17070:17076" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Room.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1575">
+              <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -34,84 +54,29 @@
       <file leaf-file-name="Alerts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReservationList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ReservationList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1057">
-              <caret line="71" column="46" lean-forward="true" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+            <state relative-caret-position="-50">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding>
-                <marker date="1525934662137" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
-                <marker date="1525934662137" expanded="true" signature="1709:1778" ph="SELECT * FRO... Reservation" />
-                <marker date="1525934662137" expanded="true" signature="2522:2593" ph="SELECT * FRO... Reservation" />
-                <marker date="1525934662137" expanded="true" signature="3433:3528" ph="SELECT * FRO... Reservation" />
-                <marker date="1525934662137" expanded="true" signature="4495:4551" ph="SELECT * FRO... Client" />
+                <marker date="1525943918901" expanded="true" signature="206:213" ph="{}" />
+                <marker date="1525943918901" expanded="true" signature="255:404" ph="{...}" />
+                <marker date="1525943918901" expanded="true" signature="456:611" ph="{...}" />
+                <marker date="1525943918901" expanded="true" signature="662:1042" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reservation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Reservation.java">
+      <file leaf-file-name="Sqlconnection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+            <state relative-caret-position="600">
+              <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
               <folding>
-                <element signature="e#1583#1584#0" expanded="true" />
+                <marker date="1525943918896" expanded="true" signature="7337:7436" ph="{...}" />
+                <marker date="1525943918896" expanded="true" signature="7480:7534" ph="{...}" />
+                <marker date="1525943918896" expanded="true" signature="7701:8118" ph="{...}" />
+                <marker date="1525943918896" expanded="true" signature="7729:7805" ph="//..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManagerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7300">
-              <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5045#5060#0" expanded="true" />
-                <element signature="e#5165#5180#0" expanded="true" />
-                <element signature="e#5285#5300#0" expanded="true" />
-                <element signature="e#16471#16472#0" expanded="true" />
-                <element signature="e#16523#16524#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BillCalculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/BillCalculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -120,25 +85,21 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
               <folding>
-                <element signature="e#1259#1260#0" expanded="true" />
-                <element signature="e#1289#1290#0" expanded="true" />
+                <element signature="e#1319#1320#0" expanded="true" />
+                <element signature="e#1345#1346#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/EmployeeList.java">
+      <file leaf-file-name="SearchRoomController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-918">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <marker date="1525932826340" expanded="true" signature="796:818" ph="SELECT * FRO... Employee" />
-                <marker date="1525932826340" expanded="true" signature="1360:1452" ph="SELECT * FRO... Employee" />
-                <marker date="1525932826340" expanded="true" signature="2002:2094" ph="SELECT * FRO... Employee" />
-              </folding>
+            <state relative-caret-position="-485">
+              <caret line="155" column="36" lean-forward="false" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,6 +136,7 @@
       <find>getRoom</find>
       <find>sloc</find>
       <find>campus</find>
+      <find>creat</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -223,8 +185,8 @@
         <option value="$PROJECT_DIR$/src/Model/ReservationList.java" />
         <option value="$PROJECT_DIR$/src/View/Alerts.java" />
         <option value="$PROJECT_DIR$/src/Controller/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/ManagerController.java" />
         <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ManagerController.java" />
       </list>
     </option>
   </component>
@@ -258,8 +220,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -272,12 +233,6 @@
               <item name="LinnaeusHotel" type="b2602c69:ProjectViewProjectNode" />
               <item name="LinnaeusHotel" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LinnaeusHotel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LinnaeusHotel" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LinnaeusHotel" type="b2602c69:ProjectViewProjectNode" />
@@ -316,14 +271,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../2DV603-Software-Engineering-Project-Team16-master" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -352,261 +308,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/EditReservationController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/ManagerController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/MenuController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/ReserveController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller/SearchRoomController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/Reservation.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/ReservationList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/RoomList.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/SearchFactory.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Model/Sqlconnection.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/View/SearchRoom.fxml</PATH>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/View/ManagerWindow.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -614,41 +321,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -656,41 +328,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/View/EditRooms.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/View/UserInfo.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -698,41 +337,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="RESTORED" />
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
-          <FILE-GROUP>
-            <option name="myUpdateName" />
-            <option name="myStatusName" />
-            <option name="mySupportsDeletion" value="false" />
-            <option name="myCanBeAbsent" value="false" />
-            <option name="myId" />
-          </FILE-GROUP>
         </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
@@ -741,41 +345,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MODIFIED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Skipped" />
@@ -783,41 +352,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="SKIPPED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged with conflicts" />
@@ -825,41 +359,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED_WITH_CONFLICTS" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged with tree conflicts" />
@@ -867,41 +366,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged with property conflicts" />
@@ -909,41 +373,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Merged" />
@@ -951,41 +380,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="MERGED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Not in repository" />
@@ -993,41 +387,6 @@
         <option name="mySupportsDeletion" value="true" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="UNKNOWN" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Locally added" />
@@ -1035,41 +394,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="LOCALLY_ADDED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Locally removed" />
@@ -1077,41 +401,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="LOCALLY_REMOVED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
       <FILE-GROUP>
         <option name="myUpdateName" value="Switched" />
@@ -1119,41 +408,6 @@
         <option name="mySupportsDeletion" value="false" />
         <option name="myCanBeAbsent" value="false" />
         <option name="myId" value="SWITCHED" />
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" />
-          <option name="myStatusName" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" />
-        </FILE-GROUP>
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
@@ -1611,11 +865,25 @@
       <option name="project" value="LOCAL" />
       <updated>1525936283089</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="UML">
+      <created>1525945256870</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1525945256870</updated>
+    </task>
+    <task id="LOCAL-00046" summary="UML">
+      <created>1525957718758</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1525957718758</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142637000" />
+    <option name="totallyTimeSpent" value="146067000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1627,30 +895,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="-11" y="-11" width="1849" height="1102" extended-state="6" />
     <layout>
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Azure Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3375" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="HDInsight Spark Submission" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26666668" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Azure Activity Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2671674" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16311301" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23973727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1670,19 +938,19 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="HDInsight Spark Submission" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967636" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2671674" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23973727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1726,7 +994,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edit employee list" />
     <MESSAGE value="Vaxjo option" />
     <MESSAGE value="Edit Room (Not connected to Database)" />
     <MESSAGE value="Delete Room" />
@@ -1751,7 +1018,8 @@
     <MESSAGE value="aa" />
     <MESSAGE value="Password" />
     <MESSAGE value="Bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugs" />
+    <MESSAGE value="UML" />
+    <option name="LAST_COMMIT_MESSAGE" value="UML" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1759,12 +1027,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/View/xxx.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/lnu.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Account.fxml" />
     <entry file="file://$PROJECT_DIR$/src/Controller/EditRoomController.java" />
     <entry file="file://$PROJECT_DIR$/src/Controller/AccountController.java" />
@@ -1854,10 +1116,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <marker date="1525933842292" expanded="true" signature="2851:2872" ph="..." />
-            <marker date="1525933842292" expanded="true" signature="2851:2886" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1883,39 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com</node>
-            <node x="" y="">images</node>
-            <node x="" y="">netscape</node>
-            <node x="" y="">oracle</node>
-            <node x="" y="">org</node>
-            <node x="" y="">main</node>
-            <node x="" y="">toolbarButtonGraphics</node>
-            <node x="" y="">Controller</node>
-            <node x="" y="">View</node>
-            <node x="" y="">sun</node>
-            <node x="" y="">META-INF</node>
-            <node x="" y="">jdk</node>
-            <node x="" y="">java</node>
-            <node x="" y="">javax</node>
-            <node x="" y="">Model</node>
-            <node x="" y="">javafx</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="290.0" y="480.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ConfirmationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1928,9 +1154,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2652">
           <caret line="112" column="28" lean-forward="false" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
-          <folding>
-            <marker date="1525932841976" expanded="true" signature="5192:5195" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1993,116 +1217,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SearchRoomController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1936">
-          <caret line="143" column="14" lean-forward="false" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
-          <folding>
-            <marker date="1525933647854" expanded="true" signature="4076:4139" ph="{...}" />
-            <marker date="1525933647854" expanded="true" signature="4210:4690" ph="{...}" />
-            <marker date="1525933647854" expanded="true" signature="4759:6085" ph="{...}" />
-            <marker date="1525933647854" expanded="true" signature="6120:6357" ph="{...}" />
-            <marker date="1525933647854" expanded="true" signature="6385:6702" ph="{...}" />
-            <marker date="1525933647854" expanded="true" signature="6730:7235" ph="{...}" />
-            <marker date="1525933647854" expanded="true" signature="7286:7375" ph="{...}" />
-            <marker date="1525933647854" expanded="false" signature="7409:7414" ph=" { " />
-            <marker date="1525933647854" expanded="false" signature="7436:7439" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/Model">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>Model</OriginalElement>
-          <nodes>
-            <node x="0.0" y="368.0">Model.RoomList</node>
-            <node x="236.0" y="0.0">Model.Sqlconnection</node>
-            <node x="0.0" y="0.0">Model.ReservationList</node>
-            <node x="228.0" y="92.0">Model.EmployeeList</node>
-            <node x="0.0" y="184.0">Model.InputChecker</node>
-            <node x="193.0" y="368.0">Model.Room</node>
-            <node x="0.0" y="92.0">Model.SearchFactory</node>
-            <node x="0.0" y="276.0">Model.Reservation</node>
-            <node x="210.0" y="276.0">Model.Employee</node>
-            <node x="222.0" y="184.0">Model.BillCalculator</node>
-            <node x="360.0" y="368.0">Model.Client</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-216.0" y="144.0" />
-          <SelectedNodes>
-            <node>Model.RoomList</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/Controller">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>Controller</OriginalElement>
-          <nodes>
-            <node x="322.61111111111114" y="97.0">Controller.MenuController</node>
-            <node x="20.0" y="97.0">Controller.ReserveController</node>
-            <node x="0.0" y="194.0">Controller.SearchRoomController</node>
-            <node x="129.56481481481484" y="0.0">Controller.ConfirmationController</node>
-            <node x="404.56481481481484" y="0.0">Controller.LoginController</node>
-            <node x="42.77777777777783" y="291.0">Controller.EditReservationController</node>
-            <node x="538.6111111111111" y="97.0">Controller.ManagerController</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="Controller.SearchRoomController" target="Controller.ReserveController">
-              <point x="0.0" y="-23.5" />
-              <point x="0.0" y="23.5" />
-            </edge>
-            <edge source="Controller.MenuController" target="Controller.ConfirmationController">
-              <point x="-65.33333333333331" y="-23.5" />
-              <point x="355.2777777777778" y="72.0" />
-              <point x="342.06481481481484" y="72.0" />
-              <point x="85.0" y="23.5" />
-            </edge>
-            <edge source="Controller.ReserveController" target="Controller.ConfirmationController">
-              <point x="0.0" y="-23.5" />
-              <point x="126.0" y="72.0" />
-              <point x="172.06481481481484" y="72.0" />
-              <point x="-85.0" y="23.5" />
-            </edge>
-            <edge source="Controller.EditReservationController" target="Controller.SearchRoomController">
-              <point x="0.0" y="-23.5" />
-              <point x="179.27777777777783" y="266.0" />
-              <point x="189.0" y="266.0" />
-              <point x="63.0" y="23.5" />
-            </edge>
-            <edge source="Controller.ManagerController" target="Controller.LoginController">
-              <point x="0.0" y="-23.5" />
-              <point x="649.1111111111111" y="72.0" />
-              <point x="567.0648148148148" y="72.0" />
-              <point x="65.0" y="23.5" />
-            </edge>
-            <edge source="Controller.EditReservationController" target="Controller.ConfirmationController">
-              <point x="91.0" y="-23.5" />
-              <point x="270.2777777777778" y="266.0" />
-              <point x="262.5" y="266.0" />
-              <point x="262.5" y="72.0" />
-              <point x="257.06481481481484" y="72.0" />
-              <point x="0.0" y="23.5" />
-            </edge>
-            <edge source="Controller.MenuController" target="Controller.LoginController">
-              <point x="0.0" y="-23.5" />
-              <point x="420.61111111111114" y="72.0" />
-              <point x="437.06481481481484" y="72.0" />
-              <point x="-65.0" y="23.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-215.0" y="144.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
+        <state relative-caret-position="-485">
+          <caret line="155" column="36" lean-forward="false" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2147,19 +1264,21 @@
     <entry file="file://$PROJECT_DIR$/src/Model/InputChecker.java" />
     <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        <state relative-caret-position="1575">
+          <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Sqlconnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2782">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="600">
+          <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1525932826546" expanded="true" signature="7729:7805" ph="//..." />
+            <marker date="1525943918896" expanded="true" signature="7337:7436" ph="{...}" />
+            <marker date="1525943918896" expanded="true" signature="7480:7534" ph="{...}" />
+            <marker date="1525943918896" expanded="true" signature="7701:8118" ph="{...}" />
+            <marker date="1525943918896" expanded="true" signature="7729:7805" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -2168,7 +1287,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="396" column="0" lean-forward="false" selection-start-line="396" selection-start-column="0" selection-end-line="396" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2191,10 +1309,10 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
           <folding>
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
+            <element signature="e#1319#1320#0" expanded="true" />
+            <element signature="e#1345#1346#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2203,19 +1321,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-918">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <marker date="1525932826340" expanded="true" signature="796:818" ph="SELECT * FRO... Employee" />
-            <marker date="1525932826340" expanded="true" signature="1360:1452" ph="SELECT * FRO... Employee" />
-            <marker date="1525932826340" expanded="true" signature="2002:2094" ph="SELECT * FRO... Employee" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Alerts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="33" column="34" lean-forward="true" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="-50">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <marker date="1525943918901" expanded="true" signature="206:213" ph="{}" />
+            <marker date="1525943918901" expanded="true" signature="255:404" ph="{...}" />
+            <marker date="1525943918901" expanded="true" signature="456:611" ph="{...}" />
+            <marker date="1525943918901" expanded="true" signature="662:1042" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2223,13 +1342,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1057">
           <caret line="71" column="46" lean-forward="true" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
-          <folding>
-            <marker date="1525934662137" expanded="true" signature="937:989" ph="SELECT * FRO... Reservation" />
-            <marker date="1525934662137" expanded="true" signature="1709:1778" ph="SELECT * FRO... Reservation" />
-            <marker date="1525934662137" expanded="true" signature="2522:2593" ph="SELECT * FRO... Reservation" />
-            <marker date="1525934662137" expanded="true" signature="3433:3528" ph="SELECT * FRO... Reservation" />
-            <marker date="1525934662137" expanded="true" signature="4495:4551" ph="SELECT * FRO... Client" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2259,26 +1372,764 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7300">
-          <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5045#5060#0" expanded="true" />
-            <element signature="e#5165#5180#0" expanded="true" />
-            <element signature="e#5285#5300#0" expanded="true" />
-            <element signature="e#16471#16472#0" expanded="true" />
-            <element signature="e#16523#16524#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="81" column="33" lean-forward="false" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/View">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>View</OriginalElement>
+          <nodes>
+            <node x="" y="">View.Alerts</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="60.0" y="23.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>packageLocal</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="3748.7681721460513" y="1726.0">Model.EmployeeList</node>
+            <node x="2866.11902896575" y="5279.0">Controller.MenuController</node>
+            <node x="1036.6015054793843" y="3197.0">Controller.ReserveController</node>
+            <node x="1079.9106956324167" y="18.5">Model.Room</node>
+            <node x="258.840693506565" y="3436.5">Model.SearchFactory</node>
+            <node x="2759.86902896575" y="2689.5">View.Alerts</node>
+            <node x="4636.7660877892795" y="0.0">main.Main</node>
+            <node x="3280.2681721460513" y="3511.5">Controller.LoginController</node>
+            <node x="587.9106956324167" y="148.5">Model.Client</node>
+            <node x="2399.351505479385" y="7166.0">Controller.EditReservationController</node>
+            <node x="3544.7660877892795" y="4354.0">Controller.ManagerController</node>
+            <node x="2297.0333333333338" y="984.0">Model.Sqlconnection</node>
+            <node x="1658.2851379510098" y="1726.0">Model.RoomList</node>
+            <node x="1431.2270631607912" y="2596.0">Model.ReservationList</node>
+            <node x="47.5" y="4890.5">Controller.SearchRoomController</node>
+            <node x="2275.74402896575" y="0.0">Model.Reservation</node>
+            <node x="4001.7660877892795" y="130.0">Model.Employee</node>
+            <node x="2284.53513795101" y="2578.0">Controller.ConfirmationController</node>
+            <node x="2230.6606956324167" y="2078.0">Model.BillCalculator</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Model.EmployeeList" target="Model.Employee">
+              <point x="58.375" y="-136.0" />
+              <point x="4040.6431721460513" y="1696.0" />
+              <point x="4458.9991219843205" y="1696.0" />
+              <point x="4458.9991219843205" y="684.0" />
+              <point x="4212.480373503566" y="684.0" />
+              <point x="-84.28571428571422" y="172.0" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="Model.Client">
+              <point x="-226.57142857142844" y="-468.0" />
+              <point x="2416.7800769079568" y="7146.0" />
+              <point x="26.0" y="7146.0" />
+              <point x="26.0" y="784.0" />
+              <point x="621.6249813467025" y="784.0" />
+              <point x="-202.28571428571422" y="153.5" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Room">
+              <point x="-107.0" y="-191.5" />
+              <point x="1698.7270631607912" y="2548.0" />
+              <point x="1558.0749999999998" y="2548.0" />
+              <point x="1558.0749999999998" y="774.0" />
+              <point x="1430.851872103005" y="774.0" />
+              <point x="36.94117647058829" y="283.5" />
+            </edge>
+            <edge source="Controller.MenuController" target="Model.Sqlconnection">
+              <point x="21.5" y="-431.0" />
+              <point x="3145.61902896575" y="4314.0" />
+              <point x="3233.603867778468" y="4314.0" />
+              <point x="3233.603867778468" y="1676.0" />
+              <point x="2565.6122807017546" y="1676.0" />
+              <point x="79.57894736842081" y="301.0" />
+            </edge>
+            <edge source="Controller.ManagerController" target="Model.Room">
+              <point x="94.76470588235293" y="-1356.0" />
+              <point x="3908.0307936716326" y="4284.0" />
+              <point x="4226.268172146051" y="4284.0" />
+              <point x="4226.268172146051" y="714.0" />
+              <point x="1615.557754455946" y="714.0" />
+              <point x="221.64705882352928" y="283.5" />
+            </edge>
+            <edge source="Controller.MenuController" target="Model.ReservationList">
+              <point x="-193.5" y="-431.0" />
+              <point x="2930.61902896575" y="4334.0" />
+              <point x="2938.36902896575" y="4334.0" />
+              <point x="2938.36902896575" y="3097.0" />
+              <point x="2133.414563160791" y="3097.0" />
+              <point x="327.6875" y="191.5" />
+            </edge>
+            <edge source="Controller.ManagerController" target="Controller.LoginController">
+              <point x="-221.11764705882376" y="-1356.0" />
+              <point x="3592.148440730456" y="4294.0" />
+              <point x="3497.7681721460513" y="4294.0" />
+              <point x="43.5" y="209.0" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.Sqlconnection">
+              <point x="89.75" y="-210.0" />
+              <point x="2499.9106956324167" y="2058.0" />
+              <point x="2486.0333333333338" y="2058.0" />
+              <point x="0.0" y="301.0" />
+            </edge>
+            <edge source="Controller.SearchRoomController" target="Controller.ReserveController">
+              <point x="115.0" y="-819.5" />
+              <point x="392.5" y="4314.0" />
+              <point x="1290.1015054793843" y="4314.0" />
+              <point x="0.0" y="523.5" />
+            </edge>
+            <edge source="Controller.MenuController" target="View.Alerts">
+              <point x="-107.5" y="-431.0" />
+              <point x="3016.61902896575" y="4324.0" />
+              <point x="2960.36902896575" y="4324.0" />
+              <point x="2960.36902896575" y="3077.0" />
+              <point x="2941.86902896575" y="3077.0" />
+              <point x="14.0" y="98.0" />
+            </edge>
+            <edge source="Controller.SearchRoomController" target="Model.RoomList">
+              <point x="-23.0" y="-819.5" />
+              <point x="254.5" y="4314.0" />
+              <point x="169.73385842056086" y="4314.0" />
+              <point x="169.73385842056086" y="2058.0" />
+              <point x="1785.7851379510098" y="2058.0" />
+              <point x="-127.5" y="136.0" />
+            </edge>
+            <edge source="Controller.ConfirmationController" target="Model.BillCalculator">
+              <point x="-129.66666666666652" y="-209.5" />
+              <point x="2349.3684712843433" y="2558.0" />
+              <point x="2320.4106956324167" y="2558.0" />
+              <point x="-89.75" y="210.0" />
+            </edge>
+            <edge source="Controller.ManagerController" target="Model.RoomList">
+              <point x="-126.35294117647072" y="-1356.0" />
+              <point x="3686.913146612809" y="4324.0" />
+              <point x="3649.7681721460513" y="4324.0" />
+              <point x="3649.7681721460513" y="2028.0" />
+              <point x="2040.7851379510098" y="2028.0" />
+              <point x="127.5" y="136.0" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="Model.ReservationList">
+              <point x="-87.14285714285711" y="-468.0" />
+              <point x="2556.208648336528" y="7106.0" />
+              <point x="1852.5395631607912" y="7106.0" />
+              <point x="46.8125" y="191.5" />
+            </edge>
+            <edge source="Controller.MenuController" target="Controller.ConfirmationController">
+              <point x="-150.5" y="-431.0" />
+              <point x="2973.61902896575" y="4334.0" />
+              <point x="2949.36902896575" y="4334.0" />
+              <point x="2949.36902896575" y="3087.0" />
+              <point x="2608.7018046176763" y="3087.0" />
+              <point x="129.66666666666652" y="209.5" />
+            </edge>
+            <edge source="Controller.SearchRoomController" target="Model.Room">
+              <point x="-161.0" y="-819.5" />
+              <point x="116.5" y="4334.0" />
+              <point x="136.73385842056086" y="4334.0" />
+              <point x="136.73385842056086" y="814.0" />
+              <point x="1135.3224603382992" y="814.0" />
+              <point x="-258.58823529411757" y="283.5" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.Reservation">
+              <point x="0.0" y="-284.0" />
+              <point x="616.340693506565" y="3177.0" />
+              <point x="659.1015054793843" y="3177.0" />
+              <point x="659.1015054793843" y="904.0" />
+              <point x="2318.3616760245736" y="904.0" />
+              <point x="-198.88235294117658" y="302.0" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Reservation">
+              <point x="107.0" y="-191.5" />
+              <point x="1912.7270631607912" y="2528.0" />
+              <point x="1636.7851379510098" y="2528.0" />
+              <point x="1636.7851379510098" y="954.0" />
+              <point x="2460.4204995539853" y="954.0" />
+              <point x="-56.823529411764866" y="302.0" />
+            </edge>
+            <edge source="Controller.ReserveController" target="Model.Sqlconnection">
+              <point x="33.799999999999955" y="-523.5" />
+              <point x="1323.9015054793842" y="3057.0" />
+              <point x="1409.7270631607912" y="3057.0" />
+              <point x="1409.7270631607912" y="1646.0" />
+              <point x="2346.770175438597" y="1646.0" />
+              <point x="-139.26315789473665" y="301.0" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Room">
+              <point x="-47.25" y="-301.0" />
+              <point x="2438.7833333333338" y="724.0" />
+              <point x="1578.616577985358" y="724.0" />
+              <point x="184.70588235294122" y="283.5" />
+            </edge>
+            <edge source="Controller.LoginController" target="View.Alerts">
+              <point x="-69.59999999999991" y="-209.0" />
+              <point x="3384.6681721460513" y="3147.0" />
+              <point x="3053.86902896575" y="3147.0" />
+              <point x="126.0" y="98.0" />
+            </edge>
+            <edge source="Controller.ReserveController" target="Controller.ConfirmationController">
+              <point x="169.0" y="-523.5" />
+              <point x="1459.1015054793843" y="3117.0" />
+              <point x="2349.3684712843433" y="3117.0" />
+              <point x="-129.66666666666674" y="209.5" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="View.Alerts">
+              <point x="87.14285714285711" y="-468.0" />
+              <point x="2730.494362622242" y="7106.0" />
+              <point x="2773.36902896575" y="7106.0" />
+              <point x="2773.36902896575" y="3167.0" />
+              <point x="2885.86902896575" y="3167.0" />
+              <point x="-42.0" y="98.0" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.Room">
+              <point x="-317.7777777777778" y="-284.0" />
+              <point x="298.5629157287872" y="3177.0" />
+              <point x="337.23385842056086" y="3177.0" />
+              <point x="337.23385842056086" y="834.0" />
+              <point x="1209.2048132794755" y="834.0" />
+              <point x="-184.70588235294122" y="283.5" />
+            </edge>
+            <edge source="Controller.SearchRoomController" target="Model.SearchFactory">
+              <point x="69.0" y="-819.5" />
+              <point x="346.5" y="4304.0" />
+              <point x="795.090693506565" y="4304.0" />
+              <point x="178.75" y="284.0" />
+            </edge>
+            <edge source="Controller.ConfirmationController" target="Model.Reservation">
+              <point x="129.66666666666652" y="-209.5" />
+              <point x="2608.7018046176763" y="2558.0" />
+              <point x="2696.5333333333338" y="2558.0" />
+              <point x="2696.5333333333338" y="934.0" />
+              <point x="2574.067558377515" y="934.0" />
+              <point x="56.823529411764866" y="302.0" />
+            </edge>
+            <edge source="Controller.MenuController" target="Controller.LoginController">
+              <point x="193.5" y="-431.0" />
+              <point x="3317.61902896575" y="4334.0" />
+              <point x="3323.7681721460513" y="4334.0" />
+              <point x="-130.5" y="209.0" />
+            </edge>
+            <edge source="Controller.ManagerController" target="Model.Employee">
+              <point x="189.52941176470586" y="-1356.0" />
+              <point x="4002.795499553986" y="4314.0" />
+              <point x="4480.9991219843205" y="4314.0" />
+              <point x="4480.9991219843205" y="664.0" />
+              <point x="4381.051802074993" y="664.0" />
+              <point x="84.28571428571422" y="172.0" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.RoomList">
+              <point x="-89.75" y="-210.0" />
+              <point x="2320.4106956324167" y="2048.0" />
+              <point x="1955.7851379510098" y="2048.0" />
+              <point x="42.5" y="136.0" />
+            </edge>
+            <edge source="Controller.LoginController" target="Model.Employee">
+              <point x="0.0" y="-209.0" />
+              <point x="3454.2681721460513" y="3177.0" />
+              <point x="3509.703867778468" y="3177.0" />
+              <point x="3509.703867778468" y="964.0" />
+              <point x="4128.194659217851" y="964.0" />
+              <point x="-168.57142857142867" y="172.0" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Reservation">
+              <point x="47.25" y="-301.0" />
+              <point x="2533.2833333333338" y="964.0" />
+              <point x="2517.24402896575" y="964.0" />
+              <point x="0.0" y="302.0" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Sqlconnection">
+              <point x="321.0" y="-191.5" />
+              <point x="2126.727063160791" y="2558.0" />
+              <point x="2178.78513795101" y="2558.0" />
+              <point x="2178.78513795101" y="1696.0" />
+              <point x="2446.243859649123" y="1696.0" />
+              <point x="-39.78947368421041" y="301.0" />
+            </edge>
+            <edge source="Model.EmployeeList" target="Model.Sqlconnection">
+              <point x="-58.375" y="-136.0" />
+              <point x="3923.8931721460513" y="1626.0" />
+              <point x="2665.0859649122813" y="1626.0" />
+              <point x="179.0526315789475" y="301.0" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="Controller.ConfirmationController">
+              <point x="-17.42857142857156" y="-468.0" />
+              <point x="2625.9229340508136" y="7086.0" />
+              <point x="2479.03513795101" y="7086.0" />
+              <point x="0.0" y="209.5" />
+            </edge>
+            <edge source="Controller.ManagerController" target="View.Alerts">
+              <point x="-252.70588235294144" y="-1356.0" />
+              <point x="3560.560205436338" y="4304.0" />
+              <point x="3222.603867778468" y="4304.0" />
+              <point x="3222.603867778468" y="3167.0" />
+              <point x="2997.86902896575" y="3167.0" />
+              <point x="70.0" y="98.0" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.Sqlconnection">
+              <point x="158.8888888888889" y="-284.0" />
+              <point x="775.2295823954539" y="3177.0" />
+              <point x="799.437201111801" y="3177.0" />
+              <point x="799.437201111801" y="2038.0" />
+              <point x="1284.0749999999998" y="2038.0" />
+              <point x="1284.0749999999998" y="1636.0" />
+              <point x="2326.875438596491" y="1636.0" />
+              <point x="-159.15789473684208" y="301.0" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.ReservationList">
+              <point x="238.33333333333326" y="-284.0" />
+              <point x="854.6740268398983" y="3077.0" />
+              <point x="1478.0395631607912" y="3077.0" />
+              <point x="-327.6875" y="191.5" />
+            </edge>
+            <edge source="Controller.ReserveController" target="Model.ReservationList">
+              <point x="101.40000000000009" y="-523.5" />
+              <point x="1391.5015054793844" y="3097.0" />
+              <point x="1665.2895631607912" y="3097.0" />
+              <point x="-140.4375" y="191.5" />
+            </edge>
+            <edge source="Controller.ReserveController" target="Model.Reservation">
+              <point x="-33.80000000000018" y="-523.5" />
+              <point x="1256.301505479384" y="3037.0" />
+              <point x="1295.0749999999998" y="3037.0" />
+              <point x="1295.0749999999998" y="924.0" />
+              <point x="2375.1852054363385" y="924.0" />
+              <point x="-142.0588235294117" y="302.0" />
+            </edge>
+            <edge source="Model.RoomList" target="Model.Reservation">
+              <point x="0.0" y="-136.0" />
+              <point x="1913.2851379510098" y="964.0" />
+              <point x="2488.8322642598678" y="964.0" />
+              <point x="-28.411764705882433" y="302.0" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.Room">
+              <point x="-29.916666666666742" y="-210.0" />
+              <point x="2380.24402896575" y="2038.0" />
+              <point x="2286.5333333333338" y="2038.0" />
+              <point x="2286.5333333333338" y="744.0" />
+              <point x="1541.6754015147696" y="744.0" />
+              <point x="147.76470588235293" y="283.5" />
+            </edge>
+            <edge source="Controller.ReserveController" target="Model.Client">
+              <point x="-202.80000000000018" y="-523.5" />
+              <point x="1087.301505479384" y="3057.0" />
+              <point x="823.9106956324167" y="3057.0" />
+              <point x="0.0" y="153.5" />
+            </edge>
+            <edge source="Controller.ReserveController" target="View.Alerts">
+              <point x="236.5999999999999" y="-523.5" />
+              <point x="1526.7015054793842" y="3137.0" />
+              <point x="2801.86902896575" y="3137.0" />
+              <point x="-126.0" y="98.0" />
+            </edge>
+            <edge source="Controller.ManagerController" target="Model.Sqlconnection">
+              <point x="-31.588235294117794" y="-1356.0" />
+              <point x="3781.677852495162" y="4294.0" />
+              <point x="3682.7681721460513" y="4294.0" />
+              <point x="3682.7681721460513" y="1656.0" />
+              <point x="2605.4017543859654" y="1656.0" />
+              <point x="119.36842105263167" y="301.0" />
+            </edge>
+            <edge source="Controller.MenuController" target="Model.Reservation">
+              <point x="64.5" y="-431.0" />
+              <point x="3188.61902896575" y="4324.0" />
+              <point x="3247.7681721460513" y="4324.0" />
+              <point x="3247.7681721460513" y="924.0" />
+              <point x="2602.479323083397" y="924.0" />
+              <point x="85.23529411764684" y="302.0" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Client">
+              <point x="-214.0" y="-191.5" />
+              <point x="1591.7270631607912" y="2558.0" />
+              <point x="1547.0749999999998" y="2558.0" />
+              <point x="1547.0749999999998" y="784.0" />
+              <point x="958.7678384895596" y="784.0" />
+              <point x="134.8571428571429" y="153.5" />
+            </edge>
+            <edge source="Controller.SearchRoomController" target="View.Alerts">
+              <point x="161.0" y="-819.5" />
+              <point x="438.5" y="4324.0" />
+              <point x="1679.3202554793843" y="4324.0" />
+              <point x="1679.3202554793843" y="3147.0" />
+              <point x="2829.86902896575" y="3147.0" />
+              <point x="-98.0" y="98.0" />
+            </edge>
+            <edge source="Controller.ReserveController" target="Model.Room">
+              <point x="-101.40000000000009" y="-523.5" />
+              <point x="1188.7015054793842" y="3017.0" />
+              <point x="1262.0749999999998" y="3017.0" />
+              <point x="1262.0749999999998" y="884.0" />
+              <point x="1393.9106956324167" y="884.0" />
+              <point x="0.0" y="283.5" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.Reservation">
+              <point x="149.58333333333326" y="-210.0" />
+              <point x="2559.74402896575" y="2058.0" />
+              <point x="2685.5333333333338" y="2058.0" />
+              <point x="2685.5333333333338" y="944.0" />
+              <point x="2545.6557936716326" y="944.0" />
+              <point x="28.411764705882433" y="302.0" />
+            </edge>
+            <edge source="Model.RoomList" target="Model.Room">
+              <point x="-204.0" y="-136.0" />
+              <point x="1709.2851379510098" y="1606.0" />
+              <point x="1851.8515054793843" y="1606.0" />
+              <point x="1851.8515054793843" y="764.0" />
+              <point x="1467.7930485735933" y="764.0" />
+              <point x="73.88235294117658" y="283.5" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Employee">
+              <point x="141.75" y="-301.0" />
+              <point x="2627.7833333333338" y="954.0" />
+              <point x="4043.9089449321364" y="954.0" />
+              <point x="-252.8571428571429" y="172.0" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="Model.Sqlconnection">
+              <point x="17.42857142857133" y="-468.0" />
+              <point x="2660.7800769079563" y="7086.0" />
+              <point x="2738.36902896575" y="7086.0" />
+              <point x="2738.36902896575" y="1706.0" />
+              <point x="2505.9280701754387" y="1706.0" />
+              <point x="19.89473684210543" y="301.0" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="Controller.SearchRoomController">
+              <point x="-122.0" y="-468.0" />
+              <point x="2521.351505479385" y="7116.0" />
+              <point x="392.5" y="7116.0" />
+              <point x="115.0" y="819.5" />
+            </edge>
+            <edge source="Controller.ManagerController" target="Model.EmployeeList">
+              <point x="63.17647058823536" y="-1356.0" />
+              <point x="3876.442558377515" y="4274.0" />
+              <point x="4130.291367778468" y="4274.0" />
+              <point x="4130.291367778468" y="2058.0" />
+              <point x="4157.393172146051" y="2058.0" />
+              <point x="175.125" y="136.0" />
+            </edge>
+            <edge source="Controller.LoginController" target="Model.EmployeeList">
+              <point x="139.19999999999982" y="-209.0" />
+              <point x="3593.468172146051" y="3177.0" />
+              <point x="3557.5181721460513" y="3177.0" />
+              <point x="3557.5181721460513" y="2058.0" />
+              <point x="3923.8931721460513" y="2058.0" />
+              <point x="-58.375" y="136.0" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Client">
+              <point x="-141.75" y="-301.0" />
+              <point x="2344.2833333333338" y="734.0" />
+              <point x="1026.196409918131" y="734.0" />
+              <point x="202.28571428571422" y="153.5" />
+            </edge>
+            <edge source="Controller.EditReservationController" target="Model.Reservation">
+              <point x="156.8571428571429" y="-468.0" />
+              <point x="2800.208648336528" y="7126.0" />
+              <point x="4513.9991219843205" y="7126.0" />
+              <point x="4513.9991219843205" y="644.0" />
+              <point x="2687.714617201044" y="644.0" />
+              <point x="170.4705882352937" y="302.0" />
+            </edge>
+            <edge source="Model.RoomList" target="Model.Sqlconnection">
+              <point x="204.0" y="-136.0" />
+              <point x="2117.28513795101" y="1686.0" />
+              <point x="2426.349122807018" y="1686.0" />
+              <point x="-59.68421052631584" y="301.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.1" x="-2954.0" y="2029.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Model">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Model</OriginalElement>
+          <nodes>
+            <node x="756.3293859649126" y="1431.5">Model.RoomList</node>
+            <node x="1379.8720760233923" y="684.0">Model.Sqlconnection</node>
+            <node x="269.3293859649125" y="1431.5">Model.EmployeeList</node>
+            <node x="1718.856359649123" y="1376.0">Model.ReservationList</node>
+            <node x="972.7220029239768" y="18.5">Model.Room</node>
+            <node x="1405.0246345029243" y="1889.0">Model.SearchFactory</node>
+            <node x="2188.010745614036" y="0.0">Model.Reservation</node>
+            <node x="0.0" y="130.0">Model.Employee</node>
+            <node x="993.3304093567253" y="1963.0">Model.BillCalculator</node>
+            <node x="1660.8440789473689" y="148.5">Model.Client</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Model.ReservationList" target="Model.Sqlconnection">
+              <point x="-214.0" y="-191.5" />
+              <point x="1879.356359649123" y="1336.0" />
+              <point x="1738.9720760233924" y="1336.0" />
+              <point x="170.10000000000014" y="301.0" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Client">
+              <point x="107.0" y="-191.5" />
+              <point x="2200.356359649123" y="1346.0" />
+              <point x="2189.3333333333335" y="1346.0" />
+              <point x="2189.3333333333335" y="624.0" />
+              <point x="2054.1774122807024" y="624.0" />
+              <point x="157.33333333333348" y="153.5" />
+            </edge>
+            <edge source="Model.EmployeeList" target="Model.Sqlconnection">
+              <point x="58.375" y="-136.0" />
+              <point x="561.2043859649125" y="1316.0" />
+              <point x="1398.7720760233924" y="1316.0" />
+              <point x="-170.0999999999999" y="301.0" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.Reservation">
+              <point x="149.58333333333326" y="-210.0" />
+              <point x="1322.4137426900586" y="1849.0" />
+              <point x="2547.510745614036" y="1849.0" />
+              <point x="2547.510745614036" y="664.0" />
+              <point x="2498.510745614036" y="664.0" />
+              <point x="69.0" y="302.0" />
+            </edge>
+            <edge source="Model.RoomList" target="Model.Room">
+              <point x="-204.0000000000001" y="-136.0" />
+              <point x="807.3293859649125" y="1306.0" />
+              <point x="857.2220029239766" y="1306.0" />
+              <point x="857.2220029239766" y="654.0" />
+              <point x="1090.4720029239768" y="654.0" />
+              <point x="-196.25" y="283.5" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.Reservation">
+              <point x="238.33333333333348" y="-284.0" />
+              <point x="2000.8579678362578" y="1859.0" />
+              <point x="2667.205409356726" y="1859.0" />
+              <point x="2667.205409356726" y="664.0" />
+              <point x="2567.510745614036" y="664.0" />
+              <point x="138.0" y="302.0" />
+            </edge>
+            <edge source="Model.EmployeeList" target="Model.Employee">
+              <point x="-175.125" y="-136.0" />
+              <point x="327.7043859649125" y="1356.0" />
+              <point x="351.6418859649125" y="1356.0" />
+              <point x="351.6418859649125" y="634.0" />
+              <point x="98.33333333333326" y="634.0" />
+              <point x="-196.66666666666674" y="172.0" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Employee">
+              <point x="-141.75" y="-301.0" />
+              <point x="1427.1220760233923" y="634.0" />
+              <point x="491.6666666666665" y="634.0" />
+              <point x="196.66666666666663" y="172.0" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Room">
+              <point x="-107.0" y="-191.5" />
+              <point x="1986.356359649123" y="1326.0" />
+              <point x="1768.3720760233923" y="1326.0" />
+              <point x="1768.3720760233923" y="624.0" />
+              <point x="1561.4720029239768" y="624.0" />
+              <point x="274.75" y="283.5" />
+            </edge>
+            <edge source="Model.ReservationList" target="Model.Reservation">
+              <point x="321.0" y="-191.5" />
+              <point x="2414.356359649123" y="1356.0" />
+              <point x="2371.510745614036" y="1356.0" />
+              <point x="2371.510745614036" y="664.0" />
+              <point x="2429.510745614036" y="664.0" />
+              <point x="0.0" y="302.0" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.Sqlconnection">
+              <point x="2.2737367544323206E-13" y="-284.0" />
+              <point x="1762.5246345029245" y="1779.0" />
+              <point x="1627.5646929824563" y="1779.0" />
+              <point x="1627.5646929824563" y="1346.0" />
+              <point x="1663.3720760233923" y="1346.0" />
+              <point x="94.5" y="301.0" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.ReservationList">
+              <point x="158.88888888888914" y="-284.0" />
+              <point x="1921.4135233918134" y="1839.0" />
+              <point x="2280.606359649123" y="1839.0" />
+              <point x="187.25" y="191.5" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.Sqlconnection">
+              <point x="89.75" y="-210.0" />
+              <point x="1262.5804093567253" y="1839.0" />
+              <point x="1592.7774122807023" y="1839.0" />
+              <point x="1592.7774122807023" y="1346.0" />
+              <point x="1587.7720760233924" y="1346.0" />
+              <point x="18.90000000000009" y="301.0" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Room">
+              <point x="-47.25" y="-301.0" />
+              <point x="1521.6220760233923" y="664.0" />
+              <point x="1482.9720029239768" y="664.0" />
+              <point x="196.25" y="283.5" />
+            </edge>
+            <edge source="Model.RoomList" target="Model.Reservation">
+              <point x="203.9999999999999" y="-136.0" />
+              <point x="1215.3293859649125" y="1356.0" />
+              <point x="2213.412719298246" y="1356.0" />
+              <point x="2213.412719298246" y="654.0" />
+              <point x="2291.510745614036" y="654.0" />
+              <point x="-138.0" y="302.0" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.Room">
+              <point x="-149.58333333333348" y="-210.0" />
+              <point x="1023.2470760233919" y="1869.0" />
+              <point x="258.8293859649125" y="1869.0" />
+              <point x="258.8293859649125" y="644.0" />
+              <point x="1011.9720029239768" y="644.0" />
+              <point x="-274.75" y="283.5" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Client">
+              <point x="47.25" y="-301.0" />
+              <point x="1616.1220760233923" y="634.0" />
+              <point x="1739.5107456140356" y="634.0" />
+              <point x="-157.33333333333326" y="153.5" />
+            </edge>
+            <edge source="Model.SearchFactory" target="Model.Room">
+              <point x="-238.33333333333326" y="-284.0" />
+              <point x="1524.191301169591" y="1809.0" />
+              <point x="1287.8293859649125" y="1809.0" />
+              <point x="1287.8293859649125" y="664.0" />
+              <point x="1325.9720029239768" y="664.0" />
+              <point x="39.25" y="283.5" />
+            </edge>
+            <edge source="Model.BillCalculator" target="Model.RoomList">
+              <point x="-89.75" y="-210.0" />
+              <point x="1083.0804093567253" y="1859.0" />
+              <point x="883.8293859649126" y="1859.0" />
+              <point x="-127.5" y="136.0" />
+            </edge>
+            <edge source="Model.RoomList" target="Model.Sqlconnection">
+              <point x="101.99999999999989" y="-136.0" />
+              <point x="1113.3293859649125" y="1346.0" />
+              <point x="1512.1720760233923" y="1346.0" />
+              <point x="-56.700000000000045" y="301.0" />
+            </edge>
+            <edge source="Model.Sqlconnection" target="Model.Reservation">
+              <point x="141.75" y="-301.0" />
+              <point x="1710.6220760233923" y="644.0" />
+              <point x="2222.510745614036" y="644.0" />
+              <point x="-207.0" y="302.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.30000000000000004" x="272.9999999999999" y="648.9999999999999" />
+          <SelectedNodes>
+            <node>Model.RoomList</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Controller">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Controller</OriginalElement>
+          <nodes>
+            <node x="" y="">Controller.MenuController</node>
+            <node x="" y="">Controller.ReserveController</node>
+            <node x="" y="">Controller.SearchRoomController</node>
+            <node x="" y="">Controller.ConfirmationController</node>
+            <node x="" y="">Controller.LoginController</node>
+            <node x="" y="">Controller.EditReservationController</node>
+            <node x="" y="">Controller.ManagerController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.30000000000000016" x="700.9999999999986" y="5136.333333333333" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model.uml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Model</OriginalElement>
+          <nodes>
+            <node x="" y="">Model.RoomList</node>
+            <node x="" y="">Model.Sqlconnection</node>
+            <node x="" y="">Model.EmployeeList</node>
+            <node x="" y="">Model.ReservationList</node>
+            <node x="" y="">Model.Room</node>
+            <node x="" y="">Model.SearchFactory</node>
+            <node x="" y="">Model.Reservation</node>
+            <node x="" y="">Model.Employee</node>
+            <node x="" y="">Model.BillCalculator</node>
+            <node x="" y="">Model.Client</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.30000000000000004" x="1788.0" y="862.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Inner Classes</Category>
+            <Category>Constructors</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="166" column="60" lean-forward="false" selection-start-line="166" selection-start-column="60" selection-end-line="166" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3203#3225#0" expanded="true" />
+            <element signature="e#5477#5492#0" expanded="true" />
+            <element signature="e#5597#5612#0" expanded="true" />
+            <element signature="e#5717#5732#0" expanded="true" />
+            <element signature="e#16820#16821#0" expanded="true" />
+            <element signature="e#16872#16873#0" expanded="true" />
+            <marker date="1525957715803" expanded="true" signature="17070:17076" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2322,7 +2173,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>9.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -2339,6 +2190,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
