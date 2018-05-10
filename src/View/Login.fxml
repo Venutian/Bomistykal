@@ -29,11 +29,11 @@
                </Button>
                <TextField fx:id="UserName" alignment="TOP_LEFT" layoutX="150.0" layoutY="170.0" promptText="Username"
                           AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0"/>
-               <Label fx:id="WrongLogin" layoutX="230.0" layoutY="130.0" prefHeight="31.0" prefWidth="239.0"
+               <Label fx:id="WrongLogin" layoutX="230.0" layoutY="140.0" prefHeight="31.0" prefWidth="239.0"
                       text="Wrong Username or Password, Try Again" textAlignment="CENTER" textFill="RED"
                       visible="false"/>
                <Label fx:id="mainTi" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" layoutX="145.0"
-                      layoutY="62.0" lineSpacing="1.0" mouseTransparent="true" prefHeight="100.0" prefWidth="400.0"
+                      layoutY="62.0" lineSpacing="1.0" mouseTransparent="true" prefHeight="108.0" prefWidth="410.0"
                       text="LINNAEUS HOTEL" textAlignment="CENTER" AnchorPane.leftAnchor="145.0"
                       AnchorPane.rightAnchor="145.0">
                    <font>
