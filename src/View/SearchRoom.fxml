@@ -122,9 +122,9 @@
                 <Font size="18.0" />
             </font>
         </Label>
-      <AnchorPane fx:id="managers" layoutX="237.0" layoutY="501.0" prefHeight="185.0" prefWidth="222.0">
+      <AnchorPane fx:id="managers" layoutX="237.0" layoutY="501.0" prefHeight="186.0" prefWidth="250.0">
          <children>
-            <Label layoutX="40.0" layoutY="50.0" prefHeight="18.0" prefWidth="142.0" text="Search for a specific room" />
+            <Label layoutX="26.0" layoutY="52.0" prefHeight="18.0" prefWidth="199.0" text="Search for a specific room" />
             <TextField fx:id="managerSearch" layoutX="26.0" layoutY="80.0" />
          </children>
       </AnchorPane>

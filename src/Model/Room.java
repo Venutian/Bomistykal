@@ -37,7 +37,7 @@ public class Room {
         return price;
     }
 
-    public void setPrice (int price) {
+    public void setPrice (int price){
         this.price = price;
     }
 
@@ -170,9 +170,5 @@ public class Room {
 		
 		return sb.toString();
     }
-
     
-
-    
-
 } 

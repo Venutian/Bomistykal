@@ -84,15 +84,7 @@ public class ManagerController implements Initializable {
 
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        Image anotherIcon = new Image("logo.png");
-        primaryStage.getIcons().add(anotherIcon);
-        primaryStage.setTitle("Linnaeus Hotel");
-        primaryStage.show();*/
+        
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
     	Parent root = (Parent)fxmlLoader.load();
     	SearchRoomController controller = fxmlLoader.<SearchRoomController>getController();
@@ -165,13 +157,13 @@ public class ManagerController implements Initializable {
 
        
 
-        if (rl.checkIfRoomExists(addRoomIDTextF.getText()) == null)
+        if (rl.checkIfRoomExists(addRoomIDTextF.getText()) != null)
             al.reportError("A room with the same room id already exists in the database.");
         else {
             Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
                     Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
                     addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
-
+            
             sq.addRoom(rm);
             al.reportInformation("New room is successfully created");
         }
