@@ -16,13 +16,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MenuController implements Initializable{
+public class MenuController {
     
     @FXML
     private TableView<Reservation> CheckInTable;
@@ -55,12 +56,16 @@ public class MenuController implements Initializable{
 
     @FXML
     private TableColumn<Reservation, String> COCheckOutDate;
+    
+    @FXML
+    private AnchorPane managerPane;
    
     private Alerts al;
     private LoginController lo;
     private ReservationList rl;
 	private ObservableList<Reservation> checkInList;
     private ObservableList<Reservation> checkOutList;
+    private boolean isManager;
     
     public void logout(ActionEvent event) throws IOException {
     	
@@ -107,7 +112,7 @@ public class MenuController implements Initializable{
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
     	Parent root = (Parent)fxmlLoader.load();
     	SearchRoomController controller = fxmlLoader.<SearchRoomController>getController();
-    	controller.start(false);
+    	controller.start(isManager);
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
@@ -140,12 +145,26 @@ public class MenuController implements Initializable{
 		window.setScene(scene);
         window.show();
     }
+    @FXML
+    void goToManager(ActionEvent event) throws IOException {
+    	   Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
+   		   Scene scene = new Scene(root);
+   		  scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
+           Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           Image anotherIcon = new Image("logo.png");
+           window.getIcons().add(anotherIcon);
+           window.setTitle("Linnaeus Hotel");
+           window.setScene(scene);
+           window.show();
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+    }
+	
+	public void start(boolean isManager) {
+		this.isManager = isManager;
 		this.al = new Alerts();
 	    this.lo = new LoginController();
 	    this.rl = new ReservationList();
+	    this.managerPane.setVisible(isManager);
 		 
 
 		try {

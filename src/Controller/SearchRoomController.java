@@ -20,12 +20,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import java.util.ResourceBundle;
+
 
 
 
@@ -68,6 +67,9 @@ public class SearchRoomController{
     @FXML
     private ListView<String> roomList;
     
+
+    @FXML
+    private AnchorPane afterSearch;
     
     private	 ObservableList<Room> data;
     private  Alerts al ;
@@ -127,6 +129,7 @@ public class SearchRoomController{
         	//remove needs fixing
         	tabView.getItems().remove(adjoined);
     	}
+    	afterSearch.setVisible(false);
     	}	
     }
     
@@ -136,18 +139,21 @@ public class SearchRoomController{
     
 	@FXML
     public void back(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Menu.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Menu.fxml"));     
+    	Parent root = (Parent)fxmlLoader.load();
+    	MenuController controller = fxmlLoader.<MenuController>getController();
+    	controller.start(isManager);
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 	
 	
 	
 	public void start(boolean isManager) {
-		
+		this.afterSearch.setVisible(false);
 		this.campusLocation = FXCollections.observableArrayList("Vaxjo" , "Kalmar");
 		this.al = new Alerts();
 		this.roomsForReserve  = FXCollections.observableArrayList();
@@ -155,11 +161,9 @@ public class SearchRoomController{
 		this.campusLoc.setValue("Vaxjo");
 		this.rm = new RoomList();
 		this.isManager = isManager;
-		
+		this.managers.setVisible(isManager);
 		//make it to appear only for the manager
-		if(!isManager) {
-			managers.setVisible(false);
-		}
+		
 		
 		try {
 		this.data = rm.getRooms();
@@ -204,10 +208,16 @@ public class SearchRoomController{
         }
        
        setTable();
+       allowAdd();
 		}
 		}
 	}
     }
+	
+	private void allowAdd() {
+		this.afterSearch.setVisible(true);
+	}
+	
 	
 	private void managerSpecificRoom() throws Exception {
 		Room specificRoom = rm.checkIfRoomExists(managerSearch.getText());
@@ -219,6 +229,7 @@ public class SearchRoomController{
 		sc.setSpecificRoom(specificRoom);
 		data = sc.getAvailableRooms();
 		setTable();
+		allowAdd();
 		}
 	}
 	
