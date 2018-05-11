@@ -20,7 +20,6 @@ public class Main extends Application {
         Image anotherIcon = new Image("logo.png");
 
 
-        //Image anotherIcon = new Image("lnu.png");
 
 
        // Image anotherIcon = new Image("logo.png");

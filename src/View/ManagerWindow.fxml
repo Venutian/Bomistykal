@@ -260,7 +260,7 @@
          <children>
              <VBox layoutY="14.0" prefHeight="200.0" prefWidth="150.0">
                  <children>
-                     <Button fx:id="goToMenu" contentDisplay="TOP" mnemonicParsing="false" onAction="#goToMenuMenu" prefHeight="60.0" prefWidth="150.0" text="search">
+                     <Button fx:id="goToMenu" contentDisplay="TOP" mnemonicParsing="false" onAction="#goToMenuMenu" prefHeight="60.0" prefWidth="150.0" text="Menu">
                          <VBox.margin>
                              <Insets bottom="10.0" />
                          </VBox.margin>

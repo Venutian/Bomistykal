@@ -85,9 +85,9 @@ public class ManagerController implements Initializable {
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
         
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Menu.fxml"));     
     	Parent root = (Parent)fxmlLoader.load();
-    	SearchRoomController controller = fxmlLoader.<SearchRoomController>getController();
+    	MenuController controller = fxmlLoader.<MenuController>getController();
     	controller.start(true);
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
@@ -155,6 +155,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
+       
 
         if (rl.checkIfRoomExists(addRoomIDTextF.getText()) != null)
             al.reportError("A room with the same room id already exists in the database.");
