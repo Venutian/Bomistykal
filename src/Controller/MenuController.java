@@ -88,14 +88,14 @@ public class MenuController implements Initializable{
 		
 	}
 	public void CheckOut(ActionEvent event) throws Exception {
-		Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
+		Reservation res = CheckOutTable.getSelectionModel().getSelectedItem();
 		res.setCheckedOut(true);
 		Sqlconnection sq = new Sqlconnection();
 		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
-    	controller.setCheckOut(CheckInTable.getSelectionModel().getSelectedItem());
+    	controller.setCheckOut(CheckOutTable.getSelectionModel().getSelectedItem());
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
