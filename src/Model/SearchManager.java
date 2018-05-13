@@ -15,10 +15,10 @@ public class SearchManager {
 /*this class will compare all the rooms with the search choices make a room list out of it
  * then it would compare this room list with upcoming reservations to see if there are available rooms
  * it would create and return a list of the available rooms.*/
-	private Database sq;
+	private Database database;
 	private ArrayList<Room> roomList;
 	private ArrayList<Reservation> ColapingRess;
-	private ReservationHandler rs ;
+	private ReservationHandler reservationH ;
 	private ArrayList<Room> NOTavailable;
 	private ObservableList<Room> available;
 	private boolean datesValid;
@@ -26,8 +26,8 @@ public class SearchManager {
 	private Date endDate;
 
 	public SearchManager (boolean managerSearch,String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
-		 this.rs = new ReservationHandler();
-		 this.sq = new Database();
+		 this.reservationH = new ReservationHandler();
+		 this.database = new Database();
 		 this.startDate = startDate;
 		 this.endDate = endDate;
 		 this.available = FXCollections.observableArrayList();
@@ -38,7 +38,7 @@ public class SearchManager {
 	    if(!managerSearch) {
 		this.roomList = getRoomChoices(campusLoc, view, smoking, adjoined, numOfBeds, RoomSize);
 		//finding reservations that conflict with your dates  
-		this.ColapingRess = rs.searchForDates(startDate,endDate);
+		this.ColapingRess = reservationH.searchForDates(startDate,endDate);
 		setNOTavailable();
 		setAvailableRooms();
 			 }
@@ -47,7 +47,7 @@ public class SearchManager {
 	public void setSpecificRoom(Room room) throws Exception {
 	   this.roomList = new ArrayList<Room>();
 	   roomList.add(room);
-	   this.ColapingRess = rs.searchForDates(startDate,endDate);
+	   this.ColapingRess = reservationH.searchForDates(startDate,endDate);
 	   setNOTavailable();
 	   setAvailableRooms();
 	}
@@ -60,11 +60,11 @@ public class SearchManager {
 	private void checkDates(Date startDate,Date endDate) {
 		Date today = new Date();
 		
-		if(sq.getDateDiff(startDate, today) > 0)
+		if(database.getDateDiff(startDate, today) > 0)
 			this.datesValid = false;
-		else if(sq.getDateDiff(startDate, endDate) <= 0)
+		else if(database.getDateDiff(startDate, endDate) <= 0)
 			this.datesValid = false;
-		else if(sq.getDateDiff(endDate, today) > 0)
+		else if(database.getDateDiff(endDate, today) > 0)
 			this.datesValid = false;
 		else
 			this.datesValid = true;
@@ -101,12 +101,12 @@ public class SearchManager {
 	private ArrayList <Room> getRoomChoices (String campusLoc, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
 
 		ArrayList<Room> data = new ArrayList<Room>();
-	        Connection con = sq.getConnection();
+	        Connection con = database.getConnection();
 	        PreparedStatement pre;
 	   if(adjoined)
-		   pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND Adjoint='" + sq.getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "' AND RoomSize='" + RoomSize + "'");
+		   pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + database.getBoolean(view) + "'   AND Smoking='" + database.getBoolean(smoking) + "' AND Adjoint='" + database.getBoolean(adjoined) + "' AND NumOfBeds='" + numOfBeds + "' AND RoomSize='" + RoomSize + "'");
 	   else
-		  pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + sq.getBoolean(view) + "'   AND Smoking='" + sq.getBoolean(smoking) + "' AND NumOfBeds='" + numOfBeds + "'");
+		  pre = con.prepareStatement("SELECT * FROM Room WHERE Location='" + campusLoc + "' AND RoomView='" + database.getBoolean(view) + "'   AND Smoking='" + database.getBoolean(smoking) + "' AND NumOfBeds='" + numOfBeds + "' AND RoomSize='" + RoomSize + "'");
 	        
 	   ResultSet rs = pre.executeQuery();
 	        while (rs.next()) {

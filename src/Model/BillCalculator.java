@@ -9,14 +9,14 @@ public class BillCalculator {
 	private int finalPrice;
 	private int roomPrice;
 	//this value indicates how many days before someone can cancel before getting fined. 
-	private int daysBeforeCancel = -5;
-	private Database sq;
+	private int daysBeforeCancel = -1;
+	private Database database;
 	private RoomHandler rm;
 	
 	
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
-		this.sq = new Database();
+		this.database = new Database();
 		this.rm = new RoomHandler();
 		try {
 			this.room = rm.getTheRoom(res);
@@ -36,22 +36,22 @@ public class BillCalculator {
 		
 		
 		
-		if( 0 == sq.getDateDiff(today, endDate)) {
-			calculateFinalPrice(sq.getDateDiff(startDate, endDate),roomPrice) ;
+		if( 0 == database.getDateDiff(today, endDate)) {
+			calculateFinalPrice(database.getDateDiff(startDate, endDate),roomPrice) ;
 		}
 		//if today is bigger than startdate that means they checked in
 		//in this case they would pay the entire fee anyway because is to late
-		else if(0 < sq.getDateDiff(startDate, today)) {
-			calculateFinalPrice(sq.getDateDiff(startDate, endDate),roomPrice);
+		else if(0 < database.getDateDiff(startDate, today)) {
+			calculateFinalPrice(database.getDateDiff(startDate, endDate),roomPrice);
 		}
-		//if today is smaller than startdate that means they did not check in yet
-		//if they cancel in less than 5 days before
+		//if today is smaller than start date that means they did not check in yet
+		//if they cancel in less than 1 day before
 		//they would pay half of the price because is to late.
-		else if(daysBeforeCancel <= sq.getDateDiff(startDate, today) ) {
-		calculateFinalPrice(sq.getDateDiff(startDate, endDate),roomPrice/2) ;
+		else if(daysBeforeCancel <= database.getDateDiff(startDate, today) ) {
+		calculateFinalPrice(database.getDateDiff(startDate, endDate),roomPrice/2) ;
 		}
-		//if they cancel before 5 days then there are no charges
-		else if(daysBeforeCancel > sq.getDateDiff(startDate, today) ) {
+		//if they cancel before 1 day then there are no charges
+		else if(daysBeforeCancel > database.getDateDiff(startDate, today) ) {
 			this.finalPrice = 0;
 		}
 			

@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
-
+/*belongs to the Authentication component, sends the user name and password to the authentication class*/
 
     @FXML
 	private TextField UserName;
@@ -29,20 +29,21 @@ public class LoginController {
     @FXML
     private Label WrongLogin;
     
-    private Authentication aut;
+    private Authentication authentication;
     private Alerts al;
     public void login(ActionEvent event) throws IOException {
 
 
         try {
-			 this.aut = new Authentication();
+			 this.authentication = new Authentication();
 			 this.al = new Alerts();
-			 Employee emp = aut.authenticationControll(UserName.getText().toString(),Password.getText().toString());
+			 Employee emp = authentication.authenticationControll(UserName.getText().toString(),Password.getText().toString());
 			
 			if(UserName.getText().isEmpty()||Password.getText().isEmpty())
 				al.reportError("Please fill in user name and password!");
 			else {
-				
+				/*if we get a null that means that the user name or password are not correct 
+				 * or that the employee does not exist*/
 			 if (emp == null)
                 WrongLog();
             else if (emp.isManager())
@@ -72,7 +73,7 @@ public class LoginController {
         primaryStage.show();
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-
+//when is an employee take him to the employee window
     private void LogEmployee(ActionEvent event) throws IOException {
         
        	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Menu.fxml"));     
@@ -87,7 +88,7 @@ public class LoginController {
 
 	}
 
-
+  //when is an manager take him to the manager window
     private void LogManager(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
 		Scene scene = new Scene(root);

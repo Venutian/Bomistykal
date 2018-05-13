@@ -1,10 +1,8 @@
 package Model;
 
-/* This class handles the room attributes
- * Room types and bed types 
- */
-public class Room {
 
+public class Room {
+	/* class that represents any room, containing all room ifno*/
     private int price;
     private String roomID;
     private int roomSize;
@@ -162,13 +160,6 @@ public class Room {
         return this.adjoinedRoomID;
     }
 
-    public String toString() {
-    	StringBuilder sb = new StringBuilder();
-		sb.append(getSmoking() + ", " +getView()+", "+getAdjoint()+ "\n");
-		
-		
-		
-		return sb.toString();
-    }
+    
     
 } 

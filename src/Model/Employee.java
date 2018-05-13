@@ -1,7 +1,7 @@
 package Model;
 
 public class Employee {
-
+	/*client class that represents the employee, containing his/hers personal info and if he/she is a manager */
 	private String name;
 	private String userName;
 	private String IDNumber;

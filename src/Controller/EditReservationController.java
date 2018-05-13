@@ -26,7 +26,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class EditReservationController implements Initializable{
-  
+  /*this class handles the inputs for edit reservation*/
     @FXML
     private TextField idSearch;
 
@@ -66,17 +66,17 @@ public class EditReservationController implements Initializable{
     @FXML
     private DatePicker creditCardExpDate;
     
-    private  SearchRoomController src;
-    private  Database sq;
+    private  SearchRoomController searcRoomC;
+    private  Database database;
 	private  ObservableList<Reservation> list ;
-	private  ReservationHandler rs;
-	private  Alerts al;
+	private  ReservationHandler resHandler;
+	private  Alerts alert;
 	
 
     @FXML
     void editReservation(ActionEvent event) throws Exception {
     
-    Client client = rs.getClient(reservationsTable.getSelectionModel().getSelectedItem().getClient());
+    Client client = resHandler.getClient(reservationsTable.getSelectionModel().getSelectedItem().getClient());
     		
     ID.setText(client.getIDNumber());
     name.setText(client.getName());
@@ -86,24 +86,22 @@ public class EditReservationController implements Initializable{
     
  
     }
-
+//go back 
     @FXML
     public void back(ActionEvent event) throws IOException {
-        src.back(event);
+        searcRoomC.back(event);
     }
+    //delete reservation if u want to change the dates
     @FXML
     void cancelReservation(ActionEvent event) throws Exception {
     	
     	
-    	if(al.responseAlert("Are you sure you want to cancel this reservation!?")) {
+    	if(alert.responseAlert("Are you sure you want to cancel this reservation!?")) {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
-        sq.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
-    	/*before showing the scene make an object of the controller of the fxml that u are going to 
-    	make a set method to set the value that u want in that class*/
+        database.deleteReservation(reservationsTable.getSelectionModel().getSelectedItem());
     	ConfirmationController controller = fxmlLoader.<ConfirmationController>getController();
-    	/*put the value in the setter of that controller class u want */
-    	controller.setCancel(reservationsTable.getSelectionModel().getSelectedItem());
+        controller.setCancel(reservationsTable.getSelectionModel().getSelectedItem());
     	Scene scene = new Scene(root); 
         Stage primaryStage = new Stage();
         Image anotherIcon = new Image("logo.png");
@@ -114,38 +112,40 @@ public class EditReservationController implements Initializable{
     	}
     }
     
- 
+ //save all changes
     @FXML
     void saveChanges(ActionEvent event) throws Exception {
     if(name.getText().isEmpty()||ID.getText().isEmpty()||creditCardNum.getText().isEmpty()||phoneNum.getText().isEmpty()||address.getText().isEmpty()||creditCardExpDate.getValue() == null)
-    		al.reportError("Please fill everything before saving!");
+    		alert.reportError("Please fill everything before saving!");
     else
     	{
     Client client = new Client(name.getText().toString(),ID.getText().toString(),creditCardNum.getText().toString(),Date.from(creditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()),phoneNum.getText().toString(),address.getText().toString());
-    sq.editClient(client);
-    al.reportInformation("Changes have been made!");
+    database.editClient(client);
+    alert.reportInformation("Changes have been made!");
     	}
     }
     
+    
+    //search for specific reservation using clients id 
     @FXML
     void search(ActionEvent event) {
     if(idSearch.getText().isEmpty())
-    	al.reportError("Please fill in with clients id before searching!");
+    	alert.reportError("Please fill in with clients id before searching!");
     else {
-    	this.list = rs.getReservation(idSearch.getText().toString(),list);
+    	this.list = resHandler.getReservation(idSearch.getText().toString(),list);
         reservationsTable.setItems(list);
     }
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	    this.sq = new Database();
-	    this.rs = new ReservationHandler();
-	    this.src = new SearchRoomController();
-	    this.al = new Alerts();
+	    this.database = new Database();
+	    this.resHandler = new ReservationHandler();
+	    this.searcRoomC = new SearchRoomController();
+	    this.alert = new Alerts();
 		
 			try {
-				this.list = rs.getComingReservations();
+				this.list = resHandler.getComingReservations();
 			} catch (Exception e) {
 				
 				e.printStackTrace();

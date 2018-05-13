@@ -9,7 +9,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Database {
-
+/*belongs database component, this class stores all the data to MYSQL and manages the data inside it
+ * it (rooms,reservations,employees,clients)*/
 //Room Management__________________________________________________________________________________________
 
     public void addRoom(Room room) throws Exception {
@@ -107,8 +108,8 @@ public class Database {
     public void addReservation(Reservation reservation) throws Exception {
 
         Connection con = getConnection();
-        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, EmployeeUN, GuestsNumber,checkedIn,checkedOut) "                                    
-                + "  VALUES ('" + convertDate(reservation.getCheckInDate()) + "','" + convertDate(reservation.getCheckOutDate()) + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getEmployee() + "','" + reservation.getGuestNum() + "','" + getBoolean(reservation.isCheckedIn()) + "','" + getBoolean(reservation.isCheckedOut()) + "');");
+        PreparedStatement pre = con.prepareStatement("INSERT INTO Reservation (CheckIn, CheckOut, ClientID, RoomID, GuestsNumber,checkedIn,checkedOut) "                                    
+                + "  VALUES ('" + convertDate(reservation.getCheckInDate()) + "','" + convertDate(reservation.getCheckOutDate()) + "','" + reservation.getClient() + "','" + reservation.getRoom() + "','" + reservation.getGuestNum() + "','" + getBoolean(reservation.isCheckedIn()) + "','" + getBoolean(reservation.isCheckedOut()) + "');");
         pre.executeUpdate();
         pre.close();
         con.close();
@@ -128,7 +129,7 @@ public class Database {
         Connection con = getConnection();
         
         PreparedStatement pre = con.prepareStatement("UPDATE Reservation SET CheckIn='" + convertDate(reservation.getCheckInDate()) + "', CheckOut='" + convertDate(reservation.getCheckOutDate()) + "',ClientID='" + reservation.getClient() + "', RoomID='" + reservation.getRoom() + "'"
-                + ",EmployeeUN='" + reservation.getEmployee() + "', checkedIn='" + getBoolean(reservation.isCheckedIn()) + "', checkedOut='" + getBoolean(reservation.isCheckedOut()) + "'  WHERE ReservationID='" + reservation.getReservationID() + "';");
+                + ",checkedIn='" + getBoolean(reservation.isCheckedIn()) + "', checkedOut='" + getBoolean(reservation.isCheckedOut()) + "'  WHERE ReservationID='" + reservation.getReservationID() + "';");
 
         pre.executeUpdate();
         pre.close();

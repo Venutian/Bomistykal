@@ -29,13 +29,15 @@ import java.util.Date;
 
 
 public class SearchRoomController{
-   
+   /*shows the rooms that are available for booking and the rooms that we choose to book*/
 
     @FXML
     private AnchorPane anchor;
 
+   
     @FXML
-    private ChoiceBox<String> campusLoc;
+    private ChoiceBox<String> roomSizeChoice,bedTypeChoice,campusLoc;
+   
 
     @FXML
     private DatePicker checkIn,checkOut;
@@ -44,7 +46,7 @@ public class SearchRoomController{
     private TextField managerSearch;
    
     @FXML
-    private CheckBox smokingBox,adjointBox,doubleBedBox,twinBedBox,bigRoomBox,mediumRoomBox,smallRoomBox,viewBox,SingleBedBox;
+    private CheckBox smokingBox,adjointBox,viewBox;
 
     @FXML
     private TableView<Room> tabView;
@@ -72,20 +74,23 @@ public class SearchRoomController{
     private AnchorPane afterSearch;
     
     private	 ObservableList<Room> data;
-    private  Alerts al ;
+    private  Alerts alert ;
     private  boolean isManager;
+    private  ObservableList<String> roomSize;
+    private  ObservableList<String> bedsNumber;
     private  ObservableList<Room> roomsForReserve;
     private  ObservableList<String> campusLocation;
-    private  RoomHandler rm ;
+    private  RoomHandler roomH ;
     private  Room room;
-    private  SearchManager sc;
+    private  SearchManager searchManager;
     
-	
+	//proceed to reserve the chosen room/s
 	@FXML
     public void reservebtn(ActionEvent event) throws IOException {
 		if(roomsForReserve.isEmpty())
-			al.reportError("Please choose a room before proceeding to make a reservation!");
+			alert.reportError("Please choose a room before proceeding to make a reservation!");
 		else {
+			resetBtn(event);
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Reserve.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
     	ReserveController controller = fxmlLoader.<ReserveController>getController();
@@ -94,27 +99,32 @@ public class SearchRoomController{
         Stage primaryStage = new Stage();
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
+		
 		}
 	}
+	
+	
+
     @FXML
     public void resetBtn(ActionEvent event) throws IOException {
-    	checkIn.setValue(null);
-    	checkOut.setValue(null);
-    	smokingBox.setSelected(false);
-    	adjointBox.setSelected(false);
-    	doubleBedBox.setSelected(false);
-    	twinBedBox.setSelected(false);
-    	viewBox.setSelected(false);
-    	SingleBedBox.setSelected(false);
-    	campusLoc.setValue(null);
-		
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
+    	Parent root = (Parent)fxmlLoader.load();
+    	SearchRoomController controller = fxmlLoader.<SearchRoomController>getController();
+    	controller.start(isManager);
+    	Scene scene = new Scene(root); 
+        Stage primaryStage = new Stage();
+		primaryStage.setScene(scene);
+		primaryStage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
 	}
     
+    //add room to the rooms that would be reserved
     @FXML
     void addRoomToList(ActionEvent event) {
-    	//checkIn,checkOut
+    	
     	if(checkIn.getValue() == null || checkOut.getValue() == null) 
-    		al.reportError("Please fill choose check in and check out date!");
+    		alert.reportError("Please fill choose check in and check out date!");
     	else{
     	room = tabView.getSelectionModel().getSelectedItem();
     	//method that checks the list finds the other adjoining room and adds it to the lists.
@@ -123,7 +133,7 @@ public class SearchRoomController{
     	tabView.getItems().remove(room);
     	
     	if(adjointBox.isSelected()) {
-    		Room adjoined = rm.adjoinedFind(room,data);
+    		Room adjoined = roomH.adjoinedFind(room,data);
     		roomList.getItems().add(adjoined.getRoomID());
         	roomsForReserve.add(adjoined);
         	//remove needs fixing
@@ -154,19 +164,27 @@ public class SearchRoomController{
 	
 	public void start(boolean isManager) {
 		this.afterSearch.setVisible(false);
+		this.roomSize = FXCollections.observableArrayList("Small", "Medium","Suite");
+	    this.bedsNumber = FXCollections.observableArrayList("Single", "Double","Double + Single");
 		this.campusLocation = FXCollections.observableArrayList("Vaxjo" , "Kalmar");
-		this.al = new Alerts();
+		this.alert = new Alerts();
 		this.roomsForReserve  = FXCollections.observableArrayList();
+		this.roomSizeChoice.setItems(roomSize);
+		this.bedTypeChoice.setItems(bedsNumber);
 		this.campusLoc.setItems(campusLocation);
+		
+	
+		this.bedTypeChoice.setValue("Single");
+		this.roomSizeChoice.setValue("Small");
 		this.campusLoc.setValue("Vaxjo");
-		this.rm = new RoomHandler();
+		this.roomH = new RoomHandler();
 		this.isManager = isManager;
 		this.managers.setVisible(isManager);
 		//make it to appear only for the manager
 		
 		
 		try {
-		this.data = rm.getRooms();
+		this.data = roomH.getRooms();
 		} catch (Exception e) {
 		e.printStackTrace();
 		}
@@ -174,6 +192,8 @@ public class SearchRoomController{
 		setTable();
 	}
 	
+	
+	//search for room
 	@FXML
     void searchForRoom(ActionEvent event) throws Exception {
 		if(isManager && !managerSearch.getText().isEmpty())
@@ -181,53 +201,51 @@ public class SearchRoomController{
 		else {
 			
 		
-		int numOfBeds = rm.getNumOfBeds(doubleBedBox.isSelected(),twinBedBox.isSelected(),SingleBedBox.isSelected());
-		int RoomSize = rm.getRoomSize(smallRoomBox.isSelected(),mediumRoomBox.isSelected(),bigRoomBox.isSelected());
+		int numOfBeds = roomH.getNumOfBeds(bedTypeChoice.getValue());
+		int RoomSize = roomH.getRoomSize(roomSizeChoice.getValue());
         
-		if(numOfBeds == 0 || RoomSize == 0) {
-			al.reportError("Please tick one of the choices bed type and room type!!");
-		}
-		else {
-		sc = new SearchManager(false,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
-		if(!sc.datesAreCorrect())
-			al.reportError("Please fill the dates properly!");
+		searchManager = new SearchManager(false,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
+
+		if(!searchManager.datesAreCorrect())
+			alert.reportError("Please fill the dates properly!");
 		else {
-		 data = sc.getAvailableRooms();	
+		 data = searchManager.getAvailableRooms();	
 
 		 /*if the list that comes back for the campus that we search for is empty
 		  * it will check on the other campus if there are available rooms and offer only if they
 		  * are available..*/
         if(data.isEmpty()) {
-        String otherCampus = sc.offerRoomToOtherCampus(campusLoc.getValue());
-        sc = new SearchManager(false,otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
+        String otherCampus = searchManager.offerRoomToOtherCampus(campusLoc.getValue());
+        searchManager = new SearchManager(false,otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
      
-        if(!sc.getAvailableRooms().isEmpty())
-        	al.reportInformation("There are no available rooms in "+campusLoc.getValue()+" but there are in " +otherCampus);
-        data = sc.getAvailableRooms();	
+        if(!searchManager.getAvailableRooms().isEmpty())
+        	alert.reportInformation("There are no available rooms in "+campusLoc.getValue()+" but there are in " +otherCampus);
+        data = searchManager.getAvailableRooms();	
         }
        
        setTable();
        allowAdd();
 		}
-		}
+	
 	}
     }
 	
+	//add button only appears after we click search
 	private void allowAdd() {
 		this.afterSearch.setVisible(true);
 	}
 	
-	
+	//only appears for manager and it searches for a specific room
 	private void managerSpecificRoom() throws Exception {
-		Room specificRoom = rm.checkIfRoomExists(managerSearch.getText());
+		Room specificRoom = roomH.checkIfRoomExists(managerSearch.getText());
 		if(specificRoom == null) {
-			al.reportError("Room with this Room ID does not exists!");
+			alert.reportError("Room with this Room ID does not exists!");
 		}
 		else {
-		sc = new SearchManager(true,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), 0, 0);
-		sc.setSpecificRoom(specificRoom);
-		data = sc.getAvailableRooms();
+		searchManager = new SearchManager(true,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), 0, 0);
+		searchManager.setSpecificRoom(specificRoom);
+		data = searchManager.getAvailableRooms();
 		setTable();
 		allowAdd();
 		}

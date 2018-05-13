@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
@@ -26,8 +25,11 @@ import java.util.ResourceBundle;
 
 
 public class ManagerController implements Initializable {
-    //Room
-    @FXML
+    /*manager window, contains all the special abilities for a manager
+     * it contains a window for every special ability */
+    
+	//for room
+	@FXML
     private TableView<Room> tabView;
 
     @FXML
@@ -69,31 +71,35 @@ public class ManagerController implements Initializable {
 
 
     private ObservableList<String> campusLocation;
-    private ObservableList<String> roomSize;
+    private ObservableList<String> roomsSize;
     private ObservableList<String> bedsNumber;
-    private Alerts al;
-    private LoginController lc;
-    private Database sq;
+    private Alerts alert;
+    private LoginController login;
+    private Database database;
     private  RoomHandler rl;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        this.al = new Alerts();
+        this.alert = new Alerts();
         this.rl = new RoomHandler();
-        this.sq = new Database();
-        //fixing also do it like this to the search room controller ..........
+        this.database = new Database();
+        
         this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
-        this.roomSize = FXCollections.observableArrayList("Small", "Medium","Suite");
+        this.roomsSize = FXCollections.observableArrayList("Small", "Medium","Suite");
         this.bedsNumber = FXCollections.observableArrayList("Single", "Double","Double + Single");
         
         this.addLocChoiceBox.setItems(campusLocation);
-        this.addChoiceSize.setItems(roomSize);
+        this.addChoiceSize.setItems(roomsSize);
         this.numberOfBeds.setItems(bedsNumber);
+        
+        this.addLocChoiceBox.setValue("Vaxjo");
+        this.addChoiceSize.setValue("Small");
+       this.numberOfBeds.setValue("Single");
     }
 
     @FXML
     public void goToMenuMenu(ActionEvent event) throws IOException {
-        
+        //takes u to menu.... where manager can work as an employee
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/Menu.fxml"));     
     	Parent root = (Parent)fxmlLoader.load();
     	MenuController controller = fxmlLoader.<MenuController>getController();
@@ -125,11 +131,8 @@ public class ManagerController implements Initializable {
             anchor_EditAccount.setVisible(false);
 
         }
-        // set the choice for campus location choice box button
-        //data = FXCollections.observableArrayList();
-
         
-        ObservableList<Room> data;
+          ObservableList<Room> data;
         try {
             data = rl.getRooms();
 
@@ -157,49 +160,50 @@ public class ManagerController implements Initializable {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //
-        // table contents
+        
     }
-
+    
+    //create a new room
     @FXML
     public void CreateRoombtn(ActionEvent event) throws Exception {
 
        
 
         if (rl.checkIfRoomExists(addRoomIDTextF.getText()) != null)
-            al.reportError("A room with the same room id already exists in the database.");
+            alert.reportError("A room with the same room id already exists in the database.");
         else {
-            Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), Integer.parseInt(addRoomSizeTextF.getText()),
-                    Integer.parseInt(addNoOfBedTextF.getText()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
-                    addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());
-            
-            sq.addRoom(rm);
-            al.reportInformation("New room is successfully created");
+          
+        	  Room rm = new Room(addRoomIDTextF.getText().toString(), Integer.parseInt(priceAddTextF.getText()), rl.getRoomSize(addChoiceSize.getValue()),
+                      rl.getNumOfBeds(numberOfBeds.getValue()), addLocChoiceBox.getValue(), addViewCB.isSelected(), addSmokingCB.isSelected(),
+                      addAdjointCB.isSelected(), addAdjointRoomIDTextF.getText().toString());   
+      
+            database.addRoom(rm);
+            alert.reportInformation("New room is successfully created");
         }
     }
 
-
+//create employee
     public void CreateEmployeeBtn(ActionEvent event) throws Exception {
 
         if (addAccNameTextF.getText().isEmpty() || addAccIDTextF.getText().isEmpty() || addAccUserTextF.getText().isEmpty()
                 || addAccAddTextF.getText().isEmpty() || addPhoneNoTextF.getText().isEmpty() | addAccPassWordTextF.getText().isEmpty()) {
 
-            al.reportError("Please fill all the text fields!");
+            alert.reportError("Please fill all the text fields!");
 
         } else {
             try {
                 EmployeeHandler s = new EmployeeHandler();
                 if (s.checkIfEmployeeExists(addAccIDTextF.getText(), addAccNameTextF.getText()))
-                    al.reportError("Employee already exists with this idnumber or user name!");
+                    alert.reportError("Employee already exists with this idnumber or user name!");
                 else {
 
 
                     Employee emp = new Employee(addAccNameTextF.getText().toString(), addAccIDTextF.getText().toString(),
                             addAccUserTextF.getText().toString(), addAccPassWordTextF.getText().toString(),
                             addAccAddTextF.getText().toString(), addPhoneNoTextF.getText().toString(), isManager.isSelected());
-                    sq.addEmployee(emp);
+                    database.addEmployee(emp);
 
-                    al.reportInformation("New account is successfully created");
+                    alert.reportInformation("New account is successfully created");
 
                     addAccNameTextF.setText("");
                     addAccIDTextF.setText("");
@@ -222,7 +226,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void cancelbtn(ActionEvent event) {
 
-        if (al.responseAlert("Are you sure you would like to cancel?")) {
+        if (alert.responseAlert("Are you sure you would like to cancel?")) {
             addRoomIDTextF.setText("");
             priceAddTextF.setText("");
             addRoomSizeTextF.setText("");
@@ -236,7 +240,7 @@ public class ManagerController implements Initializable {
 
         }
     }
-
+//cancel the creation of a niew acount 
     public void CreateNewAccountMenu(ActionEvent event) throws IOException {
         if (event.getTarget() == createNewAccItem) {
             anchor_CreateAccount.setVisible(true);
@@ -287,7 +291,7 @@ public class ManagerController implements Initializable {
     @FXML
     public void canceCreateAccount(ActionEvent event) {
 
-        if (al.responseAlert("Are you sure you would like to cancel?")) {
+        if (alert.responseAlert("Are you sure you would like to cancel?")) {
             addAccNameTextF.setText("");
             addAccIDTextF.setText("");
             addAccAddTextF.setText("");
@@ -298,61 +302,63 @@ public class ManagerController implements Initializable {
 
         }
     }
+    /*the rooms and employees can be edited from the table that will be displayed when manager wants to edit 
+     * a room or employee*/
 
     //Room Editing
     public void EditRoomPrice(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setPrice(Integer.parseInt(String.valueOf(editedcell.getNewValue())));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomSize(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoomSize(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomBeds(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setNumOfBed(Integer.parseInt(String.valueOf(editedcell.getNewValue().toString())));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomLocation(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setLocation(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomView(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setView(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomAdjoint(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoint(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomAdjointID(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setAdjoindsRoomID(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void EditRoomSmoke(TableColumn.CellEditEvent editedcell) throws Exception {
         Room selectedRoom = tabView.getSelectionModel().getSelectedItem();
         selectedRoom.setSmoking(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editRoom(selectedRoom);
+        database.editRoom(selectedRoom);
     }
 
     public void DeleteRoom(ActionEvent event) throws Exception {
         if (tabView.getSelectionModel().getSelectedItem() == null)
-            al.reportError("Please Select a room to delete!");
-        else if (al.responseAlert("Are you sure you want to delete this room?")) {
-            sq.deleteRoom(tabView.getSelectionModel().getSelectedItem());
+            alert.reportError("Please Select a room to delete!");
+        else if (alert.responseAlert("Are you sure you want to delete this room?")) {
+            database.deleteRoom(tabView.getSelectionModel().getSelectedItem());
             UpdateRoomMenu(event);
         }
     }
@@ -362,40 +368,40 @@ public class ManagerController implements Initializable {
     public void EditEmpName(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
         selectedEmp.setName(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editEmployee(selectedEmp);
+        database.editEmployee(selectedEmp);
     }
 
 
     public void EditEmpUsername(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
         selectedEmp.setUserName(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editEmployee(selectedEmp);
+        database.editEmployee(selectedEmp);
     }
 
     public void EditEmpPassword(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
         selectedEmp.setPassword(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editEmployee(selectedEmp);
+        database.editEmployee(selectedEmp);
     }
 
     public void EditEmpAd(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
         selectedEmp.setAddress(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editEmployee(selectedEmp);
+        database.editEmployee(selectedEmp);
     }
 
     public void EditEmpPhone(TableColumn.CellEditEvent editedcell) throws Exception {
         Employee selectedEmp = tabViewEmp.getSelectionModel().getSelectedItem();
         selectedEmp.setPhoneNumber(String.valueOf(editedcell.getNewValue().toString()));
-        sq.editEmployee(selectedEmp);
+        database.editEmployee(selectedEmp);
     }
 
     public void DeleteEmp(ActionEvent event) throws Exception {
         Employee emp = tabViewEmp.getSelectionModel().getSelectedItem();
         if (emp == null)
-            al.reportError("Please Select a room that you whant to delete!");
-        else if (al.responseAlert("Are you sure you want to delete this room?")) {
-            sq.deleteEmployee(emp);
+            alert.reportError("Please Select a room that you whant to delete!");
+        else if (alert.responseAlert("Are you sure you want to delete this room?")) {
+            database.deleteEmployee(emp);
             changeUserOrPassMenu(event);
         }
     }
@@ -406,8 +412,8 @@ public class ManagerController implements Initializable {
     }
 
     public void logout(ActionEvent event) throws IOException {
-        lc = new LoginController();
-        if (al.responseAlert("Are you sure you want to log out?"))
-            lc.logout(event);
+        login = new LoginController();
+        if (alert.responseAlert("Are you sure you want to log out?"))
+            login.logout(event);
     }
 }

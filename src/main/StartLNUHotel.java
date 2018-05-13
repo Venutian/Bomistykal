@@ -9,21 +9,16 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
-public class Main extends Application {
+public class StartLNUHotel extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
+   //start the app
+	@Override
+     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
         primaryStage.setScene(new Scene(root));
 
 
         Image anotherIcon = new Image("logo.png");
-
-
-
-
-       // Image anotherIcon = new Image("logo.png");
-
 
 
         primaryStage.getIcons().add(anotherIcon);

@@ -20,7 +20,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
    <children>
-      <AnchorPane prefHeight="33.0" prefWidth="968.0">
+      <AnchorPane prefHeight="33.0" prefWidth="968.0" AnchorPane.topAnchor="0.0">
          <children>
              <MenuBar prefHeight="40.0" prefWidth="1000.0">
               <menus>
@@ -55,9 +55,7 @@
              <TextField fx:id="addRoomIDTextF" layoutX="129.0" layoutY="100.0" />
              <Label layoutX="10.0" layoutY="147.0" text="Price" />
              <TextField fx:id="priceAddTextF" layoutX="129.0" layoutY="140.0" />
-             <TextField fx:id="addRoomSizeTextF" layoutX="129.0" layoutY="180.0" />
              <Label layoutX="10.0" layoutY="227.0" text="Number of beds" />
-             <TextField fx:id="addNoOfBedTextF" layoutX="129.0" layoutY="220.0" />
              <Label layoutX="10.0" layoutY="187.0" text="Room size" />
             <CheckBox fx:id="addViewCB" layoutX="107.0" layoutY="346.0" mnemonicParsing="false" text="View" />
             <CheckBox fx:id="addAdjointCB" layoutX="13.0" layoutY="345.0" mnemonicParsing="false" text="Adjoint" />
@@ -70,7 +68,7 @@
             </AnchorPane>
              <Label layoutX="10.0" layoutY="264.0" text="Location" />
              <ChoiceBox fx:id="addLocChoiceBox" layoutX="129.0" layoutY="260.0" prefHeight="26.0" prefWidth="103.0" />
-             <Button fx:id="Cancel" contentDisplay="TOP" layoutX="813.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelbtn" prefHeight="60.0" prefWidth="150.0" text="Cancel">
+             <Button fx:id="Cancel" contentDisplay="TOP" layoutX="813.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelbtn" prefHeight="60.0" prefWidth="150.0" text="Cancel" AnchorPane.rightAnchor="0.33333333333337123">
                  <graphic>
                      <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                          <image>
@@ -111,7 +109,7 @@
                    <Button layoutX="834.0" layoutY="611.0" mnemonicParsing="false" onAction="#CreateRoombtn" prefHeight="34.0" prefWidth="87.0" text="Create" />
                </children>
             </AnchorPane>
-             <Button contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#CreateRoombtn" prefHeight="60.0" prefWidth="150.0" text="Create">
+             <Button contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#CreateRoombtn" prefHeight="60.0" prefWidth="150.0" text="Create" AnchorPane.rightAnchor="0.5999999999999943">
                  <graphic>
                      <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                          <image>
@@ -120,18 +118,18 @@
                      </ImageView>
                  </graphic>
              </Button>
-            <ChoiceBox fx:id="addChoiceSize" layoutX="442.0" layoutY="184.0" prefHeight="31.0" prefWidth="68.0" />
-            <ChoiceBox fx:id="numberOfBeds" layoutX="374.0" layoutY="220.0" prefHeight="31.0" prefWidth="48.0" />
+            <ChoiceBox fx:id="addChoiceSize" layoutX="129.0" layoutY="184.0" prefHeight="31.0" prefWidth="103.0" />
+            <ChoiceBox fx:id="numberOfBeds" layoutX="126.0" layoutY="220.0" prefHeight="31.0" prefWidth="103.0" />
          </children>
       </AnchorPane>
-       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0" visible="false">
+       <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0" visible="false" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="29.66666666666663" AnchorPane.topAnchor="30.0">
          <children>
             <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Update Room Information">
                <font>
                    <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-             <TableView fx:id="tabView" editable="true" layoutX="58.0" layoutY="64.0" prefHeight="434.0" prefWidth="733.0" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="192.0" AnchorPane.topAnchor="60.0">
+             <TableView fx:id="tabView" editable="true" layoutX="58.0" layoutY="64.0" prefHeight="434.0" prefWidth="733.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="168.9333333333334" AnchorPane.topAnchor="60.0">
                <columns>
                    <TableColumn fx:id="tabCol_Id" editable="false" minWidth="0.0" prefWidth="105.0" resizable="false" text="Room Number" />
                    <TableColumn fx:id="tabCol_Price" onEditCommit="#EditRoomPrice" prefWidth="93.99992370605469" resizable="false" text="Price" />
@@ -144,7 +142,7 @@
                    <TableColumn fx:id="tabCol_AdjointID" onEditCommit="#EditRoomAdjointID" prefWidth="80.66668701171875" resizable="false" text="Adjoint ID" />
                </columns>
             </TableView>
-             <Button fx:id="DelRoomBtn" contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#DeleteRoom" prefHeight="60.0" prefWidth="150.0" text="Delete">
+             <Button fx:id="DelRoomBtn" contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#DeleteRoom" prefHeight="60.0" prefWidth="150.0" text="Delete" AnchorPane.rightAnchor="22.200000000000017">
                  <graphic>
                      <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                          <image>
@@ -200,7 +198,7 @@
              </Button>
          </children>
       </AnchorPane>
-       <AnchorPane fx:id="anchor_EditAccount" layoutX="11.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0" visible="false" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="29.66666666666663" AnchorPane.topAnchor="30.0">
+       <AnchorPane fx:id="anchor_EditAccount" layoutX="11.0" layoutY="30.0" prefHeight="672.0" prefWidth="959.0" visible="false" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="29.66666666666663" AnchorPane.topAnchor="30.0">
          <children>
              <Label layoutX="13.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Edit Employee Accounts">
                <font>
@@ -224,7 +222,7 @@
              <Label layoutX="14.0" layoutY="223.0" text="Phone No." visible="false" />
              <Label layoutX="13.0" layoutY="319.0" prefHeight="17.0" prefWidth="217.0" text="Please, Enter Account Information" visible="false" />
              <TextField layoutX="128.0" layoutY="435.0" visible="false" />
-             <TableView fx:id="tabViewEmp" editable="true" prefHeight="434.0" prefWidth="730.0" AnchorPane.bottomAnchor="178.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="60.0">
+             <TableView fx:id="tabViewEmp" editable="true" prefHeight="434.0" prefWidth="730.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="168.9333333333334" AnchorPane.topAnchor="60.0">
                <columns>
                    <TableColumn fx:id="tabCol_EmpID" editable="false" prefWidth="93.99992370605469" resizable="false" text="ID Nr." />
                    <TableColumn fx:id="tabCol_EmpName" minWidth="0.0" onEditCommit="#EditEmpName" prefWidth="105.0" resizable="false" text="Name" />
@@ -240,14 +238,14 @@
                   <Font size="13.0" />
                </font>
             </Button>
-             <Button layoutX="831.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Save" visible="false">
+             <Button layoutX="831.0" layoutY="598.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="86.0" text="Save" visible="false" AnchorPane.rightAnchor="22.200000000000017">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
              <TextField layoutX="127.0" layoutY="479.0" visible="false" />
              <Label layoutX="13.0" layoutY="483.0" text="Re-Enter Password" visible="false" />
-             <Button contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#DeleteEmp" prefHeight="60.0" prefWidth="150.0" text="Delete">
+             <Button contentDisplay="TOP" layoutX="813.0" layoutY="422.0" mnemonicParsing="false" onAction="#DeleteEmp" prefHeight="60.0" prefWidth="150.0" text="Delete" AnchorPane.rightAnchor="-4.0666666666666345">
                  <graphic>
                      <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                          <image>
@@ -258,9 +256,9 @@
              </Button>
          </children>
       </AnchorPane>
-       <AnchorPane fx:id="buttonsBox" layoutX="6.0" layoutY="159.0" prefHeight="200.0" prefWidth="150.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+       <AnchorPane fx:id="buttonsBox" layoutX="6.0" layoutY="159.0" prefHeight="200.0" prefWidth="150.0" AnchorPane.rightAnchor="10.0">
          <children>
-             <VBox layoutY="14.0" prefHeight="200.0" prefWidth="150.0">
+             <VBox layoutY="14.0" prefHeight="200.0" prefWidth="150.0" AnchorPane.rightAnchor="0.0">
                  <children>
                      <Button fx:id="goToMenu" contentDisplay="TOP" mnemonicParsing="false" onAction="#goToMenuMenu" prefHeight="60.0" prefWidth="150.0" text="Menu">
                          <VBox.margin>

@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 
 
 public class ConfirmationController{
-/*This class is responsible for printing of the bill and confirming check in and out and cancelation*/
+/*This class is responsible for printing of the bill and confirming check in and out and cancellation*/
     @FXML
     private Label ConfirmationType;
 
@@ -37,7 +37,7 @@ public class ConfirmationController{
     }
     
     
-    
+    /*it appears to confirm when we cancel with any potential fees*/
     public void setCancel(Reservation res) {
     	ConfirmationType.setText("Reservation is Canceled!");
     	BillCalculator bill = new BillCalculator(res);
@@ -46,14 +46,14 @@ public class ConfirmationController{
     	CheckIn.setText(res.getCheckInDate().toString());
     	CheckOut.setText(res.getCheckOutDate().toString());
     }
-  
+    /*it appears to confirm when we check in*/
     public void setCheckIn(Reservation res) {
     	ConfirmationType.setText("Check In confirmed!");
     	ClientsID.setText(res.getClient());
     	CheckIn.setText(res.getCheckInDate().toString());
     	CheckOut.setText(res.getCheckOutDate().toString());
     }
-    
+    /*it appears to confirm when we cancel with the fees*/
     public void setCheckOut(Reservation res) {
     	ConfirmationType.setText("Check Out confirmed!");
     	BillCalculator bill = new BillCalculator(res);

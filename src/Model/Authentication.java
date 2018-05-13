@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 
 
 public class Authentication {
+	/*this class belong to the authentication component it is the class that searchers in the database for the 
+	 * employee with given the user name and password*/
 	private Database sq;
 	
 	
@@ -13,13 +15,14 @@ public class Authentication {
     	this.sq = new Database();
     }
 	
-	
+	/*return the employee*/
 public Employee authenticationControll(String userName, String password) throws Exception {
 		
 		/*search in database exist = true if both match*/
 		Employee employee =getEmployee(userName, password);
 		return employee;
 	}
+/*get the employee from the database*/
 private Employee getEmployee(String userName, String password) throws Exception {
     Connection con = sq.getConnection();
     Employee em = null;

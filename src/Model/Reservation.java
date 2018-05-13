@@ -3,24 +3,22 @@ package Model;
 import java.util.Date;
 
 public class Reservation {
-
+	/* class that represents any reservation, containing all reservation ifno*/
 	private Date checkIn;
 	private Date checkOut;
 	private String clientID;
 	private String roomID;
-	private String EmployeeUN;
 	private int totalPrice;
 	private String ReservationID;
 	private int guestNum;
 	private boolean checkedIn;
 	private boolean checkedOut;
 
-	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID,String EmployeeUN, int guestNum) {
+	public Reservation(Date checkIn,Date checkOut, String clientID,String roomID, int guestNum) {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.clientID =clientID;
 		this.roomID = roomID;
-		this.EmployeeUN = EmployeeUN;
 		this.guestNum = guestNum;
 		this.checkedIn = false;
 		this.checkedOut = false;
@@ -44,9 +42,7 @@ public class Reservation {
 	public void setRoom(String room) {
 		this.roomID = room;
 	}
-	public void setEmployee(String emp) {
-		this.EmployeeUN = emp;
-	}
+	
 	public void setTotalPrice(int price) {
 		this.totalPrice = price;
 	}
@@ -67,9 +63,7 @@ public class Reservation {
 	public String getRoom() {
 		return this.roomID.toString();
 	}
-	public String getEmployee() {
-		return this.EmployeeUN;
-	}
+
 	public int getTotalPrice() {
 		return this.totalPrice;
 	}

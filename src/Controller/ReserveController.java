@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.Date;
 
@@ -29,6 +31,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class ReserveController {
+	/*this is the class where the user fills in the clients personal info and confirms that the 
+	 * reservation will happen */
 
     @FXML
     private TextField idNumber,name,creditCardNo,addres,telNumber;
@@ -46,47 +50,47 @@ public class ReserveController {
     private TableView<Room> tableList;
     
     @FXML
-    private TableColumn<Room, String> roomNo,roomDesc,bedType,roomPrice;
+    private TableColumn<Room, String> roomNo,roomPrice;
 
     
-    private Database sq ;
-    private ReservationHandler rs ;
+    private Database database ;
+    private ReservationHandler reservationH ;
     private ObservableList<Integer> maxGuests;
     private ObservableList<Room> list;
 	private Date checkIn;
 	private Date checkOut;
-	private Alerts al;
+	private Alerts alert;
 	private Reservation reservation;
-   
+    private DateFormat df;
 	@FXML
     void cancelReserve(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/View/SearchRoom.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
     
+	//reserve
     @FXML
     void reserve(ActionEvent event) throws Exception {
    
     if(name.getText().isEmpty()||idNumber.getText().isEmpty()||creditCardNo.getText().isEmpty()||telNumber.getText().isEmpty()||addres.getText().isEmpty()||CreditCardExpDate.getValue() == null)
-    	al.reportError("Please fill all the text fields!");
+    	alert.reportError("Please fill all the text fields!");
     else {
     //if the client does not already exists in the database.. add him/her.
-     if(rs.getClient(name.getText().toString()) == null) {
+     if(reservationH.getClient(name.getText().toString()) == null) {
     	Client client = new Client(name.getText().toString(),idNumber.getText().toString(),creditCardNo.getText().toString(),Date.from(CreditCardExpDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()),telNumber.getText().toString(),addres.getText().toString());
-        sq.addClient(client);
+        database.addClient(client);
     }
    
      //every room we book we make a new reservation for it. It makes it easier to manage reservations.
+     //even for adjoined rooms.
     for(Room room : list) {
-    	sq.addReservation(reservation =  new Reservation(checkIn,checkOut,idNumber.getText().toString(),room.getRoomID(),"change",noOfGuestsCheckB.getValue()));
+    	database.addReservation(reservation =  new Reservation(checkIn,checkOut,idNumber.getText().toString(),room.getRoomID(),noOfGuestsCheckB.getValue()));
         goToConfirm(reservation);
     }
+    ((Node) (event.getSource())).getScene().getWindow().hide();
      }}
     
+    
+    //confirm
     public void goToConfirm(Reservation res) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
@@ -102,22 +106,22 @@ public class ReserveController {
 		
 	}
     
+    
+    //setting the tables when we start the class
     public void setRooms(ObservableList<Room> roomsForReserve, Date startDate, Date endDate) {
-	
+    this.df = new SimpleDateFormat("dd/MM/yyyy");
     this.checkIn= startDate;
 	this.checkOut = endDate;
-	this.checkinLabel.setText(checkIn.toString());
-	this.checkOutLabel.setText(checkOut.toString());
-	this.sq = new Database();
-	this.rs = new ReservationHandler();
-	this.maxGuests  = rs.getNumOfGuests(roomsForReserve);
-	this.al = new Alerts();
+	this.checkinLabel.setText(df.format(checkIn));
+	this.checkOutLabel.setText(df.format(checkOut));
+	this.database = new Database();
+	this.reservationH = new ReservationHandler();
+	this.maxGuests  = reservationH.getNumOfGuests(roomsForReserve);
+	this.alert = new Alerts();
 	this.list = roomsForReserve;
 	
 	
 	this.roomNo.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
-	this.roomDesc.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
-	this.bedType.setCellValueFactory(new PropertyValueFactory<Room, String>("Description"));
 	this.roomPrice.setCellValueFactory(new PropertyValueFactory<Room, String>("Price"));
 	this.tableList.setItems(list);
 	this.numOfRoomsLabel.setText(Integer.toString(list.size()));

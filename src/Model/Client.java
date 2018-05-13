@@ -3,7 +3,7 @@ package Model;
 import java.util.Date;
 
 public class Client {
-	/*name,address, telephone number, credit card, passport number,*/
+	/*client class that represents the client, containing his/hers personal info */
 	private String name;
 	private String creditCardNumber;
 	private Date creditCardExpDate;

@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,11 +19,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class MenuController {
-    
+    /*menu is where we can check in out client, go to edit reservation and search room 
+     * is the main work window for user */
     @FXML
     private TableView<Reservation> CheckInTable;
 
@@ -66,6 +65,7 @@ public class MenuController {
 	private ObservableList<Reservation> checkInList;
     private ObservableList<Reservation> checkOutList;
     private boolean isManager;
+    private Database sq;
     
     public void logout(ActionEvent event) throws IOException {
     	
@@ -74,12 +74,12 @@ public class MenuController {
     	
     	
     }
-
+//check the client in also send it to the database
 	public void CheckIn(ActionEvent event) throws Exception {
 		
         Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
         res.setCheckedIn(true);
-        Database sq = new Database();
+        sq = new Database();
 		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
@@ -92,10 +92,11 @@ public class MenuController {
 		CheckInTable.getItems().remove(res);
 		
 	}
+	//check out the client 
 	public void CheckOut(ActionEvent event) throws Exception {
 		Reservation res = CheckOutTable.getSelectionModel().getSelectedItem();
 		res.setCheckedOut(true);
-		Database sq = new Database();
+		sq = new Database();
 		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
@@ -107,6 +108,7 @@ public class MenuController {
 		primaryStage.show();
 		CheckOutTable.getItems().remove(res);
 	}
+	//go to search
 	public void Search(ActionEvent event) throws IOException {
 	
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/SearchRoom.fxml"));     
@@ -145,6 +147,8 @@ public class MenuController {
 		window.setScene(scene);
         window.show();
     }
+    
+    //only appears for a manager and it leads to the manager window
     @FXML
     void goToManager(ActionEvent event) throws IOException {
     	   Parent root = FXMLLoader.load(getClass().getResource("/View/ManagerWindow.fxml"));
