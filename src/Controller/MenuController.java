@@ -1,8 +1,8 @@
 package Controller;
 
 import Model.Reservation;
-import Model.ReservationList;
-import Model.Sqlconnection;
+import Model.ReservationHandler;
+import Model.Database;
 import View.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -62,7 +62,7 @@ public class MenuController {
    
     private Alerts al;
     private LoginController lo;
-    private ReservationList rl;
+    private ReservationHandler rl;
 	private ObservableList<Reservation> checkInList;
     private ObservableList<Reservation> checkOutList;
     private boolean isManager;
@@ -79,7 +79,7 @@ public class MenuController {
 		
         Reservation res = CheckInTable.getSelectionModel().getSelectedItem();
         res.setCheckedIn(true);
-        Sqlconnection sq = new Sqlconnection();
+        Database sq = new Database();
 		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
@@ -95,7 +95,7 @@ public class MenuController {
 	public void CheckOut(ActionEvent event) throws Exception {
 		Reservation res = CheckOutTable.getSelectionModel().getSelectedItem();
 		res.setCheckedOut(true);
-		Sqlconnection sq = new Sqlconnection();
+		Database sq = new Database();
 		sq.editReservation(res);
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/ConfirmationWindow.fxml"));     
         Parent root = (Parent)fxmlLoader.load();
@@ -163,7 +163,7 @@ public class MenuController {
 		this.isManager = isManager;
 		this.al = new Alerts();
 	    this.lo = new LoginController();
-	    this.rl = new ReservationList();
+	    this.rl = new ReservationHandler();
 	    this.managerPane.setVisible(isManager);
 		 
 

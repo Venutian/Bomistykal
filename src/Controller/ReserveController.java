@@ -7,9 +7,9 @@ import java.util.Date;
 import Model.Client;
 
 import Model.Reservation;
-import Model.ReservationList;
+import Model.ReservationHandler;
 import Model.Room;
-import Model.Sqlconnection;
+import Model.Database;
 import View.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,8 +49,8 @@ public class ReserveController {
     private TableColumn<Room, String> roomNo,roomDesc,bedType,roomPrice;
 
     
-    private Sqlconnection sq ;
-    private ReservationList rs ;
+    private Database sq ;
+    private ReservationHandler rs ;
     private ObservableList<Integer> maxGuests;
     private ObservableList<Room> list;
 	private Date checkIn;
@@ -108,8 +108,8 @@ public class ReserveController {
 	this.checkOut = endDate;
 	this.checkinLabel.setText(checkIn.toString());
 	this.checkOutLabel.setText(checkOut.toString());
-	this.sq = new Sqlconnection();
-	this.rs = new ReservationList();
+	this.sq = new Database();
+	this.rs = new ReservationHandler();
 	this.maxGuests  = rs.getNumOfGuests(roomsForReserve);
 	this.al = new Alerts();
 	this.list = roomsForReserve;

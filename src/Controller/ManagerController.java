@@ -42,8 +42,9 @@ public class ManagerController implements Initializable {
     @FXML
     private CheckBox addViewCB, addAdjointCB, addSmokingCB;
     @FXML
-    private ChoiceBox<String> addLocChoiceBox;
+    private ChoiceBox<String> addLocChoiceBox,addChoiceSize,numberOfBeds;
 
+    
 
     //Employee
     @FXML
@@ -68,18 +69,26 @@ public class ManagerController implements Initializable {
 
 
     private ObservableList<String> campusLocation;
+    private ObservableList<String> roomSize;
+    private ObservableList<String> bedsNumber;
     private Alerts al;
     private LoginController lc;
-    private Sqlconnection sq;
-    private  RoomList rl;
+    private Database sq;
+    private  RoomHandler rl;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         this.al = new Alerts();
-        this.rl = new RoomList();
-        this.sq = new Sqlconnection();
+        this.rl = new RoomHandler();
+        this.sq = new Database();
+        //fixing also do it like this to the search room controller ..........
         this.campusLocation = FXCollections.observableArrayList("Vaxjo", "Kalmar");
+        this.roomSize = FXCollections.observableArrayList("Small", "Medium","Suite");
+        this.bedsNumber = FXCollections.observableArrayList("Single", "Double","Double + Single");
+        
         this.addLocChoiceBox.setItems(campusLocation);
+        this.addChoiceSize.setItems(roomSize);
+        this.numberOfBeds.setItems(bedsNumber);
     }
 
     @FXML
@@ -179,7 +188,7 @@ public class ManagerController implements Initializable {
 
         } else {
             try {
-                EmployeeList s = new EmployeeList();
+                EmployeeHandler s = new EmployeeHandler();
                 if (s.checkIfEmployeeExists(addAccIDTextF.getText(), addAccNameTextF.getText()))
                     al.reportError("Employee already exists with this idnumber or user name!");
                 else {
@@ -249,7 +258,7 @@ public class ManagerController implements Initializable {
         }
 
         ObservableList<Employee> data;
-        EmployeeList em = new EmployeeList();
+        EmployeeHandler em = new EmployeeHandler();
         try {
             data = em.getEmployyesList();
 

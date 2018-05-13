@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import Model.Client;
 import Model.Reservation;
-import Model.ReservationList;
-import Model.Sqlconnection;
+import Model.ReservationHandler;
+import Model.Database;
 import View.Alerts;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -67,9 +67,9 @@ public class EditReservationController implements Initializable{
     private DatePicker creditCardExpDate;
     
     private  SearchRoomController src;
-    private  Sqlconnection sq;
+    private  Database sq;
 	private  ObservableList<Reservation> list ;
-	private  ReservationList rs;
+	private  ReservationHandler rs;
 	private  Alerts al;
 	
 
@@ -139,8 +139,8 @@ public class EditReservationController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	    this.sq = new Sqlconnection();
-	    this.rs = new ReservationList();
+	    this.sq = new Database();
+	    this.rs = new ReservationHandler();
 	    this.src = new SearchRoomController();
 	    this.al = new Alerts();
 		

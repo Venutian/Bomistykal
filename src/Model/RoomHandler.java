@@ -7,12 +7,45 @@ import java.sql.ResultSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class RoomList {
-private Sqlconnection sq;
+public class RoomHandler {
+private Database sq;
 
-	public RoomList() {
-		this.sq = new Sqlconnection();
+	public RoomHandler() {
+		this.sq = new Database();
 	}
+	//when a room is created
+		public int calculateRoomPrice() {
+			return 0;
+		}
+		
+		//move to room handler
+		public int getNumOfBeds(boolean doubleBed, boolean twinBed, boolean SingleBed) {
+			if(doubleBed && twinBed&& SingleBed)
+				return 0;
+			if(doubleBed || twinBed)
+				return 2;
+			else if(SingleBed)
+				return 1;
+			return 0;
+		}
+		public int getRoomSize(boolean smallRoom, boolean mediumRoom, boolean suite) {
+			if(suite&&mediumRoom&&smallRoom)
+				return 0;
+			     if (suite)
+	            return 50;
+	        else if (mediumRoom)
+	        	return 35;
+	        else if (smallRoom)
+	        	return 25;
+	        
+	        return 0;
+		}
+		
+		
+		
+		
+		
+		
 
 	  public ObservableList<Room> getRooms() throws Exception {
 	        ObservableList<Room> data = FXCollections.observableArrayList();

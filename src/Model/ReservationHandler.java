@@ -9,13 +9,13 @@ import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ReservationList {
+public class ReservationHandler {
 
-	private Sqlconnection sq;
+	private Database sq;
 	
 	
-	public ReservationList() {
-		this.sq = new Sqlconnection();
+	public ReservationHandler() {
+		this.sq = new Database();
 	}
 
 	public ObservableList<Reservation> getReservation(String clientID, ObservableList<Reservation> list) {

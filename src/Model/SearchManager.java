@@ -11,23 +11,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
-public class SearchFactory {
+public class SearchManager {
 /*this class will compare all the rooms with the search choices make a room list out of it
  * then it would compare this room list with upcoming reservations to see if there are available rooms
  * it would create and return a list of the available rooms.*/
-	private Sqlconnection sq;
+	private Database sq;
 	private ArrayList<Room> roomList;
 	private ArrayList<Reservation> ColapingRess;
-	private ReservationList rs ;
+	private ReservationHandler rs ;
 	private ArrayList<Room> NOTavailable;
 	private ObservableList<Room> available;
 	private boolean datesValid;
 	private Date startDate;
 	private Date endDate;
 
-	public SearchFactory (boolean managerSearch,String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
-		 this.rs = new ReservationList();
-		 this.sq = new Sqlconnection();
+	public SearchManager (boolean managerSearch,String campusLoc, Date startDate, Date endDate, boolean view, boolean smoking, boolean adjoined, int numOfBeds, int RoomSize) throws Exception {
+		 this.rs = new ReservationHandler();
+		 this.sq = new Database();
 		 this.startDate = startDate;
 		 this.endDate = endDate;
 		 this.available = FXCollections.observableArrayList();

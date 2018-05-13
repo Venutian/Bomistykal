@@ -120,6 +120,8 @@
                      </ImageView>
                  </graphic>
              </Button>
+            <ChoiceBox fx:id="addChoiceSize" layoutX="442.0" layoutY="184.0" prefHeight="31.0" prefWidth="68.0" />
+            <ChoiceBox fx:id="numberOfBeds" layoutX="374.0" layoutY="220.0" prefHeight="31.0" prefWidth="48.0" />
          </children>
       </AnchorPane>
        <AnchorPane fx:id="anchor_UpdateRoom" layoutX="2.0" layoutY="31.0" prefHeight="655.0" prefWidth="985.0" visible="false">

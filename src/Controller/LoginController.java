@@ -1,7 +1,8 @@
 package Controller;
 
-import Model.EmployeeList;
+
 import View.Alerts;
+import Model.Authentication;
 import Model.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,13 +29,13 @@ public class LoginController {
     @FXML
     private Label WrongLogin;
     
-    private EmployeeList aut;
+    private Authentication aut;
     private Alerts al;
     public void login(ActionEvent event) throws IOException {
 
 
         try {
-			 this.aut = new EmployeeList();
+			 this.aut = new Authentication();
 			 this.al = new Alerts();
 			 Employee emp = aut.authenticationControll(UserName.getText().toString(),Password.getText().toString());
 			

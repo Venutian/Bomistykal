@@ -10,14 +10,14 @@ public class BillCalculator {
 	private int roomPrice;
 	//this value indicates how many days before someone can cancel before getting fined. 
 	private int daysBeforeCancel = -5;
-	private Sqlconnection sq;
-	private RoomList rm;
+	private Database sq;
+	private RoomHandler rm;
 	
 	
 	public BillCalculator(Reservation res) {
 		/*get room and reservation*/
-		this.sq = new Sqlconnection();
-		this.rm = new RoomList();
+		this.sq = new Database();
+		this.rm = new RoomHandler();
 		try {
 			this.room = rm.getTheRoom(res);
 		} catch (Exception e) {

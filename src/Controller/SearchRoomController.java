@@ -3,8 +3,8 @@ package Controller;
 
 
 import Model.Room;
-import Model.RoomList;
-import Model.SearchFactory;
+import Model.RoomHandler;
+import Model.SearchManager;
 import View.Alerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -76,9 +76,9 @@ public class SearchRoomController{
     private  boolean isManager;
     private  ObservableList<Room> roomsForReserve;
     private  ObservableList<String> campusLocation;
-    private  RoomList rm ;
+    private  RoomHandler rm ;
     private  Room room;
-    private  SearchFactory sc;
+    private  SearchManager sc;
     
 	
 	@FXML
@@ -159,7 +159,7 @@ public class SearchRoomController{
 		this.roomsForReserve  = FXCollections.observableArrayList();
 		this.campusLoc.setItems(campusLocation);
 		this.campusLoc.setValue("Vaxjo");
-		this.rm = new RoomList();
+		this.rm = new RoomHandler();
 		this.isManager = isManager;
 		this.managers.setVisible(isManager);
 		//make it to appear only for the manager
@@ -181,14 +181,14 @@ public class SearchRoomController{
 		else {
 			
 		
-		int numOfBeds = getNumOfBeds();
-		int RoomSize = getRoomSize();
+		int numOfBeds = rm.getNumOfBeds(doubleBedBox.isSelected(),twinBedBox.isSelected(),SingleBedBox.isSelected());
+		int RoomSize = rm.getRoomSize(smallRoomBox.isSelected(),mediumRoomBox.isSelected(),bigRoomBox.isSelected());
         
 		if(numOfBeds == 0 || RoomSize == 0) {
 			al.reportError("Please tick one of the choices bed type and room type!!");
 		}
 		else {
-		sc = new SearchFactory(false,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
+		sc = new SearchManager(false,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize);
 
 		if(!sc.datesAreCorrect())
 			al.reportError("Please fill the dates properly!");
@@ -200,7 +200,7 @@ public class SearchRoomController{
 		  * are available..*/
         if(data.isEmpty()) {
         String otherCampus = sc.offerRoomToOtherCampus(campusLoc.getValue());
-        sc = new SearchFactory(false,otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
+        sc = new SearchManager(false,otherCampus,convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), numOfBeds, RoomSize); 
      
         if(!sc.getAvailableRooms().isEmpty())
         	al.reportInformation("There are no available rooms in "+campusLoc.getValue()+" but there are in " +otherCampus);
@@ -225,7 +225,7 @@ public class SearchRoomController{
 			al.reportError("Room with this Room ID does not exists!");
 		}
 		else {
-		sc = new SearchFactory(true,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), 0, 0);
+		sc = new SearchManager(true,campusLoc.getValue(), convertToDate(checkIn.getValue()),convertToDate(checkOut.getValue()), viewBox.isSelected(), smokingBox.isSelected(), adjointBox.isSelected(), 0, 0);
 		sc.setSpecificRoom(specificRoom);
 		data = sc.getAvailableRooms();
 		setTable();
@@ -233,27 +233,8 @@ public class SearchRoomController{
 		}
 	}
 	
-	private int getNumOfBeds() {
-		if(doubleBedBox.isSelected() && twinBedBox.isSelected()&&SingleBedBox.isSelected())
-			return 0;
-		if(doubleBedBox.isSelected() || twinBedBox.isSelected())
-			return 2;
-		else if(SingleBedBox.isSelected())
-			return 1;
-		return 0;
-	}
-	private int getRoomSize() {
-		if(bigRoomBox.isSelected()&&mediumRoomBox.isSelected()&&smallRoomBox.isSelected())
-			return 0;
-		     if (bigRoomBox.isSelected())
-            return 50;
-        else if (mediumRoomBox.isSelected())
-        	return 35;
-        else if (smallRoomBox.isSelected())
-        	return 25;
-        
-        return 0;
-	}
+	
+	
 	
 	private void setTable() {
 		    tabCol_Id.setCellValueFactory(new PropertyValueFactory<Room, String>("RoomID"));
