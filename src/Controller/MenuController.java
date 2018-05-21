@@ -173,7 +173,9 @@ public class MenuController {
 
 		try {
 			this.checkInList = rl.getTodayCheckIn();
+			System.out.println(checkInList.size());
 			this.checkOutList = rl.getTodayCheckOut();
+			System.out.println(checkOutList.size());
         } catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -18,7 +18,7 @@
                    <graphic>
                        <ImageView fitHeight="21.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                               <Image url="@../../lib/images/icons8-enter-filled-50.png" />
+                               <Image url="@../../lib/images/icons8-login-filled-50.png" />
                            </image>
                        </ImageView>
                    </graphic>

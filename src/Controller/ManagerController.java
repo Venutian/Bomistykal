@@ -193,7 +193,7 @@ public class ManagerController implements Initializable {
         } else {
             try {
                 EmployeeHandler s = new EmployeeHandler();
-                if (s.checkIfEmployeeExists(addAccIDTextF.getText(), addAccNameTextF.getText()))
+                if (!s.checkIfEmployeeExists(addAccIDTextF.getText(), addAccNameTextF.getText()))
                     alert.reportError("Employee already exists with this idnumber or user name!");
                 else {
 

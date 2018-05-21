@@ -66,10 +66,12 @@ public class ReservationHandler {
 	        Connection con = sq.getConnection();
 	        PreparedStatement pre = con.prepareStatement("SELECT * FROM Reservation WHERE CheckOut = CURDATE() AND checkedOut = 0");
 	        ResultSet rs = pre.executeQuery();
+	     
 	        while (rs.next()) {
 	        	Reservation res = new Reservation(rs.getDate("CheckIn"), rs.getDate("CheckOut"), rs.getString("ClientID"), rs.getString("RoomID"),  rs.getInt("GuestsNumber"));
 	            res.setReservationID(rs.getString("ReservationID"));
 	        	data.add(res);
+	        	
 	        }//, rs.getString("ReservationID")
 	        return data;
 	    }
